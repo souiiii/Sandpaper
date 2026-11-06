@@ -62,6 +62,7 @@ public struct VocabularyEntry: Identifiable, Equatable, Sendable {
     /// A stable lexical sense identifier or an explicitly supplied meaning key.
     public let senseKey: String
     public let meaning: String?
+    public let meaningSource: MeaningSource?
     public let familiarity: Familiarity
     public let notes: String
     public let createdAt: Date
@@ -72,6 +73,7 @@ public struct VocabularyOccurrence: Identifiable, Equatable, Sendable {
     public let vocabularyID: UUID
     public let anchor: SourceAnchor
     public let explanation: Explanation?
+    public let sourcePassage: AnalysisPassage?
     public let createdAt: Date
 }
 

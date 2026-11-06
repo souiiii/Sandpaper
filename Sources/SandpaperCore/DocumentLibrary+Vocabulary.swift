@@ -3,11 +3,12 @@ import Foundation
 import GRDB
 
 extension DocumentLibrary {
-    /// Saving an occurrence never resets familiarity or overwrites personal notes.
+    /// Saving an occurrence never resets familiarity. Notes change only when explicitly supplied.
     /// One expression can have multiple senses and multiple source occurrences.
     public func saveVocabulary(
         expression: String, senseKey: String, anchor: SourceAnchor,
-        explanation: Explanation? = nil, meaning: String? = nil
+        explanation: Explanation? = nil, meaning: String? = nil, meaningSource: MeaningSource? = nil,
+        notes: String? = nil, sourcePassage: AnalysisPassage? = nil
     ) throws -> VocabularyOccurrence {
         let normalized = TextNormalization.expression(expression)
         let sense = senseKey.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -15,6 +16,18 @@ extension DocumentLibrary {
             throw LibraryError.invalidInput("A bounded expression and a nonempty sense key are required.")
         }
         if let explanation { try explanation.validate() }
+        if let sourcePassage {
+            try sourcePassage.validate()
+            guard sourcePassage.documentID == anchor.documentID, sourcePassage.revision == anchor.revision,
+                  sourcePassage.resource == anchor.resource, anchor.utf16Offset >= sourcePassage.resourceOffset else {
+                throw LibraryError.invalidInput("Source passage must contain the saved occurrence.")
+            }
+            let local = NSRange(location: anchor.utf16Offset - sourcePassage.resourceOffset, length: anchor.utf16Length)
+            guard try sourcePassage.anchor(for: local).quote == anchor.quote else {
+                throw LibraryError.invalidInput("Source passage does not match the saved quotation.")
+            }
+        }
+        guard notes.map({ $0.utf8.count <= 1_048_576 }) ?? true else { throw LibraryError.invalidInput("Vocabulary notes exceed the storage limit.") }
         let explicitMeaning = meaning?.trimmingCharacters(in: .whitespacesAndNewlines)
         guard explicitMeaning.map({ !$0.isEmpty && $0.utf16.count <= 2_048 }) ?? true else {
             throw LibraryError.invalidInput("A sense meaning must be nonempty and at most 2048 UTF-16 units.")
@@ -32,26 +45,30 @@ extension DocumentLibrary {
             let now = Date().timeIntervalSince1970
             try db.execute(sql: """
                 INSERT INTO vocabulary
-                (id, expression, normalizedExpression, senseKey, familiarity, notes, createdAt, meaning)
-                VALUES (?, ?, ?, ?, ?, '', ?, ?)
+                (id, expression, normalizedExpression, senseKey, familiarity, notes, createdAt, meaning, meaningSource)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(normalizedExpression, senseKey) DO UPDATE
-                SET meaning = COALESCE(vocabulary.meaning, excluded.meaning)
+                SET meaning = COALESCE(vocabulary.meaning, excluded.meaning),
+                    meaningSource = CASE WHEN vocabulary.meaning IS NULL THEN excluded.meaningSource ELSE vocabulary.meaningSource END,
+                    notes = COALESCE(?, vocabulary.notes)
                 """, arguments: [
                     UUID().uuidString, expression.trimmingCharacters(in: .whitespacesAndNewlines),
-                    normalized, sense, Familiarity.unfamiliar.rawValue, now, senseMeaning
+                    normalized, sense, Familiarity.unfamiliar.rawValue, notes ?? "", now, senseMeaning,
+                    try meaningSource.map(LibraryDatabase.encode), notes
                 ])
             guard let vocabularyID = try String.fetchOne(
                 db, sql: "SELECT id FROM vocabulary WHERE normalizedExpression = ? AND senseKey = ?",
                 arguments: [normalized, sense]
             ) else { throw LibraryError.corruptStoredData }
             try db.execute(sql: """
-                INSERT INTO occurrences (id, vocabularyID, documentID, anchorKey, anchor, explanation, createdAt)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO occurrences (id, vocabularyID, documentID, anchorKey, anchor, explanation, createdAt, sourcePassage)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(vocabularyID, documentID, anchorKey) DO UPDATE
-                SET explanation = COALESCE(excluded.explanation, occurrences.explanation)
+                SET explanation = COALESCE(excluded.explanation, occurrences.explanation),
+                    sourcePassage = COALESCE(excluded.sourcePassage, occurrences.sourcePassage)
                 """, arguments: [
                     UUID().uuidString, vocabularyID, anchor.documentID.uuidString,
-                    anchorKey, anchorData, explanationData, now
+                    anchorKey, anchorData, explanationData, now, try sourcePassage.map(LibraryDatabase.encode)
                 ])
             guard let row = try Row.fetchOne(
                 db, sql: "SELECT * FROM occurrences WHERE vocabularyID = ? AND documentID = ? AND anchorKey = ?",
@@ -87,27 +104,29 @@ extension DocumentLibrary {
         }
     }
 
-    /// Supply relevant dictionary expressions, including lemmas from the local
-    /// lexicon when available. This never loads the entire learner vocabulary.
-    public func discoveryMemories(for expressions: [String]) throws -> [KnownSense] {
-        guard expressions.count <= 256, expressions.allSatisfy({ $0.utf16.count <= 512 }) else {
-            throw LibraryError.invalidInput("Too many expressions for a familiarity lookup.")
+    /// Editing a meaning makes it personal prose; it must no longer be labeled a dictionary fact.
+    public func updateVocabularyMeaning(id: UUID, meaning: String) throws {
+        let meaning = meaning.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !meaning.isEmpty, meaning.utf16.count <= 2_048 else { throw LibraryError.invalidInput("A meaning must contain 1–2048 UTF-16 units.") }
+        try database.write { db in
+            try db.execute(sql: "UPDATE vocabulary SET meaning=?, meaningSource=? WHERE id=?",
+                arguments: [meaning, try LibraryDatabase.encode(MeaningSource.personal), id.uuidString])
+            guard db.changesCount == 1 else { throw LibraryError.vocabularyNotFound }
         }
-        let normalized = Array(Set(expressions.map(TextNormalization.expression))).sorted()
-        guard !normalized.isEmpty else { return [] }
-        let placeholders = Array(repeating: "?", count: normalized.count).joined(separator: ",")
-        let entries = try database.read { db in
-            try Row.fetchAll(db, sql: """
-                SELECT * FROM vocabulary WHERE normalizedExpression IN (\(placeholders))
-                ORDER BY normalizedExpression, senseKey LIMIT 256
-                """, arguments: StatementArguments(normalized)).map(LibraryDatabase.vocabulary)
+    }
+
+    public func deleteVocabulary(id: UUID) throws {
+        try database.write { db in
+            try db.execute(sql: "DELETE FROM vocabulary WHERE id=?", arguments: [id.uuidString])
+            guard db.changesCount == 1 else { throw LibraryError.vocabularyNotFound }
         }
-        var budget = 12_288
-        return entries.compactMap { entry in
-            let size = entry.expression.utf16.count + entry.senseKey.utf16.count + (entry.meaning?.utf16.count ?? 0)
-            guard entry.expression.utf16.count <= 512, entry.senseKey.utf16.count <= 512, size <= budget else { return nil }
-            budget -= size
-            return KnownSense(expression: entry.expression, senseKey: entry.senseKey, meaning: entry.meaning, familiarity: entry.familiarity)
+    }
+
+    /// Removing a source occurrence retains the vocabulary sense and its personal notes.
+    public func deleteOccurrence(id: UUID) throws {
+        try database.write { db in
+            try db.execute(sql: "DELETE FROM occurrences WHERE id=?", arguments: [id.uuidString])
+            guard db.changesCount == 1 else { throw LibraryError.vocabularyNotFound }
         }
     }
 
@@ -128,7 +147,7 @@ extension DocumentLibrary {
         }
     }
 
-    private func validatePage(limit: Int, offset: Int) throws {
+    func validatePage(limit: Int, offset: Int) throws {
         guard (1...500).contains(limit), offset >= 0 else {
             throw LibraryError.invalidInput("Query limit must be 1–500 and offset must be nonnegative.")
         }

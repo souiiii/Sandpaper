@@ -5,11 +5,7 @@ import Network
 /// canned responses are test data, never a product inference implementation.
 final class TestLlamaServer: Sendable {
     struct Behavior: Sendable {
-        var discovery = #"{"candidates":[]}"#
         var explanation = #"{"meaning":"The agreement failed to happen.","notes":[]}"#
-        var groundedDiscovery = "{}"
-        var interpretiveDiscovery = #"{"candidates":[]}"#
-        var groundedExplanation = #"{"meaning":"The agreement failed to happen.","senses":[]}"#
         var tokenCount = 64
         var alias = "sandpaper-local"
         var finishReason = "stop"
@@ -118,18 +114,7 @@ actor TestLlamaServerState {
             case "/apply-template": body = Data(#"{"prompt":"A formatted fixture prompt."}"#.utf8)
             case "/tokenize": body = try JSONSerialization.data(withJSONObject: ["tokens": Array(repeating: 1, count: behavior.tokenCount)])
             case "/v1/chat/completions":
-                let object = try JSONSerialization.jsonObject(with: request.body) as? [String: Any]
-                let format = object?["response_format"] as? [String: Any]
-                let schema = format?["json_schema"] as? [String: Any]
-                let name = schema?["name"] as? String
-                let content = switch name {
-                case "discovery": behavior.discovery
-                case "grounded_discovery": behavior.groundedDiscovery
-                case "interpretive_discovery": behavior.interpretiveDiscovery
-                case "grounded_explanation": behavior.groundedExplanation
-                default: behavior.explanation
-                }
-                body = try stream(content)
+                body = try stream(behavior.explanation)
                 type = "text/event-stream"
             default: body = Data("{}".utf8)
             }

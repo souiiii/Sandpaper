@@ -136,11 +136,16 @@ public actor DocumentLibrary {
             _ = try requireDocument(documentID, in: db)
             return try Data.fetchOne(
                 db, sql: "SELECT payload FROM readingState WHERE documentID = ?", arguments: [documentID.uuidString]
-            ).map { try JSONDecoder().decode(ReadingState.self, from: $0) }
+            ).flatMap { data in
+                if let position = try? JSONDecoder().decode(ReadingPosition.self, from: data) {
+                    return try position.anchor.map { try ReadingState(anchor: $0, progression: position.progression) }
+                }
+                return try JSONDecoder().decode(ReadingState.self, from: data)
+            }
         }
     }
 
-    private func requireDocument(_ id: UUID, in db: Database, active: Bool = false) throws -> Row {
+    func requireDocument(_ id: UUID, in db: Database, active: Bool = false) throws -> Row {
         guard let row = try Row.fetchOne(db, sql: "SELECT * FROM documents WHERE id = ?", arguments: [id.uuidString]) else {
             throw LibraryError.documentNotFound
         }
@@ -150,15 +155,7 @@ public actor DocumentLibrary {
     }
 
     func validate(_ anchor: SourceAnchor, in db: Database) throws {
-        let row = try requireDocument(anchor.documentID, in: db, active: true)
-        let revision: String = row["revision"]
-        guard revision == anchor.revision else { throw LibraryError.revisionMismatch }
-        let format = DocumentFormat(rawValue: row["format"])
-        switch (format, anchor.resource) {
-        case (.plainText, .text), (.markdown, .text), (.pdf, .pdfPage),
-             (.epub, .epub), (.html, .article): break
-        default: throw LibraryError.invalidInput("Source resource does not match the document format.")
-        }
+        try validateLocation(documentID: anchor.documentID, revision: anchor.revision, resource: anchor.resource, in: db)
         guard anchor.utf16Length == anchor.quote.utf16.count,
               anchor.prefix.count <= 48, anchor.suffix.count <= 48 else {
             throw LibraryError.invalidInput("Malformed source anchor.")
@@ -168,6 +165,20 @@ public actor DocumentLibrary {
             text: anchor.quote,
             selection: NSRange(location: 0, length: anchor.utf16Length), resourceOffset: anchor.utf16Offset
         )
+    }
+
+    func validateLocation(documentID: UUID, revision expected: String, resource: SourceResource, in db: Database) throws {
+        let row = try requireDocument(documentID, in: db, active: true)
+        let revision: String = row["revision"]
+        guard revision == expected else { throw LibraryError.revisionMismatch }
+        let format = DocumentFormat(rawValue: row["format"])
+        switch (format, resource) {
+        case (.plainText, .text), (.markdown, .text), (.pdf, .pdfPage),
+             (.epub, .epub), (.html, .article): break
+        default: throw LibraryError.invalidInput("Source resource does not match the document format.")
+        }
+        if case .pdfPage(let index) = resource, index < 0 { throw ReaderError.resourceNotFound }
+        if case .epub(let path) = resource, path.isEmpty || path.hasPrefix("/") || path.split(separator: "/").contains("..") { throw ReaderError.resourceNotFound }
     }
 
     private func copyAndHash(from source: URL, to destination: URL) throws -> String {

@@ -12,6 +12,18 @@ struct SenseMemoryTests {
             try db.execute(sql: """
                 CREATE TABLE grdb_migrations (identifier TEXT NOT NULL PRIMARY KEY);
                 INSERT INTO grdb_migrations VALUES ('v1_library');
+                CREATE TABLE documents (
+                    id TEXT PRIMARY KEY, title TEXT NOT NULL, format TEXT NOT NULL, revision TEXT NOT NULL,
+                    fileName TEXT NOT NULL UNIQUE, importedAt DOUBLE NOT NULL, trashedAt DOUBLE,
+                    UNIQUE(revision, format)
+                );
+                CREATE TABLE readingState (documentID TEXT PRIMARY KEY REFERENCES documents(id), payload BLOB NOT NULL);
+                CREATE TABLE occurrences (
+                    id TEXT PRIMARY KEY, vocabularyID TEXT NOT NULL REFERENCES vocabulary(id),
+                    documentID TEXT NOT NULL REFERENCES documents(id), anchorKey TEXT NOT NULL,
+                    anchor BLOB NOT NULL, explanation BLOB, createdAt DOUBLE NOT NULL,
+                    UNIQUE(vocabularyID, documentID, anchorKey)
+                );
                 CREATE TABLE vocabulary (
                     id TEXT PRIMARY KEY, expression TEXT NOT NULL, normalizedExpression TEXT NOT NULL,
                     senseKey TEXT NOT NULL, familiarity TEXT NOT NULL, notes TEXT NOT NULL, createdAt DOUBLE NOT NULL,
@@ -48,10 +60,9 @@ struct SenseMemoryTests {
         _ = try await library.saveVocabulary(
             expression: "means", senseKey: "wealth", anchor: anchor, meaning: "A replacement interpretation."
         )
-        let memories = try await library.discoveryMemories(for: ["MEANS", "means", "other"])
-        #expect(memories == [KnownSense(
-            expression: "means", senseKey: "wealth", meaning: "Financial resources or wealth.", familiarity: .known
-        )])
+        let saved = try #require(await library.vocabulary().first { $0.senseKey == "wealth" })
+        #expect(saved.meaning == "Financial resources or wealth.")
+        #expect(saved.familiarity == .known)
         #expect(try await library.vocabulary().first?.notes == "Remembered")
         let longMeaning = String(repeating: "A", count: 3_000)
         let longOccurrence = try await library.saveVocabulary(

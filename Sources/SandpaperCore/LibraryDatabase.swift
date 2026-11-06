@@ -51,6 +51,22 @@ enum LibraryDatabase {
         migrator.registerMigration("v2_sense_meanings") { db in
             try db.alter(table: "vocabulary") { table in table.add(column: "meaning", .text) }
         }
+        migrator.registerMigration("v3_reader_workflow") { db in
+            try db.alter(table: "vocabulary") { table in table.add(column: "meaningSource", .blob) }
+            try db.create(table: "bookmarks") { table in
+                table.column("id", .text).primaryKey()
+                table.column("documentID", .text).notNull().indexed().references("documents", onDelete: .cascade)
+                table.column("payload", .blob).notNull()
+                table.column("createdAt", .double).notNull()
+            }
+            try db.create(table: "preferences") { table in
+                table.column("key", .text).primaryKey()
+                table.column("payload", .blob).notNull()
+            }
+        }
+        migrator.registerMigration("v4_occurrence_context") { db in
+            try db.alter(table: "occurrences") { table in table.add(column: "sourcePassage", .blob) }
+        }
         try migrator.migrate(queue)
         return queue
     }
@@ -79,9 +95,10 @@ enum LibraryDatabase {
               let familiarity = Familiarity(rawValue: row["familiarity"]) else {
             throw LibraryError.corruptStoredData
         }
+        let source: Data? = row["meaningSource"]
         return VocabularyEntry(
             id: id, expression: row["expression"], normalizedExpression: row["normalizedExpression"],
-            senseKey: row["senseKey"], meaning: row["meaning"], familiarity: familiarity, notes: row["notes"],
+            senseKey: row["senseKey"], meaning: row["meaning"], meaningSource: try source.map { try JSONDecoder().decode(MeaningSource.self, from: $0) }, familiarity: familiarity, notes: row["notes"],
             createdAt: Date(timeIntervalSince1970: row["createdAt"])
         )
     }
@@ -92,10 +109,12 @@ enum LibraryDatabase {
             throw LibraryError.corruptStoredData
         }
         let data: Data? = row["explanation"]
+        let passageData: Data? = row["sourcePassage"]
         return VocabularyOccurrence(
             id: id, vocabularyID: vocabularyID,
             anchor: try JSONDecoder().decode(SourceAnchor.self, from: row["anchor"]),
             explanation: try data.map { try JSONDecoder().decode(Explanation.self, from: $0) },
+            sourcePassage: try passageData.map { try JSONDecoder().decode(AnalysisPassage.self, from: $0) },
             createdAt: Date(timeIntervalSince1970: row["createdAt"])
         )
     }

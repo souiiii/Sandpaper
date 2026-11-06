@@ -62,4 +62,12 @@ struct SourceAnchorTests {
     private func makeAnchor(text: String, selection: NSRange) throws -> SourceAnchor {
         try SourceAnchor(documentID: UUID(), revision: "v1", resource: .text, text: text, selection: selection)
     }
+
+    @Test func changedCanonicalContextCannotSilentlySelectAnIdenticalWrongOccurrence() throws {
+        let original = "A one. B one. C"
+        let anchor = try makeAnchor(text: original, selection: (original as NSString).range(of: "one"))
+        let changed = "? one. A one. B one. C"
+        let correct = (changed as NSString).range(of: "one", options: [], range: NSRange(location: 7, length: changed.utf16.count - 7))
+        #expect(anchor.resolve(in: changed, revision: "v1") == .relocated(correct))
+    }
 }

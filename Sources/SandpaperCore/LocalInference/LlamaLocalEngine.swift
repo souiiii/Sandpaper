@@ -18,14 +18,6 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
     }
     private struct Template: Decodable { let prompt: String }
     private struct Tokens: Decodable { let tokens: [Int] }
-    private struct DiscoveryOutput: Decodable {
-        struct Candidate: Decodable {
-            let quote: String
-            let occurrence: Int
-            let assessment: DiscoveryAssessment
-        }
-        let candidates: [Candidate]
-    }
     private struct ExplanationOutput: Decodable {
         struct Note: Decodable { let kind: Explanation.Kind; let text: String }
         let meaning: String
@@ -34,15 +26,12 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
 
     private let configuration: LlamaServerConfiguration
     private let client: LoopbackHTTPClient
-    let lexicon: LexiconStore?
     private var running = false
     public private(set) var lastMetrics: InferenceMetrics?
-    public internal(set) var lastHybridDiagnostics: HybridDiscoveryDiagnostics?
 
-    public init(configuration: LlamaServerConfiguration, lexicon: LexiconStore? = nil) {
+    public init(configuration: LlamaServerConfiguration) {
         self.configuration = configuration
         self.client = LoopbackHTTPClient(configuration: configuration)
-        self.lexicon = lexicon
     }
 
     public func availability() async -> LocalModelAvailability {
@@ -63,45 +52,11 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         }
     }
 
-    public func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate] {
-        try request.validate()
-        try acquire()
-        defer { running = false }
-        lastHybridDiagnostics = nil
-        if let lexicon { return try await groundedDiscovery(request, lexicon: lexicon) }
-        let data = try await complete(
-            messages: LlamaPrompts.discovery(request), schema: LlamaPrompts.discoverySchema(),
-            name: "discovery", maximumOutputTokens: 2_048
-        )
-        let output: DiscoveryOutput
-        do { output = try JSONDecoder().decode(DiscoveryOutput.self, from: data) }
-        catch { throw AnalysisError.invalidModelOutput }
-        guard output.candidates.count <= 64 else { throw AnalysisError.invalidModelOutput }
-        let candidates = try output.candidates.map { candidate in
-            guard !candidate.quote.isEmpty, candidate.quote.utf16.count <= 1_024,
-                  (0...255).contains(candidate.occurrence) else { throw AnalysisError.invalidModelOutput }
-            var search = NSRange(location: 0, length: request.passage.text.utf16.count)
-            var found = NSRange(location: NSNotFound, length: 0)
-            let source = request.passage.text as NSString
-            for _ in 0...candidate.occurrence {
-                found = source.range(of: candidate.quote, options: .literal, range: search)
-                guard found.location != NSNotFound else { throw AnalysisError.invalidModelOutput }
-                let next = found.location + found.length
-                search = NSRange(location: next, length: source.length - next)
-            }
-            return DiscoveryCandidate(anchor: try request.passage.anchor(for: found), assessment: candidate.assessment)
-        }
-        // Direct engine callers receive the same validation as coordinator callers.
-        _ = try DiscoveryPolicy.evaluate(candidates, for: request)
-        return candidates
-    }
-
     public func explain(
         _ request: ExplanationRequest, onUpdate: @escaping @Sendable (String) async -> Void
     ) async throws -> Explanation {
         try acquire()
         defer { running = false }
-        if let lexicon { return try await groundedExplanation(request, lexicon: lexicon, onUpdate: onUpdate) }
         let data = try await complete(
             messages: LlamaPrompts.explanation(request), schema: LlamaPrompts.explanationSchema(),
             name: "explanation", maximumOutputTokens: 1_024, onUpdate: onUpdate
@@ -142,7 +97,7 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         return properties
     }
 
-    func complete(
+    private func complete(
         messages: [ChatMessage], schema: [String: Any], name: String, maximumOutputTokens: Int,
         onUpdate: (@Sendable (String) async -> Void)? = nil
     ) async throws -> Data {

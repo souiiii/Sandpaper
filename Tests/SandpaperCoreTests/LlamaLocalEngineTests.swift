@@ -26,27 +26,6 @@ struct LlamaLocalEngineTests {
         #expect(responseFormat["type"] as? String == "json_schema")
     }
 
-    @Test func actualHTTPStreamCreatesUnicodeSafeOccurrenceAnchors() async throws {
-        let assessment = try DiscoveryAssessment(
-            expression: "fall through", contextualMeaning: "Fail to happen.", interpretationConfidence: .high,
-            learningValue: .high, learningReason: "The meaning is idiomatic, not physical falling.", signals: [.idiom]
-        )
-        let assessmentObject = try JSONSerialization.jsonObject(with: LibraryDatabase.encode(assessment))
-        let output = try JSONSerialization.data(withJSONObject: ["candidates": [[
-            "quote": "fell through", "occurrence": 1, "assessment": assessmentObject
-        ]]])
-        let server = try await TestLlamaServer.start(.init(discovery: String(decoding: output, as: UTF8.self)))
-        defer { server.close() }
-        let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: server.port))
-        let text = "📖 Their plans fell through. Then the agreement fell through."
-        let passage = try passage(text)
-        let candidates = try await engine.discover(DiscoveryRequest(passage: passage))
-        let candidate = try #require(candidates.first)
-        #expect(candidate.anchor.quote == "fell through")
-        #expect(candidate.anchor.utf16Offset == (text as NSString).range(of: "fell through", options: .backwards).location)
-        #expect(await engine.lastMetrics?.completionTokens == 20)
-    }
-
     @Test func explanationStreamsReadableMeaningAndLabelsInterpretation() async throws {
         let server = try await TestLlamaServer.start()
         defer { server.close() }
@@ -70,27 +49,10 @@ struct LlamaLocalEngineTests {
         let server = try await TestLlamaServer.start(.init(tokenCount: 8_000))
         defer { server.close() }
         let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: server.port))
-        await #expect(throws: LocalInferenceError.contextExceeded(required: 10_304, available: 8_192)) {
-            try await engine.discover(DiscoveryRequest(passage: passage()))
+        await #expect(throws: LocalInferenceError.contextExceeded(required: 9_280, available: 8_192)) {
+            try await engine.explain(explanationRequest(), onUpdate: { _ in })
         }
         #expect(await !server.state.requests.contains { $0.path == "/v1/chat/completions" })
-    }
-
-    @Test func inventedSourceQuoteIsRejected() async throws {
-        let assessment = try DiscoveryAssessment(
-            expression: "invented", contextualMeaning: "Not present.", interpretationConfidence: .high,
-            learningValue: .high, learningReason: "A fabricated selection.", signals: [.usefulVocabulary]
-        )
-        let object = try JSONSerialization.jsonObject(with: LibraryDatabase.encode(assessment))
-        let data = try JSONSerialization.data(withJSONObject: ["candidates": [[
-            "quote": "not in the source", "occurrence": 0, "assessment": object
-        ]]])
-        let server = try await TestLlamaServer.start(.init(discovery: String(decoding: data, as: UTF8.self)))
-        defer { server.close() }
-        let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: server.port))
-        await #expect(throws: AnalysisError.invalidModelOutput) {
-            try await engine.discover(DiscoveryRequest(passage: passage()))
-        }
     }
 
     @Test func redirectsNeverForwardReadingMaterial() async throws {
@@ -142,7 +104,7 @@ struct LlamaLocalEngineTests {
         defer { server.close() }
         let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: server.port))
         await #expect(throws: LocalInferenceError.modelMismatch) {
-            try await engine.discover(DiscoveryRequest(passage: passage()))
+            try await engine.explain(explanationRequest(), onUpdate: { _ in })
         }
         #expect(await !server.state.requests.contains { $0.path == "/v1/chat/completions" })
     }

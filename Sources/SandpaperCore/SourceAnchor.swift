@@ -59,7 +59,9 @@ public struct SourceAnchor: Codable, Equatable, Hashable, Sendable {
            utf16Offset <= text.utf16.count,
            utf16Length <= text.utf16.count - utf16Offset,
            let range = Range(NSRange(location: utf16Offset, length: utf16Length), in: text),
-           text[range] == quote {
+           text[range] == quote,
+           (prefix.isEmpty || text[..<range.lowerBound].hasSuffix(prefix)),
+           (suffix.isEmpty || text[range.upperBound...].hasPrefix(suffix)) {
             return .exact(NSRange(range, in: text))
         }
         guard !quote.isEmpty else { return .missing }

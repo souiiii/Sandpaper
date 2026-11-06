@@ -110,7 +110,6 @@ public enum LocalModelAvailability: Equatable, Sendable {
 public enum AnalysisError: Error, Equatable, Sendable {
     case modelNotConfigured
     case modelUnavailable(String)
-    case foregroundBusy
     case invalidModelOutput
 }
 
@@ -118,7 +117,6 @@ public enum AnalysisError: Error, Equatable, Sendable {
 /// validate lexical provenance before returning an Explanation. No network fallback.
 public protocol LocalAnalysisEngine: Sendable {
     func availability() async -> LocalModelAvailability
-    func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate]
     func explain(
         _ request: ExplanationRequest,
         onUpdate: @escaping @Sendable (String) async -> Void
@@ -128,9 +126,6 @@ public protocol LocalAnalysisEngine: Sendable {
 public struct UnconfiguredLocalEngine: LocalAnalysisEngine {
     public init() {}
     public func availability() async -> LocalModelAvailability { .notConfigured }
-    public func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate] {
-        throw AnalysisError.modelNotConfigured
-    }
     public func explain(
         _ request: ExplanationRequest, onUpdate: @escaping @Sendable (String) async -> Void
     ) async throws -> Explanation {
