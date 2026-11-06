@@ -17,8 +17,9 @@ No frontend views or styling live in this package.
 - A loopback-only llama.cpp adapter with streaming, token-budget checks, cancellation,
   bounded response parsing, and an executable evaluation runner.
 
-**No model weights or lexical dataset are installed yet.** The default engine
-reports `modelNotConfigured`. The implemented `LlamaLocalEngine` needs a manually
+**Model weights are not bundled and no lexical dataset is installed.** The default engine
+reports `modelNotConfigured`. The Qwen baseline has now been [evaluated on the M4](evaluations/qwen3-8b-m4-2026-11-06/summary.md).
+The implemented `LlamaLocalEngine` needs a manually
 started local worker; see [local inference setup](docs/local-inference.md). File import
 recognizes PDF, EPUB, TXT, Markdown, and HTML, but format parsing/rendering, OCR,
 web fetching, indexing, editing, and permanent deletion are subsequent

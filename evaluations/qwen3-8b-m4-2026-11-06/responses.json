@@ -1,0 +1,4402 @@
+{
+  "format": "sandpaper-evaluation-observations-v1",
+  "note": "Source passages are stored once in fixtures. Response anchors retain exact UTF-16 offsets/lengths; quote/prefix/suffix strings are derivable from fixture text and omitted here. Full unmodified reports and runtime logs remain in /private/tmp/sandpaper-ai-validation. These are actual local model outputs, not fixture-server responses.",
+  "fixtures": [
+    {
+      "id": "idioms",
+      "passage": "After months of negotiations, the agreement finally fell through, leaving both parties back at square one.",
+      "reviewFocus": "Discover both idioms; explain the failed agreement without a literal falling interpretation."
+    },
+    {
+      "id": "literary-understatement",
+      "passage": "He was a gentleman of considerable means, though his manners were rather wanting.",
+      "reviewFocus": "Recognize wealth, deficiency, formal understatement, and a natural modern equivalent."
+    },
+    {
+      "id": "implied-criticism",
+      "passage": "The committee praised his enthusiasm, though they stopped short of endorsing any of his proposals.",
+      "reviewFocus": "Distinguish explicit withholding of endorsement from possible criticism; do not assert a definite motive."
+    },
+    {
+      "id": "known-word-new-sense",
+      "passage": "His apology was a fig leaf for his indifference.",
+      "reviewFocus": "Literal familiarity must not suppress the figurative concealment sense."
+    },
+    {
+      "id": "unremarkable-prose",
+      "passage": "She opened the window and put the book on the table.",
+      "reviewFocus": "Prefer no automatic highlights. A manual explanation should remain short."
+    },
+    {
+      "id": "known-idiom",
+      "passage": "The agreement fell through.",
+      "reviewFocus": "Suppress the recorded known sense without declaring the idiom intrinsically uninteresting."
+    },
+    {
+      "id": "wilde-1895",
+      "passage": "The truth is rarely pure and never simple.",
+      "reviewFocus": "Explain the paradox and qualify implied criticism without inventing plot context.",
+      "source": "Oscar Wilde, The Importance of Being Earnest (1895), https://www.gutenberg.org/files/844/844-h/844-h.htm"
+    },
+    {
+      "id": "woolf-1925",
+      "passage": "Mrs. Dalloway said she would buy the flowers herself. For Lucy had her work cut out for her.",
+      "reviewFocus": "Recognize the idiom as having demanding work ahead, not literal cutting; do not import later story events.",
+      "source": "Virginia Woolf, Mrs. Dalloway (1925), opening, https://www.gutenberg.org/ebooks/71865"
+    },
+    {
+      "id": "orwell-1946",
+      "passage": "But if thought corrupts language, language can also corrupt thought.",
+      "reviewFocus": "Explain distortion or degradation of thinking, not bribery, and preserve the reciprocal argument.",
+      "source": "George Orwell, Politics and the English Language (1946), https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/"
+    },
+    {
+      "id": "literary-vocabulary",
+      "passage": "Her punctilious observance of etiquette concealed a remarkably elastic conscience.",
+      "reviewFocus": "Explain flexible moral standards; distinguish the figurative criticism from the literal adjective and define punctilious accurately if selected.",
+      "source": "Original constructed literary-style test passage."
+    },
+    {
+      "id": "internet-sarcasm",
+      "passage": "Great, another mandatory meeting that could have been an email. Love that for us.",
+      "reviewFocus": "Read the apparent approval as sarcastic frustration in this context; avoid unsupported origin or frequency claims.",
+      "source": "Original constructed contemporary test passage."
+    },
+    {
+      "id": "internet-unfamiliar",
+      "passage": "He said he was 'just asking questions', but the replies read it as sealioning.",
+      "reviewFocus": "Explain persistent apparently polite demands that derail discussion; the replies' accusation does not prove his intent.",
+      "source": "Original constructed internet-English test passage."
+    },
+    {
+      "id": "nonfiction-euphemism",
+      "passage": "The company called the layoffs a 'right-sizing exercise'; employees saw the phrase as an attempt to soften the news.",
+      "reviewFocus": "Explain corporate euphemism in this context; do not assert that every use of right-sizing means layoffs.",
+      "source": "Original constructed contemporary nonfiction test passage."
+    },
+    {
+      "id": "genuine-ambiguity",
+      "passage": "She saw the man with the telescope.",
+      "reviewFocus": "Acknowledge both who held the telescope and what instrument she used; supplied context cannot decide.",
+      "source": "Constructed standard attachment-ambiguity test sentence."
+    },
+    {
+      "id": "page-mixed",
+      "passage": "By the time the committee assembled, the room had lost the warmth it had held all morning. A clerk opened the window and placed a fresh jug of water beside the chairman's papers. No one commented on the delay. They had spent three weeks arranging this meeting, and another ten minutes seemed too small a matter to mention.\n\nEleanor listened to the secretary's report with studied indifference. She had spent the previous evening finding the errors in its accounts, but she did not intend to show her hand before the vote. Across the table, Martin turned a pencil between his fingers. When asked whether the revised proposal met his objections, he said that it was certainly ambitious. The chairman thanked him and moved on. Eleanor thought the answer left a good deal to be desired.\n\nOutside, a delivery van stopped beside the gate. Its driver carried two boxes into the building and returned for a third. Inside, the secretary collected the old copies of the report. The chairman asked for any final comments, waited for a moment, and began to read the motion aloud. Eleanor watched Martin put down the pencil. He had accepted every amendment without turning a hair, but she suspected that his silence was less a sign of agreement than a decision to keep his powder dry.",
+      "reviewFocus": "Find the strategically withheld action, studied indifference and understated criticism; avoid filling the page with obvious literal actions. Do not convert Eleanor's suspicion into established fact.",
+      "source": "Original constructed page-length literary test passage (approximately 250 words)."
+    },
+    {
+      "id": "page-plain",
+      "passage": "The library opens at nine on weekday mornings. Staff arrive half an hour earlier to check the returns box and switch on the computers. Books left overnight are scanned at the front desk and placed on a trolley. One member of staff takes the trolley upstairs while another prepares the notices for the day.\n\nOn Tuesday a local history group booked the small meeting room. They asked for twelve chairs and a table near the window. The room was available until noon, so the librarian confirmed the booking and sent a short email with the address. She included a note about the entrance on the side of the building because the main doors would be closed during the morning repairs.\n\nAt ten the first visitors arrived. Two people asked where to find the newspapers, and a student borrowed a charger for her laptop. The librarian showed them the shelves and recorded the loan. Later she checked the booking calendar, printed the next week's opening hours, and put the notice beside the stairs. Before lunch she returned the remaining books to their shelves and counted the spare chairs in the meeting room. Everything was ready for the afternoon shift.",
+      "reviewFocus": "A fluent reader should usually receive no automatic highlights. Do not invent nuance for routine actions; the manual explanation should be brief.",
+      "source": "Original constructed page-length plain-prose negative control."
+    }
+  ],
+  "sessions": {
+    "baseline-original": {
+      "generatedAt": "2026-11-06T11:21:45Z",
+      "modelIdentity": "a05fd1fb4fac32efa1671fc892e1a68c0027f96bb3b991ff617fe10e65145ce7",
+      "note": "Review linguistic quality manually. Timings are real requests on this host; this is not an automatic quality score or a peak-memory measurement.",
+      "operatingSystem": "Version 27.2 (Build 26B123)",
+      "physicalMemoryBytes": 17179869184,
+      "promptVersion": "reading-analysis-2",
+      "records": [
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "428F5343-F518-44C6-854B-240EB0BE4EEB",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 18,
+                    "utf16Offset": 87
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Returning to the original starting point of a situation, indicating no progress has been made.",
+                    "expression": "back at square one",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'back at square one' is a common idiom that conveys the idea of returning to an initial state, often used to describe a situation where no progress has been made despite efforts. It is useful for understanding how people express frustration or stagnation in various contexts.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 186,
+            "elapsedSeconds": 12.924727792,
+            "firstContentSeconds": 2.986298542,
+            "promptTokens": 551
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Fell through' means a plan or agreement failed to be completed or accepted."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase is commonly used to describe the collapse of a deal or plan."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase suggests a sense of frustration or disappointment due to the failure."
+              }
+            ],
+            "meaning": "The agreement failed to be reached after prolonged discussions, returning the situation to its original state."
+          },
+          "explanationMetrics": {
+            "completionTokens": 127,
+            "elapsedSeconds": 7.992637875,
+            "firstContentSeconds": 1.400684209,
+            "promptTokens": 289
+          },
+          "id": "idioms",
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "2FE57378-6698-447C-9F32-32AC2DB7F847",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 39,
+                    "utf16Offset": 42
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The sentence contrasts a person's financial wealth with their lack of social grace.",
+                    "expression": "wanting",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The word 'wanting' is used in a period-specific sense to mean 'deficient' or 'lacking', which is a useful vocabulary item for understanding 19th-century English usage.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "usefulVocabulary",
+                      "historicalUsage"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 168,
+            "elapsedSeconds": 11.46372225,
+            "firstContentSeconds": 2.4647645000000002,
+            "promptTokens": 547
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Wanting' here means lacking or insufficient, often in a social or moral context."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase implies a contrast between wealth and social grace, highlighting a flaw in the person's character."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is subtly critical, implying that the man's wealth does not equate to proper social behavior."
+              }
+            ],
+            "meaning": "The phrase suggests that while the man had wealth, his behavior or social conduct was lacking or insufficient."
+          },
+          "explanationMetrics": {
+            "completionTokens": 141,
+            "elapsedSeconds": 9.132101625,
+            "firstContentSeconds": 1.410498625,
+            "promptTokens": 288
+          },
+          "id": "literary-understatement",
+          "selectedUTF16Range": {
+            "offset": 49,
+            "length": 31
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "3154BA7E-02A5-4881-A09F-E781B7FED635",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 26,
+                    "utf16Offset": 50
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The committee acknowledged the person's eagerness but did not support their ideas.",
+                    "expression": "stopped short of endorsing",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase illustrates a common way to express hesitation or reluctance to fully support something, which is useful for understanding nuanced communication in both literary and real-world contexts.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 160,
+            "elapsedSeconds": 11.418374667,
+            "firstContentSeconds": 2.6450579579999998,
+            "promptTokens": 549
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Stopped short of' means to not go as far as something else."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "She stopped short of admitting her mistake."
+              }
+            ],
+            "meaning": "The committee acknowledged his enthusiasm but did not support his proposals."
+          },
+          "explanationMetrics": {
+            "completionTokens": 81,
+            "elapsedSeconds": 6.317559791,
+            "firstContentSeconds": 1.42510975,
+            "promptTokens": 288
+          },
+          "id": "implied-criticism",
+          "selectedUTF16Range": {
+            "offset": 50,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "AA6D2160-286A-48CF-8EC8-26EDF88A8915",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A metaphor for something that hides or disguises a lack of genuine concern or remorse",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase illustrates the use of metaphor to convey a hidden or insincere motive, which is a common literary device.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "literal-leaf",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "literal-leaf"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 162,
+            "elapsedSeconds": 12.387699791,
+            "firstContentSeconds": 2.756140875,
+            "promptTokens": 569
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "A fig leaf is a thin piece of fig skin used to cover nakedness, symbolizing a modest or inadequate cover-up."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The metaphor implies the apology is insincere and only serves to hide deeper issues."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The speaker is criticizing the person's lack of real remorse or empathy."
+              }
+            ],
+            "meaning": "The phrase suggests that the apology was a superficial attempt to cover up a lack of genuine concern or care."
+          },
+          "explanationMetrics": {
+            "completionTokens": 141,
+            "elapsedSeconds": 9.713221291,
+            "firstContentSeconds": 1.460319958,
+            "promptTokens": 280
+          },
+          "id": "known-word-new-sense",
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "8DC3747A-E824-41F3-A5AC-9CE704FD19F1",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 52,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The action of placing a book on a table after opening a window",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase demonstrates the use of the verb 'put' in a common, concrete action, which is useful for understanding basic sentence structure and verb usage in narrative contexts.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 164,
+            "elapsedSeconds": 12.47392,
+            "firstContentSeconds": 2.829197417,
+            "promptTokens": 544
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The verb 'opened' suggests a deliberate and completed action, contrasting with the continuous or ongoing nature of some other verbs."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "He opened the door to let the cat in."
+              }
+            ],
+            "meaning": "The action of opening the window is performed by the subject, indicating a physical movement to allow access to the outside."
+          },
+          "explanationMetrics": {
+            "completionTokens": 104,
+            "elapsedSeconds": 7.695461417,
+            "firstContentSeconds": 1.51543025,
+            "promptTokens": 281
+          },
+          "id": "unremarkable-prose",
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "E29FE8E5-6490-49F0-AEA3-CBF87EF1876B",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "For a plan or agreement to fail to happen",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'fall through' is a common idiom with a specific meaning related to failure of plans or agreements, which is useful for understanding conversational English and historical texts.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 160,
+            "elapsedSeconds": 12.769302916000001,
+            "firstContentSeconds": 3.035717833,
+            "promptTokens": 568
+          },
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "To 'fall through' means to fail or collapse, especially in the context of a plan or arrangement."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "The merger fell through due to regulatory hurdles."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 86,
+            "elapsedSeconds": 7.074207667,
+            "firstContentSeconds": 1.793046417,
+            "promptTokens": 275
+          },
+          "id": "known-idiom",
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        }
+      ]
+    },
+    "original-expanded-lean": {
+      "generatedAt": "2026-11-06T11:32:30Z",
+      "modelIdentity": "a05fd1fb4fac32efa1671fc892e1a68c0027f96bb3b991ff617fe10e65145ce7",
+      "note": "Review linguistic quality manually. Timings are real requests on this host; this is not an automatic quality score or a peak-memory measurement.",
+      "operatingSystem": "Version 27.2 (Build 26B123)",
+      "physicalMemoryBytes": 17179869184,
+      "promptVersion": "reading-analysis-2",
+      "records": [
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "6EA026FF-DBA3-4AB0-A675-575603E7B79D",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 18,
+                    "utf16Offset": 87
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Returning to the original starting point of a situation, indicating no progress has been made",
+                    "expression": "back at square one",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'back at square one' is a common idiom that conveys the idea of returning to an initial state or position, often implying that no progress has been made. It is useful for understanding how people describe situations where efforts have failed to produce any meaningful change.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 185,
+            "elapsedSeconds": 13.304082875,
+            "firstContentSeconds": 2.878505625,
+            "promptTokens": 551
+          },
+          "discoveryWallSeconds": 13.305770125,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Fell through' means a plan or agreement failed to work out."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase is commonly used to describe the collapse of a deal or plan."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The failure of the agreement suggests a lack of compromise or unresolved issues."
+              }
+            ],
+            "meaning": "The agreement failed to be reached after prolonged discussions, returning the situation to its original state."
+          },
+          "explanationMetrics": {
+            "completionTokens": 125,
+            "elapsedSeconds": 8.325876084,
+            "firstContentSeconds": 1.448964417,
+            "promptTokens": 289
+          },
+          "explanationWallSeconds": 8.329363792,
+          "firstMeaningSeconds": 1.789463417,
+          "id": "idioms",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "9B79F9B7-7FDA-41B3-96F5-30386FE0BCEE",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 39,
+                    "utf16Offset": 42
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The sentence contrasts a person's financial wealth with his lack of social grace.",
+                    "expression": "wanting",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The word 'wanting' is a period-specific term meaning 'deficient' or 'lacking,' which provides insight into 19th-century language use and social critique.",
+                    "learningValue": "high",
+                    "signals": [
+                      "historicalUsage",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 163,
+            "elapsedSeconds": 11.127418917,
+            "firstContentSeconds": 2.5771566249999998,
+            "promptTokens": 547
+          },
+          "discoveryWallSeconds": 11.129365833,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Wanting' here means lacking in quality or adequacy, implying his manners were not up to the expected standard."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is mildly critical, pointing out a flaw in his character despite his financial status."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "For instance, if someone is described as 'wanting' in manners, it might mean they are rude or unpolished."
+              }
+            ],
+            "meaning": "The phrase suggests that while the man had wealth, his behavior or social conduct was lacking or insufficient."
+          },
+          "explanationMetrics": {
+            "completionTokens": 150,
+            "elapsedSeconds": 9.630393167,
+            "firstContentSeconds": 1.394224959,
+            "promptTokens": 288
+          },
+          "explanationWallSeconds": 9.632299625,
+          "firstMeaningSeconds": 1.726603084,
+          "id": "literary-understatement",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 49,
+            "length": 31
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "95D5302B-8767-4772-A338-AB9D99FB3DDB",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 26,
+                    "utf16Offset": 50
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The committee acknowledges the person's positive attitude but does not support their ideas.",
+                    "expression": "stopped short of endorsing",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase illustrates a common way to express partial approval or reluctance to fully support something, which is useful for understanding nuanced communication in both literary and real-world contexts.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 161,
+            "elapsedSeconds": 11.124476625,
+            "firstContentSeconds": 2.753098584,
+            "promptTokens": 549
+          },
+          "discoveryWallSeconds": 11.126431709,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Stopped short of' means to refrain from going as far as something else."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "She stopped short of admitting her mistake, instead blaming the circumstances."
+              }
+            ],
+            "meaning": "The committee acknowledged his enthusiasm but did not support his proposals."
+          },
+          "explanationMetrics": {
+            "completionTokens": 87,
+            "elapsedSeconds": 5.80975325,
+            "firstContentSeconds": 1.343396917,
+            "promptTokens": 288
+          },
+          "explanationWallSeconds": 5.81174575,
+          "firstMeaningSeconds": 1.70470175,
+          "id": "implied-criticism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 50,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "E06EC5E0-C72D-4357-8920-AFD4012DE591",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A metaphor for something that hides or excuses a lack of genuine concern or care",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase illustrates the use of metaphor to convey a hidden or insincere motive, which is a common literary device.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "literal-leaf",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "literal-leaf"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 161,
+            "elapsedSeconds": 11.060081333,
+            "firstContentSeconds": 2.634878958,
+            "promptTokens": 569
+          },
+          "discoveryWallSeconds": 11.062144,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "A fig leaf is a thin piece of fig skin used to cover nakedness, symbolizing a modest or inadequate cover-up."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The metaphor implies the apology is insincere and only serves to hide deeper issues."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The speaker is criticizing the person's lack of real remorse or empathy."
+              }
+            ],
+            "meaning": "The phrase suggests that the apology was a superficial attempt to cover up a lack of genuine concern or care."
+          },
+          "explanationMetrics": {
+            "completionTokens": 141,
+            "elapsedSeconds": 8.693726417,
+            "firstContentSeconds": 1.320067083,
+            "promptTokens": 280
+          },
+          "explanationWallSeconds": 8.695559458,
+          "firstMeaningSeconds": 1.633921833,
+          "id": "known-word-new-sense",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "FA44DCDA-6039-405F-A4D4-6F9CC9E4F76A",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 52,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The action of placing a book on a table after opening a window",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase demonstrates the use of a transitive verb with a direct object, illustrating basic sentence structure and vocabulary related to everyday actions.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "usefulVocabulary",
+                      "grammar"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 160,
+            "elapsedSeconds": 11.277698667,
+            "firstContentSeconds": 2.6570199580000002,
+            "promptTokens": 544
+          },
+          "discoveryWallSeconds": 11.279497958,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The verb 'opened' suggests a deliberate action, indicating she was intentionally interacting with the window."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The action of opening the window may imply a change in the environment or a shift in her mood."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible, likely to allow air or light into the room."
+          },
+          "explanationMetrics": {
+            "completionTokens": 107,
+            "elapsedSeconds": 6.908165,
+            "firstContentSeconds": 1.432537,
+            "promptTokens": 281
+          },
+          "explanationWallSeconds": 6.910166708,
+          "firstMeaningSeconds": 1.770360958,
+          "id": "unremarkable-prose",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "4ECEE84B-6986-470F-94CC-4E80C603555A",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "For a plan or agreement to fail to happen",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'fall through' is a common idiom that conveys the failure of a plan or agreement, which is useful for understanding conversational English and historical texts.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 159,
+            "elapsedSeconds": 10.977590459,
+            "firstContentSeconds": 2.848320459,
+            "promptTokens": 568
+          },
+          "discoveryWallSeconds": 10.979841291,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "To 'fall through' means to fail or collapse, especially in the context of plans or agreements."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "The merger fell through due to regulatory hurdles."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 85,
+            "elapsedSeconds": 5.917755042,
+            "firstContentSeconds": 1.347280167,
+            "promptTokens": 275
+          },
+          "explanationWallSeconds": 5.919759292,
+          "firstMeaningSeconds": 1.6790107920000001,
+          "id": "known-idiom",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "6CA4A02F-B12D-4FB7-8022-784FE7FB683C",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 42,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The statement suggests that truth is complex and multifaceted, not straightforward or easily understood.",
+                    "expression": "The truth is rarely pure and never simple",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase introduces the idea that truth is often complicated and not easily categorized, which is a valuable insight into the nature of truth and its perception.",
+                    "learningValue": "high",
+                    "signals": [
+                      "semanticNuance",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 169,
+            "elapsedSeconds": 11.764793542,
+            "firstContentSeconds": 2.706792708,
+            "promptTokens": 541
+          },
+          "discoveryWallSeconds": 11.76667725,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase implies that truth is not straightforward and may be influenced by context, perception, or perspective."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is critical and reflective, indicating a skepticism toward simplistic views of truth."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "For instance, a historical event might be viewed differently based on the source of information or the time period in which it is examined."
+              }
+            ],
+            "meaning": "The statement suggests that truth is complex and not easily understood, often involving multiple layers or interpretations."
+          },
+          "explanationMetrics": {
+            "completionTokens": 145,
+            "elapsedSeconds": 9.172414083,
+            "firstContentSeconds": 1.433798583,
+            "promptTokens": 284
+          },
+          "explanationWallSeconds": 9.174496666,
+          "firstMeaningSeconds": 1.756080416,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 13,
+            "length": 28
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "2040C0D3-7A4F-4258-8B2D-5DD91506177D",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 38,
+                    "utf16Offset": 54
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Lucy is expected to work hard, and Mrs. Dalloway's statement implies she will take care of the flowers herself, possibly to avoid Lucy's effort.",
+                    "expression": "had her work cut out for her",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase is an idiom that conveys the idea of having a lot of work to do, which is useful for understanding the character's situation and the narrative's tone.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 189,
+            "elapsedSeconds": 13.486444875,
+            "firstContentSeconds": 2.8850816249999998,
+            "promptTokens": 555
+          },
+          "discoveryWallSeconds": 13.488576875,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "The phrase 'had her work cut out for her' means she has a lot of work to do."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It implies that Lucy's responsibilities are substantial, possibly indicating she is overburdened or has a challenging task."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is understated, suggesting a subtle critique of Lucy's situation without overtly expressing concern."
+              }
+            ],
+            "meaning": "The phrase suggests that Lucy has a significant amount of work to do, implying she is busy or has a demanding task ahead."
+          },
+          "explanationMetrics": {
+            "completionTokens": 153,
+            "elapsedSeconds": 9.44288075,
+            "firstContentSeconds": 1.6101625419999999,
+            "promptTokens": 298
+          },
+          "explanationWallSeconds": 9.44489725,
+          "firstMeaningSeconds": 1.9085186250000001,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 28
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "4EDCF6D4-61F9-439A-91CA-CE12AB3AE4A5",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 68,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The interdependence between language and thought, suggesting that language can influence and distort thought processes.",
+                    "expression": "corrupt",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The word 'corrupt' is used in a figurative sense here, highlighting its role in expressing the mutual influence between language and thought, which is a key theme in the passage.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 175,
+            "elapsedSeconds": 12.711609625,
+            "firstContentSeconds": 2.80493,
+            "promptTokens": 545
+          },
+          "discoveryWallSeconds": 12.713643625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It implies that the way we express ideas can shape how we perceive and understand them."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "For instance, if a society uses language that dehumanizes a group, it may unconsciously reinforce prejudiced thinking about that group."
+              }
+            ],
+            "meaning": "The idea that language has the power to distort or influence thought, suggesting a reciprocal relationship between language and thought."
+          },
+          "explanationMetrics": {
+            "completionTokens": 114,
+            "elapsedSeconds": 7.610133583,
+            "firstContentSeconds": 1.483654542,
+            "promptTokens": 284
+          },
+          "explanationWallSeconds": 7.612140792,
+          "firstMeaningSeconds": 1.82324275,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 15
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "CF5F1831-331D-4F45-9E6E-398991A313B9",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 82,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The contrast between strict adherence to social norms and a flexible moral compass",
+                    "expression": "punctilious observance of etiquette",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase illustrates the tension between external behavior and internal morality, a common theme in literature. It also provides insight into the use of 'punctilious' as a formal term for meticulousness.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 181,
+            "elapsedSeconds": 12.259423459,
+            "firstContentSeconds": 2.6489825,
+            "promptTokens": 546
+          },
+          "discoveryWallSeconds": 12.261388917,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "Elastic conscience refers to a moral standard that can be adjusted or bent according to circumstances."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase suggests a discrepancy between outward behavior and inner morality."
+              }
+            ],
+            "meaning": "Her strict adherence to social manners masked a flexible moral standard."
+          },
+          "explanationMetrics": {
+            "completionTokens": 90,
+            "elapsedSeconds": 5.883795458,
+            "firstContentSeconds": 1.393457333,
+            "promptTokens": 284
+          },
+          "explanationWallSeconds": 5.885727209,
+          "firstMeaningSeconds": 1.695444709,
+          "id": "literary-vocabulary",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 18
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "A911DFB8-024F-44F6-BC22-07013DABA750",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 63,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Expressing frustration with unnecessary meetings and a preference for more efficient communication methods",
+                    "expression": "mandatory meeting",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'mandatory meeting' captures a common workplace frustration and highlights the contrast between perceived necessity and actual utility. It also introduces the concept of communication efficiency.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "toneOrImplication",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 165,
+            "elapsedSeconds": 13.060814,
+            "firstContentSeconds": 2.802276542,
+            "promptTokens": 549
+          },
+          "discoveryWallSeconds": 13.062572334,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is sarcastic and critical, indicating irritation with the inefficiency of the meeting."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The implication is that the meeting is redundant and that the speaker believes email would have been a more efficient method of communication."
+              }
+            ],
+            "meaning": "The speaker is sarcastically expressing frustration about another unnecessary meeting that could have been handled via email."
+          },
+          "explanationMetrics": {
+            "completionTokens": 109,
+            "elapsedSeconds": 7.583263416,
+            "firstContentSeconds": 1.499809291,
+            "promptTokens": 289
+          },
+          "explanationWallSeconds": 7.5958594999999995,
+          "firstMeaningSeconds": 1.8533660410000001,
+          "id": "internet-sarcasm",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 64,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "95749CAD-BA77-4718-8AF5-24B6EABF7D46",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 78,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The phrase 'just asking questions' is used sarcastically to imply that the speaker is not genuinely seeking information but is instead trying to provoke or challenge the other person.",
+                    "expression": "'just asking questions'",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase demonstrates the use of sarcasm and the subtle implications of language, which are important for understanding social dynamics and rhetorical strategies in literature.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "toneOrImplication"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 189,
+            "elapsedSeconds": 13.713901208,
+            "firstContentSeconds": 2.959884208,
+            "promptTokens": 551
+          },
+          "discoveryWallSeconds": 13.715791375,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "Sealioning is a form of argumentative behavior where someone persistently asks leading or irrelevant questions to undermine a position or distract from the actual topic."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "It is commonly used in online discussions to derail conversations or challenge the credibility of an argument through persistent questioning."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The term suggests a dismissive or manipulative tone, implying that the questioning is not genuine but rather a strategy to control the narrative."
+              }
+            ],
+            "meaning": "The term 'sealioning' refers to the tactic of repeatedly asking questions in a way that is intended to wear down or frustrate the person being questioned, often in an attempt to discredit them or shift the focus away from the original issue."
+          },
+          "explanationMetrics": {
+            "completionTokens": 191,
+            "elapsedSeconds": 11.797120917,
+            "firstContentSeconds": 1.483227167,
+            "promptTokens": 290
+          },
+          "explanationWallSeconds": 11.79911,
+          "firstMeaningSeconds": 1.7950716249999998,
+          "id": "internet-unfamiliar",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 67,
+            "length": 10
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "61FEA34D-F38D-4BEF-A531-5A098F0D890E",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 116,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A euphemism used to describe layoffs, intended to make the action seem less harsh or negative.",
+                    "expression": "right-sizing exercise",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'right-sizing exercise' is a euphemism that reflects a common corporate practice of using vague, positive-sounding language to describe layoffs. This is valuable for understanding how organizations communicate difficult decisions.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 192,
+            "elapsedSeconds": 13.905943875,
+            "firstContentSeconds": 2.907366375,
+            "promptTokens": 555
+          },
+          "discoveryWallSeconds": 13.907761625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Right-sizing' is a euphemism for reducing staff, often used to make layoffs seem like a necessary adjustment rather than a firing."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase is an example of corporate jargon that can obscure the true nature of an action."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The term suggests a calculated, business-like approach to personnel cuts, which may mask the emotional impact on employees."
+              }
+            ],
+            "meaning": "The term 'right-sizing exercise' is used by the company to describe layoffs, but employees interpret it as a way to make the negative news sound less harsh."
+          },
+          "explanationMetrics": {
+            "completionTokens": 164,
+            "elapsedSeconds": 11.080635708,
+            "firstContentSeconds": 1.6363978750000001,
+            "promptTokens": 294
+          },
+          "explanationWallSeconds": 11.0828045,
+          "firstMeaningSeconds": 1.972736625,
+          "id": "nonfiction-euphemism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 34,
+            "length": 21
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "30A2C59D-CCF0-40DF-B7F5-1AB3ED2BC560",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 35,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The act of using a telescope to observe someone from a distance",
+                    "expression": "saw the man with the telescope",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This phrase demonstrates the use of a prepositional phrase to indicate the means by which an action is performed, which is a common grammatical structure in English. It also introduces the concept of using a tool (telescope) to observe something, which can be useful in understanding narrative descriptions.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "grammar",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 188,
+            "elapsedSeconds": 13.262426458,
+            "firstContentSeconds": 2.8150580830000003,
+            "promptTokens": 540
+          },
+          "discoveryWallSeconds": 13.264659625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'with the telescope' specifies the instrument used for observation, implying distance or the need for a tool to see clearly."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It may suggest that the man was not easily visible, or that she wanted to observe him discreetly."
+              }
+            ],
+            "meaning": "The phrase indicates the method by which she observed the man, suggesting she used a telescope to look at him from a distance."
+          },
+          "explanationMetrics": {
+            "completionTokens": 120,
+            "elapsedSeconds": 7.360764292,
+            "firstContentSeconds": 1.409545125,
+            "promptTokens": 279
+          },
+          "explanationWallSeconds": 7.362649667,
+          "firstMeaningSeconds": 1.7105353330000002,
+          "id": "genuine-ambiguity",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 16,
+            "length": 18
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "26CF0113-325B-4B2C-A216-7F1C7A7A7F88",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 19,
+                    "utf16Offset": 1251
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The phrase suggests that Martin's silence is not a sign of agreement but a strategic choice to avoid revealing his position.",
+                    "expression": "keep his powder dry",
+                    "interpretationConfidence": "high",
+                    "learningReason": "This idiom is useful for understanding the figurative meaning of 'keeping one's powder dry' as a metaphor for maintaining strategic silence or restraint, especially in a political or social context.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 173,
+            "elapsedSeconds": 13.234818208,
+            "firstContentSeconds": 4.179627917,
+            "promptTokens": 785
+          },
+          "discoveryWallSeconds": 13.237080042,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Keep his powder dry' is an idiom meaning to remain neutral or reserved, especially in a situation where one might be expected to take a side."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase implies that Martin is strategically withholding his true opinion, possibly to avoid conflict or to preserve his position."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is one of subtle suspicion and observation, indicating that Eleanor is aware of Martin's restraint and possibly distrustful of it."
+              },
+              {
+                "basis": {
+                  "generatedExample": {}
+                },
+                "kind": "example",
+                "text": "Martin's silence during the meeting, despite having previously objected to the proposal, suggests he is 'keeping his powder dry' to avoid being seen as oppositional."
+              }
+            ],
+            "meaning": "The phrase 'keep his powder dry' suggests that Martin is deliberately maintaining a neutral stance, avoiding taking a firm position or revealing his true feelings."
+          },
+          "explanationMetrics": {
+            "completionTokens": 219,
+            "elapsedSeconds": 14.4420075,
+            "firstContentSeconds": 2.590854833,
+            "promptTokens": 525
+          },
+          "explanationWallSeconds": 14.443916,
+          "firstMeaningSeconds": 2.904797167,
+          "id": "page-mixed",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 1251,
+            "length": 19
+          }
+        },
+        {
+          "discoveryError": "timedOut",
+          "discoveryWallSeconds": 45.49329125,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'confirmed the booking' indicates that the reservation was made official and finalized."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "This action suggests that the booking was previously requested and now officially accepted."
+              }
+            ],
+            "meaning": "The librarian officially secured the meeting room reservation for the local history group."
+          },
+          "explanationMetrics": {
+            "completionTokens": 93,
+            "elapsedSeconds": 7.127358959,
+            "firstContentSeconds": 2.490067042,
+            "promptTokens": 494
+          },
+          "explanationWallSeconds": 7.130147167,
+          "firstMeaningSeconds": 2.7914425830000003,
+          "id": "page-plain",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 481,
+            "length": 21
+          }
+        }
+      ]
+    },
+    "improved-expanded-lean": {
+      "generatedAt": "2026-11-06T11:38:56Z",
+      "modelIdentity": "a05fd1fb4fac32efa1671fc892e1a68c0027f96bb3b991ff617fe10e65145ce7",
+      "note": "Review linguistic quality manually. Timings are real requests on this host; this is not an automatic quality score or a peak-memory measurement.",
+      "operatingSystem": "Version 27.2 (Build 26B123)",
+      "physicalMemoryBytes": 17179869184,
+      "promptVersion": "reading-analysis-3",
+      "records": [
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "A82D52D9-115A-41DC-8879-0F3DDF21C811",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 18,
+                    "utf16Offset": 87
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The agreement failed, returning the situation to its original state of disagreement.",
+                    "expression": "back at square one",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It conveys a return to an initial state of conflict or impasse.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 142,
+            "elapsedSeconds": 10.704931333,
+            "firstContentSeconds": 3.7126171660000002,
+            "promptTokens": 771
+          },
+          "discoveryWallSeconds": 10.706795958,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Fell through' means the agreement collapsed or failed to materialize."
+              }
+            ],
+            "meaning": "The agreement failed to be reached after prolonged discussions, returning the situation to its original state."
+          },
+          "explanationMetrics": {
+            "completionTokens": 63,
+            "elapsedSeconds": 5.243244542,
+            "firstContentSeconds": 2.159171125,
+            "promptTokens": 465
+          },
+          "explanationWallSeconds": 5.247434291,
+          "firstMeaningSeconds": 2.468122583,
+          "id": "idioms",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "ACCD23BB-C480-40EB-9049-68C27261746E",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 81,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The phrase suggests that the man's wealth is significant, but his behavior is lacking in proper social conduct.",
+                    "expression": "considerable means",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Introduces the historical usage of 'means' to refer to wealth, not just financial resources.",
+                    "learningValue": "high",
+                    "signals": [
+                      "historicalUsage",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 163,
+            "elapsedSeconds": 11.599613209,
+            "firstContentSeconds": 3.4779465419999998,
+            "promptTokens": 767
+          },
+          "discoveryWallSeconds": 11.604107375,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Wanting' here implies a deficiency, suggesting his behavior was unrefined or improper."
+              }
+            ],
+            "meaning": "His manners were lacking or insufficient, despite his wealth."
+          },
+          "explanationMetrics": {
+            "completionTokens": 60,
+            "elapsedSeconds": 5.191788417,
+            "firstContentSeconds": 2.177967834,
+            "promptTokens": 464
+          },
+          "explanationWallSeconds": 5.195226417,
+          "firstMeaningSeconds": 2.48313125,
+          "id": "literary-understatement",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 49,
+            "length": 31
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "EE36FA20-6198-45C1-9CD6-387A0DCCDAD3",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 26,
+                    "utf16Offset": 50
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The committee acknowledges the person's positive attitude but does not support their ideas.",
+                    "expression": "stopped short of endorsing",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Explains the nuance of partial approval and reservation",
+                    "learningValue": "medium",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 140,
+            "elapsedSeconds": 10.599549458,
+            "firstContentSeconds": 3.532283833,
+            "promptTokens": 769
+          },
+          "discoveryWallSeconds": 10.602990792,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'stopped short of' indicates a deliberate limitation or refusal to go further than a certain point."
+              }
+            ],
+            "meaning": "The committee acknowledged his enthusiasm but did not fully support his proposals."
+          },
+          "explanationMetrics": {
+            "completionTokens": 65,
+            "elapsedSeconds": 5.440645792,
+            "firstContentSeconds": 2.204639625,
+            "promptTokens": 464
+          },
+          "explanationWallSeconds": 5.445957792,
+          "firstMeaningSeconds": 2.506725667,
+          "id": "implied-criticism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 50,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "7A9EFC98-0543-40C4-B8D4-BB38819BC64F",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The apology is used as a cover-up for his lack of concern.",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of a metaphor to describe a superficial excuse.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 139,
+            "elapsedSeconds": 10.740719625,
+            "firstContentSeconds": 3.804592542,
+            "promptTokens": 789
+          },
+          "discoveryWallSeconds": 10.742901042,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "A 'fig leaf' is a metaphor for something that hides or disguises a flaw or weakness."
+              }
+            ],
+            "meaning": "The apology served as a cover-up for his lack of concern."
+          },
+          "explanationMetrics": {
+            "completionTokens": 64,
+            "elapsedSeconds": 5.401667416,
+            "firstContentSeconds": 2.269796208,
+            "promptTokens": 456
+          },
+          "explanationWallSeconds": 5.406660958,
+          "firstMeaningSeconds": 2.575965667,
+          "id": "known-word-new-sense",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "F8DB1FB2-D93B-44BC-B71B-DAD1F66E00C7",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 25,
+                    "utf16Offset": 26
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A character places a book on a table after opening a window.",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Simple action with clear literal meaning",
+                    "learningValue": "low",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "lowLearningValue",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 92,
+            "elapsedSeconds": 8.273478458,
+            "firstContentSeconds": 3.693884167,
+            "promptTokens": 764
+          },
+          "discoveryWallSeconds": 8.275382042,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Opened' refers to the action of moving the window from a closed to an open position."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible."
+          },
+          "explanationMetrics": {
+            "completionTokens": 43,
+            "elapsedSeconds": 4.381790708,
+            "firstContentSeconds": 2.294455416,
+            "promptTokens": 457
+          },
+          "explanationWallSeconds": 4.383674083,
+          "firstMeaningSeconds": 2.445930166,
+          "id": "unremarkable-prose",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "A6A9CB6A-267E-4A89-8691-9861BEED399E",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The agreement failed to materialize or was abandoned.",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Explains a common idiomatic expression for a plan's failure.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 139,
+            "elapsedSeconds": 10.818102917000001,
+            "firstContentSeconds": 3.889605167,
+            "promptTokens": 788
+          },
+          "discoveryWallSeconds": 10.820093459,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'fell through' is used to indicate that a plan, arrangement, or agreement did not work out as intended."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 65,
+            "elapsedSeconds": 5.338490666,
+            "firstContentSeconds": 2.150890541,
+            "promptTokens": 451
+          },
+          "explanationWallSeconds": 5.340274416,
+          "firstMeaningSeconds": 2.451363916,
+          "id": "known-idiom",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "CA2E556A-FDDA-48B1-889C-2BC3A09A7551",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 42,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The statement suggests that truth is complex and not easily understood.",
+                    "expression": "rarely pure and never simple",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It introduces the idea that truth is multifaceted and not straightforward.",
+                    "learningValue": "high",
+                    "signals": [
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 140,
+            "elapsedSeconds": 10.744082875,
+            "firstContentSeconds": 3.709515833,
+            "promptTokens": 761
+          },
+          "discoveryWallSeconds": 10.7461345,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It implies that truth is not straightforward and may be influenced by various factors."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is critical and reflective, indicating a skepticism toward simplistic views of truth."
+              }
+            ],
+            "meaning": "The statement suggests that truth is complex and not easily understood, often involving multiple layers or interpretations."
+          },
+          "explanationMetrics": {
+            "completionTokens": 98,
+            "elapsedSeconds": 7.14544025,
+            "firstContentSeconds": 2.303482125,
+            "promptTokens": 460
+          },
+          "explanationWallSeconds": 7.147308584,
+          "firstMeaningSeconds": 2.607437584,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 13,
+            "length": 28
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "418BB0A6-F703-4052-89C8-01DA6224EE0C",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 38,
+                    "utf16Offset": 54
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Lucy has a lot of work to do.",
+                    "expression": "had her work cut out for her",
+                    "interpretationConfidence": "high",
+                    "learningReason": "idiom expressing a heavy workload",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 131,
+            "elapsedSeconds": 10.397545292,
+            "firstContentSeconds": 3.774889167,
+            "promptTokens": 775
+          },
+          "discoveryWallSeconds": 10.399524833,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The expression 'had her work cut out for her' is an idiom meaning she has a lot of work to do."
+              }
+            ],
+            "meaning": "The phrase suggests that Lucy has a significant or demanding task ahead of her."
+          },
+          "explanationMetrics": {
+            "completionTokens": 71,
+            "elapsedSeconds": 5.830303542,
+            "firstContentSeconds": 2.322783584,
+            "promptTokens": 474
+          },
+          "explanationWallSeconds": 5.834814166,
+          "firstMeaningSeconds": 2.62810925,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 28
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "34C8F1A5-310F-4DA9-8855-AC634E77307A",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 68,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The statement suggests a reciprocal relationship between language and thought, implying that language can influence and distort thought.",
+                    "expression": "corrupt",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The word 'corrupt' is used in a figurative sense to show how language can negatively affect thought, which is a nuanced usage.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 168,
+            "elapsedSeconds": 12.10601125,
+            "firstContentSeconds": 3.711669209,
+            "promptTokens": 765
+          },
+          "discoveryWallSeconds": 12.108004208,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It highlights how the way we express ideas can influence or alter our perceptions and beliefs."
+              }
+            ],
+            "meaning": "The statement suggests that language has the power to distort or mislead thinking, implying a reciprocal relationship between language and thought."
+          },
+          "explanationMetrics": {
+            "completionTokens": 73,
+            "elapsedSeconds": 5.888018292,
+            "firstContentSeconds": 2.299503875,
+            "promptTokens": 460
+          },
+          "explanationWallSeconds": 5.889927917,
+          "firstMeaningSeconds": 2.604183583,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 15
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "69330670-FD3F-49EC-BCDF-14403D1414C3",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 82,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Her strict adherence to social norms hides a flexible moral compass.",
+                    "expression": "punctilious observance of etiquette",
+                    "interpretationConfidence": "high",
+                    "learningReason": "contrasts external behavior with internal morality",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 147,
+            "elapsedSeconds": 11.151101916,
+            "firstContentSeconds": 3.713760416,
+            "promptTokens": 766
+          },
+          "discoveryWallSeconds": 11.153396417,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase suggests a contrast between outward propriety and inner moral flexibility."
+              }
+            ],
+            "meaning": "Her strict adherence to social norms masked a flexible moral compass."
+          },
+          "explanationMetrics": {
+            "completionTokens": 57,
+            "elapsedSeconds": 5.103556708,
+            "firstContentSeconds": 2.3138581670000002,
+            "promptTokens": 460
+          },
+          "explanationWallSeconds": 5.108728791,
+          "firstMeaningSeconds": 2.618741125,
+          "id": "literary-vocabulary",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 18
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "95599B2C-39BC-4610-A94B-7FB82147CD0A",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 63,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Expressing frustration with unnecessary meetings.",
+                    "expression": "mandatory meeting",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Highlights the speaker's dissatisfaction with inefficient communication methods.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "toneOrImplication"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 130,
+            "elapsedSeconds": 10.1789775,
+            "firstContentSeconds": 3.710130667,
+            "promptTokens": 769
+          },
+          "discoveryWallSeconds": 10.1809645,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "Sarcastic and annoyed"
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The speaker believes meetings are inefficient and overused"
+              }
+            ],
+            "meaning": "The speaker is sarcastically expressing frustration about another unnecessary meeting that could have been handled via email."
+          },
+          "explanationMetrics": {
+            "completionTokens": 84,
+            "elapsedSeconds": 6.464147916,
+            "firstContentSeconds": 2.300391875,
+            "promptTokens": 465
+          },
+          "explanationWallSeconds": 6.466066625,
+          "firstMeaningSeconds": 2.5998057919999997,
+          "id": "internet-sarcasm",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 64,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "908F1E50-6DF0-40E8-9149-28C3F8EB63D4",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 38,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The phrase 'just asking questions' is used sarcastically to imply that the speaker is actually engaging in a hostile or aggressive interrogation.",
+                    "expression": "'just asking questions'",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It demonstrates the use of sarcasm and the ability to interpret verbal irony in dialogue.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "toneOrImplication"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 161,
+            "elapsedSeconds": 11.946120916,
+            "firstContentSeconds": 3.70967475,
+            "promptTokens": 771
+          },
+          "discoveryWallSeconds": 11.948236542,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "Sealioning is a form of argumentative behavior where someone persistently asks leading or rhetorical questions to undermine another person's credibility."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The use of 'sealioning' suggests that the replies were perceived as dismissive or confrontational rather than genuinely inquisitive."
+              }
+            ],
+            "meaning": "The term 'sealioning' refers to the tactic of repeatedly asking questions in a way that appears to be seeking information but is actually intended to challenge or discredit someone's position."
+          },
+          "explanationMetrics": {
+            "completionTokens": 137,
+            "elapsedSeconds": 9.106436417,
+            "firstContentSeconds": 2.315927667,
+            "promptTokens": 466
+          },
+          "explanationWallSeconds": 9.113069542,
+          "firstMeaningSeconds": 2.620041875,
+          "id": "internet-unfamiliar",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 67,
+            "length": 10
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "54A67666-FDDE-4472-B12E-52BDB9FF3E3B",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 116,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The company uses euphemistic language to describe layoffs, making the action seem less harsh.",
+                    "expression": "'right-sizing exercise'",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of euphemisms to mask negative information.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "toneOrImplication"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 163,
+            "elapsedSeconds": 12.2653655,
+            "firstContentSeconds": 3.769280125,
+            "promptTokens": 775
+          },
+          "discoveryWallSeconds": 12.267736458,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Right-sizing' is a euphemism for downsizing, often used to make layoffs seem necessary for organizational health rather than a cost-cutting measure."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The term suggests a calculated, rational process, but employees perceive it as a manipulative tactic to ease the emotional impact of losing jobs."
+              }
+            ],
+            "meaning": "The company used 'right-sizing exercise' to describe layoffs, implying they were making the organization more efficient, while employees interpreted it as a way to mask the harsh reality of job cuts."
+          },
+          "explanationMetrics": {
+            "completionTokens": 142,
+            "elapsedSeconds": 9.355265834,
+            "firstContentSeconds": 2.313542167,
+            "promptTokens": 470
+          },
+          "explanationWallSeconds": 9.360379959,
+          "firstMeaningSeconds": 2.620213625,
+          "id": "nonfiction-euphemism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 34,
+            "length": 21
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "D9117A71-61E0-45B3-8958-D2C7012E438A",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 35,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The woman observed the man using a telescope, implying a distance or a specific method of observation.",
+                    "expression": "saw the man with the telescope",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Highlights the use of 'with' to indicate the instrument used for observation, which can be confusing for learners.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "grammar",
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 158,
+            "elapsedSeconds": 11.7809595,
+            "firstContentSeconds": 3.7157984170000002,
+            "promptTokens": 760
+          },
+          "discoveryWallSeconds": 11.785731792,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The prepositional phrase 'with the telescope' specifies the instrument she used for observation."
+              }
+            ],
+            "meaning": "The phrase indicates she used a telescope to observe the man."
+          },
+          "explanationMetrics": {
+            "completionTokens": 61,
+            "elapsedSeconds": 5.380055916,
+            "firstContentSeconds": 2.306121208,
+            "promptTokens": 455
+          },
+          "explanationWallSeconds": 5.3849290419999996,
+          "firstMeaningSeconds": 2.615623458,
+          "id": "genuine-ambiguity",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 16,
+            "length": 18
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "209940CD-C11F-4C73-B112-5E61DC82F5BA",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 19,
+                    "utf16Offset": 1251
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Martin's silence is interpreted as a strategic decision rather than genuine agreement.",
+                    "expression": "keep his powder dry",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of a metaphor for strategic restraint in political or social contexts.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 144,
+            "elapsedSeconds": 12.385658292,
+            "firstContentSeconds": 4.9784725420000004,
+            "promptTokens": 1005
+          },
+          "discoveryWallSeconds": 12.390975709,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase implies a calculated restraint, possibly to avoid being forced into a position or to preserve options for later."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "The tone is one of suspicion and subtle critique, indicating that Eleanor does not fully trust Martin's apparent neutrality."
+              }
+            ],
+            "meaning": "The phrase 'keep his powder dry' suggests that Martin is choosing to remain neutral or reserved, possibly to avoid revealing his true stance or to maintain strategic control over his position."
+          },
+          "explanationMetrics": {
+            "completionTokens": 127,
+            "elapsedSeconds": 10.164258416,
+            "firstContentSeconds": 3.405514083,
+            "promptTokens": 701
+          },
+          "explanationWallSeconds": 10.169192416,
+          "firstMeaningSeconds": 3.710652958,
+          "id": "page-mixed",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 1251,
+            "length": 19
+          }
+        },
+        {
+          "discoveryError": "invalidModelOutput",
+          "discoveryWallSeconds": 27.443252291,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase implies the booking was finalized and approved, not just noted or suggested."
+              }
+            ],
+            "meaning": "The librarian officially secured the meeting room reservation for the local history group."
+          },
+          "explanationMetrics": {
+            "completionTokens": 61,
+            "elapsedSeconds": 6.344707416,
+            "firstContentSeconds": 3.293120291,
+            "promptTokens": 670
+          },
+          "explanationWallSeconds": 6.354196625,
+          "firstMeaningSeconds": 3.60745225,
+          "id": "page-plain",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 481,
+            "length": 21
+          }
+        }
+      ]
+    },
+    "source-first-expanded-lean": {
+      "generatedAt": "2026-11-06T11:46:33Z",
+      "modelIdentity": "a05fd1fb4fac32efa1671fc892e1a68c0027f96bb3b991ff617fe10e65145ce7",
+      "note": "Review linguistic quality manually. Timings are real requests on this host; this is not an automatic quality score or a peak-memory measurement.",
+      "operatingSystem": "Version 27.2 (Build 26B123)",
+      "physicalMemoryBytes": 17179869184,
+      "promptVersion": "reading-analysis-4",
+      "records": [
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "E971FCF7-3D38-4240-BFEA-0A70FB650DD0",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 18,
+                    "utf16Offset": 87
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Returning to the original starting point of a situation with no progress made.",
+                    "expression": "back at square one",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates a common idiom for describing a situation where no progress has been made.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 145,
+            "elapsedSeconds": 11.909847625,
+            "firstContentSeconds": 3.927593458,
+            "promptTokens": 812
+          },
+          "discoveryWallSeconds": 11.912569166,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Fell through' means a plan or agreement failed to materialize."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or accepted, returning the situation to its original state."
+          },
+          "explanationMetrics": {
+            "completionTokens": 46,
+            "elapsedSeconds": 4.919895083,
+            "firstContentSeconds": 2.363011917,
+            "promptTokens": 503
+          },
+          "explanationWallSeconds": 4.925349875,
+          "firstMeaningSeconds": 2.523691,
+          "id": "idioms",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 12
+          }
+        },
+        {
+          "discoveryError": "invalidModelOutput",
+          "discoveryWallSeconds": 18.443744833,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Wanting' here means deficient or inadequate, not literally missing."
+              }
+            ],
+            "meaning": "His manners were lacking or insufficient, despite his wealth."
+          },
+          "explanationMetrics": {
+            "completionTokens": 55,
+            "elapsedSeconds": 5.185670083,
+            "firstContentSeconds": 2.366347041,
+            "promptTokens": 502
+          },
+          "explanationWallSeconds": 5.189853208,
+          "firstMeaningSeconds": 2.710204375,
+          "id": "literary-understatement",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 49,
+            "length": 31
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "B1E1E479-5910-4847-A423-43B7819EA67E",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 26,
+                    "utf16Offset": 50
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Expressing reluctance to fully support something despite acknowledging its merits",
+                    "expression": "stopped short of endorsing",
+                    "interpretationConfidence": "high",
+                    "learningReason": "illustrates nuanced communication of partial approval",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 135,
+            "elapsedSeconds": 11.545838916,
+            "firstContentSeconds": 3.988294291,
+            "promptTokens": 810
+          },
+          "discoveryWallSeconds": 11.54954825,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Stopped short of' means to not go as far as something else, implying a limitation or hesitation."
+              }
+            ],
+            "meaning": "The committee acknowledged his enthusiasm but did not fully support his proposals."
+          },
+          "explanationMetrics": {
+            "completionTokens": 48,
+            "elapsedSeconds": 4.83821575,
+            "firstContentSeconds": 2.461422292,
+            "promptTokens": 502
+          },
+          "explanationWallSeconds": 4.850675625,
+          "firstMeaningSeconds": 2.6277915,
+          "id": "implied-criticism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 50,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "97EAD803-9AC5-445E-9410-D07F0E21ECDD",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 8,
+                    "utf16Offset": 18
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A metaphor for something that hides or excuses a flaw or weakness.",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Introduces a metaphor with historical and literary significance.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 134,
+            "elapsedSeconds": 12.417255458,
+            "firstContentSeconds": 4.077675625,
+            "promptTokens": 830
+          },
+          "discoveryWallSeconds": 12.419196791,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Fig leaf' is a metaphor for something that hides a flaw or deficiency."
+              }
+            ],
+            "meaning": "The apology served as a cover-up for his lack of concern."
+          },
+          "explanationMetrics": {
+            "completionTokens": 43,
+            "elapsedSeconds": 5.027553667,
+            "firstContentSeconds": 2.613918417,
+            "promptTokens": 494
+          },
+          "explanationWallSeconds": 5.03230425,
+          "firstMeaningSeconds": 2.78359375,
+          "id": "known-word-new-sense",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": []
+          },
+          "discoveryMetrics": {
+            "completionTokens": 5,
+            "elapsedSeconds": 4.657639333,
+            "firstContentSeconds": 4.422251541,
+            "promptTokens": 805
+          },
+          "discoveryWallSeconds": 4.662682208,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Opened' refers to the action of moving the window from a closed to an open position."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible."
+          },
+          "explanationMetrics": {
+            "completionTokens": 43,
+            "elapsedSeconds": 4.801374458,
+            "firstContentSeconds": 2.574476458,
+            "promptTokens": 495
+          },
+          "explanationWallSeconds": 4.8038616659999995,
+          "firstMeaningSeconds": 2.753741666,
+          "id": "unremarkable-prose",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "661CACFA-0E68-42A6-B51B-1514575D1927",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 12,
+                    "utf16Offset": 14
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The agreement failed to materialize or was abandoned.",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates a common idiom for a plan or agreement failing.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 131,
+            "elapsedSeconds": 11.045054792,
+            "firstContentSeconds": 4.069046709,
+            "promptTokens": 829
+          },
+          "discoveryWallSeconds": 11.047100625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Fell through' means a plan or arrangement failed to work out as intended."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 40,
+            "elapsedSeconds": 5.044779666,
+            "firstContentSeconds": 2.488269,
+            "promptTokens": 489
+          },
+          "explanationWallSeconds": 5.048166292,
+          "firstMeaningSeconds": 2.674482833,
+          "id": "known-idiom",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "4E4CE3F4-2BF9-4301-A319-C0D38ECF9545",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 42,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The statement suggests that truth is complex and not easily understood.",
+                    "expression": "rarely pure and never simple",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It introduces the idea that truth is multifaceted and not straightforward, encouraging deeper analysis.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 152,
+            "elapsedSeconds": 12.076317,
+            "firstContentSeconds": 4.077879833,
+            "promptTokens": 802
+          },
+          "discoveryWallSeconds": 12.0809775,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The complexity of truth challenges simplistic interpretations."
+              }
+            ],
+            "meaning": "The statement suggests that truth is complex and not easily understood, implying that it often involves multiple layers or perspectives."
+          },
+          "explanationMetrics": {
+            "completionTokens": 45,
+            "elapsedSeconds": 4.707844875,
+            "firstContentSeconds": 2.483936459,
+            "promptTokens": 498
+          },
+          "explanationWallSeconds": 4.712299208,
+          "firstMeaningSeconds": 2.644905208,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 13,
+            "length": 28
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "02CF3842-F376-45E1-8FE0-FD5A39462F24",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 28,
+                    "utf16Offset": 63
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Lucy has a lot of tasks to complete.",
+                    "expression": "had her work cut out for her",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It's an idiom indicating a large amount of work.",
+                    "learningValue": "high",
+                    "signals": [
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 135,
+            "elapsedSeconds": 11.080767583,
+            "firstContentSeconds": 4.046068333,
+            "promptTokens": 816
+          },
+          "discoveryWallSeconds": 11.083107625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The expression 'had her work cut out for her' is an idiom meaning she has a lot of work to do."
+              }
+            ],
+            "meaning": "The phrase suggests that Lucy has a significant or demanding task ahead of her."
+          },
+          "explanationMetrics": {
+            "completionTokens": 71,
+            "elapsedSeconds": 6.132232334,
+            "firstContentSeconds": 2.495308542,
+            "promptTokens": 512
+          },
+          "explanationWallSeconds": 6.137441458,
+          "firstMeaningSeconds": 2.813084,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 28
+          }
+        },
+        {
+          "discoveryError": "invalidModelOutput",
+          "discoveryWallSeconds": 19.497365375,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "It highlights the influence of language on cognitive processes and the potential for ideological manipulation."
+              }
+            ],
+            "meaning": "The statement suggests that language has the power to distort or mislead thinking, implying a reciprocal relationship between language and thought."
+          },
+          "explanationMetrics": {
+            "completionTokens": 55,
+            "elapsedSeconds": 5.230771,
+            "firstContentSeconds": 2.393867042,
+            "promptTokens": 498
+          },
+          "explanationWallSeconds": 5.236917542,
+          "firstMeaningSeconds": 2.553259792,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 52,
+            "length": 15
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "E6DE95D0-DA7B-4A82-A48F-B39A1C47238B",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 35,
+                    "utf16Offset": 4
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A meticulous adherence to social norms that hides a flexible moral compass.",
+                    "expression": "punctilious observance of etiquette",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Introduces the contrast between outward propriety and inner moral flexibility.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 150,
+            "elapsedSeconds": 11.970240583,
+            "firstContentSeconds": 3.969254542,
+            "promptTokens": 807
+          },
+          "discoveryWallSeconds": 11.972295708,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Elastic conscience' suggests a morally flexible nature, contrasting with the rigid etiquette she displays."
+              }
+            ],
+            "meaning": "Her strict adherence to social norms masked a flexible moral compass."
+          },
+          "explanationMetrics": {
+            "completionTokens": 45,
+            "elapsedSeconds": 4.782080083,
+            "firstContentSeconds": 2.396981375,
+            "promptTokens": 498
+          },
+          "explanationWallSeconds": 4.787031125,
+          "firstMeaningSeconds": 2.5545389590000003,
+          "id": "literary-vocabulary",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 63,
+            "length": 18
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "CEE54D55-3FDC-4F05-A0B5-B446533FABFB",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 16,
+                    "utf16Offset": 64
+                  },
+                  "assessment": {
+                    "contextualMeaning": "Expressing sarcastic approval or disdain for a situation",
+                    "expression": "Love that for us",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Captures sarcasm and irony in modern communication",
+                    "learningValue": "medium",
+                    "signals": [
+                      "toneOrImplication",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 95,
+            "elapsedSeconds": 9.34763,
+            "firstContentSeconds": 3.996427667,
+            "promptTokens": 810
+          },
+          "discoveryWallSeconds": 9.353755125,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "tone",
+                "text": "sarcastic and exasperated"
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "the speaker believes meetings are inefficient and unnecessary"
+              }
+            ],
+            "meaning": "The speaker is sarcastically expressing frustration about another unnecessary meeting that could have been handled via email."
+          },
+          "explanationMetrics": {
+            "completionTokens": 56,
+            "elapsedSeconds": 5.334142125,
+            "firstContentSeconds": 2.400704959,
+            "promptTokens": 503
+          },
+          "explanationWallSeconds": 5.340774125,
+          "firstMeaningSeconds": 2.55775275,
+          "id": "internet-sarcasm",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 64,
+            "length": 16
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "31E43AA8-E58B-4CF6-903B-A25960154CEA",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 10,
+                    "utf16Offset": 67
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A dismissive tactic used to undermine someone's credibility by attacking their motives rather than addressing their argument.",
+                    "expression": "sealioning",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Introduces a specific rhetorical tactic with clear implications for critical thinking and discourse analysis.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 152,
+            "elapsedSeconds": 11.92775925,
+            "firstContentSeconds": 3.987039375,
+            "promptTokens": 812
+          },
+          "discoveryWallSeconds": 11.931625041,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "Sealioning is a form of argumentative behavior where someone persistently asks questions to provoke a response, often in a confrontational or dismissive manner."
+              },
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The use of 'sealioning' suggests that the replies were perceived as defensive or evasive, rather than genuinely seeking information."
+              }
+            ],
+            "meaning": "The term 'sealioning' refers to the tactic of repeatedly asking questions in a way that appears to be seeking information but is actually intended to challenge or discredit the person being questioned."
+          },
+          "explanationMetrics": {
+            "completionTokens": 142,
+            "elapsedSeconds": 9.712317375,
+            "firstContentSeconds": 2.370066833,
+            "promptTokens": 504
+          },
+          "explanationWallSeconds": 9.718811125,
+          "firstMeaningSeconds": 2.689536791,
+          "id": "internet-unfamiliar",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 67,
+            "length": 10
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "F73D82DD-72D6-4651-96FB-F03A48B3C3CF",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 21,
+                    "utf16Offset": 34
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A euphemistic term used by the company to describe layoffs, implying efficiency and cost-cutting without directly stating the negative impact on employees.",
+                    "expression": "right-sizing exercise",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It demonstrates how organizations use euphemisms to reframe negative actions, which is a common rhetorical strategy in business communication.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "idiom"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 164,
+            "elapsedSeconds": 12.503068416,
+            "firstContentSeconds": 3.892026541,
+            "promptTokens": 816
+          },
+          "discoveryWallSeconds": 12.508721291,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The term 'right-sizing' is a euphemism commonly used in business to describe reducing workforce or operations, often to imply efficiency rather than job loss."
+              }
+            ],
+            "meaning": "The phrase 'right-sizing exercise' is used by the company to describe layoffs in a way that sounds more positive or neutral, while employees interpret it as an attempt to make the negative news less harsh."
+          },
+          "explanationMetrics": {
+            "completionTokens": 85,
+            "elapsedSeconds": 6.5899885000000005,
+            "firstContentSeconds": 2.315779542,
+            "promptTokens": 508
+          },
+          "explanationWallSeconds": 6.59210625,
+          "firstMeaningSeconds": 2.467157583,
+          "id": "nonfiction-euphemism",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 34,
+            "length": 21
+          }
+        },
+        {
+          "discovery": {
+            "assessments": []
+          },
+          "discoveryMetrics": {
+            "completionTokens": 5,
+            "elapsedSeconds": 3.8801222920000003,
+            "firstContentSeconds": 3.680542209,
+            "promptTokens": 801
+          },
+          "discoveryWallSeconds": 3.882515459,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase indicates the use of a tool for distant observation."
+              }
+            ],
+            "meaning": "She observed the man using a telescope."
+          },
+          "explanationMetrics": {
+            "completionTokens": 34,
+            "elapsedSeconds": 3.990165833,
+            "firstContentSeconds": 2.334619042,
+            "promptTokens": 493
+          },
+          "explanationWallSeconds": 3.9931191249999998,
+          "firstMeaningSeconds": 2.487782542,
+          "id": "genuine-ambiguity",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 16,
+            "length": 18
+          }
+        },
+        {
+          "discoveryError": "invalidModelOutput",
+          "discoveryWallSeconds": 26.416933208,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The idiom implies strategic restraint, often used to describe someone who avoids taking a position or showing emotion to maintain an advantage."
+              }
+            ],
+            "meaning": "The phrase 'keep his powder dry' suggests that Martin is choosing to remain neutral or reserved, possibly to avoid revealing his true stance or to maintain strategic composure."
+          },
+          "explanationMetrics": {
+            "completionTokens": 72,
+            "elapsedSeconds": 6.906607125,
+            "firstContentSeconds": 3.357338584,
+            "promptTokens": 739
+          },
+          "explanationWallSeconds": 6.911564167,
+          "firstMeaningSeconds": 3.511695917,
+          "id": "page-mixed",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 1251,
+            "length": 19
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "3A39147C-B49B-4F59-9CB0-517A209DF9B7",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 583
+                  },
+                  "assessment": {
+                    "contextualMeaning": "a specific location for entry due to restricted access",
+                    "expression": "on the side of the building",
+                    "interpretationConfidence": "high",
+                    "learningReason": "illustrates how to describe a specific location in a practical context",
+                    "learningValue": "medium",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 95,
+            "elapsedSeconds": 9.469178959,
+            "firstContentSeconds": 4.697748834,
+            "promptTokens": 1016
+          },
+          "discoveryWallSeconds": 9.471163834,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Confirmed the booking' indicates the action of finalizing and ensuring the reservation is set."
+              }
+            ],
+            "meaning": "The librarian officially secured the meeting room reservation for the local history group."
+          },
+          "explanationMetrics": {
+            "completionTokens": 46,
+            "elapsedSeconds": 5.596251875,
+            "firstContentSeconds": 3.321451667,
+            "promptTokens": 708
+          },
+          "explanationWallSeconds": 5.598232583,
+          "firstMeaningSeconds": 3.474095625,
+          "id": "page-plain",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 481,
+            "length": 21
+          }
+        }
+      ]
+    },
+    "retained-repeat-checks": {
+      "generatedAt": "2026-11-06T11:53:19Z",
+      "modelIdentity": "a05fd1fb4fac32efa1671fc892e1a68c0027f96bb3b991ff617fe10e65145ce7",
+      "note": "Review linguistic quality manually. Timings are real requests on this host; this is not an automatic quality score or a peak-memory measurement.",
+      "operatingSystem": "Version 27.2 (Build 26B123)",
+      "physicalMemoryBytes": 17179869184,
+      "promptVersion": "reading-analysis-3",
+      "records": [
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "812D396A-FC48-444C-A5F8-4D8CF48923B9",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The apology is used as an excuse to hide true indifference.",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of a metaphor to describe a superficial excuse.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 137,
+            "elapsedSeconds": 10.461664875,
+            "firstContentSeconds": 3.661103958,
+            "promptTokens": 789
+          },
+          "discoveryWallSeconds": 10.463942083,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "A 'fig leaf' is a metaphor for something that hides or disguises a flaw or weakness."
+              }
+            ],
+            "meaning": "The apology served as a cover-up for his lack of concern."
+          },
+          "explanationMetrics": {
+            "completionTokens": 64,
+            "elapsedSeconds": 5.289569459,
+            "firstContentSeconds": 2.157985167,
+            "promptTokens": 456
+          },
+          "explanationWallSeconds": 5.2919575,
+          "firstMeaningSeconds": 2.463756333,
+          "id": "known-word-new-sense",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "9A4C4270-D89C-451D-84F5-6FF96729F0A8",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 25,
+                    "utf16Offset": 26
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A character places a book on a table after opening a window.",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Simple action with clear literal meaning",
+                    "learningValue": "low",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "lowLearningValue",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 91,
+            "elapsedSeconds": 8.0932245,
+            "firstContentSeconds": 3.475922834,
+            "promptTokens": 764
+          },
+          "discoveryWallSeconds": 8.095102334,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Opened' refers to the action of moving the window's closure to allow entry or exit."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible."
+          },
+          "explanationMetrics": {
+            "completionTokens": 43,
+            "elapsedSeconds": 4.242600083,
+            "firstContentSeconds": 2.159577292,
+            "promptTokens": 457
+          },
+          "explanationWallSeconds": 4.244596042,
+          "firstMeaningSeconds": 2.311738667,
+          "id": "unremarkable-prose",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "6C6E0E3C-F9FA-4951-A4C3-C93334D7E9A7",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The agreement failed to materialize or was abandoned.",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Explains the idiomatic meaning of 'fall through' as failure to happen.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 142,
+            "elapsedSeconds": 10.679307042,
+            "firstContentSeconds": 3.650410167,
+            "promptTokens": 788
+          },
+          "discoveryWallSeconds": 10.681307542,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'fell through' is used to indicate that a plan or arrangement collapsed or was abandoned."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 60,
+            "elapsedSeconds": 4.928877792,
+            "firstContentSeconds": 2.017347709,
+            "promptTokens": 451
+          },
+          "explanationWallSeconds": 4.930778583,
+          "firstMeaningSeconds": 2.315145791,
+          "id": "known-idiom",
+          "iteration": 1,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "BD67E29D-0B55-43CC-A5EB-64FF8D5BE812",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The apology is used as an excuse to hide true indifference.",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of a metaphor to describe a superficial excuse.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning",
+                      "semanticNuance"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 142,
+            "elapsedSeconds": 10.675985334,
+            "firstContentSeconds": 3.6469071250000002,
+            "promptTokens": 789
+          },
+          "discoveryWallSeconds": 10.677886666,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "A 'fig leaf' is a metaphor for something that hides or disguises a flaw or weakness."
+              }
+            ],
+            "meaning": "The apology served as a cover-up for his lack of concern."
+          },
+          "explanationMetrics": {
+            "completionTokens": 64,
+            "elapsedSeconds": 5.272317542,
+            "firstContentSeconds": 2.155592,
+            "promptTokens": 456
+          },
+          "explanationWallSeconds": 5.274219875,
+          "firstMeaningSeconds": 2.45982775,
+          "id": "known-word-new-sense",
+          "iteration": 2,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "1ED6E2E3-D134-4B56-9597-330036E81D1D",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 25,
+                    "utf16Offset": 26
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A character performs a simple action of placing a book on a table after opening a window.",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase demonstrates a straightforward action with clear verb-object relationship.",
+                    "learningValue": "low",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "lowLearningValue",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 101,
+            "elapsedSeconds": 8.486431458,
+            "firstContentSeconds": 3.495581917,
+            "promptTokens": 764
+          },
+          "discoveryWallSeconds": 8.488305292,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Opened' refers to the physical act of moving the window's closure."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible."
+          },
+          "explanationMetrics": {
+            "completionTokens": 39,
+            "elapsedSeconds": 4.099409708,
+            "firstContentSeconds": 2.177997542,
+            "promptTokens": 457
+          },
+          "explanationWallSeconds": 4.101388792,
+          "firstMeaningSeconds": 2.328764625,
+          "id": "unremarkable-prose",
+          "iteration": 2,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "9DB52FFC-F9F8-4513-A6BF-AAF3E19A22CE",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The agreement failed to materialize or was abandoned.",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "Explains a common idiomatic expression for a failed plan or agreement.",
+                    "learningValue": "high",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 140,
+            "elapsedSeconds": 10.727529125,
+            "firstContentSeconds": 3.774393709,
+            "promptTokens": 788
+          },
+          "discoveryWallSeconds": 10.732002416,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'fell through' is used to indicate that a plan or arrangement collapsed or was abandoned."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 60,
+            "elapsedSeconds": 5.00489275,
+            "firstContentSeconds": 2.080478709,
+            "promptTokens": 451
+          },
+          "explanationWallSeconds": 5.006836292,
+          "firstMeaningSeconds": 2.382746209,
+          "id": "known-idiom",
+          "iteration": 2,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "B5FB9300-02E3-49D3-927B-A334343E94C7",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 48,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "The apology is used as a cover-up for his lack of concern.",
+                    "expression": "fig leaf",
+                    "interpretationConfidence": "high",
+                    "learningReason": "It illustrates the use of a metaphor to describe a superficial excuse.",
+                    "learningValue": "high",
+                    "signals": [
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 139,
+            "elapsedSeconds": 11.065254167,
+            "firstContentSeconds": 3.845937958,
+            "promptTokens": 789
+          },
+          "discoveryWallSeconds": 11.067252541,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "A 'fig leaf' is a metaphor for something that hides or disguises a flaw or weakness."
+              }
+            ],
+            "meaning": "The apology served as a cover-up for his lack of concern."
+          },
+          "explanationMetrics": {
+            "completionTokens": 64,
+            "elapsedSeconds": 5.418027625,
+            "firstContentSeconds": 2.278251209,
+            "promptTokens": 456
+          },
+          "explanationWallSeconds": 5.421319208,
+          "firstMeaningSeconds": 2.582250417,
+          "id": "known-word-new-sense",
+          "iteration": 3,
+          "selectedUTF16Range": {
+            "offset": 18,
+            "length": 8
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "28E7F075-65E6-4065-8F1E-A92A4FADF3B2",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 25,
+                    "utf16Offset": 26
+                  },
+                  "assessment": {
+                    "contextualMeaning": "A character places a book on a table after opening a window.",
+                    "expression": "put the book on the table",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The action of placing an object on a surface is a common but precise verb phrase.",
+                    "learningValue": "medium",
+                    "signals": [
+                      "usefulVocabulary"
+                    ]
+                  }
+                },
+                "decision": "eligible",
+                "familiarity": {
+                  "state": "unknown"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 101,
+            "elapsedSeconds": 8.7353835,
+            "firstContentSeconds": 3.706049625,
+            "promptTokens": 764
+          },
+          "discoveryWallSeconds": 8.740350625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Opened' refers to the physical act of moving the window's closure to allow entry or exit."
+              }
+            ],
+            "meaning": "She began the action of making the window accessible."
+          },
+          "explanationMetrics": {
+            "completionTokens": 44,
+            "elapsedSeconds": 4.428695708,
+            "firstContentSeconds": 2.294648958,
+            "promptTokens": 457
+          },
+          "explanationWallSeconds": 4.430601125,
+          "firstMeaningSeconds": 2.447097334,
+          "id": "unremarkable-prose",
+          "iteration": 3,
+          "selectedUTF16Range": {
+            "offset": 4,
+            "length": 6
+          }
+        },
+        {
+          "discovery": {
+            "assessments": [
+              {
+                "candidate": {
+                  "anchor": {
+                    "documentID": "5C98B335-2006-43F8-BF25-DCE767361B43",
+                    "resource": {
+                      "text": {}
+                    },
+                    "revision": "evaluation-v1",
+                    "utf16Length": 27,
+                    "utf16Offset": 0
+                  },
+                  "assessment": {
+                    "contextualMeaning": "An agreement failed to materialize or was abandoned.",
+                    "expression": "fall through",
+                    "interpretationConfidence": "high",
+                    "learningReason": "The phrase 'fall through' is a common idiom with a specific meaning related to failure of plans.",
+                    "learningValue": "medium",
+                    "matchedSenseKey": "fail-to-happen",
+                    "senseMatchConfidence": "high",
+                    "signals": [
+                      "idiom",
+                      "figurativeMeaning"
+                    ]
+                  }
+                },
+                "decision": "alreadyKnown",
+                "familiarity": {
+                  "state": "known",
+                  "supportingSenseKey": "fail-to-happen"
+                }
+              }
+            ]
+          },
+          "discoveryMetrics": {
+            "completionTokens": 104,
+            "elapsedSeconds": 9.131520541,
+            "firstContentSeconds": 3.891018416,
+            "promptTokens": 788
+          },
+          "discoveryWallSeconds": 9.133502625,
+          "explanation": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase 'fell through' is used to indicate that a plan, arrangement, or agreement did not work out as intended."
+              }
+            ],
+            "meaning": "The agreement failed to be completed or realized."
+          },
+          "explanationMetrics": {
+            "completionTokens": 65,
+            "elapsedSeconds": 5.362395125,
+            "firstContentSeconds": 2.163263458,
+            "promptTokens": 451
+          },
+          "explanationWallSeconds": 5.366279042,
+          "firstMeaningSeconds": 2.466609125,
+          "id": "known-idiom",
+          "iteration": 3,
+          "selectedUTF16Range": {
+            "offset": 14,
+            "length": 12
+          }
+        }
+      ]
+    }
+  }
+}

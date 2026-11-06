@@ -1,0 +1,611 @@
+{
+  "hardware": "Mac mini, Apple M4, 10 cores, 16 GiB unified memory",
+  "runtime": "llama.cpp b12110 / cd959bae9 / 0.9.0-dev",
+  "runtimeArchiveSHA256": "4f5b8de12e0b9516658ca6a5764c6ffb3d7c659c3dd538556b1413c7b4050662",
+  "model": "Official Qwen/Qwen3-8B-GGUF, Qwen3-8B-Q4_K_M.gguf",
+  "modelBytes": 5027783488,
+  "modelSHA256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+  "measurementMethod": "Release Swift runner; 0.5-second native proc_pid_rusage v4, HOST_VM_INFO64 and sysctl sampling. Pressure 1=normal, 2=warning, 4=critical. System swap/compression include all applications. Private footprint excludes file-backed model mappings and does not represent total Metal/model allocation. GPU allocation is separately reported by llama.cpp.",
+  "sessions": {
+    "baseline-original": {
+      "promptVersion": "reading-analysis-2",
+      "caseCount": 6,
+      "finished": true,
+      "discoverySuccessCount": 6,
+      "explanationSuccessCount": 6,
+      "discoverySeconds": {
+        "count": 6,
+        "min": 11.418374667,
+        "median": 12.4308098955,
+        "p90": 12.924727792,
+        "max": 12.924727792
+      },
+      "explanationSeconds": {
+        "count": 6,
+        "min": 6.317559791,
+        "median": 7.844049646,
+        "p90": 9.713221291,
+        "max": 9.713221291
+      },
+      "firstReadableMeaningSeconds": null,
+      "decoderTokensPerSecond": {
+        "count": 12,
+        "min": 16.09,
+        "median": 16.93,
+        "p90": 18.62,
+        "max": 19.11
+      },
+      "explanationNoteCount": 15,
+      "decisions": {
+        "eligible": 4,
+        "alreadyKnown": 2
+      },
+      "errors": [],
+      "startup": {
+        "seconds": 12.175051708007231,
+        "port": 8087
+      },
+      "serverCommand": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "8192",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "f16",
+        "--cache-type-v",
+        "f16"
+      ],
+      "memory": {
+        "beforePressure": 2,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "2": 1
+          },
+          "loading": {
+            "2": 20,
+            "4": 3
+          },
+          "idle-loaded": {
+            "4": 2,
+            "2": 4
+          },
+          "inference": {
+            "2": 240
+          }
+        },
+        "peakResidentBytes": 3171319808,
+        "peakPrivateFootprintBytes": 1385026792,
+        "beforeSwapUsedBytes": 2366963712,
+        "peakSwapUsedBytes": 5888475136,
+        "swapInDeltaBytes": 865353728,
+        "swapOutDeltaBytes": 4242931712,
+        "beforeCompressorBytes": 6309019648,
+        "peakCompressorBytes": 8458862592,
+        "gpuReportedMiB": null,
+        "kvBufferMiB": []
+      }
+    },
+    "improved-expanded-lean": {
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 16,
+      "finished": true,
+      "discoverySuccessCount": 15,
+      "explanationSuccessCount": 16,
+      "discoverySeconds": {
+        "count": 16,
+        "min": 8.275382042,
+        "median": 10.986744938000001,
+        "p90": 12.390975709,
+        "max": 27.443252291
+      },
+      "explanationSeconds": {
+        "count": 16,
+        "min": 4.383674083,
+        "median": 5.6403859789999995,
+        "p90": 9.360379959,
+        "max": 10.169192416
+      },
+      "firstReadableMeaningSeconds": {
+        "count": 16,
+        "min": 2.445930166,
+        "median": 2.6058105835000003,
+        "p90": 3.60745225,
+        "max": 3.710652958
+      },
+      "decoderTokensPerSecond": {
+        "count": 32,
+        "min": 17.31,
+        "median": 19.895,
+        "p90": 20.11,
+        "max": 20.16
+      },
+      "explanationNoteCount": 21,
+      "decisions": {
+        "eligible": 13,
+        "lowLearningValue": 1,
+        "alreadyKnown": 1
+      },
+      "errors": [
+        {
+          "id": "page-plain",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        }
+      ],
+      "startup": {
+        "seconds": 3.5999816250114236,
+        "port": 8087
+      },
+      "serverCommand": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "2": 1
+          },
+          "loading": {
+            "1": 8
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 233,
+            "2": 349
+          }
+        },
+        "peakResidentBytes": 5282430976,
+        "peakPrivateFootprintBytes": 509465256,
+        "beforeSwapUsedBytes": 4819582976,
+        "peakSwapUsedBytes": 4819582976,
+        "swapInDeltaBytes": 255393792,
+        "swapOutDeltaBytes": 163250176,
+        "beforeCompressorBytes": 2806448128,
+        "peakCompressorBytes": 5442355200,
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        },
+        "kvBufferMiB": [
+          306.0
+        ]
+      }
+    },
+    "original-expanded-lean": {
+      "promptVersion": "reading-analysis-2",
+      "caseCount": 16,
+      "finished": true,
+      "discoverySuccessCount": 15,
+      "explanationSuccessCount": 16,
+      "discoverySeconds": {
+        "count": 16,
+        "min": 10.979841291,
+        "median": 12.888107979499999,
+        "p90": 13.907761625,
+        "max": 45.49329125
+      },
+      "explanationSeconds": {
+        "count": 16,
+        "min": 5.81174575,
+        "median": 7.970752292,
+        "p90": 11.79911,
+        "max": 14.443916
+      },
+      "firstReadableMeaningSeconds": {
+        "count": 16,
+        "min": 1.633921833,
+        "median": 1.7799121875,
+        "p90": 2.7914425830000003,
+        "max": 2.904797167
+      },
+      "decoderTokensPerSecond": {
+        "count": 31,
+        "min": 15.99,
+        "median": 18.44,
+        "p90": 19.44,
+        "max": 20.0
+      },
+      "explanationNoteCount": 41,
+      "decisions": {
+        "eligible": 13,
+        "alreadyKnown": 2
+      },
+      "errors": [
+        {
+          "id": "page-plain",
+          "iteration": 1,
+          "discovery": "timedOut",
+          "explanation": null
+        }
+      ],
+      "startup": {
+        "seconds": 4.609750333998818,
+        "port": 8087
+      },
+      "serverCommand": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "1": 1
+          },
+          "loading": {
+            "1": 9,
+            "2": 1
+          },
+          "idle-loaded": {
+            "2": 6
+          },
+          "inference": {
+            "2": 563,
+            "1": 169
+          }
+        },
+        "peakResidentBytes": 5021777920,
+        "peakPrivateFootprintBytes": 506811024,
+        "beforeSwapUsedBytes": 5326438400,
+        "peakSwapUsedBytes": 6631653376,
+        "swapInDeltaBytes": 1645068288,
+        "swapOutDeltaBytes": 1916583936,
+        "beforeCompressorBytes": 1487028224,
+        "peakCompressorBytes": 5602492416,
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        },
+        "kvBufferMiB": [
+          306.0
+        ]
+      }
+    },
+    "retained-repeat-checks": {
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 9,
+      "finished": true,
+      "discoverySuccessCount": 9,
+      "explanationSuccessCount": 9,
+      "discoverySeconds": {
+        "count": 9,
+        "min": 8.095102334,
+        "median": 10.463942083,
+        "p90": 11.067252541,
+        "max": 11.067252541
+      },
+      "explanationSeconds": {
+        "count": 9,
+        "min": 4.101388792,
+        "median": 5.006836292,
+        "p90": 5.421319208,
+        "max": 5.421319208
+      },
+      "firstReadableMeaningSeconds": {
+        "count": 9,
+        "min": 2.311738667,
+        "median": 2.447097334,
+        "p90": 2.582250417,
+        "max": 2.582250417
+      },
+      "decoderTokensPerSecond": {
+        "count": 18,
+        "min": 19.12,
+        "median": 20.049999999999997,
+        "p90": 20.21,
+        "max": 20.26
+      },
+      "explanationNoteCount": 9,
+      "decisions": {
+        "eligible": 4,
+        "lowLearningValue": 2,
+        "alreadyKnown": 3
+      },
+      "errors": [],
+      "startup": {
+        "seconds": 4.612476040987531,
+        "port": 8087
+      },
+      "serverCommand": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "1": 1
+          },
+          "loading": {
+            "1": 10
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 262
+          }
+        },
+        "peakResidentBytes": 5405425664,
+        "peakPrivateFootprintBytes": 508351096,
+        "beforeSwapUsedBytes": 4224778240,
+        "peakSwapUsedBytes": 4224778240,
+        "swapInDeltaBytes": 24395776,
+        "swapOutDeltaBytes": 0,
+        "beforeCompressorBytes": 1791459328,
+        "peakCompressorBytes": 4420993024,
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        },
+        "kvBufferMiB": [
+          306.0
+        ]
+      }
+    },
+    "source-first-expanded-lean": {
+      "promptVersion": "reading-analysis-4",
+      "caseCount": 16,
+      "finished": true,
+      "discoverySuccessCount": 13,
+      "explanationSuccessCount": 16,
+      "discoverySeconds": {
+        "count": 16,
+        "min": 3.882515459,
+        "median": 11.9220971035,
+        "p90": 19.497365375,
+        "max": 26.416933208
+      },
+      "explanationSeconds": {
+        "count": 16,
+        "min": 3.9931191249999998,
+        "median": 5.11900975,
+        "p90": 6.911564167,
+        "max": 9.718811125
+      },
+      "firstReadableMeaningSeconds": {
+        "count": 16,
+        "min": 2.467157583,
+        "median": 2.6596940205,
+        "p90": 3.474095625,
+        "max": 3.511695917
+      },
+      "decoderTokensPerSecond": {
+        "count": 32,
+        "min": 15.26,
+        "median": 18.905,
+        "p90": 19.79,
+        "max": 20.06
+      },
+      "explanationNoteCount": 18,
+      "decisions": {
+        "eligible": 10,
+        "alreadyKnown": 1
+      },
+      "errors": [
+        {
+          "id": "literary-understatement",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "orwell-1946",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "page-mixed",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        }
+      ],
+      "startup": {
+        "seconds": 6.129228667006828,
+        "port": 8087
+      },
+      "serverCommand": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "2": 1
+          },
+          "loading": {
+            "1": 10,
+            "2": 3
+          },
+          "idle-loaded": {
+            "2": 6
+          },
+          "inference": {
+            "2": 551,
+            "1": 14
+          }
+        },
+        "peakResidentBytes": 4216651776,
+        "peakPrivateFootprintBytes": 508990072,
+        "beforeSwapUsedBytes": 4630511616,
+        "peakSwapUsedBytes": 5668601856,
+        "swapInDeltaBytes": 1265664000,
+        "swapOutDeltaBytes": 1459552256,
+        "beforeCompressorBytes": 4314415104,
+        "peakCompressorBytes": 6162415616,
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        },
+        "kvBufferMiB": [
+          306.0
+        ]
+      }
+    }
+  }
+}

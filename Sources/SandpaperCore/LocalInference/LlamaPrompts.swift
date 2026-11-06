@@ -6,7 +6,7 @@ struct ChatMessage: Codable, Sendable {
 }
 
 enum LlamaPrompts {
-    static let version = "reading-analysis-2"
+    static let version = "reading-analysis-3"
 
     static func discovery(_ request: DiscoveryRequest) throws -> [ChatMessage] {
         struct Input: Encodable {
@@ -34,6 +34,19 @@ enum LlamaPrompts {
             ordinal judgments, not probabilities. High learning value means an insightful explanation
             would substantially improve understanding or useful usage. Medium means a useful addition.
             Low means little benefit for a fluent reader. Explain your reason without appealing to rarity.
+
+            Calibration for a FLUENT reader:
+            - "He put the keys on the shelf." needs NO candidates. Ordinary literal actions, basic
+              verb meanings and simple tense patterns do not become useful just because you can explain them.
+            - "She spilled the beans, and now he is on thin ice." has TWO independent idioms.
+              Assess both "spilled the beans" and "on thin ice"; do not stop after the first useful expression.
+            - If a memory defines "cold" as low temperature, "a cold reception" does NOT match it.
+              Familiar spelling is not familiar meaning. Before copying a memory key, substitute its
+              recorded meaning into the passage: if the sense changes, both match fields MUST be null.
+            - Select the smallest useful exact span, not its entire sentence or contrast clause.
+              Include enough words to preserve an idiom. Avoid surrounding punctuation when unnecessary.
+            Keep contextualMeaning to one concise sentence and learningReason to one short clause
+            (usually under 12 words). Do not repeat that a phrase is common or useful in general.
 
             Return JSON only: {"candidates":[{"quote":"exact text", "occurrence":0,
             "assessment":{"expression":"dictionary form or phrase", "contextualMeaning":"meaning here",
@@ -64,6 +77,16 @@ enum LlamaPrompts {
             Examples must be newly written, natural examples, never attributed quotations.
             No lexical sources are supplied: do not provide etymologies, citations, historical origin
             claims or unsupported usage-frequency statistics. All analysis is model interpretation.
+            Default to one or two concise sentences and NO notes. Add a note only if it supplies
+            a distinct insight, not a definition repeating the meaning. Do not attach examples automatically.
+            For a straightforward physical action, a short ordinary paraphrase is enough; do not invent
+            grammatical significance. For figurative "a wooden delivery", explain stiff, unnatural speech;
+            do not add a dictionary definition of timber or an origin story. Likewise, do not invent
+            physical-object definitions to explain other metaphors. Separate an accusation, suspicion,
+            or withheld endorsement from proven intent or rejection. When context permits two readings,
+            state the ambiguity rather than choosing one. Do not invent causes or motives when only
+            outcomes are supplied. Preserve an idiom's established core meaning when applying it to
+            this passage; do not redefine the idiom as merely the adjacent action or an inferred motive.
             Return JSON only, with meaning FIRST:
             {"meaning":"concise contextual answer", "notes":[{"kind":"usage", "text":"useful detail"}]}.
             Allowed note kinds: definition, usage, implication, tone, grammar, example, relatedExpression.

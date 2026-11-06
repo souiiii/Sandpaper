@@ -1,8 +1,10 @@
 # Local inference and discovery evaluation
 
-The adapter and policy are implemented. Real linguistic quality and M4 resource
-usage still require evaluation with installed weights. The automated HTTP tests
-use a loopback fixture, not a real language model.
+The Qwen3-8B Q4_K_M baseline was run on the 16 GB M4 Mac mini on 6 November 2026.
+See the [measured results](../evaluations/qwen3-8b-m4-2026-11-06/summary.md).
+Local execution works, but linguistic accuracy and automatic discovery remain
+insufficiently reliable for a finished reader. Automated HTTP tests still use a
+loopback fixture; the evaluation reports contain actual model generations.
 
 ## Resources
 
@@ -31,14 +33,16 @@ Replace the two paths below with your installed executable and model file:
   --model /path/to/Qwen3-8B-Q4_K_M.gguf \
   --alias sandpaper-local \
   --host 127.0.0.1 --port 8087 \
-  --ctx-size 8192 --parallel 1 \
+  --ctx-size 4096 --parallel 1 \
   --n-gpu-layers 99 --batch-size 512 --ubatch-size 128 \
+  --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on \
   --cache-ram 0 --no-context-shift --no-webui \
   --jinja --chat-template-kwargs '{"enable_thinking":false}'
 ```
 
-The context and batch sizes are conservative starting settings, not measured
-performance guarantees. `--cache-ram 0` avoids the server's large additional
+These are the settings used in the retained evaluation. The Q8 KV buffer measured
+306 MiB. They do not guarantee comfortable memory pressure with other apps open,
+and a 4096-token context may require shorter passages. `--cache-ram 0` avoids the server's large additional
 prompt-cache allowance. One slot prevents concurrent model generations. The app
 client can cancel its request to release work. Server process supervision and
 hard recovery from an unresponsive worker are not implemented yet; for now the
@@ -57,13 +61,24 @@ From the repository root:
 swift run sandpaper-evaluate --output /tmp/sandpaper-evaluation.json
 ```
 
+Use a release build for timings and include the additional literary, contemporary,
+ambiguity, and page-length cases:
+
+```sh
+swift run -c release sandpaper-evaluate --extended --output /tmp/sandpaper-evaluation.json
+# Optional focused repeat:
+swift run -c release sandpaper-evaluate --case known-word-new-sense --repeat 3 --output /tmp/sandpaper-repeat.json
+```
+
 The six cases include the three supplied passages, a known literal expression
 used figuratively, an ordinary sentence, and a known idiom. The report contains
 candidate assessments, suppression decisions, real explanations, token usage,
 and elapsed time including the engine's availability/template/tokenizer checks.
-`firstContentSeconds` measures first JSON content, not necessarily the first
-readable meaning. The coordinator's separate availability check and UI delay are
-not included. The runtime model identity hashes alias/path, not weight contents;
+`firstContentSeconds` measures first JSON content. The runner's `firstMeaningSeconds`
+measures the first nonempty readable preview, not the completed answer. Its wall-time
+fields include the coordinator's availability checks; engine metrics do not. UI
+rendering delay is not measured. Completed cases are checkpointed to the requested
+output path. The runtime model identity hashes alias/path, not weight contents;
 retain the model filename and checksum when comparing different weight files.
 
 Inspect the responses against each case's `reviewFocus`. This runner does not
