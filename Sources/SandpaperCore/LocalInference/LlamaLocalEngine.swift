@@ -142,11 +142,13 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
     ) async throws -> Data {
         let start = ContinuousClock.now
         let properties = try await probe()
-        let messageData = try LibraryDatabase.encode(messages)
+        let messageData = try LibraryDatabase.encode(configuration.chatFormat.messages(messages))
         let messageObjects = try JSONSerialization.jsonObject(with: messageData)
-        let templateBody = try JSONSerialization.data(withJSONObject: [
-            "messages": messageObjects, "chat_template_kwargs": ["enable_thinking": false]
-        ], options: [.sortedKeys])
+        var templateParameters: [String: Any] = ["messages": messageObjects]
+        if configuration.chatFormat == .native {
+            templateParameters["chat_template_kwargs"] = ["enable_thinking": false]
+        }
+        let templateBody = try JSONSerialization.data(withJSONObject: templateParameters, options: [.sortedKeys])
         let template: Template = try await client.json("/apply-template", body: templateBody)
         let tokenBody = try JSONSerialization.data(withJSONObject: [
             "content": template.prompt, "add_special": true, "parse_special": true
@@ -157,13 +159,18 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         // server silently discard the beginning of the reading passage.
         let required = tokens.tokens.count + maximumOutputTokens + 256
         guard required <= available else { throw LocalInferenceError.contextExceeded(required: required, available: available) }
-        let body = try JSONSerialization.data(withJSONObject: [
+        var parameters: [String: Any] = [
             "model": configuration.modelAlias, "messages": messageObjects,
             "stream": true, "stream_options": ["include_usage": true],
             "temperature": 0.2, "max_tokens": maximumOutputTokens,
-            "cache_prompt": true, "reasoning_effort": "none", "chat_template_kwargs": ["enable_thinking": false],
+            "cache_prompt": true,
             "response_format": ["type": "json_schema", "json_schema": ["name": name, "strict": true, "schema": schema]]
-        ], options: [.sortedKeys])
+        ]
+        if configuration.chatFormat == .native {
+            parameters["reasoning_effort"] = "none"
+            parameters["chat_template_kwargs"] = ["enable_thinking": false]
+        }
+        let body = try JSONSerialization.data(withJSONObject: parameters, options: [.sortedKeys])
         let collector = ChatStreamCollector(start: start)
         try await client.stream("/v1/chat/completions", body: body) { event in
             try await collector.ingest(event, onUpdate: onUpdate)

@@ -1,0 +1,567 @@
+{
+  "hardware": "Apple M4 Mac mini, 16 GiB unified RAM, macOS 27.2",
+  "runtime": "llama.cpp b12110 / cd959bae9 / 0.9.0-dev",
+  "gemmaAsset": {
+    "repository": "ggml-org/gemma-3-12b-it-GGUF",
+    "revision": "ec0cbabd8dbff316f659876a50202295c3c4a314",
+    "file": "gemma-3-12b-it-Q4_K_M.gguf",
+    "bytes": 7300574976,
+    "sha256": "7bb69bff3f48a7b642355d64a90e481182a7794707b3133890646b1efa778ff5"
+  },
+  "comparisonLimitations": [
+    "Qwen figures are recorded historical runs, not rerun concurrently with Gemma; background memory and caches differ.",
+    "No explicit sampling seed; repeated outputs are observations, not statistical reliability estimates.",
+    "Pressure, swap and compression are system-wide. Private footprint excludes mapped weights; it is not total model RAM.",
+    "First preview is provisional; successful JSON does not prove linguistic correctness.",
+    "No frontend frame-rate or perceived-comfort measurement."
+  ],
+  "sessions": {
+    "improved-expanded-lean": {
+      "model": "Qwen3-8B Q4_K_M (historical, thinking disabled)",
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 16,
+      "discoveryValid": 15,
+      "explanationValid": 16,
+      "decisions": {
+        "eligible": 13,
+        "lowLearningValue": 1,
+        "alreadyKnown": 1
+      },
+      "requestTimeoutSeconds": 45,
+      "startup": {
+        "seconds": 3.5999816250114236,
+        "port": 8087
+      },
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "decodeTokensPerSecond": {
+        "count": 32,
+        "min": 17.31,
+        "median": 19.895,
+        "p90": 20.11,
+        "max": 20.16
+      },
+      "errors": [
+        {
+          "id": "page-plain",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        }
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "2": 1
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 233,
+            "2": 349
+          },
+          "loading": {
+            "1": 8
+          }
+        },
+        "peakResidentBytes": 5282430976,
+        "peakPrivateFootprintBytes": 509465256,
+        "beforeSwapUsedBytes": 4819582976,
+        "peakSwapUsedBytes": 4819582976,
+        "swapOutDeltaBytes": 163250176,
+        "swapInDeltaBytes": 255393792,
+        "kvBufferMiB": [
+          306.0
+        ],
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        }
+      },
+      "discoveryWallSeconds": {
+        "count": 16,
+        "min": 8.275382042,
+        "median": 10.986744938000001,
+        "p90": 12.390975709,
+        "max": 27.443252291
+      },
+      "explanationWallSeconds": {
+        "count": 16,
+        "min": 4.383674083,
+        "median": 5.6403859789999995,
+        "p90": 9.360379959,
+        "max": 10.169192416
+      },
+      "firstMeaningSeconds": {
+        "count": 16,
+        "min": 2.445930166,
+        "median": 2.6058105835000003,
+        "p90": 3.60745225,
+        "max": 3.710652958
+      }
+    },
+    "retained-repeat-checks": {
+      "model": "Qwen3-8B Q4_K_M (historical, thinking disabled)",
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 9,
+      "discoveryValid": 9,
+      "explanationValid": 9,
+      "decisions": {
+        "eligible": 4,
+        "lowLearningValue": 2,
+        "alreadyKnown": 3
+      },
+      "requestTimeoutSeconds": 45,
+      "startup": {
+        "seconds": 4.612476040987531,
+        "port": 8087
+      },
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/Qwen3-8B-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--chat-template-kwargs",
+        "{\"enable_thinking\":false}",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "decodeTokensPerSecond": {
+        "count": 18,
+        "min": 19.12,
+        "median": 20.049999999999997,
+        "p90": 20.21,
+        "max": 20.26
+      },
+      "errors": [],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "1": 1
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 262
+          },
+          "loading": {
+            "1": 10
+          }
+        },
+        "peakResidentBytes": 5405425664,
+        "peakPrivateFootprintBytes": 508351096,
+        "beforeSwapUsedBytes": 4224778240,
+        "peakSwapUsedBytes": 4224778240,
+        "swapOutDeltaBytes": 0,
+        "swapInDeltaBytes": 24395776,
+        "kvBufferMiB": [
+          306.0
+        ],
+        "gpuReportedMiB": {
+          "totalSelf": 4807,
+          "model": 4455,
+          "context": 308,
+          "compute": 43
+        }
+      },
+      "discoveryWallSeconds": {
+        "count": 9,
+        "min": 8.095102334,
+        "median": 10.463942083,
+        "p90": 11.067252541,
+        "max": 11.067252541
+      },
+      "explanationWallSeconds": {
+        "count": 9,
+        "min": 4.101388792,
+        "median": 5.006836292,
+        "p90": 5.421319208,
+        "max": 5.421319208
+      },
+      "firstMeaningSeconds": {
+        "count": 9,
+        "min": 2.311738667,
+        "median": 2.447097334,
+        "p90": 2.582250417,
+        "max": 2.582250417
+      }
+    },
+    "gemma3-expanded-lean": {
+      "model": "Gemma 3 12B IT Q4_K_M",
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 16,
+      "discoveryValid": 11,
+      "explanationValid": 16,
+      "decisions": {
+        "eligible": 9,
+        "lowLearningValue": 1
+      },
+      "requestTimeoutSeconds": 45,
+      "startup": {
+        "seconds": 3.07138258399209,
+        "port": 8087
+      },
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "decodeTokensPerSecond": {
+        "count": 32,
+        "min": 12.33,
+        "median": 12.64,
+        "p90": 12.86,
+        "max": 12.9
+      },
+      "errors": [
+        {
+          "id": "implied-criticism",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "known-idiom",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "woolf-1925",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "internet-sarcasm",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "page-mixed",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        }
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "1": 1
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 705
+          },
+          "loading": {
+            "1": 7
+          }
+        },
+        "peakResidentBytes": 7517470720,
+        "peakPrivateFootprintBytes": 1363073888,
+        "beforeSwapUsedBytes": 1285488640,
+        "peakSwapUsedBytes": 1285488640,
+        "swapOutDeltaBytes": 0,
+        "swapInDeltaBytes": 2031616,
+        "kvBufferMiB": [
+          136.0,
+          212.5
+        ],
+        "gpuReportedMiB": {
+          "totalSelf": 7378,
+          "model": 6956,
+          "context": 361,
+          "compute": 61
+        }
+      },
+      "discoveryWallSeconds": {
+        "count": 16,
+        "min": 6.346200792,
+        "median": 14.339601250000001,
+        "p90": 16.076592458,
+        "max": 16.9016455
+      },
+      "explanationWallSeconds": {
+        "count": 16,
+        "min": 5.350267334,
+        "median": 8.3168756045,
+        "p90": 10.185205458,
+        "max": 11.498685916
+      },
+      "firstMeaningSeconds": {
+        "count": 16,
+        "min": 3.928644833,
+        "median": 4.152731333,
+        "p90": 5.870890625,
+        "max": 6.111433083
+      }
+    },
+    "gemma3-repeat-checks": {
+      "model": "Gemma 3 12B IT Q4_K_M",
+      "promptVersion": "reading-analysis-3",
+      "caseCount": 14,
+      "discoveryValid": 9,
+      "explanationValid": 14,
+      "decisions": {
+        "eligible": 7
+      },
+      "requestTimeoutSeconds": 45,
+      "startup": {
+        "seconds": 1.0325610419968143,
+        "port": 8087
+      },
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "decodeTokensPerSecond": {
+        "count": 28,
+        "min": 12.4,
+        "median": 12.605,
+        "p90": 12.8,
+        "max": 12.81
+      },
+      "errors": [
+        {
+          "id": "known-idiom",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "genuine-ambiguity",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "page-mixed",
+          "iteration": 1,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "known-idiom",
+          "iteration": 2,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        },
+        {
+          "id": "page-mixed",
+          "iteration": 2,
+          "discovery": "invalidModelOutput",
+          "explanation": null
+        }
+      ],
+      "memory": {
+        "beforePressure": 1,
+        "phasePressureSampleCounts": {
+          "after-inference": {
+            "1": 1
+          },
+          "idle-loaded": {
+            "1": 6
+          },
+          "inference": {
+            "1": 588
+          },
+          "loading": {
+            "1": 3
+          }
+        },
+        "peakResidentBytes": 8485208064,
+        "peakPrivateFootprintBytes": 1230150424,
+        "beforeSwapUsedBytes": 1277100032,
+        "peakSwapUsedBytes": 1277100032,
+        "swapOutDeltaBytes": 0,
+        "swapInDeltaBytes": 983040,
+        "kvBufferMiB": [
+          136.0,
+          212.5
+        ],
+        "gpuReportedMiB": {
+          "totalSelf": 7378,
+          "model": 6956,
+          "context": 361,
+          "compute": 61
+        }
+      },
+      "discoveryWallSeconds": {
+        "count": 14,
+        "min": 6.5689037500000005,
+        "median": 14.473278041499999,
+        "p90": 16.546059292,
+        "max": 16.946617333
+      },
+      "explanationWallSeconds": {
+        "count": 14,
+        "min": 5.487733667,
+        "median": 7.497664729,
+        "p90": 10.04421975,
+        "max": 10.055449666
+      },
+      "firstMeaningSeconds": {
+        "count": 14,
+        "min": 3.934949667,
+        "median": 4.162193666,
+        "p90": 6.129248417,
+        "max": 6.130172625
+      }
+    }
+  },
+  "qwenManualMainRunReview": {
+    "truePositiveEligible": 10,
+    "falsePositiveEligible": 3,
+    "precision": 0.7692307692307693,
+    "requiredTargetsCovered": 10,
+    "requiredTargetCount": 20,
+    "recall": 0.5,
+    "explanationJudgments": {
+      "sound": 10,
+      "partial": 4,
+      "incorrect": 2
+    }
+  },
+  "gemmaManualMainRunReview": {
+    "truePositiveEligible": 9,
+    "falsePositiveEligible": 0,
+    "precision": 1.0,
+    "requiredTargetsCovered": 7,
+    "requiredTargetCount": 20,
+    "recall": 0.35,
+    "explanationJudgments": {
+      "sound": 8,
+      "partial": 6,
+      "incorrect": 2
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "genuine-ambiguity": {
+    "observations": 3,
+    "discoveryValid": 2,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [
+        "with the telescope"
+      ],
+      [],
+      [
+        "with the telescope"
+      ]
+    ]
+  },
+  "idioms": {
+    "observations": 3,
+    "discoveryValid": 3,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [
+        "fell through"
+      ],
+      [
+        "fell through"
+      ],
+      [
+        "fell through"
+      ]
+    ]
+  },
+  "internet-unfamiliar": {
+    "observations": 3,
+    "discoveryValid": 3,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [
+        "just asking questions"
+      ],
+      [
+        "just asking questions"
+      ],
+      [
+        "just asking questions"
+      ]
+    ]
+  },
+  "known-idiom": {
+    "observations": 3,
+    "discoveryValid": 0,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [],
+      [],
+      []
+    ]
+  },
+  "known-word-new-sense": {
+    "observations": 3,
+    "discoveryValid": 3,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [
+        "fig leaf"
+      ],
+      [
+        "fig leaf"
+      ],
+      [
+        "fig leaf"
+      ]
+    ]
+  },
+  "page-mixed": {
+    "observations": 3,
+    "discoveryValid": 0,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [],
+      [],
+      []
+    ]
+  },
+  "unremarkable-prose": {
+    "observations": 3,
+    "discoveryValid": 3,
+    "explanationValid": 3,
+    "eligibleQuotes": [
+      [],
+      [],
+      []
+    ]
+  },
+  "manualNotes": [
+    "No second idiom in any of the three idioms observations.",
+    "Known idiom and mixed-page discovery invalid in all three observations.",
+    "No ordinary-prose highlights in all three; all three manual explanations invent unlocking.",
+    "Figurative fig leaf eligible in all three; all three explanations add unsourced biblical-origin material under relatedExpression.",
+    "Telescope discovery valid twice and invalid once; all three explanations conflate the readings.",
+    "Sealioning itself missed in all three; one discovery repeat asserts feigned neutrality and intent to derail, rather than merely perceived disruption."
+  ]
+}

@@ -17,16 +17,38 @@ public enum LocalInferenceError: Error, Equatable, Sendable {
     case transportFailure(Int)
 }
 
+public enum LocalChatFormat: String, Codable, Sendable {
+    case native
+    case gemma3
+
+    func messages(_ messages: [ChatMessage]) throws -> [ChatMessage] {
+        guard self == .gemma3 else { return messages }
+        guard messages.count == 2, messages[0].role == "system", messages[1].role == "user" else {
+            throw LocalInferenceError.invalidConfiguration
+        }
+        // Gemma 3 IT has user/model roles, with instructions in the initial user
+        // turn. Keep the source JSON explicitly separate from those instructions.
+        let instructions = messages[0].content.replacingOccurrences(
+            of: "The next message is JSON", with: "The reading material below is JSON"
+        )
+        return [ChatMessage(role: "user", content:
+            instructions + "\n\n<reading_material>\n" + messages[1].content + "\n</reading_material>"
+        )]
+    }
+}
+
 /// A port, not an arbitrary URL: inference cannot be directed to a remote host.
 public struct LlamaServerConfiguration: Sendable {
     public let port: Int
     public let modelAlias: String
     public let contextTokenLimit: Int
     public let timeout: TimeInterval
+    public let chatFormat: LocalChatFormat
 
     public init(
         port: Int = 8_087, modelAlias: String = "sandpaper-local",
-        contextTokenLimit: Int = 8_192, timeout: TimeInterval = 45
+        contextTokenLimit: Int = 8_192, timeout: TimeInterval = 45,
+        chatFormat: LocalChatFormat = .native
     ) throws {
         guard (1...65_535).contains(port), !modelAlias.isEmpty, modelAlias.utf8.count <= 256,
               (2_048...16_384).contains(contextTokenLimit), timeout.isFinite, (1...120).contains(timeout) else {
@@ -36,6 +58,7 @@ public struct LlamaServerConfiguration: Sendable {
         self.modelAlias = modelAlias
         self.contextTokenLimit = contextTokenLimit
         self.timeout = timeout
+        self.chatFormat = chatFormat
     }
 }
 

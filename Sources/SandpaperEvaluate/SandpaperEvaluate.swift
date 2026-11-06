@@ -25,6 +25,8 @@ struct SandpaperEvaluate {
         let generatedAt: Date
         let modelIdentity: String
         let promptVersion: String
+        let chatFormat: LocalChatFormat
+        let requestTimeoutSeconds: TimeInterval
         let operatingSystem: String
         let physicalMemoryBytes: UInt64
         let records: [Record]
@@ -38,6 +40,8 @@ struct SandpaperEvaluate {
             var extended = false
             var selectedIDs: Set<String> = []
             var repetitions = 1
+            var chatFormat = LocalChatFormat.native
+            var timeout: TimeInterval = 45
             var arguments = Array(CommandLine.arguments.dropFirst())[...]
             while let argument = arguments.popFirst() {
                 switch argument {
@@ -45,6 +49,7 @@ struct SandpaperEvaluate {
                     print("""
                         Usage: sandpaper-evaluate [--port 8087] [--output report.json]
                                [--extended] [--case CASE-ID ...] [--repeat 1...5]
+                               [--chat-format native|gemma3] [--timeout 1...120]
                         Requires a local llama.cpp server with alias sandpaper-local and one slot.
                         Evaluates six baseline cases; --extended adds ten representative passages.
                         No model downloads, cloud requests, or automatic quality claims.
@@ -64,6 +69,12 @@ struct SandpaperEvaluate {
                 case "--repeat":
                     guard let value = arguments.popFirst(), let count = Int(value), (1...5).contains(count) else { throw CLIError.arguments }
                     repetitions = count
+                case "--chat-format":
+                    guard let value = arguments.popFirst(), let parsed = LocalChatFormat(rawValue: value) else { throw CLIError.arguments }
+                    chatFormat = parsed
+                case "--timeout":
+                    guard let value = arguments.popFirst(), let seconds = Double(value) else { throw CLIError.arguments }
+                    timeout = seconds
                 default: throw CLIError.arguments
                 }
             }
@@ -71,7 +82,7 @@ struct SandpaperEvaluate {
             guard selectedIDs.isSubset(of: Set(allCases.map(\.id))) else { throw CLIError.arguments }
             let cases = selectedIDs.isEmpty ? (extended ? allCases : EvaluationCase.cases)
                 : allCases.filter { selectedIDs.contains($0.id) }
-            let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: port))
+            let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: port, timeout: timeout, chatFormat: chatFormat))
             guard case .ready(let identity) = await engine.availability() else { throw CLIError.serverUnavailable }
             let coordinator = AnalysisCoordinator(engine: engine, debounce: .zero)
             var records: [Record] = []
@@ -109,11 +120,11 @@ struct SandpaperEvaluate {
                 ))
                 // Preserve completed observations if a later request is interrupted.
                 if let output {
-                    try encodeReport(identity: identity, records: records).write(to: output, options: .atomic)
+                    try encodeReport(identity: identity, records: records, chatFormat: chatFormat, timeout: timeout).write(to: output, options: .atomic)
                 }
               }
             }
-            let data = try encodeReport(identity: identity, records: records)
+            let data = try encodeReport(identity: identity, records: records, chatFormat: chatFormat, timeout: timeout)
             if let output { try data.write(to: output, options: .atomic) }
             else { FileHandle.standardOutput.write(data); print("") }
             if records.contains(where: { $0.discoveryError != nil || $0.explanationError != nil }) { exit(1) }
@@ -129,9 +140,10 @@ struct SandpaperEvaluate {
         }
     }
 
-    private static func encodeReport(identity: String, records: [Record]) throws -> Data {
+    private static func encodeReport(identity: String, records: [Record], chatFormat: LocalChatFormat, timeout: TimeInterval) throws -> Data {
         let report = Report(
             generatedAt: Date(), modelIdentity: identity, promptVersion: LlamaLocalEngine.promptVersion,
+            chatFormat: chatFormat, requestTimeoutSeconds: timeout,
             operatingSystem: ProcessInfo.processInfo.operatingSystemVersionString,
             physicalMemoryBytes: ProcessInfo.processInfo.physicalMemory, records: records
         )

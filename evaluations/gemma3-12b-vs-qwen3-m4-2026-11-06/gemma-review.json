@@ -1,0 +1,152 @@
+{
+  "method": "Manual semantic review against rubric.json. Related useful nuance and optional ambiguity are allowed for precision but excluded from required-target recall. Core defensibility is scored separately from signal/rationale and explanation defects. Main 16-case Gemma run only.",
+  "session": "gemma3-expanded-lean",
+  "cases": [
+    {
+      "id": "idioms",
+      "coveredTargets": [
+        "failed-plan"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Only fell through selected; back at square one missed."
+    },
+    {
+      "id": "literary-understatement",
+      "coveredTargets": [
+        "deficient-manners"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Manners deficiency recognized with compact span; wealth expression missed."
+    },
+    {
+      "id": "implied-criticism",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Discovery invalid. Explanation acknowledges refraining from support; note appropriately says suggests rather than establishes lack of confidence."
+    },
+    {
+      "id": "known-word-new-sense",
+      "coveredTargets": [
+        "figurative-cover"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "partial",
+      "comment": "Figurative sense remains eligible. Explanation adds biblical-origin material without lexical sources despite explicit prohibition."
+    },
+    {
+      "id": "unremarkable-prose",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "partial",
+      "comment": "Empty candidates: correct control. Explanation invents unlocking the window."
+    },
+    {
+      "id": "known-idiom",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Discovery invalid, so successful same-sense suppression is not established. Core agreement failure explanation correct."
+    },
+    {
+      "id": "wilde-1895",
+      "coveredTargets": [
+        "paradox"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Compact paradox span and contextual complexity."
+    },
+    {
+      "id": "woolf-1925",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Discovery invalid. Explanation correctly paraphrases a lot of work/busyness, albeit without demanding-work nuance."
+    },
+    {
+      "id": "orwell-1946",
+      "coveredTargets": [
+        "language-thought"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "incorrect",
+      "comment": "Discovery preserves reciprocal degradation. Explanation instead describes harmful ideas influencing thinking; its note discusses flawed language distorting thought and harmful ideas poisoning thinking, failing to clearly state the reciprocal thought-to-language direction."
+    },
+    {
+      "id": "literary-vocabulary",
+      "coveredTargets": [
+        "precise-etiquette"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Compact punctilious span; unsupported Victorian attribution and figurative signal are weaknesses in the assessment. Separate elastic conscience target missed. Explanation conveys moral flexibility."
+    },
+    {
+      "id": "internet-sarcasm",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "sound",
+      "comment": "Discovery invalid. Explanation correctly recognizes ironic approval as unwelcome."
+    },
+    {
+      "id": "internet-unfamiliar",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [
+        "just asking questions: claimed inquiry versus perceived disruption"
+      ],
+      "explanation": "partial",
+      "comment": "Discovery just asking questions is a useful additional contextual contrast between claimed inquiry and perceived disruption; it does not discover sealioning itself. Explanation gives a reasonable generic tactic definition but does not clearly distinguish the replies accusation from established intent."
+    },
+    {
+      "id": "nonfiction-euphemism",
+      "coveredTargets": [
+        "corporate-euphemism"
+      ],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "partial",
+      "comment": "Compact euphemism and correct core. Explanation unnecessarily introduces financial difficulties or poor performance as a contrast absent from the passage."
+    },
+    {
+      "id": "genuine-ambiguity",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [
+        "with the telescope: recognition of ambiguity (incomplete enumeration)"
+      ],
+      "explanation": "incorrect",
+      "comment": "Discovery names ambiguity about who uses the telescope: useful optional highlight, but does not explicitly enumerate both attachments and adds unsupported older-prose/figurative labels. Explanation conflates the man holding/using it with her instrument, rather than separating readings."
+    },
+    {
+      "id": "page-mixed",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "partial",
+      "comment": "Discovery invalid, missing all six opportunities. Explanation improves on Qwen by reserving opinions/actions for a later moment, but gives unsourced origin material under relatedExpression."
+    },
+    {
+      "id": "page-plain",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "additionalUsefulHighlights": [],
+      "explanation": "partial",
+      "comment": "Low-value candidate suppressed, although its archaic library procedure rationale is unsupported. Core confirmation paraphrase is grounded in passage email; extra authority/standard-procedure note is unnecessary inference."
+    }
+  ]
+}

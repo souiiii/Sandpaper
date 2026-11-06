@@ -2,6 +2,8 @@
 
 The Qwen3-8B Q4_K_M baseline was run on the 16 GB M4 Mac mini on 6 November 2026.
 See the [measured results](../evaluations/qwen3-8b-m4-2026-11-06/summary.md).
+The subsequent [Gemma 3 12B comparison](../evaluations/gemma3-12b-vs-qwen3-m4-2026-11-06/summary.md)
+records the same cases and focused repeats; it did not justify replacing Qwen.
 Local execution works, but linguistic accuracy and automatic discovery remain
 insufficiently reliable for a finished reader. Automated HTTP tests still use a
 loopback fixture; the evaluation reports contain actual model generations.
@@ -19,6 +21,17 @@ Its release points to the b12110 binary build; use the macOS arm64 build from
 [the official release](https://github.com/ggml-org/llama.cpp/releases/tag/b12110).
 Keep its accompanying libraries alongside the executable. Alternatively, build
 the pinned v0.9.0 source. Nothing in Sandpaper installs or downloads these files.
+
+For the Gemma comparison, use `gemma-3-12b-it-Q4_K_M.gguf` from
+[ggml-org's original IT quantization](https://huggingface.co/ggml-org/gemma-3-12b-it-GGUF/tree/ec0cbabd8dbff316f659876a50202295c3c4a314),
+not the separate QAT variant. The file is 7,300,574,976 bytes; its SHA-256 is
+`7bb69bff3f48a7b642355d64a90e481182a7794707b3133890646b1efa778ff5`.
+Use the same server command below with that model path, omitting
+`--chat-template-kwargs '{"enable_thinking":false}'`, and pass `--chat-format gemma3`
+to the evaluation runner. In backend code, use `LlamaServerConfiguration(chatFormat: .gemma3)`.
+Gemma's instructions are merged into its initial user turn; the embedded GGUF
+template supplies the native delimiters. Both token budgeting and generation use
+the same messages. Qwen's default configuration remains unchanged.
 
 Lexical datasets are not required to run this baseline. Their import and lookup
 are a subsequent increment. Until they exist, explanations carry model-interpretation

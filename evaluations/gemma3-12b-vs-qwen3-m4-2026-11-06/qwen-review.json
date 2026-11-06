@@ -1,0 +1,144 @@
+{
+  "method": "Manual semantic review against rubric.json, frozen before Gemma generation; quality judgments are diagnostic, not statistically calibrated. Main retained reading-analysis-3 Qwen run only.",
+  "session": "improved-expanded-lean",
+  "cases": [
+    {
+      "id": "idioms",
+      "coveredTargets": [
+        "restart"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "One idiom selected; fell through missed."
+    },
+    {
+      "id": "literary-understatement",
+      "coveredTargets": [
+        "wealth"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Expression focuses on considerable means; whole-sentence anchor does not earn both targets. Learning reason falsely contrasts wealth with financial resources."
+    },
+    {
+      "id": "implied-criticism",
+      "coveredTargets": [
+        "withheld-endorsement"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Core withheld support correct; not fully support is slightly imprecise about endorsement."
+    },
+    {
+      "id": "known-word-new-sense",
+      "coveredTargets": [
+        "figurative-cover"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Figurative sense remains eligible despite literal memory; overbroad sentence anchor."
+    },
+    {
+      "id": "unremarkable-prose",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "explanation": "partial",
+      "comment": "No eligible highlight. Explanation adds began to completed opened, and making window accessible is awkward."
+    },
+    {
+      "id": "known-idiom",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Correct same-sense suppression."
+    },
+    {
+      "id": "wilde-1895",
+      "coveredTargets": [
+        "paradox"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Core complexity recognized; whole-sentence span."
+    },
+    {
+      "id": "woolf-1925",
+      "coveredTargets": [
+        "demanding-work"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Core demanding task recognized."
+    },
+    {
+      "id": "orwell-1946",
+      "coveredTargets": [
+        "language-thought"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Figurative corrupt and reciprocity recognized; whole-sentence span."
+    },
+    {
+      "id": "literary-vocabulary",
+      "coveredTargets": [
+        "precise-etiquette"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Assessment expression focuses on punctilious etiquette; cannot count the independently missed elastic conscience merely from sentence overlap."
+    },
+    {
+      "id": "internet-sarcasm",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [
+        "mandatory meeting"
+      ],
+      "explanation": "partial",
+      "comment": "Selected lexical expression is literal mandatory meeting; broader sarcastic irritation does not explain the target Love that for us. Explanation overgeneralizes from this meeting to meetings generally."
+    },
+    {
+      "id": "internet-unfamiliar",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [
+        "just asking questions"
+      ],
+      "explanation": "incorrect",
+      "comment": "Discovery asserts hostile interrogation and sarcasm without enough evidence; misses sealioning. Explanation confuses replies with the accused speaker and asserts actual intent."
+    },
+    {
+      "id": "nonfiction-euphemism",
+      "coveredTargets": [
+        "corporate-euphemism"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "partial",
+      "comment": "Core euphemism correct, but notes add ungrounded organizational-health versus cost-cutting contrast and employees emotional/motive claims."
+    },
+    {
+      "id": "genuine-ambiguity",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [
+        "saw the man with the telescope"
+      ],
+      "explanation": "incorrect",
+      "comment": "Definite instrument reading despite two attachments."
+    },
+    {
+      "id": "page-mixed",
+      "coveredTargets": [
+        "preserve-readiness"
+      ],
+      "falsePositiveExpressions": [],
+      "explanation": "partial",
+      "comment": "Discovery earns one strategic-restraint target with incomplete gloss. Explanation frames core meaning as neutrality/reserve; readiness is not clear. Five other independent targets missed."
+    },
+    {
+      "id": "page-plain",
+      "coveredTargets": [],
+      "falsePositiveExpressions": [],
+      "explanation": "sound",
+      "comment": "Discovery invalid, hence no delivered highlights; no recall targets on this control. Plain reservation paraphrase sound."
+    }
+  ]
+}
