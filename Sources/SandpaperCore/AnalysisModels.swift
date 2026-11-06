@@ -4,10 +4,20 @@ public struct Explanation: Codable, Equatable, Sendable {
     /// The concise contextual answer is always present. Additional sections are optional.
     public let meaning: String
     public let details: [Detail]
+    public let dictionaryEvidence: [DictionaryEvidence]
 
-    public init(meaning: String, details: [Detail] = []) {
+    public init(meaning: String, details: [Detail] = [], dictionaryEvidence: [DictionaryEvidence] = []) {
         self.meaning = meaning
         self.details = details
+        self.dictionaryEvidence = dictionaryEvidence
+    }
+
+    private enum CodingKeys: String, CodingKey { case meaning, details, dictionaryEvidence }
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        meaning = try values.decode(String.self, forKey: .meaning)
+        details = try values.decode([Detail].self, forKey: .details)
+        dictionaryEvidence = try values.decodeIfPresent([DictionaryEvidence].self, forKey: .dictionaryEvidence) ?? []
     }
 
     public struct Detail: Codable, Equatable, Sendable {
@@ -80,9 +90,12 @@ public struct AnalysisPassage: Codable, Equatable, Sendable {
 public struct ExplanationRequest: Sendable {
     public let passage: AnalysisPassage
     public let selection: SourceAnchor
+    public let dictionaryEvidence: [DictionaryEvidence]
 
-    public init(passage: AnalysisPassage, selection: SourceAnchor) throws {
+    public init(passage: AnalysisPassage, selection: SourceAnchor, dictionaryEvidence: [DictionaryEvidence] = []) throws {
         try passage.validate()
+        guard dictionaryEvidence.count <= 2 else { throw LibraryError.invalidInput("Too many dictionary excerpts.") }
+        try dictionaryEvidence.forEach { try $0.validate() }
         guard selection.documentID == passage.documentID,
               selection.revision == passage.revision,
               selection.resource == passage.resource,
@@ -98,6 +111,7 @@ public struct ExplanationRequest: Sendable {
         }
         self.passage = passage
         self.selection = selection
+        self.dictionaryEvidence = dictionaryEvidence
     }
 }
 

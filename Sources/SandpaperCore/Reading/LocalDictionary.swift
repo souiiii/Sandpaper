@@ -1,6 +1,7 @@
 import CoreServices
 import CryptoKit
 import Foundation
+import NaturalLanguage
 
 public struct DictionaryEntry: Identifiable, Equatable, Sendable {
     public let id: String
@@ -30,12 +31,19 @@ public actor MacOSDictionary: LocalDictionary {
         if let index = cache.firstIndex(where: { $0.0 == query }) {
             let value = cache.remove(at: index); cache.append(value); return value.1
         }
-        let definition = DCSCopyTextDefinition(nil, query as CFString, CFRange(location: 0, length: query.utf16.count))?.takeRetainedValue() as String?
+        var headword = query
+        var definition = Self.definition(query)
+        // Retry an inflected phrase only after an exact miss. Do not fall back to a
+        // component word: its definition could be mistaken for the whole idiom.
+        if definition == nil, let lemma = Self.phraseLemma(query), let candidate = Self.definition(lemma),
+           candidate.range(of: lemma, options: .caseInsensitive) != nil {
+            headword = lemma; definition = candidate
+        }
         try Task.checkCancellation()
         var entries: [DictionaryEntry] = []
         if let definition, !definition.isEmpty {
-            let id = SHA256.hash(data: Data((query + "\0" + definition).utf8)).map { String(format: "%02x", $0) }.joined()
-            entries = [DictionaryEntry(id: "macos:" + id, query: query, text: definition, provider: "macOS active dictionaries")]
+            let id = SHA256.hash(data: Data((headword + "\0" + definition).utf8)).map { String(format: "%02x", $0) }.joined()
+            entries = [DictionaryEntry(id: "macos:" + id, query: headword, text: definition, provider: "macOS active dictionaries")]
         }
         // Bound retained article text as well as entry count.
         if (definition?.utf8.count ?? 0) <= 262_144 {
@@ -43,5 +51,23 @@ public actor MacOSDictionary: LocalDictionary {
             while cache.count > 32 || cache.reduce(0, { $0 + $1.1.reduce(0, { $0 + $1.text.utf8.count }) }) > 2_097_152 { cache.removeFirst() }
         }
         return entries
+    }
+
+    private static func definition(_ query: String) -> String? {
+        DCSCopyTextDefinition(nil, query as CFString, CFRange(location: 0, length: query.utf16.count))?.takeRetainedValue() as String?
+    }
+
+    static func phraseLemma(_ query: String) -> String? {
+        let words = query.split(whereSeparator: \.isWhitespace)
+        guard (2...8).contains(words.count), let first = words.first else { return nil }
+        let tagger = NLTagger(tagSchemes: [.lemma])
+        tagger.string = query
+        tagger.setLanguage(.english, range: query.startIndex..<query.endIndex)
+        // The system tagger treats the homograph "fell" as the tree-cutting verb,
+        // even in "fell through". Retry the other common verb only on an exact miss.
+        let lemma = first.lowercased() == "fell" ? "fall"
+            : tagger.tag(at: query.startIndex, unit: .word, scheme: .lemma).0?.rawValue
+        guard let lemma, lemma.caseInsensitiveCompare(String(first)) != .orderedSame else { return nil }
+        return ([lemma] + words.dropFirst().map(String.init)).joined(separator: " ")
     }
 }

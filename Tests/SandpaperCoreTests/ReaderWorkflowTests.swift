@@ -99,6 +99,20 @@ struct ReaderWorkflowTests {
         #expect(try await library.readingPosition(for: other.id) == nil)
     }
 
+    @Test func savingCannotTurnHalfASurrogateIntoADictionaryMeaning() async throws {
+        let (root, library, document) = try await setup()
+        defer { try? FileManager.default.removeItem(at: root) }
+        let session = ReaderSession(library: library, dictionary: EmojiDictionary())
+        _ = try await session.open(documentID: document.id)
+        let text = try await session.content(for: .text).text
+        let selection = try await session.select(documentID: document.id, resource: .text, range: (text as NSString).range(of: "means"))
+        let entry = try #require(await session.lookup(selectionID: selection.id).first)
+        await #expect(throws: (any Error).self) {
+            try await session.save(selectionID: selection.id, meaning: .dictionary(entryID: entry.id, range: NSRange(location: 1, length: 1)))
+        }
+        #expect(try await library.vocabulary().isEmpty)
+    }
+
     @Test func nativeDictionaryReturnsFactsOrAnExplicitEmptyResultWithoutAI() async throws {
         let entries = try await MacOSDictionary().lookup("serendipity")
         for entry in entries { #expect(!entry.text.isEmpty); #expect(entry.provider == "macOS active dictionaries") }
@@ -152,5 +166,11 @@ private actor WorkflowDictionary: LocalDictionary {
     func lookup(_ expression: String) -> [DictionaryEntry] {
         [DictionaryEntry(id: "fixture:means", query: expression,
             text: "means: 1 financial resources; wealth. 2 a method.", provider: "Fixture dictionary")]
+    }
+}
+
+private struct EmojiDictionary: LocalDictionary {
+    func lookup(_ expression: String) async throws -> [DictionaryEntry] {
+        [DictionaryEntry(id: "emoji", query: expression, text: "🌊 a wave", provider: "Fixture")]
     }
 }

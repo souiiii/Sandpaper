@@ -29,6 +29,7 @@ public actor ReaderSession {
     private var selected: ReadingSelection?
     private var entries: [DictionaryEntry] = []
     private var completedExplanation: Explanation?
+    private var explanationRequest = UUID()
 
     public init(library: DocumentLibrary, dictionary: any LocalDictionary = MacOSDictionary(),
         engine: any LocalAnalysisEngine = UnconfiguredLocalEngine()) {
@@ -95,11 +96,23 @@ public actor ReaderSession {
     }
 
     public func explain(selectionID: UUID,
+        dictionaryAssistance: Bool = false,
         onUpdate: @escaping @Sendable (String) async -> Void = { _ in }) async throws -> Explanation {
         let selection = try requireSelection(selectionID)
+        let token = UUID(); explanationRequest = token
         completedExplanation = nil
-        let result = try await analysis.explain(selection.request, onUpdate: onUpdate)
+        await analysis.cancelAll()
+        var evidence: [DictionaryEvidence] = []
+        if dictionaryAssistance, selection.anchor.quote.utf16.count <= 512 {
+            if entries.isEmpty { _ = try await lookup(selectionID: selectionID) }
+            evidence = try DictionaryEvidence.relevantExcerpts(from: entries)
+        }
         _ = try requireSelection(selectionID)
+        guard explanationRequest == token else { throw CancellationError() }
+        let request = try ExplanationRequest(passage: selection.request.passage, selection: selection.request.selection, dictionaryEvidence: evidence)
+        let result = try await analysis.explain(request, onUpdate: onUpdate)
+        _ = try requireSelection(selectionID)
+        guard explanationRequest == token else { throw CancellationError() }
         completedExplanation = result
         return result
     }
@@ -189,7 +202,7 @@ public actor ReaderSession {
     private func excerpt(_ text: String, range: NSRange) throws -> String {
         guard range.location >= 0, range.length > 0, range.location <= text.utf16.count,
               range.length <= text.utf16.count - range.location, let swiftRange = Range(range, in: text),
-              NSRange(swiftRange, in: text) == range else { throw LibraryError.invalidInput("Meaning selection is outside the entry or splits a character.") }
+              NSRange(swiftRange, in: text) == range, String(text[swiftRange]).utf16.count == range.length else { throw LibraryError.invalidInput("Meaning selection is outside the entry or splits a character.") }
         return try checkedMeaning(String(text[swiftRange]))
     }
 

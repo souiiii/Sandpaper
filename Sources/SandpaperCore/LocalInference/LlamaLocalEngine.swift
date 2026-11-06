@@ -59,19 +59,18 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         defer { running = false }
         let data = try await complete(
             messages: LlamaPrompts.explanation(request), schema: LlamaPrompts.explanationSchema(),
-            name: "explanation", maximumOutputTokens: 1_024, onUpdate: onUpdate
+            name: "explanation", maximumOutputTokens: 512, onUpdate: onUpdate
         )
         let output: ExplanationOutput
         do { output = try JSONDecoder().decode(ExplanationOutput.self, from: data) }
         catch { throw AnalysisError.invalidModelOutput }
-        // No lexical data is available yet. A model cannot promote its own prose
-        // into sourced facts or invent an etymology by adding a citation field.
-        guard output.notes.count <= 8, output.notes.allSatisfy({ $0.kind != .etymology }) else {
+        // Evidence is attached from the request, never from model-authored source IDs.
+        guard output.notes.isEmpty, output.meaning.utf16.count <= 2_048 else {
             throw AnalysisError.invalidModelOutput
         }
         let result = Explanation(meaning: output.meaning, details: output.notes.map {
             .init(kind: $0.kind, text: $0.text, basis: $0.kind == .example ? .generatedExample : .interpretation)
-        })
+        }, dictionaryEvidence: request.dictionaryEvidence)
         try result.validate()
         return result
     }

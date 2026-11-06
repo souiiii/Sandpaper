@@ -19,7 +19,8 @@ public enum PDFSelectionBridge {
             for item in 0..<count {
                 let range = selection.range(at: item, on: page)
                 guard range.location != NSNotFound, range.length > 0,
-                      let swiftRange = Range(range, in: text), NSRange(swiftRange, in: text) == range else { throw ReaderError.invalidDocument }
+                      let swiftRange = Range(range, in: text), NSRange(swiftRange, in: text) == range,
+                      String(text[swiftRange]).utf16.count == range.length else { throw ReaderError.invalidDocument }
                 result.append(PDFTextRange(pageIndex: index, range: range))
             }
         }

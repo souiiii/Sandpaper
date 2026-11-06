@@ -49,7 +49,7 @@ struct LlamaLocalEngineTests {
         let server = try await TestLlamaServer.start(.init(tokenCount: 8_000))
         defer { server.close() }
         let engine = LlamaLocalEngine(configuration: try LlamaServerConfiguration(port: server.port))
-        await #expect(throws: LocalInferenceError.contextExceeded(required: 9_280, available: 8_192)) {
+        await #expect(throws: LocalInferenceError.contextExceeded(required: 8_768, available: 8_192)) {
             try await engine.explain(explanationRequest(), onUpdate: { _ in })
         }
         #expect(await !server.state.requests.contains { $0.path == "/v1/chat/completions" })

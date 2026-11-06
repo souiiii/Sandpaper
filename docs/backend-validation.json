@@ -1,0 +1,2756 @@
+{
+  "hardware": "Apple M4 Mac mini, 16 GiB unified RAM; macOS 27.2; other apps left running",
+  "runtime": "llama.cpp b12110 / cd959bae9, Metal, one slot, q8_0 KV, 4096 context, temperature 0.2",
+  "model": {
+    "name": "Gemma 3 12B IT Q4_K_M (original IT, not QAT)",
+    "bytes": 7300574976,
+    "sha256": "7bb69bff3f48a7b642355d64a90e481182a7794707b3133890646b1efa778ff5"
+  },
+  "method": [
+    "No response cache; every answer generated anew. llama.cpp reused shared prompt/KV prefixes. Startup excluded from response timings.",
+    "Final prompt checked twice on 24 passages; earlier three controls each checked once on the original 19. Different memory/cache conditions mean latency differences are observational, not isolated causal estimates.",
+    "Manual unblinded linguistic review. Several cases guided prompt improvements; heldout IDs are labels, not a claim of blind evaluation.",
+    "Dictionary evidence text omitted from this artifact; metadata and hashes retained. Native articles remain runtime-local.",
+    "RSS/private footprint do not measure all unified GPU/file-mapped weights. Server reported 7378 MiB Metal allocations (6956 model, 361 context, 61 compute); these and RSS must not be added as disjoint memory.",
+    "Pressure values: 1 normal, 2 warning, 4 critical. System swap and pressure include all apps; samples roughly every 0.5s. No claim that all observed memory changes were caused by Sandpaper.",
+    "Four public documents are compatibility samples, not coverage of every publication or a 250000-page stress test. No visual frontend validation."
+  ],
+  "assets": [
+    {
+      "file": "wilde.epub",
+      "url": "https://www.gutenberg.org/ebooks/844.epub3.images",
+      "term": "truth",
+      "bytes": 311728,
+      "sha256": "0c96ea822cad5a3aa52325a2bbec0b8c2fd57390853896b608403ee035606945"
+    },
+    {
+      "file": "wilde.txt",
+      "url": "https://www.gutenberg.org/ebooks/844.txt.utf-8",
+      "term": "truth",
+      "bytes": 141840,
+      "sha256": "1b8a58099bb1cdef6a845277a4bacf2f4a268702c165bde30124d4b5105d1851"
+    },
+    {
+      "file": "paper.pdf",
+      "url": "https://arxiv.org/pdf/2303.06623",
+      "term": "models",
+      "bytes": 478253,
+      "sha256": "7b22e70a80e4696a389945065c0211c94eba51c056e3a1335ab6da3c7e67d95a"
+    },
+    {
+      "file": "readme.md",
+      "url": "https://raw.githubusercontent.com/weichsel/ZIPFoundation/0.9.20/README.md",
+      "term": "archive",
+      "bytes": 14275,
+      "sha256": "c0d06031a16ae8cce14bff09a48d1158d903809f6d1cd59dd08804fb45c2bd59"
+    }
+  ],
+  "passages": [
+    {
+      "id": "agreement",
+      "text": "After months of negotiations, the agreement finally fell through, leaving both parties back at square one.",
+      "selection": "fell through",
+      "reviewFocus": "Failed agreement; no literal falling or invented reasons."
+    },
+    {
+      "id": "wealth",
+      "text": "He was a gentleman of considerable means, though his manners were rather wanting.",
+      "selection": "of considerable means",
+      "reviewFocus": "Financial resources or wealth, not methods."
+    },
+    {
+      "id": "understatement",
+      "text": "He was a gentleman of considerable means, though his manners were rather wanting.",
+      "selection": "his manners were rather wanting",
+      "reviewFocus": "Deficient manners; formal understatement, not desire."
+    },
+    {
+      "id": "endorsement",
+      "text": "The committee praised his enthusiasm, though they stopped short of endorsing any of his proposals.",
+      "selection": "stopped short of",
+      "reviewFocus": "Withheld endorsement does not prove rejection or private motives."
+    },
+    {
+      "id": "fig-leaf",
+      "text": "His apology was a fig leaf for his indifference.",
+      "selection": "fig leaf",
+      "reviewFocus": "Superficial concealment; no unsolicited biblical-origin story."
+    },
+    {
+      "id": "plain",
+      "text": "She opened the window and put the book on the table.",
+      "selection": "opened",
+      "reviewFocus": "Simple opening, no invented unlocking or extra significance."
+    },
+    {
+      "id": "wilde-1895",
+      "text": "The truth is rarely pure and never simple.",
+      "selection": "rarely pure and never simple",
+      "reviewFocus": "Complexity of truth, no plot knowledge. Wilde, The Importance of Being Earnest, 1895."
+    },
+    {
+      "id": "woolf-1925",
+      "text": "Mrs. Dalloway said she would buy the flowers herself. For Lucy had her work cut out for her.",
+      "selection": "had her work cut out for her",
+      "reviewFocus": "Large/demanding task. Woolf, Mrs. Dalloway, 1925, opening."
+    },
+    {
+      "id": "orwell-1946",
+      "text": "But if thought corrupts language, language can also corrupt thought.",
+      "selection": "corrupt thought",
+      "reviewFocus": "Language distorting thinking; preserve reciprocal direction. Orwell, Politics and the English Language, 1946."
+    },
+    {
+      "id": "sarcasm",
+      "text": "Great, another mandatory meeting that could have been an email. Love that for us.",
+      "selection": "Love that for us",
+      "reviewFocus": "Likely ironic disapproval; no invented details."
+    },
+    {
+      "id": "sealioning",
+      "text": "He said he was 'just asking questions', but the replies read it as sealioning.",
+      "selection": "sealioning",
+      "reviewFocus": "Persistent superficially civil demands; accusation does not prove intent."
+    },
+    {
+      "id": "ambiguity",
+      "text": "She saw the man with the telescope.",
+      "selection": "with the telescope",
+      "reviewFocus": "Both telescope attachments, no initial definite assertion."
+    },
+    {
+      "id": "powder-figurative",
+      "text": "Martin accepted the amendment without comment. Eleanor suspected he was keeping his powder dry until the final vote.",
+      "selection": "keeping his powder dry",
+      "reviewFocus": "Preserve readiness for later action; Eleanor's suspicion is not proven intent."
+    },
+    {
+      "id": "powder-literal",
+      "text": "He kept his powder dry by the stove before loading the musket.",
+      "selection": "kept his powder dry",
+      "reviewFocus": "Literal dry gunpowder, no strategic-restraint idiom."
+    },
+    {
+      "id": "almost-convincing",
+      "text": "He congratulated her with an enthusiasm that was almost convincing.",
+      "selection": "almost convincing",
+      "reviewFocus": "Suggestion of insincerity; not proof of internal feelings."
+    },
+    {
+      "id": "heldout-cat",
+      "text": "She let the cat out of the bag, and it ran under the sofa.",
+      "selection": "let the cat out of the bag",
+      "reviewFocus": "Literal animal released, not disclosure of a secret."
+    },
+    {
+      "id": "heldout-wanting",
+      "text": "The explanation was wanting, though everyone wanted it to be true.",
+      "selection": "wanting",
+      "reviewFocus": "Deficient, distinct from desired in the same sentence."
+    },
+    {
+      "id": "heldout-circumstantial",
+      "text": "Her evidence was merely circumstantial; it did not establish causation.",
+      "selection": "circumstantial",
+      "reviewFocus": "Indirect evidence, not proof of causation; no invented legal outcome."
+    },
+    {
+      "id": "heldout-metaphor",
+      "text": "His courtesy was a locked gate. Every polite answer left her outside the real discussion.",
+      "selection": "a locked gate",
+      "reviewFocus": "Metaphorical exclusion; qualify intent, no actual gate."
+    },
+    {
+      "id": "new-literal-ice",
+      "text": "The ice broke under the weight of the sled, and both men scrambled onto the bank.",
+      "selection": "ice broke",
+      "reviewFocus": "Physical ice, not easing social tension."
+    },
+    {
+      "id": "new-duck",
+      "text": "She watched her duck.",
+      "selection": "her duck",
+      "reviewFocus": "Her bird or a woman lowering her head; genuinely unresolved."
+    },
+    {
+      "id": "new-litotes",
+      "text": "His reply was not without merit, though it left the central objection untouched.",
+      "selection": "not without merit",
+      "reviewFocus": "Qualified praise: some merit, but no answer to the main objection."
+    },
+    {
+      "id": "new-restive",
+      "text": "The horse grew restive as the crowd pressed closer.",
+      "selection": "restive",
+      "reviewFocus": "Restless or difficult to control, not restful."
+    },
+    {
+      "id": "new-heavy-lifting",
+      "text": "That single assumption is doing a lot of heavy lifting in your argument.",
+      "selection": "doing a lot of heavy lifting",
+      "reviewFocus": "Figurative dependence on the assumption; not physical work or necessarily valid reasoning."
+    }
+  ],
+  "runs": [
+    {
+      "name": "selection-v1-baseline",
+      "promptVersion": "selection-explanation-1",
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "startupSeconds": 11.736518292018445,
+      "summary": {
+        "requests": 19,
+        "errors": 0,
+        "medianSeconds": 5.690761625,
+        "minimumSeconds": 2.594340375,
+        "maximumSeconds": 7.974763416,
+        "p95SecondsNearestRank": 7.974763416,
+        "medianFirstMeaningSeconds": 1.54168825,
+        "dictionaryMedianSeconds": 0.001669417,
+        "dictionaryMaximumSeconds": 0.094758042,
+        "serverPeakRSSBytes": 5192499200,
+        "serverPeakPrivateFootprintBytes": 920623608,
+        "systemPressureSamples": {
+          "1": 16,
+          "2": 225,
+          "4": 2
+        },
+        "systemSwapDeltaBytes": 2241134592,
+        "measurementStartUTC": "2026-11-06T18:08:43.208291+00:00"
+      },
+      "records": [
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "'Fell through' is an idiom meaning to fail to materialize or be completed, often after considerable effort."
+              }
+            ],
+            "meaning": "The agreement failed to be completed, reverting the parties to their initial position.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.094758042,
+          "firstMeaningSeconds": 4.047675958,
+          "id": "agreement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 57,
+            "elapsedSeconds": 7.97456,
+            "firstContentSeconds": 3.811875666,
+            "promptTokens": 478
+          },
+          "seconds": 7.974763416
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "He possessed significant wealth or property.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000566542,
+          "firstMeaningSeconds": 1.494310042,
+          "id": "wealth",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 21,
+            "elapsedSeconds": 2.594309292,
+            "firstContentSeconds": 1.26200975,
+            "promptTokens": 475
+          },
+          "seconds": 2.594340375
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase suggests a discrepancy between his wealth and his social graces, implying a lack of refinement or cultivation."
+              }
+            ],
+            "meaning": "His behavior was noticeably deficient in the qualities expected of a person of his social standing.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001075,
+          "firstMeaningSeconds": 1.610291583,
+          "id": "understatement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 58,
+            "elapsedSeconds": 6.026880208,
+            "firstContentSeconds": 1.364472042,
+            "promptTokens": 477
+          },
+          "seconds": 6.027103083
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "This suggests a lack of complete agreement or confidence, despite recognizing his passion."
+              }
+            ],
+            "meaning": "The committee refrained from fully supporting his ideas.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.004035583,
+          "firstMeaningSeconds": 1.6335235830000001,
+          "id": "endorsement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 45,
+            "elapsedSeconds": 4.713343667,
+            "firstContentSeconds": 1.394121792,
+            "promptTokens": 477
+          },
+          "seconds": 4.714104583
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "relatedExpression",
+                "text": "The phrase alludes to the biblical story of Adam and Eve, where a fig leaf was used to cover their nakedness after eating the forbidden fruit, suggesting a flimsy and inadequate covering for something shameful."
+              }
+            ],
+            "meaning": "The apology was a shallow and inadequate attempt to conceal a lack of concern.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 343,
+          "dictionarySeconds": 0.008081042,
+          "firstMeaningSeconds": 1.525905792,
+          "id": "fig-leaf",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 76,
+            "elapsedSeconds": 7.185370208,
+            "firstContentSeconds": 1.2840107920000001,
+            "promptTokens": 469
+          },
+          "seconds": 7.1854655
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She unlocked and moved the window to allow air or a view.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 10065,
+          "dictionarySeconds": 0.004831458,
+          "firstMeaningSeconds": 1.546576,
+          "id": "plain",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 26,
+            "elapsedSeconds": 3.082394209,
+            "firstContentSeconds": 1.30612525,
+            "promptTokens": 470
+          },
+          "seconds": 3.082465333
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "This suggests that attempts to present a complete and uncomplicated account of events are likely to be flawed, perhaps by omitting details or presenting a biased perspective."
+              }
+            ],
+            "meaning": "The truth is not often untainted, and it is certainly not straightforward.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002405458,
+          "firstMeaningSeconds": 1.535643667,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 65,
+            "elapsedSeconds": 6.237525167,
+            "firstContentSeconds": 1.287292958,
+            "promptTokens": 472
+          },
+          "seconds": 6.237582375
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "This means Lucy has a lot of work to do, likely a demanding or difficult task.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002681125,
+          "firstMeaningSeconds": 1.693236625,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 31,
+            "elapsedSeconds": 3.620899917,
+            "firstContentSeconds": 1.4524849579999999,
+            "promptTokens": 486
+          },
+          "seconds": 3.620942292
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase implies a reciprocal relationship between mental and verbal processes; just as negative thoughts can manifest in poor communication, the reverse is also true."
+              }
+            ],
+            "meaning": "'Corrupt thought' suggests that harmful or distorted ideas can negatively influence one's thinking process, potentially leading to flawed reasoning or moral decline.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001381042,
+          "firstMeaningSeconds": 1.529930958,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 77,
+            "elapsedSeconds": 7.148330167,
+            "firstContentSeconds": 1.288746,
+            "promptTokens": 473
+          },
+          "seconds": 7.148373583
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The phrase is a contemporary, ironic way of saying something is desirable, when the speaker actually finds it frustrating or annoying."
+              }
+            ],
+            "meaning": "It expresses sarcastic approval of a situation, implying the speaker finds it unwelcome or unnecessary.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000787583,
+          "firstMeaningSeconds": 1.547771833,
+          "id": "sarcasm",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 61,
+            "elapsedSeconds": 5.941884583,
+            "firstContentSeconds": 1.308629458,
+            "promptTokens": 478
+          },
+          "seconds": 5.941940958
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "The term suggests the person is pretending to be earnestly seeking information, like someone trying to understand a seal, but their true goal is to harass or waste the time of others."
+              }
+            ],
+            "meaning": "It describes a tactic where someone feigns ignorance or naivete to disrupt a discussion or derail a process, often in online forums or debates.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001514583,
+          "firstMeaningSeconds": 1.532934292,
+          "id": "sealioning",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 84,
+            "elapsedSeconds": 7.858470458,
+            "firstContentSeconds": 1.291092625,
+            "promptTokens": 479
+          },
+          "seconds": 7.8585277080000004
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "This phrase indicates the instrument the man was holding or using; it specifies how she observed him.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001091583,
+          "firstMeaningSeconds": 1.538221292,
+          "id": "ambiguity",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 32,
+            "elapsedSeconds": 3.572860083,
+            "firstContentSeconds": 1.289392375,
+            "promptTokens": 468
+          },
+          "seconds": 3.572903833
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase suggests Martin is strategically holding back, possibly to influence the outcome or to have more leverage later."
+              }
+            ],
+            "meaning": "Martin is reserving his arguments or objections until the last possible moment, waiting to see how the situation develops before committing himself.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001546125,
+          "firstMeaningSeconds": 1.5320765,
+          "id": "powder-figurative",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 66,
+            "elapsedSeconds": 6.377274209,
+            "firstContentSeconds": 1.2851964169999999,
+            "promptTokens": 481
+          },
+          "seconds": 6.3773286670000005
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "usage",
+                "text": "This phrase suggests a deliberate precaution taken to maintain readiness; it implies a situation where preparedness is vital, like hunting or military action."
+              }
+            ],
+            "meaning": "He ensured the gunpowder remained free of moisture, ready for use.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000459209,
+          "firstMeaningSeconds": 1.531994292,
+          "id": "powder-literal",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 59,
+            "elapsedSeconds": 5.8109871250000005,
+            "firstContentSeconds": 1.290723708,
+            "promptTokens": 475
+          },
+          "seconds": 5.811043959
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The phrase suggests the speaker may be insincere or that the recipient is skeptical of the congratulations."
+              }
+            ],
+            "meaning": "The speaker's congratulations seemed sincere, but not entirely so.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002099459,
+          "firstMeaningSeconds": 1.534019459,
+          "id": "almost-convincing",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 52,
+            "elapsedSeconds": 5.192093208,
+            "firstContentSeconds": 1.276044875,
+            "promptTokens": 470
+          },
+          "seconds": 5.192137834
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "The phrase means to disclose something that was meant to be kept secret; the cat escaping represents the secret's release."
+              }
+            ],
+            "meaning": "She revealed a secret, and it is now known.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 3792,
+          "dictionarySeconds": 0.002961708,
+          "firstMeaningSeconds": 1.642061083,
+          "id": "heldout-cat",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 55,
+            "elapsedSeconds": 5.617658833,
+            "firstContentSeconds": 1.388113042,
+            "promptTokens": 480
+          },
+          "seconds": 5.617711083
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The fact that the explanation was 'wanting' suggests a disappointment or a void where clarity should have been."
+              }
+            ],
+            "meaning": "The explanation was absent or deficient.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 297,
+          "dictionarySeconds": 0.001777916,
+          "firstMeaningSeconds": 1.558975958,
+          "id": "heldout-wanting",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 50,
+            "elapsedSeconds": 5.072353791,
+            "firstContentSeconds": 1.309582166,
+            "promptTokens": 472
+          },
+          "seconds": 5.072398083
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "definition",
+                "text": "'Circumstantial' here means relating to the circumstances of an event, rather than directly proving it."
+              }
+            ],
+            "meaning": "The evidence was based on surrounding facts rather than direct proof.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 477,
+          "dictionarySeconds": 0.001669417,
+          "firstMeaningSeconds": 1.54168825,
+          "id": "heldout-circumstantial",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 53,
+            "elapsedSeconds": 5.497765875,
+            "firstContentSeconds": 1.300553209,
+            "promptTokens": 471
+          },
+          "seconds": 5.497832709
+        },
+        {
+          "answer": {
+            "details": [
+              {
+                "basis": {
+                  "interpretation": {}
+                },
+                "kind": "implication",
+                "text": "The metaphor suggests a deliberate obstruction, implying his courtesy is performative and intended to exclude."
+              }
+            ],
+            "meaning": "His politeness prevented genuine connection; it served as a barrier rather than an invitation.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000842083,
+          "firstMeaningSeconds": 1.563548,
+          "id": "heldout-metaphor",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 56,
+            "elapsedSeconds": 5.690697334,
+            "firstContentSeconds": 1.314892,
+            "promptTokens": 477
+          },
+          "seconds": 5.690761625
+        }
+      ]
+    },
+    {
+      "name": "selection-v2-unassisted",
+      "promptVersion": "selection-explanation-2",
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "startupSeconds": 10.207842333998997,
+      "summary": {
+        "requests": 19,
+        "errors": 0,
+        "medianSeconds": 4.204346791,
+        "minimumSeconds": 2.670896125,
+        "maximumSeconds": 5.7531500829999995,
+        "p95SecondsNearestRank": 5.7531500829999995,
+        "medianFirstMeaningSeconds": 1.553822458,
+        "dictionaryMedianSeconds": 0.002664291,
+        "dictionaryMaximumSeconds": 0.136571416,
+        "serverPeakRSSBytes": 5777686528,
+        "serverPeakPrivateFootprintBytes": 872028688,
+        "systemPressureSamples": {
+          "1": 19,
+          "2": 167
+        },
+        "systemSwapDeltaBytes": 342425600,
+        "measurementStartUTC": "2026-11-06T18:19:43.073198+00:00"
+      },
+      "records": [
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The agreement was terminated, returning the negotiating parties to their initial positions after a prolonged period of discussion.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 9404,
+          "dictionarySeconds": 0.136571416,
+          "firstMeaningSeconds": 3.6791745000000002,
+          "id": "agreement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 33,
+            "elapsedSeconds": 5.752684583,
+            "firstContentSeconds": 3.440918917,
+            "promptTokens": 420
+          },
+          "seconds": 5.7531500829999995
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man possessed a significant amount of money or property, though his behavior did not reflect the social expectations associated with wealth.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.013318333,
+          "firstMeaningSeconds": 1.554866291,
+          "id": "wealth",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 37,
+            "elapsedSeconds": 3.9828956250000003,
+            "firstContentSeconds": 1.313466,
+            "promptTokens": 417
+          },
+          "seconds": 3.982999833
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man's behavior did not meet the standards expected of someone of his social standing and financial resources; he lacked refinement in his manners.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001449959,
+          "firstMeaningSeconds": 1.597420125,
+          "id": "understatement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 41,
+            "elapsedSeconds": 4.273985917,
+            "firstContentSeconds": 1.347170792,
+            "promptTokens": 419
+          },
+          "seconds": 4.274030042
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The committee refrained from formally approving his suggestions despite acknowledging his eagerness.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 7233,
+          "dictionarySeconds": 0.006698458,
+          "firstMeaningSeconds": 1.324510042,
+          "id": "endorsement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 21,
+            "elapsedSeconds": 2.670829291,
+            "firstContentSeconds": 1.090039041,
+            "promptTokens": 419
+          },
+          "seconds": 2.670896125
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The apology was presented as a superficial covering, like a fig leaf, to conceal a lack of concern.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 343,
+          "dictionarySeconds": 0.001492166,
+          "firstMeaningSeconds": 1.26883375,
+          "id": "fig-leaf",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.251218084,
+            "firstContentSeconds": 1.026566709,
+            "promptTokens": 411
+          },
+          "seconds": 3.25128175
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She moved the window from a closed to an open position.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 10065,
+          "dictionarySeconds": 0.005176125,
+          "firstMeaningSeconds": 1.5738527919999998,
+          "id": "plain",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 25,
+            "elapsedSeconds": 3.129332833,
+            "firstContentSeconds": 1.319057458,
+            "promptTokens": 412
+          },
+          "seconds": 3.129406417
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The statement asserts that truth is infrequently unmixed and never uncomplicated.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.006341,
+          "firstMeaningSeconds": 1.5983425,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 26,
+            "elapsedSeconds": 3.244840791,
+            "firstContentSeconds": 1.345096291,
+            "promptTokens": 414
+          },
+          "seconds": 3.24494975
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Lucy has a significant amount of work to do, implying that Mrs. Dalloway's decision to purchase the flowers herself will alleviate Lucy's burden.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.0029565,
+          "firstMeaningSeconds": 1.781486209,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 44,
+            "elapsedSeconds": 5.071340583,
+            "firstContentSeconds": 1.521029166,
+            "promptTokens": 428
+          },
+          "seconds": 5.071451
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The passage states that language has the power to negatively influence or distort thought, mirroring the earlier claim that thought can negatively influence language.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002664291,
+          "firstMeaningSeconds": 1.618880625,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 39,
+            "elapsedSeconds": 4.343799042,
+            "firstContentSeconds": 1.355048417,
+            "promptTokens": 415
+          },
+          "seconds": 4.343874291
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker expresses sarcasm regarding a meeting that they believe could have been communicated via email, using the phrase \"Love that for us\" to convey a sense of ironic resignation or displeasure.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002359834,
+          "firstMeaningSeconds": 1.3129473329999999,
+          "id": "sarcasm",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 44,
+            "elapsedSeconds": 4.645966875,
+            "firstContentSeconds": 1.065633166,
+            "promptTokens": 420
+          },
+          "seconds": 4.646052958
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Here, 'sealioning' refers to a tactic where someone feigns ignorance or curiosity to disrupt a conversation or derail a discussion, often with the intent of badgering or harassing others.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000926375,
+          "firstMeaningSeconds": 1.553822458,
+          "id": "sealioning",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 51,
+            "elapsedSeconds": 5.022297041,
+            "firstContentSeconds": 1.315505541,
+            "promptTokens": 421
+          },
+          "seconds": 5.022397708
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The woman observed a man who was holding a telescope.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002201792,
+          "firstMeaningSeconds": 1.5667771670000001,
+          "id": "ambiguity",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.104888083,
+            "firstContentSeconds": 1.306277458,
+            "promptTokens": 410
+          },
+          "seconds": 3.104944042
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Eleanor believed Martin was reserving his objections or arguments until the vote occurred, using a metaphor suggesting he was conserving ammunition for a crucial moment.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002982375,
+          "firstMeaningSeconds": 1.5264144160000002,
+          "id": "powder-figurative",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 41,
+            "elapsedSeconds": 4.28935175,
+            "firstContentSeconds": 1.288471,
+            "promptTokens": 423
+          },
+          "seconds": 4.289422375
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man ensured his gunpowder remained free of moisture by storing it near the heat source before preparing the musket for firing; this was a practical precaution to maintain its effectiveness.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001845917,
+          "firstMeaningSeconds": 1.266264167,
+          "id": "powder-literal",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 42,
+            "elapsedSeconds": 4.397919042,
+            "firstContentSeconds": 1.031563417,
+            "promptTokens": 417
+          },
+          "seconds": 4.3979805
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker's enthusiasm when congratulating her was so strong that it nearly appeared genuine, but ultimately fell short of complete sincerity.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002081375,
+          "firstMeaningSeconds": 1.520100458,
+          "id": "almost-convincing",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 39,
+            "elapsedSeconds": 4.049487083,
+            "firstContentSeconds": 1.27941775,
+            "promptTokens": 412
+          },
+          "seconds": 4.049553791
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She revealed a secret, and as a consequence, the cat physically escaped and went under the sofa.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 3792,
+          "dictionarySeconds": 0.002687791,
+          "firstMeaningSeconds": 1.615662167,
+          "id": "heldout-cat",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 33,
+            "elapsedSeconds": 3.673366875,
+            "firstContentSeconds": 1.376545792,
+            "promptTokens": 422
+          },
+          "seconds": 3.673425709
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The explanation was absent, despite a general desire for it to exist and be accepted as true.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 297,
+          "dictionarySeconds": 0.00184475,
+          "firstMeaningSeconds": 1.497224334,
+          "id": "heldout-wanting",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 32,
+            "elapsedSeconds": 3.518430625,
+            "firstContentSeconds": 1.256711209,
+            "promptTokens": 414
+          },
+          "seconds": 3.518468959
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The word 'circumstantial' indicates that the evidence presented relies on surrounding facts rather than direct proof of a cause-and-effect relationship.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 477,
+          "dictionarySeconds": 0.002358375,
+          "firstMeaningSeconds": 1.528450375,
+          "id": "heldout-circumstantial",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 41,
+            "elapsedSeconds": 4.204281375,
+            "firstContentSeconds": 1.2857455,
+            "promptTokens": 413
+          },
+          "seconds": 4.204346791
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The phrase 'a locked gate' describes his courteous behavior as an obstacle preventing genuine communication; it suggests a barrier that keeps her from accessing a deeper level of conversation.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.003339083,
+          "firstMeaningSeconds": 1.5203719580000001,
+          "id": "heldout-metaphor",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 46,
+            "elapsedSeconds": 4.641729958,
+            "firstContentSeconds": 1.280493875,
+            "promptTokens": 419
+          },
+          "seconds": 4.641806416
+        }
+      ]
+    },
+    {
+      "name": "selection-v2-assisted",
+      "promptVersion": "selection-explanation-2",
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "startupSeconds": 4.602364209014922,
+      "summary": {
+        "requests": 19,
+        "errors": 0,
+        "medianSeconds": 4.773316208,
+        "minimumSeconds": 3.072342625,
+        "maximumSeconds": 7.102796291,
+        "p95SecondsNearestRank": 7.102796291,
+        "medianFirstMeaningSeconds": 1.632639041,
+        "dictionaryMedianSeconds": 0.003935792,
+        "dictionaryMaximumSeconds": 0.142867125,
+        "serverPeakRSSBytes": 7996309504,
+        "serverPeakPrivateFootprintBytes": 1063393904,
+        "systemPressureSamples": {
+          "1": 8,
+          "2": 203
+        },
+        "systemSwapDeltaBytes": -56819712,
+        "measurementStartUTC": "2026-11-06T18:22:47.488863+00:00"
+      },
+      "records": [
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The agreement was unsuccessful after a lengthy period of discussion, and the involved parties must now restart the process.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:2e42ed9adea21506bb3a5b509dffc5d9e6cab978f28a6e31d98ed46a8e9e3944",
+                "provider": "macOS active dictionaries",
+                "query": "fall through",
+                "textSHA256": "e2c1744563d3f0a3ff33c9d589a16c7a8e646bee4f7921d150cb2b5c721c529b",
+                "utf16Units": 82
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 9404,
+          "dictionarySeconds": 0.142867125,
+          "firstMeaningSeconds": 4.6100558750000005,
+          "id": "agreement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 34,
+            "elapsedSeconds": 7.101411833,
+            "firstContentSeconds": 4.35211275,
+            "promptTokens": 515
+          },
+          "seconds": 7.102796291
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man possessed a significant amount of money or property, though his behavior did not reflect the social expectations associated with wealth.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.040600292,
+          "firstMeaningSeconds": 3.82456825,
+          "id": "wealth",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 37,
+            "elapsedSeconds": 6.537359625,
+            "firstContentSeconds": 3.552308333,
+            "promptTokens": 417
+          },
+          "seconds": 6.538104917
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man's behavior did not meet the standards expected of someone with his social standing and wealth.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.00423975,
+          "firstMeaningSeconds": 1.475925125,
+          "id": "understatement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 28,
+            "elapsedSeconds": 3.554195875,
+            "firstContentSeconds": 1.210919125,
+            "promptTokens": 419
+          },
+          "seconds": 3.554255959
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The committee acknowledged his enthusiasm but did not formally approve any of his suggestions.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:1d6787ff241c86eae9001da85891f61acebfb27a6a8d089700c728ae8ca9867e",
+                "provider": "macOS active dictionaries",
+                "query": "stop short of",
+                "textSHA256": "ceda68b141f1ca9b8e9a2d8e97059b20ca40ae95c4d5a8b41f6c84108707bee1",
+                "utf16Units": 116
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 7233,
+          "dictionarySeconds": 0.013375125,
+          "firstMeaningSeconds": 2.58707475,
+          "id": "endorsement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 28,
+            "elapsedSeconds": 4.39484,
+            "firstContentSeconds": 2.313886167,
+            "promptTokens": 519
+          },
+          "seconds": 4.394898959
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The apology served as a superficial and inadequate attempt to conceal a lack of concern.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:1d102783ba12d23d6cb746b6e7623b7e200c107aac615e0c8612e3f7a1b2ee4a",
+                "provider": "macOS active dictionaries",
+                "query": "fig leaf",
+                "textSHA256": "25c8b11178485710ebfbbedf2aa012c4f63d6c01ac70baee07eac07d3321082f",
+                "utf16Units": 51
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 343,
+          "dictionarySeconds": 0.00243425,
+          "firstMeaningSeconds": 1.620493625,
+          "id": "fig-leaf",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.543289542,
+            "firstContentSeconds": 1.356691125,
+            "promptTokens": 502
+          },
+          "seconds": 3.543351542
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She unlocked or unlatched the window, allowing it to move from a closed to an open position, and then placed the book on the table’s surface.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:eefdc6f412f4ac9204c1d5f3181c3b6dcd4d74c0fe97748aabb19e1bd61d54ea",
+                "provider": "macOS active dictionaries",
+                "query": "opened",
+                "textSHA256": "fd456b967ed06c11413cfde5a1e4e5461f771b6e084e69078dace8a71e82010f",
+                "utf16Units": 1000
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 10065,
+          "dictionarySeconds": 0.004806167,
+          "firstMeaningSeconds": 3.213817375,
+          "id": "plain",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 46,
+            "elapsedSeconds": 6.742008125,
+            "firstContentSeconds": 2.958629083,
+            "promptTokens": 734
+          },
+          "seconds": 6.742119083
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The statement asserts that truth is infrequently unmixed and not uncomplicated.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.004440208,
+          "firstMeaningSeconds": 1.631095792,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 26,
+            "elapsedSeconds": 3.293986,
+            "firstContentSeconds": 1.372143,
+            "promptTokens": 414
+          },
+          "seconds": 3.294089834
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Lucy has a significant amount of work to do, implying that Mrs. Dalloway's decision to purchase the flowers herself will alleviate Lucy's burden.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.003935792,
+          "firstMeaningSeconds": 1.894354958,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 44,
+            "elapsedSeconds": 5.156793,
+            "firstContentSeconds": 1.550221292,
+            "promptTokens": 428
+          },
+          "seconds": 5.15690425
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The passage states that language has the power to negatively influence or distort thought, mirroring the previously mentioned effect of thought on language.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002349375,
+          "firstMeaningSeconds": 1.6178240000000002,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 38,
+            "elapsedSeconds": 4.303440959,
+            "firstContentSeconds": 1.3591286249999999,
+            "promptTokens": 415
+          },
+          "seconds": 4.303500167
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker expresses sarcasm regarding a meeting that they believe could have been communicated via email, using the phrase \"Love that for us\" to convey their displeasure.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.00212775,
+          "firstMeaningSeconds": 1.349908542,
+          "id": "sarcasm",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 39,
+            "elapsedSeconds": 4.389959875,
+            "firstContentSeconds": 1.084428292,
+            "promptTokens": 420
+          },
+          "seconds": 4.390006208
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Here, 'sealioning' describes a tactic where someone feigns ignorance or curiosity to disrupt a conversation or derail a discussion, often with the intent of frustrating or misleading others; the replies indicate that the speaker's professed neutrality was insincere.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000686167,
+          "firstMeaningSeconds": 1.348044458,
+          "id": "sealioning",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 58,
+            "elapsedSeconds": 6.00807825,
+            "firstContentSeconds": 1.086542167,
+            "promptTokens": 421
+          },
+          "seconds": 6.008122708
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The woman observed a man who was holding a telescope.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002576209,
+          "firstMeaningSeconds": 1.5971574579999999,
+          "id": "ambiguity",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.072297125,
+            "firstContentSeconds": 1.341998666,
+            "promptTokens": 410
+          },
+          "seconds": 3.072342625
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Eleanor believed Martin was reserving his objections or arguments until the vote occurred, using a metaphor that suggests he was conserving his resources for a crucial moment.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002465333,
+          "firstMeaningSeconds": 1.61697025,
+          "id": "powder-figurative",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 43,
+            "elapsedSeconds": 4.773253458,
+            "firstContentSeconds": 1.359886042,
+            "promptTokens": 423
+          },
+          "seconds": 4.773316208
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man ensured his gunpowder remained free of moisture by storing it near the heat source before preparing the musket for firing.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001856334,
+          "firstMeaningSeconds": 1.4012255,
+          "id": "powder-literal",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 32,
+            "elapsedSeconds": 4.116403792,
+            "firstContentSeconds": 1.139525375,
+            "promptTokens": 417
+          },
+          "seconds": 4.116852375
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker's enthusiasm when congratulating her was so intense that it nearly appeared genuine, but ultimately fell short of complete sincerity.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.005039042,
+          "firstMeaningSeconds": 1.749719917,
+          "id": "almost-convincing",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 39,
+            "elapsedSeconds": 4.60229325,
+            "firstContentSeconds": 1.491581625,
+            "promptTokens": 412
+          },
+          "seconds": 4.602403209
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She revealed a secret, and as a consequence, something—represented metaphorically as a cat—escaped and went under the sofa.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:d61436fdd2d020e5525c6e70480793a8ef77090810dbf5bef343186d4daf6fed",
+                "provider": "macOS active dictionaries",
+                "query": "let the cat out of the bag",
+                "textSHA256": "7cffc30f0698627c845866b87bcec95d9f2b92f586225d6fbde3e9ec50351b10",
+                "utf16Units": 61
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 3792,
+          "dictionarySeconds": 0.008277291,
+          "firstMeaningSeconds": 2.539385459,
+          "id": "heldout-cat",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 40,
+            "elapsedSeconds": 5.298496375,
+            "firstContentSeconds": 2.286146,
+            "promptTokens": 519
+          },
+          "seconds": 5.298606459
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The explanation was deficient, lacking the necessary qualities to be satisfactory, despite a general desire for it to be believable.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:b7c13718edaa7f97fa5da1be1490df56a6348f7ecada5083f85d86982c1c003e",
+                "provider": "macOS active dictionaries",
+                "query": "wanting",
+                "textSHA256": "193e09573f260d5280e1627a8244aa64f366c6c9e054c3ac8ea27154f2d155a3",
+                "utf16Units": 289
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 297,
+          "dictionarySeconds": 0.002069667,
+          "firstMeaningSeconds": 2.696534458,
+          "id": "heldout-wanting",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 36,
+            "elapsedSeconds": 5.097192417,
+            "firstContentSeconds": 2.448216083,
+            "promptTokens": 554
+          },
+          "seconds": 5.097277833
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The evidence presented by her was not direct proof but rather suggested a connection without definitively establishing it.",
+            "dictionaryEvidenceMetadata": [
+              {
+                "entryID": "macos:3673a16b4ede05e3acb25a10eeb24bb02942c07324afdbea7f8263ec90a62500",
+                "provider": "macOS active dictionaries",
+                "query": "circumstantial",
+                "textSHA256": "8e1f355f86d5a8643cc887192f0b8bb1792b4124e4d7c89cf01cb60e4c217f1e",
+                "utf16Units": 386
+              }
+            ]
+          },
+          "dictionaryArticleBytes": 477,
+          "dictionarySeconds": 0.002176958,
+          "firstMeaningSeconds": 3.193733584,
+          "id": "heldout-circumstantial",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 32,
+            "elapsedSeconds": 5.583629042,
+            "firstContentSeconds": 2.941524334,
+            "promptTokens": 585
+          },
+          "seconds": 5.583952084
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The phrase 'a locked gate' describes his courtesy as an obstacle, preventing her from engaging in a substantive conversation with him; it suggests a barrier that appears welcoming but ultimately excludes her.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.006107917,
+          "firstMeaningSeconds": 1.632639041,
+          "id": "heldout-metaphor",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 50,
+            "elapsedSeconds": 5.094338125,
+            "firstContentSeconds": 1.362893834,
+            "promptTokens": 419
+          },
+          "seconds": 5.094422875
+        }
+      ]
+    },
+    {
+      "name": "selection-v3-calibrated",
+      "promptVersion": "selection-explanation-3",
+      "command": [
+        "/private/tmp/sandpaper-ai-validation/llama-b12110/llama-server",
+        "--model",
+        "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "--alias",
+        "sandpaper-local",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8087",
+        "--ctx-size",
+        "4096",
+        "--parallel",
+        "1",
+        "--n-gpu-layers",
+        "99",
+        "--batch-size",
+        "512",
+        "--ubatch-size",
+        "128",
+        "--cache-ram",
+        "0",
+        "--no-context-shift",
+        "--no-webui",
+        "--jinja",
+        "--cache-type-k",
+        "q8_0",
+        "--cache-type-v",
+        "q8_0",
+        "-lv",
+        "4",
+        "--flash-attn",
+        "on"
+      ],
+      "startupSeconds": 10.687253125011921,
+      "summary": {
+        "requests": 48,
+        "errors": 0,
+        "medianSeconds": 3.333920792,
+        "minimumSeconds": 2.197590875,
+        "maximumSeconds": 6.381930667,
+        "p95SecondsNearestRank": 5.292773625,
+        "medianFirstMeaningSeconds": 1.4010680835,
+        "dictionaryMedianSeconds": 0.000298979,
+        "dictionaryMaximumSeconds": 0.088904875,
+        "serverPeakRSSBytes": 5332041728,
+        "serverPeakPrivateFootprintBytes": 986831448,
+        "systemPressureSamples": {
+          "1": 20,
+          "2": 347
+        },
+        "systemSwapDeltaBytes": 539754496,
+        "measurementStartUTC": "2026-11-06T18:26:02.185051+00:00",
+        "dictionaryIteration1MedianSeconds": 0.0035256454999999997,
+        "dictionaryIteration2MedianSeconds": 2.333e-06
+      },
+      "records": [
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The agreement was terminated, returning the involved parties to their initial position before discussions began.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 9404,
+          "dictionarySeconds": 0.088904875,
+          "firstMeaningSeconds": 4.376665917,
+          "id": "agreement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 25,
+            "elapsedSeconds": 6.175808417,
+            "firstContentSeconds": 4.114705,
+            "promptTokens": 528
+          },
+          "seconds": 6.176034292
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The man possessed substantial wealth.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.00555475,
+          "firstMeaningSeconds": 1.345245,
+          "id": "wealth",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 14,
+            "elapsedSeconds": 2.197537416,
+            "firstContentSeconds": 1.096251083,
+            "promptTokens": 525
+          },
+          "seconds": 2.197590875
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The person's behavior did not conform to the standards expected of someone of his social standing and wealth.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001441667,
+          "firstMeaningSeconds": 1.403982042,
+          "id": "understatement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.538647625,
+            "firstContentSeconds": 1.1520072080000001,
+            "promptTokens": 527
+          },
+          "seconds": 3.5386999169999998
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The committee refrained from formally approving any of his proposals despite acknowledging his enthusiasm.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 7233,
+          "dictionarySeconds": 0.008288417,
+          "firstMeaningSeconds": 1.398154125,
+          "id": "endorsement",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 23,
+            "elapsedSeconds": 3.034945167,
+            "firstContentSeconds": 1.143976167,
+            "promptTokens": 527
+          },
+          "seconds": 3.035034375
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The apology was presented as a covering, but it ultimately served to conceal a lack of concern.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 343,
+          "dictionarySeconds": 0.00129725,
+          "firstMeaningSeconds": 1.3737445,
+          "id": "fig-leaf",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 27,
+            "elapsedSeconds": 3.438169625,
+            "firstContentSeconds": 1.108628083,
+            "promptTokens": 519
+          },
+          "seconds": 3.438232
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She performed the action of opening the window.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 10065,
+          "dictionarySeconds": 0.004915417,
+          "firstMeaningSeconds": 1.380607125,
+          "id": "plain",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 17,
+            "elapsedSeconds": 2.5547403749999997,
+            "firstContentSeconds": 1.124553125,
+            "promptTokens": 520
+          },
+          "seconds": 2.554838792
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The statement asserts that truth is infrequently unmixed and not uncomplicated.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.004767084,
+          "firstMeaningSeconds": 1.692816833,
+          "id": "wilde-1895",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 26,
+            "elapsedSeconds": 3.387998625,
+            "firstContentSeconds": 1.406543125,
+            "promptTokens": 522
+          },
+          "seconds": 3.388084833
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Lucy has a significant amount of work to do.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.003210166,
+          "firstMeaningSeconds": 1.4598852500000001,
+          "id": "woolf-1925",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 18,
+            "elapsedSeconds": 2.58926025,
+            "firstContentSeconds": 1.2208700829999999,
+            "promptTokens": 536
+          },
+          "seconds": 2.589310583
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The passage states that language has the power to negatively influence or distort thought processes, mirroring the previously mentioned effect of thought on language.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.00283175,
+          "firstMeaningSeconds": 1.3043952079999999,
+          "id": "orwell-1946",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 34,
+            "elapsedSeconds": 3.721740791,
+            "firstContentSeconds": 1.050178208,
+            "promptTokens": 523
+          },
+          "seconds": 3.721812416
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker expresses sarcasm regarding a meeting that they believe could have been communicated via email, using the phrase \"Love that for us\" to indicate displeasure.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001807792,
+          "firstMeaningSeconds": 1.335101041,
+          "id": "sarcasm",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 38,
+            "elapsedSeconds": 4.245630583,
+            "firstContentSeconds": 1.081002708,
+            "promptTokens": 528
+          },
+          "seconds": 4.2456911250000005
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The replies interpreted his statement as 'sealioning,' which suggests he was feigning genuine inquiry to disrupt or derail a discussion. The term's meaning is not explicitly defined within the passage, but it implies a tactic of posing questions to create a false appearance of good faith.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000593542,
+          "firstMeaningSeconds": 1.316095,
+          "id": "sealioning",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 64,
+            "elapsedSeconds": 6.381882792,
+            "firstContentSeconds": 1.061835125,
+            "promptTokens": 529
+          },
+          "seconds": 6.381930667
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The woman observed a man who was holding a telescope.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.001820459,
+          "firstMeaningSeconds": 1.57042275,
+          "id": "ambiguity",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 2.999900083,
+            "firstContentSeconds": 1.326139125,
+            "promptTokens": 518
+          },
+          "seconds": 2.9999455409999998
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Eleanor believed Martin was reserving his arguments or objections until the vote occurred.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.002781292,
+          "firstMeaningSeconds": 1.3432051249999999,
+          "id": "powder-figurative",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 23,
+            "elapsedSeconds": 2.955456167,
+            "firstContentSeconds": 1.089496542,
+            "promptTokens": 531
+          },
+          "seconds": 2.95550625
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "He maintained the gunpowder's dryness by storing it near the heat source to prevent it from absorbing moisture and becoming useless for loading the musket.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.000973167,
+          "firstMeaningSeconds": 1.362252917,
+          "id": "powder-literal",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 37,
+            "elapsedSeconds": 4.140593417,
+            "firstContentSeconds": 1.107903459,
+            "promptTokens": 525
+          },
+          "seconds": 4.140638917
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker's enthusiasm when congratulating her was nearly believable, but lacked complete sincerity or genuineness.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.003310375,
+          "firstMeaningSeconds": 1.601172458,
+          "id": "almost-convincing",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 35,
+            "elapsedSeconds": 3.999253625,
+            "firstContentSeconds": 1.35393475,
+            "promptTokens": 520
+          },
+          "seconds": 3.999296708
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She revealed a secret, and as a consequence, something ran under the sofa.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 3792,
+          "dictionarySeconds": 0.003740916,
+          "firstMeaningSeconds": 1.733298334,
+          "id": "heldout-cat",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.718851959,
+            "firstContentSeconds": 1.477787584,
+            "promptTokens": 530
+          },
+          "seconds": 3.7189085840000002
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The explanation was absent, despite a general desire for it to be accurate.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 297,
+          "dictionarySeconds": 0.001801458,
+          "firstMeaningSeconds": 1.388687083,
+          "id": "heldout-wanting",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 23,
+            "elapsedSeconds": 3.028524958,
+            "firstContentSeconds": 1.133593375,
+            "promptTokens": 522
+          },
+          "seconds": 3.028577417
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The evidence presented was based on surrounding facts rather than direct proof, and therefore did not demonstrate a cause-and-effect relationship.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 477,
+          "dictionarySeconds": 0.001633708,
+          "firstMeaningSeconds": 1.442890667,
+          "id": "heldout-circumstantial",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 34,
+            "elapsedSeconds": 4.378586667,
+            "firstContentSeconds": 1.160796083,
+            "promptTokens": 521
+          },
+          "seconds": 4.378651459
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "His politeness functions as a barrier, preventing direct communication; it is presented as an impediment rather than a welcome gesture.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.017758708,
+          "firstMeaningSeconds": 1.5339655410000002,
+          "id": "heldout-metaphor",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 32,
+            "elapsedSeconds": 4.08319925,
+            "firstContentSeconds": 1.247858791,
+            "promptTokens": 527
+          },
+          "seconds": 4.083301833
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The ice fractured as a result of the sled's weight.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.011298042,
+          "firstMeaningSeconds": 1.601202625,
+          "id": "new-literal-ice",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 21,
+            "elapsedSeconds": 3.144230375,
+            "firstContentSeconds": 1.3067765,
+            "promptTokens": 527
+          },
+          "seconds": 3.144680375
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She observed the duck that belonged to her.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.016938084,
+          "firstMeaningSeconds": 1.762851,
+          "id": "new-duck",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 22,
+            "elapsedSeconds": 3.176293375,
+            "firstContentSeconds": 1.4971225000000001,
+            "promptTokens": 514
+          },
+          "seconds": 3.176418
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The response possessed some positive qualities, but it did not resolve the primary disagreement.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.007970916,
+          "firstMeaningSeconds": 1.4958575,
+          "id": "new-litotes",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.674915416,
+            "firstContentSeconds": 1.216598125,
+            "promptTokens": 525
+          },
+          "seconds": 3.6757458339999998
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The horse became agitated and resistant, likely due to the people moving nearer to it.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 789,
+          "dictionarySeconds": 0.009250208,
+          "firstMeaningSeconds": 1.435634584,
+          "id": "new-restive",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 25,
+            "elapsedSeconds": 3.237693875,
+            "firstContentSeconds": 1.18306375,
+            "promptTokens": 520
+          },
+          "seconds": 3.237760167
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The phrase indicates that a particular assumption is supporting a significant portion of the argument's weight or validity.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 0.019227833,
+          "firstMeaningSeconds": 1.522672625,
+          "id": "new-heavy-lifting",
+          "iteration": 1,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.622035083,
+            "firstContentSeconds": 1.254101541,
+            "promptTokens": 527
+          },
+          "seconds": 3.6221425
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The agreement was terminated, returning the involved parties to their initial position before discussions began.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 9404,
+          "dictionarySeconds": 2.542e-06,
+          "firstMeaningSeconds": 1.477856541,
+          "id": "agreement",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 25,
+            "elapsedSeconds": 3.222135042,
+            "firstContentSeconds": 1.229511458,
+            "promptTokens": 528
+          },
+          "seconds": 3.222183875
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "He possessed a significant amount of money or property.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.084e-06,
+          "firstMeaningSeconds": 1.3801938329999999,
+          "id": "wealth",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 18,
+            "elapsedSeconds": 2.549714,
+            "firstContentSeconds": 1.132147458,
+            "promptTokens": 525
+          },
+          "seconds": 2.549742333
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The person's behavior did not conform to the standards expected of someone of his social standing and financial resources.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.125e-06,
+          "firstMeaningSeconds": 1.444673292,
+          "id": "understatement",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 30,
+            "elapsedSeconds": 3.605151625,
+            "firstContentSeconds": 1.196743417,
+            "promptTokens": 527
+          },
+          "seconds": 3.605179
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The committee refrained from formally approving any of his proposals, despite acknowledging his enthusiasm.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 7233,
+          "dictionarySeconds": 2.667e-06,
+          "firstMeaningSeconds": 1.458224375,
+          "id": "endorsement",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.16781425,
+            "firstContentSeconds": 1.201386541,
+            "promptTokens": 527
+          },
+          "seconds": 3.167858042
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The apology was presented as a covering, but it ultimately served to conceal a lack of concern.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 343,
+          "dictionarySeconds": 2.375e-06,
+          "firstMeaningSeconds": 1.3876241249999999,
+          "id": "fig-leaf",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 27,
+            "elapsedSeconds": 3.293679959,
+            "firstContentSeconds": 1.132677,
+            "promptTokens": 519
+          },
+          "seconds": 3.293718792
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She performed the action of opening the window.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 10065,
+          "dictionarySeconds": 2.042e-06,
+          "firstMeaningSeconds": 1.363575167,
+          "id": "plain",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 17,
+            "elapsedSeconds": 2.454530583,
+            "firstContentSeconds": 1.11661525,
+            "promptTokens": 520
+          },
+          "seconds": 2.454582292
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The statement asserts that truth is infrequently unmixed and not uncomplicated.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.333e-06,
+          "firstMeaningSeconds": 1.635467333,
+          "id": "wilde-1895",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 26,
+            "elapsedSeconds": 3.26242525,
+            "firstContentSeconds": 1.388259417,
+            "promptTokens": 522
+          },
+          "seconds": 3.262457458
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Lucy has a significant amount of work to do.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.333e-06,
+          "firstMeaningSeconds": 1.5501335,
+          "id": "woolf-1925",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 18,
+            "elapsedSeconds": 2.7055212920000002,
+            "firstContentSeconds": 1.287531708,
+            "promptTokens": 536
+          },
+          "seconds": 2.705552208
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The passage asserts that language has the power to negatively influence or distort thought, mirroring the previously stated effect of thought on language.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2e-06,
+          "firstMeaningSeconds": 1.370164,
+          "id": "orwell-1946",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 33,
+            "elapsedSeconds": 3.766447125,
+            "firstContentSeconds": 1.119823167,
+            "promptTokens": 523
+          },
+          "seconds": 3.766475625
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker expresses sarcasm regarding a meeting that they believe could have been communicated via email, using the phrase \"Love that for us\" to indicate displeasure.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 4.416e-06,
+          "firstMeaningSeconds": 1.3662219580000001,
+          "id": "sarcasm",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 38,
+            "elapsedSeconds": 4.206317542,
+            "firstContentSeconds": 1.113431958,
+            "promptTokens": 528
+          },
+          "seconds": 4.206366083
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The replies interpreted his statement as 'sealioning,' which suggests he was feigning genuine inquiry to disrupt or derail a conversation, likely with the intent of provoking a reaction or appearing to challenge the others’ positions.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.125e-06,
+          "firstMeaningSeconds": 1.376119208,
+          "id": "sealioning",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 51,
+            "elapsedSeconds": 5.2927237080000005,
+            "firstContentSeconds": 1.115527083,
+            "promptTokens": 529
+          },
+          "seconds": 5.292773625
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The woman observed a man who was holding a telescope.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.209e-06,
+          "firstMeaningSeconds": 1.59794875,
+          "id": "ambiguity",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.027909459,
+            "firstContentSeconds": 1.3556115,
+            "promptTokens": 518
+          },
+          "seconds": 3.027946917
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "Eleanor believed Martin was reserving his arguments or objections until the vote occurred.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.584e-06,
+          "firstMeaningSeconds": 1.36998475,
+          "id": "powder-figurative",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 23,
+            "elapsedSeconds": 2.958698916,
+            "firstContentSeconds": 1.1135977910000001,
+            "promptTokens": 531
+          },
+          "seconds": 2.958739
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "He maintained the gunpowder's dryness by storing it near the heat source to prevent it from becoming damp and unusable for loading the musket.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 3.25e-06,
+          "firstMeaningSeconds": 1.3694874160000001,
+          "id": "powder-literal",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 36,
+            "elapsedSeconds": 4.091847417,
+            "firstContentSeconds": 1.118850875,
+            "promptTokens": 525
+          },
+          "seconds": 4.091901833
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The speaker's enthusiasm while congratulating her was nearly believable, but fell short of complete sincerity.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.042e-06,
+          "firstMeaningSeconds": 1.360344042,
+          "id": "almost-convincing",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 28,
+            "elapsedSeconds": 3.374077458,
+            "firstContentSeconds": 1.106532083,
+            "promptTokens": 520
+          },
+          "seconds": 3.374122792
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She revealed a secret; the metaphor suggests a previously concealed fact was disclosed, and the subsequent action of the cat running under the sofa is a separate, literal event.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 3792,
+          "dictionarySeconds": 2.375e-06,
+          "firstMeaningSeconds": 1.705004625,
+          "id": "heldout-cat",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 46,
+            "elapsedSeconds": 4.946085542,
+            "firstContentSeconds": 1.457745583,
+            "promptTokens": 530
+          },
+          "seconds": 4.946139458
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The explanation was absent, despite a general desire for it to be accurate.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 297,
+          "dictionarySeconds": 2.5e-06,
+          "firstMeaningSeconds": 1.361575458,
+          "id": "heldout-wanting",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 23,
+            "elapsedSeconds": 2.976036375,
+            "firstContentSeconds": 1.116927959,
+            "promptTokens": 522
+          },
+          "seconds": 2.976087041
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The evidence presented was based on surrounding facts rather than direct proof of a cause-and-effect relationship.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 477,
+          "dictionarySeconds": 3e-06,
+          "firstMeaningSeconds": 1.365407,
+          "id": "heldout-circumstantial",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 29,
+            "elapsedSeconds": 3.492019709,
+            "firstContentSeconds": 1.119021667,
+            "promptTokens": 521
+          },
+          "seconds": 3.492061917
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "His politeness functions as a barrier, preventing direct communication; it is presented as an obstruction rather than a welcome.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 3.5e-06,
+          "firstMeaningSeconds": 1.355975959,
+          "id": "heldout-metaphor",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 31,
+            "elapsedSeconds": 3.626348166,
+            "firstContentSeconds": 1.1089575,
+            "promptTokens": 527
+          },
+          "seconds": 3.626394334
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The ice fractured as a result of the sled's weight.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.167e-06,
+          "firstMeaningSeconds": 1.446147875,
+          "id": "new-literal-ice",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 21,
+            "elapsedSeconds": 2.854757917,
+            "firstContentSeconds": 1.187641584,
+            "promptTokens": 527
+          },
+          "seconds": 2.8548027080000002
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "She observed the duck that belonged to her.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.167e-06,
+          "firstMeaningSeconds": 1.6052039169999999,
+          "id": "new-duck",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 22,
+            "elapsedSeconds": 2.838449958,
+            "firstContentSeconds": 1.34836425,
+            "promptTokens": 514
+          },
+          "seconds": 2.838484167
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The response possessed some positive qualities, but it did not resolve the primary disagreement.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 2.333e-06,
+          "firstMeaningSeconds": 1.3555495,
+          "id": "new-litotes",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 3.014201584,
+            "firstContentSeconds": 1.106912959,
+            "promptTokens": 525
+          },
+          "seconds": 3.01423925
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The horse became agitated and difficult to control because people were moving nearer to it.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 789,
+          "dictionarySeconds": 2.209e-06,
+          "firstMeaningSeconds": 1.352538125,
+          "id": "new-restive",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 24,
+            "elapsedSeconds": 2.998484208,
+            "firstContentSeconds": 1.106892541,
+            "promptTokens": 520
+          },
+          "seconds": 2.9985220420000003
+        },
+        {
+          "answer": {
+            "details": [],
+            "meaning": "The phrase means that one assumption is supporting a significant portion of the argument's weight or validity.",
+            "dictionaryEvidenceMetadata": []
+          },
+          "dictionaryArticleBytes": 0,
+          "dictionarySeconds": 3e-06,
+          "firstMeaningSeconds": 1.4522595,
+          "id": "new-heavy-lifting",
+          "iteration": 2,
+          "metrics": {
+            "completionTokens": 28,
+            "elapsedSeconds": 3.446565541,
+            "firstContentSeconds": 1.208071166,
+            "promptTokens": 527
+          },
+          "seconds": 3.446601958
+        }
+      ]
+    }
+  ],
+  "documentWorkflowWithoutAI": [
+    {
+      "characters": 136465,
+      "dictionaryEntries": 1,
+      "file": "wilde.epub",
+      "importSeconds": 0.001480083,
+      "lookupSeconds": 0.01945,
+      "navigationItems": 12,
+      "readAllSeconds": 0.295139042,
+      "reopenAndReturnSeconds": 0.047264458,
+      "resources": 6,
+      "saveSeconds": 0.001121125
+    },
+    {
+      "characters": 141036,
+      "dictionaryEntries": 1,
+      "file": "wilde.txt",
+      "importSeconds": 0.000857084,
+      "lookupSeconds": 0.000588542,
+      "navigationItems": 0,
+      "readAllSeconds": 0.008888042,
+      "reopenAndReturnSeconds": 0.00630425,
+      "resources": 1,
+      "saveSeconds": 0.001043833
+    },
+    {
+      "characters": 50974,
+      "dictionaryEntries": 1,
+      "file": "paper.pdf",
+      "importSeconds": 0.001135917,
+      "lookupSeconds": 0.002154458,
+      "navigationItems": 0,
+      "readAllSeconds": 0.106365958,
+      "reopenAndReturnSeconds": 0.00539475,
+      "resources": 13,
+      "saveSeconds": 0.000707083
+    },
+    {
+      "characters": 12175,
+      "dictionaryEntries": 1,
+      "file": "readme.md",
+      "importSeconds": 0.0008165,
+      "lookupSeconds": 0.001688334,
+      "navigationItems": 0,
+      "readAllSeconds": 0.005697667,
+      "reopenAndReturnSeconds": 0.004865,
+      "resources": 1,
+      "saveSeconds": 0.000567167
+    }
+  ],
+  "documentWorkflowWithAI": [
+    {
+      "aiMeaning": "Algernon asserts that it is a truth that girls do not marry the men they flirt with, a statement Jack immediately rejects as nonsense.",
+      "characters": 136465,
+      "dictionaryEntries": 1,
+      "file": "wilde.epub",
+      "importSeconds": 0.002009625,
+      "lookupSeconds": 0.02827925,
+      "navigationItems": 12,
+      "readAllSeconds": 0.316305,
+      "reopenAndReturnSeconds": 0.049349833,
+      "resources": 6,
+      "saveSeconds": 0.002592375
+    },
+    {
+      "aiMeaning": "Algernon asserts that it is a truth that girls do not marry the men they flirt with, a statement Jack immediately dismisses as nonsense.",
+      "characters": 141036,
+      "dictionaryEntries": 1,
+      "file": "wilde.txt",
+      "importSeconds": 0.001718459,
+      "lookupSeconds": 0.000856917,
+      "navigationItems": 0,
+      "readAllSeconds": 0.009217125,
+      "reopenAndReturnSeconds": 0.006989916,
+      "resources": 1,
+      "saveSeconds": 0.001859792
+    },
+    {
+      "aiMeaning": "The authors describe training models that incorporate a definition, or 'gloss,' alongside the surrounding text to improve their ability to identify multiword expressions.",
+      "characters": 50974,
+      "dictionaryEntries": 1,
+      "file": "paper.pdf",
+      "importSeconds": 0.001339333,
+      "lookupSeconds": 0.002499458,
+      "navigationItems": 0,
+      "readAllSeconds": 0.208093542,
+      "reopenAndReturnSeconds": 0.006165916,
+      "resources": 13,
+      "saveSeconds": 0.001073416
+    },
+    {
+      "aiMeaning": "The text describes a library called ZIP Foundation that functions to create, read, and modify ZIP archive files.",
+      "characters": 12175,
+      "dictionaryEntries": 1,
+      "file": "readme.md",
+      "importSeconds": 0.000731292,
+      "lookupSeconds": 0.001501667,
+      "navigationItems": 0,
+      "readAllSeconds": 0.010874875,
+      "reopenAndReturnSeconds": 0.005532208,
+      "resources": 1,
+      "saveSeconds": 0.000968
+    }
+  ],
+  "freshProcessRestore": {
+    "restoreSeconds": 0.1309005,
+    "documents": 4
+  },
+  "cancellation": {
+    "cancellationAcknowledgedSeconds": 0.002208833,
+    "clearSelectionSeconds": 2.2375e-05,
+    "dictionaryWhileGeneratingSeconds": 0.49208325,
+    "recoveryMeaning": "The man's behavior did not conform to the standards expected of someone of his social standing and wealth.",
+    "recoverySeconds": 2.977171167
+  },
+  "manualReview": {
+    "successes": [
+      "wealth: financial resources, not methods, in both final runs.",
+      "endorsement: withheld formal approval without inventing a rejection.",
+      "orwell-1946: correctly preserved language affecting thought after baseline wrong-direction answer.",
+      "sarcasm: correctly identified ironic displeasure in both final runs.",
+      "powder-literal and new-literal-ice: physical interpretation in both final runs.",
+      "heldout-metaphor, new-litotes, new-restive, new-heavy-lifting: useful core sense in both final runs."
+    ],
+    "remainingFailures": [
+      "ambiguity: asserted the man held the telescope in both final runs; omitted observer using it.",
+      "new-duck: asserted an owned bird in both final runs; omitted watching a woman duck.",
+      "heldout-cat: secret-disclosure interpretation persisted despite the animal running under a sofa, both final runs.",
+      "heldout-wanting: said absent rather than deficient in both final runs. Dictionary-assisted v2 corrected this.",
+      "agreement: terminated can imply a completed agreement being ended rather than one failing to materialize; assisted v2 was clearer.",
+      "powder-figurative: attributed the belief to Eleanor, but narrowed preparedness to objections/arguments and omitted keeping options ready.",
+      "almost-convincing: treated lack of sincerity as fact rather than an implication of apparently unconvincing enthusiasm.",
+      "understatement: understood deficient manners but did not explain the formal understatement well.",
+      "sealioning: no invented seal-origin story after baseline, but descriptions omit some defining features and can still overstate intent."
+    ],
+    "dictionaryTradeoff": "Assisted v2 supplied exact fall-through evidence and corrected wanting. It also invented unlocking/unlatching for opened and reinforced the cat idiom error. Assistance stays optional and defaults off."
+  },
+  "automatedValidation": {
+    "ordinaryTestsExecuted": 53,
+    "optInTestsSkippedByDefault": 4,
+    "releaseBuild": "passed",
+    "liveExplanations": "passed structurally, semantic failures above",
+    "realDocuments": "passed",
+    "freshProcessRestore": "passed",
+    "realCancellationAndRecovery": "passed"
+  }
+}

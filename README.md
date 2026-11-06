@@ -34,6 +34,9 @@ articles, **not automatically resolved senses**. Empty results remain explicit;
 check Dictionary.app's settings for available English dictionaries. Lookup does
 not require an AI model or start inference. A selected dictionary excerpt retains
 its provider; personal edits and AI interpretations have separate provenance.
+After an exact phrase miss, a bounded first-word lemma retry can find inflections
+such as “fell through” under “fall through”; `entry.query` identifies the retrieved
+headword. Component-word definitions are never substituted for a missing phrase.
 
 Sense identity combines the normalized expression with the chosen meaning key.
 Resaving an occurrence does not duplicate it or reset familiarity. Reuse
@@ -72,6 +75,10 @@ Inject a configured `LlamaLocalEngine` into `ReaderSession`, then call `explain`
 only a completed, validated explanation can be saved with `.aiInterpretation()`.
 Dictionary lookup and saving remain independent while generation runs. Changing
 selection cancels the previous request and rejects stale updates/results.
+`explain(dictionaryAssistance: true)` optionally supplies bounded verbatim local
+dictionary excerpts. `answer.dictionaryEvidence` retains these separately from
+generated prose. Assistance defaults off: a general dictionary sense can bias the
+model toward a meaning that does not fit this passage.
 Context includes preceding text and the selected sentence; an optional visible
 range further bounds following text. Later resources are never prefetched.
 See [local inference setup](docs/local-inference.md).

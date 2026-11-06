@@ -59,6 +59,8 @@ public actor AnalysisCoordinator {
 
 extension Explanation {
     func validate() throws {
+        guard dictionaryEvidence.count <= 2 else { throw AnalysisError.invalidModelOutput }
+        try dictionaryEvidence.forEach { try $0.validate() }
         guard !meaning.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
               meaning.utf16.count <= 16_384, details.count <= 16 else {
             throw AnalysisError.invalidModelOutput
