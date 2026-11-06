@@ -5,7 +5,7 @@ import Foundation
 /// Engines must finish cancellation before the next generation is started.
 public actor AnalysisCoordinator {
     private enum Result: Sendable {
-        case discovery([DiscoverySuggestion])
+        case discovery(DiscoveryReport)
         case explanation(Explanation)
     }
 
@@ -27,10 +27,10 @@ public actor AnalysisCoordinator {
 
     public func availability() async -> LocalModelAvailability { await engine.availability() }
 
-    public func discover(_ request: DiscoveryRequest) async throws -> [DiscoverySuggestion] {
+    public func discover(_ request: DiscoveryRequest) async throws -> DiscoveryReport {
         try Task.checkCancellation()
         // Codable input can bypass throwing initializers; validate at the boundary.
-        _ = try DiscoveryRequest(passage: request.passage, familiarity: request.familiarity)
+        try request.validate()
         guard foreground == nil else { throw AnalysisError.foregroundBusy }
         let id = UUID()
         latestDiscovery = id
@@ -45,27 +45,9 @@ public actor AnalysisCoordinator {
             try await Task.sleep(for: debounce)
             try await Self.requireModel(engine)
             try Task.checkCancellation()
-            let suggestions = try await engine.discover(request)
+            let candidates = try await engine.discover(request)
             try Task.checkCancellation()
-            guard suggestions.count <= 64 else { throw AnalysisError.invalidModelOutput }
-            for suggestion in suggestions {
-                do {
-                    _ = try ExplanationRequest(passage: request.passage, selection: suggestion.anchor)
-                } catch {
-                    throw AnalysisError.invalidModelOutput
-                }
-                guard !suggestion.significance.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-                      suggestion.significance.utf16.count <= 4_096 else {
-                    throw AnalysisError.invalidModelOutput
-                }
-            }
-            let sorted = suggestions.sorted { $0.anchor.utf16Offset < $1.anchor.utf16Offset }
-            for (first, second) in zip(sorted, sorted.dropFirst()) {
-                guard first.anchor.utf16Offset + first.anchor.utf16Length <= second.anchor.utf16Offset else {
-                    throw AnalysisError.invalidModelOutput
-                }
-            }
-            return .discovery(suggestions)
+            return .discovery(try DiscoveryPolicy.evaluate(candidates, for: request))
         }
         active = Job(id: id, task: task)
         let result = try await finish(id: id, task: task)

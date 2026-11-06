@@ -77,50 +77,6 @@ public struct AnalysisPassage: Codable, Equatable, Sendable {
     }
 }
 
-public struct KnownSense: Codable, Equatable, Sendable {
-    public let expression: String
-    public let senseKey: String
-    public let familiarity: Familiarity
-
-    public init(expression: String, senseKey: String, familiarity: Familiarity) {
-        self.expression = expression
-        self.senseKey = senseKey
-        self.familiarity = familiarity
-    }
-}
-
-public struct DiscoveryRequest: Codable, Equatable, Sendable {
-    public let passage: AnalysisPassage
-    /// Supply relevant senses only, not the entire vocabulary library.
-    public let familiarity: [KnownSense]
-
-    public init(passage: AnalysisPassage, familiarity: [KnownSense] = []) throws {
-        try passage.validate()
-        guard familiarity.count <= 256,
-              familiarity.allSatisfy({
-                  !$0.expression.isEmpty && $0.expression.utf16.count <= 1_024
-                      && !$0.senseKey.isEmpty && $0.senseKey.utf16.count <= 1_024
-              }),
-              familiarity.reduce(0, { $0 + $1.expression.utf16.count + $1.senseKey.utf16.count }) <= 8_192 else {
-            throw LibraryError.invalidInput("Too many familiarity records for one passage.")
-        }
-        self.passage = passage
-        self.familiarity = familiarity
-    }
-}
-
-public struct DiscoverySuggestion: Codable, Equatable, Sendable {
-    public let anchor: SourceAnchor
-    public let significance: String
-    public let senseKey: String?
-
-    public init(anchor: SourceAnchor, significance: String, senseKey: String? = nil) {
-        self.anchor = anchor
-        self.significance = significance
-        self.senseKey = senseKey
-    }
-}
-
 public struct ExplanationRequest: Sendable {
     public let passage: AnalysisPassage
     public let selection: SourceAnchor
@@ -162,7 +118,7 @@ public enum AnalysisError: Error, Equatable, Sendable {
 /// validate lexical provenance before returning an Explanation. No network fallback.
 public protocol LocalAnalysisEngine: Sendable {
     func availability() async -> LocalModelAvailability
-    func discover(_ request: DiscoveryRequest) async throws -> [DiscoverySuggestion]
+    func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate]
     func explain(
         _ request: ExplanationRequest,
         onUpdate: @escaping @Sendable (String) async -> Void
@@ -172,7 +128,7 @@ public protocol LocalAnalysisEngine: Sendable {
 public struct UnconfiguredLocalEngine: LocalAnalysisEngine {
     public init() {}
     public func availability() async -> LocalModelAvailability { .notConfigured }
-    public func discover(_ request: DiscoveryRequest) async throws -> [DiscoverySuggestion] {
+    public func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate] {
         throw AnalysisError.modelNotConfigured
     }
     public func explain(

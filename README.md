@@ -12,11 +12,16 @@ No frontend views or styling live in this package.
 - UTF-16 source anchors with quotation/context recovery and explicit ambiguity.
 - A debounced, cancellable analysis coordinator with foreground priority and at
   most one running engine operation. Optional explanation sections carry their basis.
+- Discovery assessments separate contextual sense, intrinsic learning value,
+  explicit familiarity and highlight eligibility, retaining suppression reasons.
+- A loopback-only llama.cpp adapter with streaming, token-budget checks, cancellation,
+  bounded response parsing, and an executable evaluation runner.
 
-**No inference engine or lexical dataset is installed yet.** The default engine
-reports `modelNotConfigured`; it never supplies synthetic explanations. File import
+**No model weights or lexical dataset are installed yet.** The default engine
+reports `modelNotConfigured`. The implemented `LlamaLocalEngine` needs a manually
+started local worker; see [local inference setup](docs/local-inference.md). File import
 recognizes PDF, EPUB, TXT, Markdown, and HTML, but format parsing/rendering, OCR,
-web fetching, indexing, editing, permanent deletion, and model execution are subsequent
+web fetching, indexing, editing, and permanent deletion are subsequent
 increments. This is a backend foundation, not a finished reader.
 
 ## Build
@@ -36,7 +41,8 @@ swift test -Xswiftc -plugin-path -Xswiftc "$(dirname "$(xcrun --find swiftc)")/.
 
 The sole external dependency is GRDB, pinned in `Package.swift` and
 `Package.resolved`. Dependency resolution needs internet on the first build;
-the current backend performs no network requests at runtime.
+inference runtime requests are restricted to IPv4 loopback. HTTP integration tests
+bind ephemeral loopback ports and need local socket access.
 
 ## Frontend contract
 
@@ -52,6 +58,9 @@ its resource, and its UTF-16 offset within that resource. Submit it through
 `foregroundBusy` means to retry background discovery after the foreground request
 finishes. Ignore `CancellationError` for superseded navigation. Keep the same
 coordinator when switching between floating and docked explanation views.
+Discovery now returns a `DiscoveryReport`: render only `highlights`, while
+`assessments` retains known, low-value, uncertain, repeated, and overlapping
+candidates for evaluation. See the inference guide for the updated sense-memory contract.
 
 Resources are `.text` for TXT/Markdown, `.pdfPage(index:)` with a zero-based index,
 `.epub(path:)` for a package resource, and `.article` for an imported article.
@@ -87,8 +96,8 @@ queried with `includingTrash: true`.
 - Edit owned TXT/Markdown; later support small text corrections in ordinary
   reflowable EPUBs. Preserve layout where possible and report unsupported structures.
   PDF editing means annotations, not rewriting original PDF text.
-- Benchmark local-model discovery and explanations against the supplied idiomatic,
-  literary, and implied-meaning examples before choosing the model download.
+- Benchmark local-model discovery and explanations with `sandpaper-evaluate`
+  before choosing the final model. The initial baseline download is documented above.
 
 Import installs a fully written file before committing its database row. An app
 interruption can leave unreferenced staging/content files; automatic orphan cleanup

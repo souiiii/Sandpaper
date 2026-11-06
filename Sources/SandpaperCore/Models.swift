@@ -61,6 +61,7 @@ public struct VocabularyEntry: Identifiable, Equatable, Sendable {
     public let normalizedExpression: String
     /// A stable lexical sense identifier or an explicitly supplied meaning key.
     public let senseKey: String
+    public let meaning: String?
     public let familiarity: Familiarity
     public let notes: String
     public let createdAt: Date

@@ -7,7 +7,7 @@ extension DocumentLibrary {
     /// One expression can have multiple senses and multiple source occurrences.
     public func saveVocabulary(
         expression: String, senseKey: String, anchor: SourceAnchor,
-        explanation: Explanation? = nil
+        explanation: Explanation? = nil, meaning: String? = nil
     ) throws -> VocabularyOccurrence {
         let normalized = TextNormalization.expression(expression)
         let sense = senseKey.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -15,6 +15,14 @@ extension DocumentLibrary {
             throw LibraryError.invalidInput("A bounded expression and a nonempty sense key are required.")
         }
         if let explanation { try explanation.validate() }
+        let explicitMeaning = meaning?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard explicitMeaning.map({ !$0.isEmpty && $0.utf16.count <= 2_048 }) ?? true else {
+            throw LibraryError.invalidInput("A sense meaning must be nonempty and at most 2048 UTF-16 units.")
+        }
+        // Preserve the existing ability to save a detailed explanation. A long
+        // contextual answer must not be truncated into a misleading memory gloss.
+        let inferredMeaning = explanation?.meaning.trimmingCharacters(in: .whitespacesAndNewlines)
+        let senseMeaning = explicitMeaning ?? inferredMeaning.flatMap { $0.utf16.count <= 2_048 ? $0 : nil }
         let anchorData = try LibraryDatabase.encode(anchor)
         let identityData = try LibraryDatabase.encode(OccurrenceIdentity(anchor: anchor))
         let anchorKey = SHA256.hash(data: identityData).map { String(format: "%02x", $0) }.joined()
@@ -24,12 +32,13 @@ extension DocumentLibrary {
             let now = Date().timeIntervalSince1970
             try db.execute(sql: """
                 INSERT INTO vocabulary
-                (id, expression, normalizedExpression, senseKey, familiarity, notes, createdAt)
-                VALUES (?, ?, ?, ?, ?, '', ?)
-                ON CONFLICT(normalizedExpression, senseKey) DO NOTHING
+                (id, expression, normalizedExpression, senseKey, familiarity, notes, createdAt, meaning)
+                VALUES (?, ?, ?, ?, ?, '', ?, ?)
+                ON CONFLICT(normalizedExpression, senseKey) DO UPDATE
+                SET meaning = COALESCE(vocabulary.meaning, excluded.meaning)
                 """, arguments: [
                     UUID().uuidString, expression.trimmingCharacters(in: .whitespacesAndNewlines),
-                    normalized, sense, Familiarity.unfamiliar.rawValue, now
+                    normalized, sense, Familiarity.unfamiliar.rawValue, now, senseMeaning
                 ])
             guard let vocabularyID = try String.fetchOne(
                 db, sql: "SELECT id FROM vocabulary WHERE normalizedExpression = ? AND senseKey = ?",
@@ -75,6 +84,30 @@ extension DocumentLibrary {
                 arguments: [familiarity.rawValue, notes, id.uuidString]
             )
             guard db.changesCount == 1 else { throw LibraryError.vocabularyNotFound }
+        }
+    }
+
+    /// Supply relevant dictionary expressions, including lemmas from the local
+    /// lexicon when available. This never loads the entire learner vocabulary.
+    public func discoveryMemories(for expressions: [String]) throws -> [KnownSense] {
+        guard expressions.count <= 256, expressions.allSatisfy({ $0.utf16.count <= 512 }) else {
+            throw LibraryError.invalidInput("Too many expressions for a familiarity lookup.")
+        }
+        let normalized = Array(Set(expressions.map(TextNormalization.expression))).sorted()
+        guard !normalized.isEmpty else { return [] }
+        let placeholders = Array(repeating: "?", count: normalized.count).joined(separator: ",")
+        let entries = try database.read { db in
+            try Row.fetchAll(db, sql: """
+                SELECT * FROM vocabulary WHERE normalizedExpression IN (\(placeholders))
+                ORDER BY normalizedExpression, senseKey LIMIT 256
+                """, arguments: StatementArguments(normalized)).map(LibraryDatabase.vocabulary)
+        }
+        var budget = 12_288
+        return entries.compactMap { entry in
+            let size = entry.expression.utf16.count + entry.senseKey.utf16.count + (entry.meaning?.utf16.count ?? 0)
+            guard entry.expression.utf16.count <= 512, entry.senseKey.utf16.count <= 512, size <= budget else { return nil }
+            budget -= size
+            return KnownSense(expression: entry.expression, senseKey: entry.senseKey, meaning: entry.meaning, familiarity: entry.familiarity)
         }
     }
 

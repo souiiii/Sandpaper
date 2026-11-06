@@ -48,6 +48,9 @@ enum LibraryDatabase {
                 table.uniqueKey(["vocabularyID", "documentID", "anchorKey"])
             }
         }
+        migrator.registerMigration("v2_sense_meanings") { db in
+            try db.alter(table: "vocabulary") { table in table.add(column: "meaning", .text) }
+        }
         try migrator.migrate(queue)
         return queue
     }
@@ -78,7 +81,7 @@ enum LibraryDatabase {
         }
         return VocabularyEntry(
             id: id, expression: row["expression"], normalizedExpression: row["normalizedExpression"],
-            senseKey: row["senseKey"], familiarity: familiarity, notes: row["notes"],
+            senseKey: row["senseKey"], meaning: row["meaning"], familiarity: familiarity, notes: row["notes"],
             createdAt: Date(timeIntervalSince1970: row["createdAt"])
         )
     }

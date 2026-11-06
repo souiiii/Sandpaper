@@ -36,7 +36,7 @@ struct AnalysisCoordinatorTests {
         defer { first.cancel() }
         await engine.waitForStart()
         let second = try await coordinator.discover(request)
-        #expect(second.isEmpty) // A valid page need not contain suggestions.
+        #expect(second.highlights.isEmpty) // A valid page need not contain suggestions.
         do {
             _ = try await first.value
             Issue.record("Old viewport should have been cancelled")
@@ -55,7 +55,7 @@ struct AnalysisCoordinatorTests {
             _ = try await first.value
             Issue.record("Cancelled request should throw")
         } catch is CancellationError {}
-        #expect(try await coordinator.discover(request).isEmpty)
+        #expect(try await coordinator.discover(request).highlights.isEmpty)
         #expect(await engine.maximumConcurrentCalls == 1)
     }
 
@@ -163,7 +163,7 @@ private actor ProbeEngine: LocalAnalysisEngine {
         await withCheckedContinuation { startWaiters.append($0) }
     }
 
-    func discover(_ request: DiscoveryRequest) async throws -> [DiscoverySuggestion] {
+    func discover(_ request: DiscoveryRequest) async throws -> [DiscoveryCandidate] {
         discoveryCount += 1
         begin()
         defer { activeCalls -= 1 }
