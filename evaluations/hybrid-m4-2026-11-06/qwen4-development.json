@@ -1,0 +1,731 @@
+{
+  "note": "Development screen, stopped before held-out passages. Smaller model rejected for false literal highlights and unreliable sense references; duplicate-span validation was also corrected after this run. Not the matched pipeline comparison.",
+  "records": [
+    {
+      "discoveryError": "invalidModelOutput",
+      "discoveryWallSeconds": 15.45319725,
+      "explanation": {
+        "details": [
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-e048e83772cfbf6c30d5:001",
+                "source": "https://en.wiktionary.org/wiki/fall%20through"
+              }
+            },
+            "kind": "definition",
+            "text": "To be unsuccessful, come to nothing; to be cancelled; not to proceed."
+          }
+        ],
+        "meaning": "The agreement did not succeed or come to fruition; it was abandoned or cancelled."
+      },
+      "explanationMetrics": {
+        "completionTokens": 30,
+        "elapsedSeconds": 1.954331042,
+        "firstContentSeconds": 0.978303584,
+        "promptTokens": 421
+      },
+      "explanationWallSeconds": 1.9591471249999999,
+      "firstMeaningSeconds": 1.150775167,
+      "hybridDiagnostics": {
+        "completed": false,
+        "interpretiveCandidates": [],
+        "judgments": {
+          "l52_12": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The agreement failed to materialize, matching the sense of 'fall through' as cancellation.",
+            "sense": 1,
+            "value": 2
+          },
+          "l66_7": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "Both parties returned to an initial state, indicating the consequence of not progressing, matching 'leave' as having a remnant or consequence.",
+            "sense": 7,
+            "value": 1
+          },
+          "l95_10": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "Refers to the starting point after failure, matching 'square one' as a lack of progress.",
+            "sense": 1,
+            "value": 2
+          }
+        },
+        "lexicalAnchors": [
+          {
+            "documentID": "D482DFF3-C371-4579-9FFB-AF8710069B54",
+            "prefix": "r months of negotiations, the agreement finally ",
+            "quote": "fell through",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ", leaving both parties back at square one.",
+            "utf16Length": 12,
+            "utf16Offset": 52
+          },
+          {
+            "documentID": "D482DFF3-C371-4579-9FFB-AF8710069B54",
+            "prefix": "gotiations, the agreement finally fell through, ",
+            "quote": "leaving",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " both parties back at square one.",
+            "utf16Length": 7,
+            "utf16Offset": 66
+          },
+          {
+            "documentID": "D482DFF3-C371-4579-9FFB-AF8710069B54",
+            "prefix": "ally fell through, leaving both parties back at ",
+            "quote": "square one",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ".",
+            "utf16Length": 10,
+            "utf16Offset": 95
+          }
+        ],
+        "omittedCandidates": 0,
+        "omittedSenses": 15,
+        "stages": [
+          {
+            "metrics": {
+              "completionTokens": 202,
+              "elapsedSeconds": 8.915357708,
+              "firstContentSeconds": 2.130975125,
+              "promptTokens": 774
+            },
+            "stage": "lexical"
+          },
+          {
+            "metrics": {
+              "completionTokens": 173,
+              "elapsedSeconds": 6.521973333,
+              "firstContentSeconds": 0.714574042,
+              "promptTokens": 333
+            },
+            "stage": "interpretive"
+          }
+        ]
+      },
+      "id": "idioms",
+      "iteration": 1,
+      "lexicalLookupSeconds": 0.002049834,
+      "lexicalPossibilityCount": 1,
+      "passage": "After months of negotiations, the agreement finally fell through, leaving both parties back at square one.",
+      "reviewFocus": "Discover both idioms; explain the failed agreement without a literal falling interpretation.",
+      "selection": "fell through"
+    },
+    {
+      "discoveryError": "invalidModelOutput",
+      "discoveryWallSeconds": 9.325428666,
+      "explanation": {
+        "details": [
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-10a2cda74c7a18249807:000",
+                "source": "https://en.wiktionary.org/wiki/wanting"
+              }
+            },
+            "kind": "definition",
+            "text": "The state of wanting something; desire."
+          },
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-38cdea3f6923099bf3a6:001",
+                "source": "https://en.wiktionary.org/wiki/want"
+              }
+            },
+            "kind": "definition",
+            "text": "Lack, absence, deficiency."
+          }
+        ],
+        "meaning": "The passage indicates that the gentleman's manners were not up to standard or lacked certain qualities; they were deficient or incomplete."
+      },
+      "explanationMetrics": {
+        "completionTokens": 42,
+        "elapsedSeconds": 2.943871875,
+        "firstContentSeconds": 1.541060292,
+        "promptTokens": 636
+      },
+      "explanationWallSeconds": 2.946653375,
+      "firstMeaningSeconds": 1.7129249579999999,
+      "hybridDiagnostics": {
+        "completed": false,
+        "interpretiveCandidates": [],
+        "judgments": {
+          "l35_5": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "Means refers to financial resources, not an instrument to achieve result.",
+            "sense": 2,
+            "value": 1
+          },
+          "l73_7": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "Wanting describes deficiency in manners, not desire or absence of something else.",
+            "sense": 8,
+            "value": 2
+          }
+        },
+        "lexicalAnchors": [
+          {
+            "documentID": "A939D3B6-EEC3-4099-96F5-523DE28C1082",
+            "prefix": "He was a gentleman of considerable ",
+            "quote": "means",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ", though his manners were rather wanting.",
+            "utf16Length": 5,
+            "utf16Offset": 35
+          },
+          {
+            "documentID": "A939D3B6-EEC3-4099-96F5-523DE28C1082",
+            "prefix": "siderable means, though his manners were rather ",
+            "quote": "wanting",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ".",
+            "utf16Length": 7,
+            "utf16Offset": 73
+          }
+        ],
+        "omittedCandidates": 0,
+        "omittedSenses": 16,
+        "stages": [
+          {
+            "metrics": {
+              "completionTokens": 119,
+              "elapsedSeconds": 5.875512084,
+              "firstContentSeconds": 1.877393,
+              "promptTokens": 754
+            },
+            "stage": "lexical"
+          },
+          {
+            "metrics": {
+              "completionTokens": 83,
+              "elapsedSeconds": 3.446201875,
+              "firstContentSeconds": 0.676669708,
+              "promptTokens": 321
+            },
+            "stage": "interpretive"
+          }
+        ]
+      },
+      "id": "literary-understatement",
+      "iteration": 1,
+      "lexicalLookupSeconds": 0.000993,
+      "lexicalPossibilityCount": 1,
+      "passage": "He was a gentleman of considerable means, though his manners were rather wanting.",
+      "reviewFocus": "Recognize wealth, deficiency, formal understatement, and a natural modern equivalent.",
+      "selection": "his manners were rather wanting"
+    },
+    {
+      "discoveryError": "invalidModelOutput",
+      "discoveryWallSeconds": 8.817429417,
+      "explanation": {
+        "details": [
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-124556e38379d76142cc:002",
+                "source": "https://en.wiktionary.org/wiki/stop%20short"
+              }
+            },
+            "kind": "definition",
+            "text": "To come to a stop before reaching a certain point."
+          }
+        ],
+        "meaning": "The committee did not fully support or approve any of his proposals; they halted their endorsement before reaching a complete agreement."
+      },
+      "explanationMetrics": {
+        "completionTokens": 38,
+        "elapsedSeconds": 2.378665333,
+        "firstContentSeconds": 1.130262375,
+        "promptTokens": 473
+      },
+      "explanationWallSeconds": 2.381411209,
+      "firstMeaningSeconds": 1.301253,
+      "hybridDiagnostics": {
+        "completed": false,
+        "interpretiveCandidates": [],
+        "judgments": {
+          "l26_10": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The committee praised his enthusiasm shows a positive intensity of feeling.",
+            "sense": 1,
+            "value": 1
+          },
+          "l50_13": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "Stopped short of endorsing means they halted before reaching a point.",
+            "sense": 3,
+            "value": 1
+          }
+        },
+        "lexicalAnchors": [
+          {
+            "documentID": "D39A8B15-F2B4-4683-8408-15DF21166C8D",
+            "prefix": "The committee praised his ",
+            "quote": "enthusiasm",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ", though they stopped short of endorsing any of ",
+            "utf16Length": 10,
+            "utf16Offset": 26
+          },
+          {
+            "documentID": "D39A8B15-F2B4-4683-8408-15DF21166C8D",
+            "prefix": "e committee praised his enthusiasm, though they ",
+            "quote": "stopped short",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " of endorsing any of his proposals.",
+            "utf16Length": 13,
+            "utf16Offset": 50
+          }
+        ],
+        "omittedCandidates": 0,
+        "omittedSenses": 0,
+        "stages": [
+          {
+            "metrics": {
+              "completionTokens": 117,
+              "elapsedSeconds": 5.46198475,
+              "firstContentSeconds": 1.5307260839999999,
+              "promptTokens": 619
+            },
+            "stage": "lexical"
+          },
+          {
+            "metrics": {
+              "completionTokens": 80,
+              "elapsedSeconds": 3.349851708,
+              "firstContentSeconds": 0.67939275,
+              "promptTokens": 327
+            },
+            "stage": "interpretive"
+          }
+        ]
+      },
+      "id": "implied-criticism",
+      "iteration": 1,
+      "lexicalLookupSeconds": 0.001036917,
+      "lexicalPossibilityCount": 1,
+      "passage": "The committee praised his enthusiasm, though they stopped short of endorsing any of his proposals.",
+      "reviewFocus": "Distinguish explicit withholding of endorsement from possible criticism; do not assert a definite motive.",
+      "selection": "stopped short of"
+    },
+    {
+      "discoveryError": "invalidModelOutput",
+      "discoveryWallSeconds": 9.818101334,
+      "explanation": {
+        "details": [
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-8ae96aea21ea3f19de44:002",
+                "source": "https://en.wiktionary.org/wiki/fig%20leaf"
+              }
+            },
+            "kind": "definition",
+            "text": "Anything used to conceal something undesirable or that one does not want to be discovered."
+          }
+        ],
+        "meaning": "In this context, 'fig leaf' means a superficial or insincere attempt to\u63a9\u9970 (conceal) something undesirable or unacknowledged\u2014specifically, the speaker's true indifference. It implies that the apology is not genuine but serves only as a cover for the lack of real remorse or concern."
+      },
+      "explanationMetrics": {
+        "completionTokens": 78,
+        "elapsedSeconds": 3.7834969579999997,
+        "firstContentSeconds": 1.193517166,
+        "promptTokens": 492
+      },
+      "explanationWallSeconds": 3.786091709,
+      "firstMeaningSeconds": 1.364430834,
+      "hybridDiagnostics": {
+        "completed": false,
+        "interpretiveCandidates": [],
+        "judgments": {
+          "l18_8": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The phrase 'fig leaf' here conceals true indifference, not a literal fig leaf.",
+            "sense": 3,
+            "value": 2
+          },
+          "l35_12": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The context shows a lack of emotional response, not impartiality or apathy.",
+            "sense": 3,
+            "value": 1
+          }
+        },
+        "lexicalAnchors": [
+          {
+            "documentID": "BA007011-4901-4692-8CFE-B82225CDA58C",
+            "prefix": "His apology was a ",
+            "quote": "fig leaf",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " for his indifference.",
+            "utf16Length": 8,
+            "utf16Offset": 18
+          },
+          {
+            "documentID": "BA007011-4901-4692-8CFE-B82225CDA58C",
+            "prefix": "His apology was a fig leaf for his ",
+            "quote": "indifference",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": ".",
+            "utf16Length": 12,
+            "utf16Offset": 35
+          }
+        ],
+        "omittedCandidates": 0,
+        "omittedSenses": 0,
+        "stages": [
+          {
+            "metrics": {
+              "completionTokens": 126,
+              "elapsedSeconds": 6.242227125,
+              "firstContentSeconds": 2.019368541,
+              "promptTokens": 724
+            },
+            "stage": "lexical"
+          },
+          {
+            "metrics": {
+              "completionTokens": 87,
+              "elapsedSeconds": 3.57268925,
+              "firstContentSeconds": 0.6721375,
+              "promptTokens": 312
+            },
+            "stage": "interpretive"
+          }
+        ]
+      },
+      "id": "known-word-new-sense",
+      "iteration": 1,
+      "lexicalLookupSeconds": 0.000847291,
+      "lexicalPossibilityCount": 1,
+      "passage": "His apology was a fig leaf for his indifference.",
+      "reviewFocus": "Literal familiarity must not suppress the figurative concealment sense.",
+      "selection": "fig leaf"
+    },
+    {
+      "discovery": {
+        "assessments": [
+          {
+            "candidate": {
+              "anchor": {
+                "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+                "prefix": "She ",
+                "quote": "opened",
+                "resource": {
+                  "text": {}
+                },
+                "revision": "evaluation-v1",
+                "suffix": " the window and put the book on the table.",
+                "utf16Length": 6,
+                "utf16Offset": 4
+              },
+              "assessment": {
+                "contextualMeaning": "To make or become physically unobstructed, uncovered, etc. To make or become clear by removal of objects and obstructions, so as to allow passage, access, or visibility.",
+                "expression": "open",
+                "interpretationConfidence": "high",
+                "learningReason": "The window is made physically accessible by being opened.",
+                "learningValue": "medium",
+                "signals": [
+                  "usefulVocabulary"
+                ]
+              }
+            },
+            "decision": "eligible",
+            "familiarity": {
+              "state": "unknown"
+            }
+          },
+          {
+            "candidate": {
+              "anchor": {
+                "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+                "prefix": "She opened the ",
+                "quote": "window",
+                "resource": {
+                  "text": {}
+                },
+                "revision": "evaluation-v1",
+                "suffix": " and put the book on the table.",
+                "utf16Length": 6,
+                "utf16Offset": 15
+              },
+              "assessment": {
+                "contextualMeaning": "An opening, usually covered by one or more panes of clear glass, to allow light and air from outside to enter a building or vehicle.",
+                "expression": "window",
+                "interpretationConfidence": "high",
+                "learningReason": "The window allows light and air to enter the building.",
+                "learningValue": "medium",
+                "signals": [
+                  "usefulVocabulary"
+                ]
+              }
+            },
+            "decision": "eligible",
+            "familiarity": {
+              "state": "unknown"
+            }
+          },
+          {
+            "candidate": {
+              "anchor": {
+                "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+                "prefix": "She opened the window and ",
+                "quote": "put",
+                "resource": {
+                  "text": {}
+                },
+                "revision": "evaluation-v1",
+                "suffix": " the book on the table.",
+                "utf16Length": 3,
+                "utf16Offset": 26
+              },
+              "assessment": {
+                "contextualMeaning": "To physically place (something or somebody, in, at, around, etc. someplace)",
+                "expression": "put",
+                "interpretationConfidence": "high",
+                "learningReason": "The book is physically placed on the table.",
+                "learningValue": "medium",
+                "signals": [
+                  "usefulVocabulary"
+                ]
+              }
+            },
+            "decision": "eligible",
+            "familiarity": {
+              "state": "unknown"
+            }
+          },
+          {
+            "candidate": {
+              "anchor": {
+                "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+                "prefix": "She opened the window and put the ",
+                "quote": "book",
+                "resource": {
+                  "text": {}
+                },
+                "revision": "evaluation-v1",
+                "suffix": " on the table.",
+                "utf16Length": 4,
+                "utf16Offset": 34
+              },
+              "assessment": {
+                "contextualMeaning": "A collection of sheets of paper bound together to hinge at one edge, containing printed or written material, pictures, etc.",
+                "expression": "book",
+                "interpretationConfidence": "high",
+                "learningReason": "The book is a bound collection of written material.",
+                "learningValue": "high",
+                "signals": [
+                  "usefulVocabulary"
+                ]
+              }
+            },
+            "decision": "eligible",
+            "familiarity": {
+              "state": "unknown"
+            }
+          }
+        ]
+      },
+      "discoveryMetrics": {
+        "completionTokens": 5,
+        "elapsedSeconds": 0.81559675,
+        "firstContentSeconds": 0.68031,
+        "promptTokens": 318
+      },
+      "discoveryWallSeconds": 12.540528041,
+      "explanation": {
+        "details": [
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-3857bb93456d63eae566:000",
+                "source": "https://en.wiktionary.org/wiki/open"
+              }
+            },
+            "kind": "definition",
+            "text": "To make or become physically unobstructed, uncovered, etc. To make or become accessible or clear for passage by moving from a shut position."
+          },
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-3857bb93456d63eae566:001",
+                "source": "https://en.wiktionary.org/wiki/open"
+              }
+            },
+            "kind": "definition",
+            "text": "To make or become physically unobstructed, uncovered, etc. To make or become clear by removal of objects and obstructions, so as to allow passage, access, or visibility."
+          },
+          {
+            "basis": {
+              "lexical": {
+                "entryID": "wikt-20261001-3857bb93456d63eae566:002",
+                "source": "https://en.wiktionary.org/wiki/open"
+              }
+            },
+            "kind": "definition",
+            "text": "To make or become physically unobstructed, uncovered, etc. To unseal or uncover, or become unsealed or uncovered."
+          }
+        ],
+        "meaning": "She made the window physically unobstructed and accessible by moving it from a shut position, allowing air to pass through."
+      },
+      "explanationMetrics": {
+        "completionTokens": 45,
+        "elapsedSeconds": 3.256110708,
+        "firstContentSeconds": 1.75622425,
+        "promptTokens": 692
+      },
+      "explanationWallSeconds": 3.259329375,
+      "firstMeaningSeconds": 1.929806083,
+      "hybridDiagnostics": {
+        "completed": true,
+        "interpretiveCandidates": [],
+        "judgments": {
+          "l15_6": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The window allows light and air to enter the building.",
+            "sense": 1,
+            "value": 1
+          },
+          "l26_3": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The book is physically placed on the table.",
+            "sense": 1,
+            "value": 1
+          },
+          "l34_4": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The book is a bound collection of written material.",
+            "sense": 1,
+            "value": 2
+          },
+          "l4_6": {
+            "confidence": 2,
+            "memory": 0,
+            "reason": "The window is made physically accessible by being opened.",
+            "sense": 4,
+            "value": 1
+          }
+        },
+        "lexicalAnchors": [
+          {
+            "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+            "prefix": "She ",
+            "quote": "opened",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " the window and put the book on the table.",
+            "utf16Length": 6,
+            "utf16Offset": 4
+          },
+          {
+            "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+            "prefix": "She opened the ",
+            "quote": "window",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " and put the book on the table.",
+            "utf16Length": 6,
+            "utf16Offset": 15
+          },
+          {
+            "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+            "prefix": "She opened the window and ",
+            "quote": "put",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " the book on the table.",
+            "utf16Length": 3,
+            "utf16Offset": 26
+          },
+          {
+            "documentID": "DFE5A71A-03BD-4A3F-951C-FE4CAC5D660B",
+            "prefix": "She opened the window and put the ",
+            "quote": "book",
+            "resource": {
+              "text": {}
+            },
+            "revision": "evaluation-v1",
+            "suffix": " on the table.",
+            "utf16Length": 4,
+            "utf16Offset": 34
+          }
+        ],
+        "omittedCandidates": 0,
+        "omittedSenses": 101,
+        "stages": [
+          {
+            "metrics": {
+              "completionTokens": 218,
+              "elapsedSeconds": 11.72000025,
+              "firstContentSeconds": 4.179841166,
+              "promptTokens": 1561
+            },
+            "stage": "lexical"
+          },
+          {
+            "metrics": {
+              "completionTokens": 5,
+              "elapsedSeconds": 0.81559675,
+              "firstContentSeconds": 0.68031,
+              "promptTokens": 318
+            },
+            "stage": "interpretive"
+          }
+        ]
+      },
+      "id": "unremarkable-prose",
+      "iteration": 1,
+      "lexicalLookupSeconds": 0.001413625,
+      "lexicalPossibilityCount": 1,
+      "passage": "She opened the window and put the book on the table.",
+      "reviewFocus": "Prefer no automatic highlights. A manual explanation should remain short.",
+      "selection": "opened"
+    }
+  ]
+}

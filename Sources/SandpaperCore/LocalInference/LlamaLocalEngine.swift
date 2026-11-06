@@ -34,12 +34,15 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
 
     private let configuration: LlamaServerConfiguration
     private let client: LoopbackHTTPClient
+    let lexicon: LexiconStore?
     private var running = false
     public private(set) var lastMetrics: InferenceMetrics?
+    public internal(set) var lastHybridDiagnostics: HybridDiscoveryDiagnostics?
 
-    public init(configuration: LlamaServerConfiguration) {
+    public init(configuration: LlamaServerConfiguration, lexicon: LexiconStore? = nil) {
         self.configuration = configuration
         self.client = LoopbackHTTPClient(configuration: configuration)
+        self.lexicon = lexicon
     }
 
     public func availability() async -> LocalModelAvailability {
@@ -64,6 +67,8 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         try request.validate()
         try acquire()
         defer { running = false }
+        lastHybridDiagnostics = nil
+        if let lexicon { return try await groundedDiscovery(request, lexicon: lexicon) }
         let data = try await complete(
             messages: LlamaPrompts.discovery(request), schema: LlamaPrompts.discoverySchema(),
             name: "discovery", maximumOutputTokens: 2_048
@@ -96,6 +101,7 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
     ) async throws -> Explanation {
         try acquire()
         defer { running = false }
+        if let lexicon { return try await groundedExplanation(request, lexicon: lexicon, onUpdate: onUpdate) }
         let data = try await complete(
             messages: LlamaPrompts.explanation(request), schema: LlamaPrompts.explanationSchema(),
             name: "explanation", maximumOutputTokens: 1_024, onUpdate: onUpdate
@@ -136,7 +142,7 @@ public actor LlamaLocalEngine: LocalAnalysisEngine {
         return properties
     }
 
-    private func complete(
+    func complete(
         messages: [ChatMessage], schema: [String: Any], name: String, maximumOutputTokens: Int,
         onUpdate: (@Sendable (String) async -> Void)? = nil
     ) async throws -> Data {

@@ -144,6 +144,13 @@ public struct DiscoveryReport: Codable, Equatable, Sendable {
     /// Includes suppressed candidates so decisions can be inspected and evaluated.
     public let assessments: [DiscoverySuggestion]
     public var highlights: [DiscoverySuggestion] { assessments.filter { $0.decision == .eligible } }
+
+    /// Evaluate candidates without inference, including cached candidates when only familiarity
+    /// status or sensitivity changed. Memory meanings/references must still be valid; source and
+    /// revision checks reject stale anchors after edits.
+    public static func evaluate(_ candidates: [DiscoveryCandidate], for request: DiscoveryRequest) throws -> DiscoveryReport {
+        try DiscoveryPolicy.evaluate(candidates, for: request)
+    }
 }
 
 enum DiscoveryPolicy {

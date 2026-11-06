@@ -7,6 +7,9 @@ final class TestLlamaServer: Sendable {
     struct Behavior: Sendable {
         var discovery = #"{"candidates":[]}"#
         var explanation = #"{"meaning":"The agreement failed to happen.","notes":[]}"#
+        var groundedDiscovery = "{}"
+        var interpretiveDiscovery = #"{"candidates":[]}"#
+        var groundedExplanation = #"{"meaning":"The agreement failed to happen.","senses":[]}"#
         var tokenCount = 64
         var alias = "sandpaper-local"
         var finishReason = "stop"
@@ -118,8 +121,15 @@ actor TestLlamaServerState {
                 let object = try JSONSerialization.jsonObject(with: request.body) as? [String: Any]
                 let format = object?["response_format"] as? [String: Any]
                 let schema = format?["json_schema"] as? [String: Any]
-                let isDiscovery = schema?["name"] as? String == "discovery"
-                body = try stream(isDiscovery ? behavior.discovery : behavior.explanation)
+                let name = schema?["name"] as? String
+                let content = switch name {
+                case "discovery": behavior.discovery
+                case "grounded_discovery": behavior.groundedDiscovery
+                case "interpretive_discovery": behavior.interpretiveDiscovery
+                case "grounded_explanation": behavior.groundedExplanation
+                default: behavior.explanation
+                }
+                body = try stream(content)
                 type = "text/event-stream"
             default: body = Data("{}".utf8)
             }

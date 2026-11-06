@@ -9,6 +9,20 @@ struct EvaluationCase: Sendable {
     var memories: [KnownSense] = []
     var source: String? = nil
 
+    static func loadAdditional(from url: URL) throws -> [EvaluationCase] {
+        struct Input: Decodable { let id: String; let passage: String; let selection: String; let focus: String }
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        let data = try handle.read(upToCount: 1_048_577) ?? Data()
+        guard data.count <= 1_048_576 else { throw LibraryError.invalidInput("Evaluation cases exceed size limit.") }
+        let inputs = try JSONDecoder().decode([Input].self, from: data)
+        guard inputs.count <= 32, inputs.allSatisfy({ !$0.id.isEmpty && !$0.selection.isEmpty && $0.passage.contains($0.selection) }) else {
+            throw LibraryError.invalidInput("Invalid additional evaluation cases.")
+        }
+        return inputs.map { .init(id: $0.id, passage: $0.passage, selection: $0.selection, reviewFocus: $0.focus,
+            source: "Constructed held-out hybrid evaluation passage, frozen before prompt implementation.") }
+    }
+
     static let cases: [EvaluationCase] = [
         .init(
             id: "idioms", passage: "After months of negotiations, the agreement finally fell through, leaving both parties back at square one.",
