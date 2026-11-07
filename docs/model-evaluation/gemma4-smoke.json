@@ -1,0 +1,248 @@
+[
+  {
+    "id": "d1",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.218980417004786,
+    "firstReadableSeconds": 5.231554958008928,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She set aside the proposal for later consideration.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She set aside the proposal for later consideration.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 581,
+      "total_tokens": 603,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 581,
+      "prompt_ms": 4592.239,
+      "prompt_per_token_ms": 7.9040258175559375,
+      "prompt_per_second": 126.51780536683742,
+      "predicted_n": 22,
+      "predicted_ms": 1615.741,
+      "predicted_per_token_ms": 76.94004761904762,
+      "predicted_per_second": 12.997132584987321
+    },
+    "inputTokens": 581,
+    "renderedPromptSHA256": "120821f6b65313f5b4ea3a11e43e0854190f4decb171b9552bd2d2bf82e37df4",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d2",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.1839783749892376,
+    "firstReadableSeconds": 1.1986794999975245,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The character uses a sarcastic remark to indicate that the cold soup is actually the opposite of what he desired.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The character uses a sarcastic remark to indicate that the cold soup is actually the opposite of what he desired.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 584,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 48,
+      "prompt_ms": 659.522,
+      "prompt_per_token_ms": 13.740041666666668,
+      "prompt_per_second": 72.77998307865393,
+      "predicted_n": 34,
+      "predicted_ms": 2519.953,
+      "predicted_per_token_ms": 76.36221212121212,
+      "predicted_per_second": 13.095482336376909
+    },
+    "inputTokens": 584,
+    "renderedPromptSHA256": "1ddec86e0ad354811e6ea36d8e1b962da400db8923a6fd48a3ee4f524053ddfc",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d3",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.660432042001048,
+    "firstReadableSeconds": 0.9676903329964262,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "They remained silent.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"They remained silent.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 17,
+      "prompt_tokens": 573,
+      "total_tokens": 590,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 37,
+      "prompt_ms": 433.634,
+      "prompt_per_token_ms": 11.719837837837838,
+      "prompt_per_second": 85.32541267520536,
+      "predicted_n": 17,
+      "predicted_ms": 1223.991,
+      "predicted_per_token_ms": 76.4994375,
+      "predicted_per_second": 13.071991542421472
+    },
+    "inputTokens": 573,
+    "renderedPromptSHA256": "dd941c8a69e464e95ce20a23e3a22812f46615b117a297f9f0103f0266925618",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d4",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.3424606250191573,
+    "firstReadableSeconds": 1.1821786660002545,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The minister remained optimistic and cheerful regarding future outcomes.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The minister remained optimistic and cheerful regarding future outcomes.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 577,
+      "total_tokens": 600,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 41,
+      "prompt_ms": 635.93,
+      "prompt_per_token_ms": 15.510487804878048,
+      "prompt_per_second": 64.47250483543786,
+      "predicted_n": 23,
+      "predicted_ms": 1701.312,
+      "predicted_per_token_ms": 77.33236363636364,
+      "predicted_per_second": 12.931196629424822
+    },
+    "inputTokens": 577,
+    "renderedPromptSHA256": "acf7a0c2d488b177cfa4f6773b46861b9d3f6d406bcb055f3d1096c56c819c5c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d5",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.792912792006973,
+    "firstReadableSeconds": 1.1755874590016901,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She physically tipped or poured the beans out of a container into the colander.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She physically tipped or poured the beans out of a container into the colander.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 577,
+      "total_tokens": 606,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 41,
+      "prompt_ms": 636.336,
+      "prompt_per_token_ms": 15.520390243902439,
+      "prompt_per_second": 64.43136959090795,
+      "predicted_n": 29,
+      "predicted_ms": 2151.088,
+      "predicted_per_token_ms": 76.82457142857143,
+      "predicted_per_second": 13.016668774127323
+    },
+    "inputTokens": 577,
+    "renderedPromptSHA256": "20ed0cdba9e150046af6b71cf4b530d2035cf9a6e9b8a3c1d486aa738a7d74f5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d6",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.2307637500052806,
+    "firstReadableSeconds": 1.2418564160179812,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The plan was a significant or substantial accomplishment.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The plan was a significant or substantial accomplishment.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 578,
+      "total_tokens": 600,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 42,
+      "prompt_ms": 620.585,
+      "prompt_per_token_ms": 14.775833333333335,
+      "prompt_per_second": 67.67807794258643,
+      "predicted_n": 22,
+      "predicted_ms": 1607.71,
+      "predicted_per_token_ms": 76.55761904761906,
+      "predicted_per_second": 13.062057211810586
+    },
+    "inputTokens": 578,
+    "renderedPromptSHA256": "c7031ab694159876b479410b4e4e70929f567055b9eb29e3d5d35e68004ba5fc",
+    "dictionaryRequested": false
+  }
+]

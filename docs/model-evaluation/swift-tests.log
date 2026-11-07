@@ -1,0 +1,169 @@
+warning: 'zipfoundation': /Users/shahid/Documents/code/repos/Sandpaper/.build/checkouts/ZIPFoundation/Package@swift-5.9.swift:23:61: warning: 'v4' is deprecated: watchOS 9.0 is the oldest supported version [#DeprecatedDeclaration]
+21 |     name: "ZIPFoundation",
+22 |     platforms: [
+23 |         .macOS(.v10_13), .iOS(.v12), .tvOS(.v12), .watchOS(.v4), .visionOS(.v1)
+   |                                                             `- warning: 'v4' is deprecated: watchOS 9.0 is the oldest supported version [#DeprecatedDeclaration]
+24 |     ],
+25 |     products: [
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
+Building for production...
+[Pre-planning 1 / 214]
+[Planning deferred tasks]
+[5 / 14] GRDB
+[5 / 14] ZIPFoundation
+[9 / 34]
+[15 / 34]
+[16 / 34]
+[20 / 34]
+[21 / 34]
+[23 / 34]
+[25 / 34]
+[27 / 34] ZIPFoundation
+[31 / 36] GRDB
+[36 / 39] SandpaperCore
+[37 / 40] SandpaperCore
+/Users/shahid/Documents/code/repos/Sandpaper/Package.swift: SandpaperCore: ld: warning: search path '/Library/Developer/CommandLineTools/Developer/Library/Frameworks' not found
+[44 / 45] SandpaperCoreTests-product
+[45 / 46] SandpaperCoreTests-product
+/Users/shahid/Documents/code/repos/Sandpaper/Package.swift: SandpaperCoreTests-product: ld: warning: search path '/Library/Developer/CommandLineTools/Developer/usr/lib' not found
+/Users/shahid/Documents/code/repos/Sandpaper/Package.swift: SandpaperCoreTests-product: ld: warning: search path '/Library/Developer/CommandLineTools/Developer/Library/Frameworks' not found
+[51 / 55] SandpaperCoreTests-product
+[53 / 55] SandpaperCoreTests-product
+Build complete! (30.90 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite DocumentReaderTests started.
+◇ Suite LlamaLocalEngineTests started.
+◇ Suite InferenceParsingTests started.
+◇ Suite DictionaryEvidenceTests started.
+◇ Suite ReaderWorkflowTests started.
+◇ Suite SenseMemoryTests started.
+◇ Suite LiveValidationTests started.
+◇ Test pdfTextAndImageOnlyPageLocationsAreSupported() started.
+◇ Suite AnalysisCoordinatorTests started.
+◇ Test plainTextBOMUnicodeAndUnsupportedBytesAreHandledExplicitly() started.
+◇ Test modelCannotInventSourcedEtymology() started.
+◇ Test epubTraversalAndExternalEntityDeclarationsAreRejected() started.
+◇ Suite SourceAnchorTests started.
+◇ Test epub2NavigationWorksAndFixedLayoutIsExplicitlyRejected() started.
+◇ Test oversizedPromptIsRejectedBeforeGeneration() started.
+◇ Test selectionContextIncludesTheCurrentSentenceButNotTheFollowingParagraph() started.
+◇ Test networkCancellationReleasesInferenceSlot() started.
+◇ Test explanationStreamsReadableMeaningAndLabelsInterpretation() started.
+◇ Test gemmaUsesTheSameUserTurnForBudgetingAndGenerationAndPreservesSchema() started.
+◇ Suite DocumentLibraryTests started.
+◇ Test stalledServerTimesOut() started.
+◇ Test unfinishedFinalEventIsDeliveredButUnboundedLinesAreRejected() started.
+◇ Test meaningPreviewDecodesEscapesAndWaitsForIncompleteUnicode() started.
+◇ Test eventFramingHandlesFragmentedUnicodeCRLFAndComments() started.
+◇ Test absentOrDifferentModelDoesNotMasqueradeAsReady() started.
+◇ Test epubSpineNavigationFormattingAndCanonicalSelectionAgree() started.
+◇ Test incompleteAndTruncatedStreamsNeverBecomeSuccessfulExplanations() started.
+◇ Test adapterSuppliesEvidenceButNeverLabelsGeneratedProseAsDictionaryFact() started.
+◇ Test localPhraseLemmatizationOnlyChangesInflectedHead() started.
+◇ Test evidenceBoundsAndOldSavedExplanationsRemainCompatible() started.
+◇ Test redirectsNeverForwardReadingMaterial() started.
+◇ Test phraseExcerptFindsDefinitionDeepInArticleAndExcludesRootOrigin() started.
+◇ Test truncatedOrDisconnectedGenerationFails(reason:) started.
+◇ Test savedMeaningIsRetrievedWithoutOverwritingPersonalKnowledge() started.
+◇ Test originalDatabaseMigratesWithoutLosingLearnerState() started.
+◇ Test savingCannotTurnHalfASurrogateIntoADictionaryMeaning() started.
+◇ Test dictionaryAndSavingStayAvailableWhileExplicitAIIsRunning() started.
+◇ Test bookmarksAndProgressSurviveTrashAndInvalidPreferencesNeverOverwriteValidOnes() started.
+◇ Test completedAIIsSavedAsInterpretationAndCannotMasqueradeAsDictionaryFact() started.
+◇ Test nativeDictionaryReturnsFactsOrAnExplicitEmptyResultWithoutAI() started.
+➜ Test evaluateExplicitExplanations() skipped.
+◇ Test vocabularyEditsAndDeletionPreserveProvenanceAndDocumentIntegrity() started.
+◇ Test previousDocumentSelectionAndProgressCannotBeAppliedToANewDocument() started.
+◇ Test completeReadingDictionaryVocabularyAndReturnWorkflowNeedsNoAI() started.
+◇ Test callerCancellationReleasesTheEngine() started.
+◇ Test missingModelIsExplicit() started.
+◇ Test newExplicitRequestCancelsAndDrainsThePreviousOne() started.
+◇ Test cancellationSuppressesAnUncooperativeEnginesLateResult() started.
+◇ Test streamingAndProvenanceValidationRemainActive() started.
+◇ Test passageOffsetIsResourceRelative() started.
+◇ Test unicodeSelectionUsesUTF16() started.
+◇ Test changedCanonicalContextCannotSilentlySelectAnIdenticalWrongOccurrence() started.
+◇ Test extremeOffsetsAreRejectedWithoutOverflow() started.
+◇ Test repairUsesContextAndNeverChoosesAnAmbiguousOccurrence() started.
+◇ Test staleOffsetDoesNotOverrideChangedRevision() started.
+◇ Test case passing 1 argument reason → "length" to truncatedOrDisconnectedGenerationFails(reason:) started.
+◇ Test case passing 1 argument reason → "missing-done" to truncatedOrDisconnectedGenerationFails(reason:) started.
+◇ Test invalidProgressAndUnsupportedFormatsAreRejected() started.
+◇ Test failedImportsLeaveNoLibraryRecordsOrStagingFiles() started.
+◇ Test duplicateOccurrencesIgnoreViewportContextAndPreserveLearning() started.
+◇ Test cancelledImportLeavesOriginalUntouched() started.
+◇ Test importsAreManagedDeduplicatedAndSurviveReopening() started.
+◇ Test trashRestorePreservesStateVocabularyAndOriginal() started.
+◇ Test distinctSensesRemainSeparate() started.
+◇ Test largeImportsPreserveBytesAcrossChunkBoundaries() started.
+◇ Test invalidReferencesNeverCreatePartialVocabularyRecords() started.
+✔ Test eventFramingHandlesFragmentedUnicodeCRLFAndComments() passed after 0.053 seconds.
+✔ Test meaningPreviewDecodesEscapesAndWaitsForIncompleteUnicode() passed after 0.053 seconds.
+✔ Test incompleteAndTruncatedStreamsNeverBecomeSuccessfulExplanations() passed after 0.053 seconds.
+✔ Test unfinishedFinalEventIsDeliveredButUnboundedLinesAreRejected() passed after 0.053 seconds.
+✔ Test phraseExcerptFindsDefinitionDeepInArticleAndExcludesRootOrigin() passed after 0.058 seconds.
+✔ Test evidenceBoundsAndOldSavedExplanationsRemainCompatible() passed after 0.066 seconds.
+✔ Test selectionContextIncludesTheCurrentSentenceButNotTheFollowingParagraph() passed after 0.067 seconds.
+✔ Test epubTraversalAndExternalEntityDeclarationsAreRejected() passed after 0.067 seconds.
+✔ Test epub2NavigationWorksAndFixedLayoutIsExplicitlyRejected() passed after 0.067 seconds.
+✔ Test plainTextBOMUnicodeAndUnsupportedBytesAreHandledExplicitly() passed after 0.067 seconds.
+✔ Test savedMeaningIsRetrievedWithoutOverwritingPersonalKnowledge() passed after 0.065 seconds.
+✔ Test previousDocumentSelectionAndProgressCannotBeAppliedToANewDocument() passed after 0.065 seconds.
+✔ Test epubSpineNavigationFormattingAndCanonicalSelectionAgree() passed after 0.068 seconds.
+✔ Test passageOffsetIsResourceRelative() passed after 0.065 seconds.
+✔ Test unicodeSelectionUsesUTF16() passed after 0.065 seconds.
+✔ Test changedCanonicalContextCannotSilentlySelectAnIdenticalWrongOccurrence() passed after 0.065 seconds.
+✔ Test extremeOffsetsAreRejectedWithoutOverflow() passed after 0.065 seconds.
+✔ Test repairUsesContextAndNeverChoosesAnAmbiguousOccurrence() passed after 0.065 seconds.
+✔ Test staleOffsetDoesNotOverrideChangedRevision() passed after 0.065 seconds.
+✔ Test invalidProgressAndUnsupportedFormatsAreRejected() passed after 0.064 seconds.
+✔ Test localPhraseLemmatizationOnlyChangesInflectedHead() passed after 0.067 seconds.
+✔ Test savingCannotTurnHalfASurrogateIntoADictionaryMeaning() passed after 0.065 seconds.
+✔ Test bookmarksAndProgressSurviveTrashAndInvalidPreferencesNeverOverwriteValidOnes() passed after 0.065 seconds.
+✔ Test vocabularyEditsAndDeletionPreserveProvenanceAndDocumentIntegrity() passed after 0.065 seconds.
+✔ Test duplicateOccurrencesIgnoreViewportContextAndPreserveLearning() passed after 0.064 seconds.
+✔ Test completeReadingDictionaryVocabularyAndReturnWorkflowNeedsNoAI() passed after 0.065 seconds.
+✔ Test failedImportsLeaveNoLibraryRecordsOrStagingFiles() passed after 0.064 seconds.
+✔ Suite InferenceParsingTests passed after 0.068 seconds.
+➜ Test realDocumentsRoundTrip() skipped.
+✔ Suite SourceAnchorTests passed after 0.068 seconds.
+✔ Test missingModelIsExplicit() passed after 0.066 seconds.
+✔ Test completedAIIsSavedAsInterpretationAndCannotMasqueradeAsDictionaryFact() passed after 0.068 seconds.
+✔ Test streamingAndProvenanceValidationRemainActive() passed after 0.068 seconds.
+➜ Test realCancellationAndRecovery() skipped.
+✔ Test cancellationSuppressesAnUncooperativeEnginesLateResult() passed after 0.070 seconds.
+✔ Test newExplicitRequestCancelsAndDrainsThePreviousOne() passed after 0.070 seconds.
+✔ Test callerCancellationReleasesTheEngine() passed after 0.070 seconds.
+✔ Test dictionaryAndSavingStayAvailableWhileExplicitAIIsRunning() passed after 0.072 seconds.
+➜ Test restoreInFreshProcess() skipped.
+✔ Suite AnalysisCoordinatorTests passed after 0.074 seconds.
+✔ Suite LiveValidationTests passed after 0.074 seconds.
+✔ Test importsAreManagedDeduplicatedAndSurviveReopening() passed after 0.084 seconds.
+✔ Test distinctSensesRemainSeparate() passed after 0.084 seconds.
+✔ Test originalDatabaseMigratesWithoutLosingLearnerState() passed after 0.086 seconds.
+✔ Test invalidReferencesNeverCreatePartialVocabularyRecords() passed after 0.084 seconds.
+✔ Test cancelledImportLeavesOriginalUntouched() passed after 0.084 seconds.
+✔ Test largeImportsPreserveBytesAcrossChunkBoundaries() passed after 0.084 seconds.
+✔ Suite SenseMemoryTests passed after 0.088 seconds.
+✔ Test trashRestorePreservesStateVocabularyAndOriginal() passed after 0.084 seconds.
+✔ Suite DocumentLibraryTests passed after 0.088 seconds.
+✔ Test nativeDictionaryReturnsFactsOrAnExplicitEmptyResultWithoutAI() passed after 0.100 seconds.
+✔ Suite ReaderWorkflowTests passed after 0.102 seconds.
+✔ Test redirectsNeverForwardReadingMaterial() passed after 0.113 seconds.
+✔ Test absentOrDifferentModelDoesNotMasqueradeAsReady() passed after 0.120 seconds.
+✔ Test oversizedPromptIsRejectedBeforeGeneration() passed after 0.130 seconds.
+✔ Test explanationStreamsReadableMeaningAndLabelsInterpretation() passed after 0.130 seconds.
+✔ Test modelCannotInventSourcedEtymology() passed after 0.130 seconds.
+✔ Test gemmaUsesTheSameUserTurnForBudgetingAndGenerationAndPreservesSchema() passed after 0.130 seconds.
+✔ Test adapterSuppliesEvidenceButNeverLabelsGeneratedProseAsDictionaryFact() passed after 0.130 seconds.
+✔ Suite DictionaryEvidenceTests passed after 0.131 seconds.
+✔ Test truncatedOrDisconnectedGenerationFails(reason:) with 2 test cases passed after 0.131 seconds.
+✔ Test networkCancellationReleasesInferenceSlot() passed after 0.138 seconds.
+✔ Test pdfTextAndImageOnlyPageLocationsAreSupported() passed after 0.194 seconds.
+✔ Suite DocumentReaderTests passed after 0.194 seconds.
+✔ Test stalledServerTimesOut() passed after 1.130 seconds.
+✔ Suite LlamaLocalEngineTests passed after 1.131 seconds.
+✔ Test run with 57 tests in 10 suites passed after 1.131 seconds.

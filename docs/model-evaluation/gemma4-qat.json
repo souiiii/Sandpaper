@@ -1,0 +1,4082 @@
+[
+  {
+    "id": "v1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.960189542005537,
+    "firstReadableSeconds": 4.767180625000037,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The witness was impartial and lacked any personal stake in the outcome of the proceedings. Although she watched the exchanges with great interest, she had no motive to favor one side over the other.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The witness was impartial and lacked any personal stake in the outcome of the proceedings. Although she watched the exchanges with great interest, she had no motive to favor one side over the other.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 52,
+      "prompt_tokens": 526,
+      "total_tokens": 578,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 526,
+      "prompt_ms": 4068.539,
+      "prompt_per_token_ms": 7.734865019011408,
+      "prompt_per_second": 129.2847383299017,
+      "predicted_n": 52,
+      "predicted_ms": 3885.039,
+      "predicted_per_token_ms": 76.17723529411765,
+      "predicted_per_second": 13.12728134775481
+    },
+    "inputTokens": 526,
+    "renderedPromptSHA256": "c4a79530bb33a1513a97882c135f2478284facf98dbcfcb1dbfce7e37a097c8e",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.493341000023065,
+    "firstReadableSeconds": 5.020143750007264,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The witness possessed no personal stake or bias in the outcome of the proceedings.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The witness possessed no personal stake or bias in the outcome of the proceedings.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 585,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 585,
+      "prompt_ms": 4391.681,
+      "prompt_per_token_ms": 7.507147008547008,
+      "prompt_per_second": 133.2063963662206,
+      "predicted_n": 28,
+      "predicted_ms": 2098.831,
+      "predicted_per_token_ms": 77.73448148148148,
+      "predicted_per_second": 12.86430398636193
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "03285a782aac2bc98cd4081d51323833cb2ec786b285436a8ca1b63aaed87e00",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.45137195798452,
+    "firstReadableSeconds": 1.2875121249817312,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He yielded his seat out of respect for her seniority.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"He yielded his seat out of respect for her seniority.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 587,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 51,
+      "prompt_ms": 650.594,
+      "prompt_per_token_ms": 12.756745098039216,
+      "prompt_per_second": 78.38990215095743,
+      "predicted_n": 24,
+      "predicted_ms": 1792.881,
+      "predicted_per_token_ms": 77.95134782608696,
+      "predicted_per_second": 12.828514552834237
+    },
+    "inputTokens": 587,
+    "renderedPromptSHA256": "e4099a936223a7f4f62930de73d525c334a9cba362f1f39102849d8d5733201a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.767152917018393,
+    "firstReadableSeconds": 4.556553166999947,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He yielded his seat out of respect for her seniority.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"He yielded his seat out of respect for her seniority.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 528,
+      "total_tokens": 554,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 528,
+      "prompt_ms": 3875.048,
+      "prompt_per_token_ms": 7.33910606060606,
+      "prompt_per_second": 136.25637669520484,
+      "predicted_n": 26,
+      "predicted_ms": 1888.644,
+      "predicted_per_token_ms": 75.54576,
+      "predicted_per_second": 13.237010257094509
+    },
+    "inputTokens": 528,
+    "renderedPromptSHA256": "2599009cac19fa31ef37c343b43d8c0c00fb6f12e3bd62e64cf817508f0cf20b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.9267725000099745,
+    "firstReadableSeconds": 1.329216957994504,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The editor characterized the account as being partially truthful but intentionally omitting certain facts. He then inquired specifically about which expenses were left out of the report.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The editor characterized the account as being partially truthful but intentionally omitting certain facts. He then inquired specifically about which expenses were left out of the report.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 525,
+      "total_tokens": 569,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 48,
+      "prompt_ms": 637.091,
+      "prompt_per_token_ms": 13.272729166666666,
+      "prompt_per_second": 75.34245500250357,
+      "predicted_n": 44,
+      "predicted_ms": 3284.439,
+      "predicted_per_token_ms": 76.38230232558139,
+      "predicted_per_second": 13.09203794011702
+    },
+    "inputTokens": 525,
+    "renderedPromptSHA256": "0efee810ba2c70e8ed42be1348890839bc9a5e411f808566ba438785909b1b3e",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.632309041975532,
+    "firstReadableSeconds": 5.01582408399554,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The editor characterized the account as being partially truthful but intentionally deceptive by omitting specific facts.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The editor characterized the account as being partially truthful but intentionally deceptive by omitting specific facts.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 584,
+      "total_tokens": 614,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 584,
+      "prompt_ms": 4404.796,
+      "prompt_per_token_ms": 7.54245890410959,
+      "prompt_per_second": 132.5827575215742,
+      "predicted_n": 30,
+      "predicted_ms": 2222.072,
+      "predicted_per_token_ms": 76.62317241379311,
+      "predicted_per_second": 13.0508822396394
+    },
+    "inputTokens": 584,
+    "renderedPromptSHA256": "b1bf943b02ae5c9d366fcdfe243da7e9d60bcb7a0ebcec45124fcaaf905e6a95",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.56336004199693,
+    "firstReadableSeconds": 1.2437565000145696,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The policy is nearly, though not entirely, impossible to reverse.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The policy is nearly, though not entirely, impossible to reverse.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 583,
+      "total_tokens": 609,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 47,
+      "prompt_ms": 630.192,
+      "prompt_per_token_ms": 13.408340425531915,
+      "prompt_per_second": 74.5804453245995,
+      "predicted_n": 26,
+      "predicted_ms": 1927.888,
+      "predicted_per_token_ms": 77.11552,
+      "predicted_per_second": 12.96755828139394
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "8b85eec12a8679c83b901969e7c7fc3fed4bad3eba8973417cfaf598a381eccf",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.545611790992552,
+    "firstReadableSeconds": 4.529274540982442,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The policy is nearly impossible to undo, as the necessary majority to change it is not anticipated to form.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The policy is nearly impossible to undo, as the necessary majority to change it is not anticipated to form.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 524,
+      "total_tokens": 560,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 524,
+      "prompt_ms": 3838.977,
+      "prompt_per_token_ms": 7.3262919847328245,
+      "prompt_per_second": 136.4946963735391,
+      "predicted_n": 36,
+      "predicted_ms": 2700.314,
+      "predicted_per_token_ms": 77.15182857142857,
+      "predicted_per_second": 12.96145559368281
+    },
+    "inputTokens": 524,
+    "renderedPromptSHA256": "9e93e2b0b0e9661629ad60fb79d53bae51aa67340dd6b2ae37073008371d83aa",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.644625332992291,
+    "firstReadableSeconds": 1.3621969579835422,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He reprimanded or scolded her regarding the missing receipts.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"He reprimanded or scolded her regarding the missing receipts.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 525,
+      "total_tokens": 551,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 48,
+      "prompt_ms": 642.638,
+      "prompt_per_token_ms": 13.388291666666667,
+      "prompt_per_second": 74.69212838332001,
+      "predicted_n": 26,
+      "predicted_ms": 1996.404,
+      "predicted_per_token_ms": 79.85616,
+      "predicted_per_second": 12.522515482838143
+    },
+    "inputTokens": 525,
+    "renderedPromptSHA256": "7fab11bfdb6c4bbebdc186371ff0d8fcda1c3bd70ebc8d12051594bc76a51c55",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.548229541018372,
+    "firstReadableSeconds": 5.016315541026415,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He reprimanded or rebuked her for her failure to provide the receipts.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"He reprimanded or rebuked her for her failure to provide the receipts.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 584,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 584,
+      "prompt_ms": 4406.616,
+      "prompt_per_token_ms": 7.545575342465753,
+      "prompt_per_second": 132.52799880906346,
+      "predicted_n": 29,
+      "predicted_ms": 2136.966,
+      "predicted_per_token_ms": 76.32021428571429,
+      "predicted_per_second": 13.102688578105596
+    },
+    "inputTokens": 584,
+    "renderedPromptSHA256": "cc32a70db782ff9406d326dfba7042162886b9083a8b3c10db3486fe8ea0585f",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.1059889169991948,
+    "firstReadableSeconds": 1.2464344170002732,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "a different and more complex situation",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"a different and more complex situation\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 20,
+      "prompt_tokens": 581,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 45,
+      "prompt_ms": 629.645,
+      "prompt_per_token_ms": 13.992111111111111,
+      "prompt_per_second": 71.46884355470145,
+      "predicted_n": 20,
+      "predicted_ms": 1470.016,
+      "predicted_per_token_ms": 77.36926315789474,
+      "predicted_per_second": 12.925029387435238
+    },
+    "inputTokens": 581,
+    "renderedPromptSHA256": "e69cfeed7712c035aba51a5b8a7f2b260e9dfecaac3342fe0bbffa0ca73c2d8c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.6791893749905284,
+    "firstReadableSeconds": 4.5303477910056245,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The charity could sustain the expense for a limited period, but doing so permanently presented a different and more difficult problem.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The charity could sustain the expense for a limited period, but doing so permanently presented a different and more difficult problem.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 522,
+      "total_tokens": 560,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 522,
+      "prompt_ms": 3847.343,
+      "prompt_per_token_ms": 7.370388888888889,
+      "prompt_per_second": 135.67805106017323,
+      "predicted_n": 38,
+      "predicted_ms": 2826.365,
+      "predicted_per_token_ms": 76.38824324324324,
+      "predicted_per_second": 13.09101973736584
+    },
+    "inputTokens": 522,
+    "renderedPromptSHA256": "dd5af9e1607320760563a96034ea149ec091103ea3465d224317d2a5dfe68451",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.9250724999874365,
+    "firstReadableSeconds": 1.3221639169787522,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Mara tells the other person to stop avoiding the direct topic and to speak plainly. She wants a clear answer regarding whether she is being let go.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Mara tells the other person to stop avoiding the direct topic and to speak plainly. She wants a clear answer regarding whether she is being let go.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 532,
+      "total_tokens": 576,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 55,
+      "prompt_ms": 635.446,
+      "prompt_per_token_ms": 11.553563636363636,
+      "prompt_per_second": 86.55338140455679,
+      "predicted_n": 44,
+      "predicted_ms": 3284.691,
+      "predicted_per_token_ms": 76.38816279069766,
+      "predicted_per_second": 13.091033524919087
+    },
+    "inputTokens": 532,
+    "renderedPromptSHA256": "dca8edee860a8e31bca0c168348d3a51213b7f82969e3f2db9fe4c9e845ea90a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.477784166985657,
+    "firstReadableSeconds": 5.085529042000417,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "to speak in an indirect or roundabout manner to avoid addressing a subject directly",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"to speak in an indirect or roundabout manner to avoid addressing a subject directly\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 591,
+      "total_tokens": 619,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 591,
+      "prompt_ms": 4395.384,
+      "prompt_per_token_ms": 7.437197969543147,
+      "prompt_per_second": 134.45924178638316,
+      "predicted_n": 28,
+      "predicted_ms": 2076.956,
+      "predicted_per_token_ms": 76.9242962962963,
+      "predicted_per_second": 12.99979392919253
+    },
+    "inputTokens": 591,
+    "renderedPromptSHA256": "bc67cce1d28b7533d4632e8a5736fb52201b809066e6c264907b8a885dab3359",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.1098320410237648,
+    "firstReadableSeconds": 1.1927274580230005,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "established a firm limit or boundary regarding what would be tolerated, \"notes\": [",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"established a firm limit or boundary regarding what would be tolerated, \\\"notes\\\": [\",\"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 581,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 45,
+      "prompt_ms": 646.067,
+      "prompt_per_token_ms": 14.357044444444444,
+      "prompt_per_second": 69.65221873273205,
+      "predicted_n": 32,
+      "predicted_ms": 2459.102,
+      "predicted_per_token_ms": 79.32587096774193,
+      "predicted_per_second": 12.606227801856125
+    },
+    "inputTokens": 581,
+    "renderedPromptSHA256": "71fd0c4c4e6b80b72ef35c0ab75fdacf7b366a550a24a58d659a519c43e5eefa",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.262778707983671,
+    "firstReadableSeconds": 4.348797541984823,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The reviewer decided that while technical errors were acceptable, invented quotations were an impermissible violation of standards.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The reviewer decided that while technical errors were acceptable, invented quotations were an impermissible violation of standards.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 522,
+      "total_tokens": 555,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 522,
+      "prompt_ms": 3816.581,
+      "prompt_per_token_ms": 7.311457854406131,
+      "prompt_per_second": 136.77162884791386,
+      "predicted_n": 33,
+      "predicted_ms": 2442.551,
+      "predicted_per_token_ms": 76.32971875,
+      "predicted_per_second": 13.101057050599968
+    },
+    "inputTokens": 522,
+    "renderedPromptSHA256": "8b6710df9f39af36d2e7129781be09b7b4228e7ac847c92b8db5f09c0385524a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.220356250007171,
+    "firstReadableSeconds": 1.3237357080215588,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She used the phrase 'a masterclass in punctuality' to mock his failure to arrive on time. By calling his tardiness a 'masterclass,' she employed irony to highlight that he was, in fact, significantly late.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She used the phrase 'a masterclass in punctuality' to mock his failure to arrive on time. By calling his tardiness a 'masterclass,' she employed irony to highlight that he was, in fact, significantly late.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 61,
+      "prompt_tokens": 529,
+      "total_tokens": 590,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 52,
+      "prompt_ms": 639.661,
+      "prompt_per_token_ms": 12.301173076923076,
+      "prompt_per_second": 81.29305991767515,
+      "predicted_n": 61,
+      "predicted_ms": 4575.164,
+      "predicted_per_token_ms": 76.25273333333332,
+      "predicted_per_second": 13.114283990694105
+    },
+    "inputTokens": 529,
+    "renderedPromptSHA256": "6a569f37cd7a2a56932a4b2ac058796e937cde0fc2ad37b9d94348719ec3b7c3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.239904249989195,
+    "firstReadableSeconds": 5.007954000000609,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "A sarcastic remark highlighting the man's extreme lateness.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"A sarcastic remark highlighting the man's extreme lateness.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 588,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 588,
+      "prompt_ms": 4399.186,
+      "prompt_per_token_ms": 7.481608843537415,
+      "prompt_per_second": 133.66109093818721,
+      "predicted_n": 25,
+      "predicted_ms": 1837.052,
+      "predicted_per_token_ms": 76.54383333333332,
+      "predicted_per_second": 13.064409717307948
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "0063d719ac4633cedd5fad364ed03cb46a3503044c33296f0374f37207b9bb84",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.6176548329822253,
+    "firstReadableSeconds": 1.461294040986104,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the house required significant repairs or restoration",
+      "notes": []
+    },
+    "raw": "{\n\"meaning\": \"the house required significant repairs or restoration\",\n\"notes\": []\n}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 586,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 50,
+      "prompt_ms": 627.506,
+      "prompt_per_token_ms": 12.55012,
+      "prompt_per_second": 79.680513015015,
+      "predicted_n": 27,
+      "predicted_ms": 1988.013,
+      "predicted_per_token_ms": 76.46203846153846,
+      "predicted_per_second": 13.078385302309393
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "a67e86a6e93333b7fe4e33cebf0ad111fa387d2ca289caee3253e9940f4bb7df",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.691582375002326,
+    "firstReadableSeconds": 4.563307999982499,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The agent admitted that the house required repairs, though he used the phrase 'a little attention' to downplay the severity of the damage caused by the missing roof and flooded cellar.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The agent admitted that the house required repairs, though he used the phrase 'a little attention' to downplay the severity of the damage caused by the missing roof and flooded cellar.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 527,
+      "total_tokens": 578,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 527,
+      "prompt_ms": 3881.39,
+      "prompt_per_token_ms": 7.365066413662239,
+      "prompt_per_second": 135.77610082985734,
+      "predicted_n": 51,
+      "predicted_ms": 3807.889,
+      "predicted_per_token_ms": 76.15778,
+      "predicted_per_second": 13.130634847812003
+    },
+    "inputTokens": 527,
+    "renderedPromptSHA256": "a0057983aab1ff53edf451a8f43b3955360aeb13829128d53b0a9d9f3eed3e97",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.33659524997347,
+    "firstReadableSeconds": 1.330159916979028,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo remarked that Ren's action of contradicting the chair was courageous. Ren is uncertain whether Jo's comment reflects genuine admiration or a perception of his behavior as foolish.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Jo remarked that Ren's action of contradicting the chair was courageous. Ren is uncertain whether Jo's comment reflects genuine admiration or a perception of his behavior as foolish.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 49,
+      "prompt_tokens": 531,
+      "total_tokens": 580,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 54,
+      "prompt_ms": 637.714,
+      "prompt_per_token_ms": 11.80951851851852,
+      "prompt_per_second": 84.6774572927676,
+      "predicted_n": 49,
+      "predicted_ms": 3693.933,
+      "predicted_per_token_ms": 76.9569375,
+      "predicted_per_second": 12.994280080337136
+    },
+    "inputTokens": 531,
+    "renderedPromptSHA256": "664231b0f21cb438152b232faea21e51e6142e786e4e9d724644390101d6c777",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.599098375008907,
+    "firstReadableSeconds": 5.0044374160061125,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo acknowledges Ren's action of contradicting the chair as an act of courage.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Jo acknowledges Ren's action of contradicting the chair as an act of courage.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 590,
+      "total_tokens": 619,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 590,
+      "prompt_ms": 4446.672,
+      "prompt_per_token_ms": 7.53673220338983,
+      "prompt_per_second": 132.68349903028604,
+      "predicted_n": 29,
+      "predicted_ms": 2150.299,
+      "predicted_per_token_ms": 76.79639285714286,
+      "predicted_per_second": 13.021444924636063
+    },
+    "inputTokens": 590,
+    "renderedPromptSHA256": "2f3b55116c52555c5b504ecbc820550bf147af863593b1fc6fe85983c5b0fe6c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.8670043329766486,
+    "firstReadableSeconds": 1.2380852499918547,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The woman expressed a state of great pleasure or joy regarding the renewal of the fellowship.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The woman expressed a state of great pleasure or joy regarding the renewal of the fellowship.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 588,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 52,
+      "prompt_ms": 622.963,
+      "prompt_per_token_ms": 11.980057692307692,
+      "prompt_per_second": 83.47205211224423,
+      "predicted_n": 30,
+      "predicted_ms": 2241.039,
+      "predicted_per_token_ms": 77.27720689655173,
+      "predicted_per_second": 12.94042629333983
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "913adb232d1fb389ba3fb48b352941f588f584440b32bcf8ef16533c2219adf7",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.024402875016676,
+    "firstReadableSeconds": 4.584896375017706,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She expressed great pleasure or joy regarding the renewal of the fellowship.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She expressed great pleasure or joy regarding the renewal of the fellowship.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 529,
+      "total_tokens": 557,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 529,
+      "prompt_ms": 3972.27,
+      "prompt_per_token_ms": 7.509017013232514,
+      "prompt_per_second": 133.1732233710196,
+      "predicted_n": 28,
+      "predicted_ms": 2047.826,
+      "predicted_per_token_ms": 75.84540740740741,
+      "predicted_per_second": 13.184713935656642
+    },
+    "inputTokens": 529,
+    "renderedPromptSHA256": "b1d7d14c256891b2fafc222a4aa4cc0dbcace76c73d095094e86ea9db9cb19dd",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.827891541004647,
+    "firstReadableSeconds": 1.3190661249973346,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The author refers to the specific social ritual of taking tea in the afternoon as a formal ceremony. This phrasing suggests that the practice involves established customs and a sense of decorum beyond the mere act of drinking.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The author refers to the specific social ritual of taking tea in the afternoon as a formal ceremony. This phrasing suggests that the practice involves established customs and a sense of decorum beyond the mere act of drinking.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 56,
+      "prompt_tokens": 531,
+      "total_tokens": 587,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 54,
+      "prompt_ms": 617.031,
+      "prompt_per_token_ms": 11.426499999999999,
+      "prompt_per_second": 87.51586225003282,
+      "predicted_n": 56,
+      "predicted_ms": 4208.916,
+      "predicted_per_token_ms": 76.52574545454546,
+      "predicted_per_second": 13.06749766448178
+    },
+    "inputTokens": 531,
+    "renderedPromptSHA256": "2307d18679d7af797a256bfc7e8b6d3bc213ad536004b9f6050647db64518144",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.473644415993476,
+    "firstReadableSeconds": 5.20685258298181,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the ritualized social practice of drinking tea in the afternoon,",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the ritualized social practice of drinking tea in the afternoon,\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 590,
+      "total_tokens": 615,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 590,
+      "prompt_ms": 4552.981,
+      "prompt_per_token_ms": 7.716916949152542,
+      "prompt_per_second": 129.58542985353992,
+      "predicted_n": 25,
+      "predicted_ms": 1918.564,
+      "predicted_per_token_ms": 79.94016666666667,
+      "predicted_per_second": 12.509355955808614
+    },
+    "inputTokens": 590,
+    "renderedPromptSHA256": "deb2cb0f2f9b62edb360427dcfb0ea8fd5bf0ee80baee49071e14346c05a2183",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.8172755419800524,
+    "firstReadableSeconds": 1.2742497089784592,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Selden experienced a sense of visual and mental rejuvenation upon seeing Miss Lily Bart.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Selden experienced a sense of visual and mental rejuvenation upon seeing Miss Lily Bart.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 594,
+      "total_tokens": 623,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 58,
+      "prompt_ms": 656.719,
+      "prompt_per_token_ms": 11.322741379310346,
+      "prompt_per_second": 88.31783456851407,
+      "predicted_n": 29,
+      "predicted_ms": 2156.981,
+      "predicted_per_token_ms": 77.03503571428573,
+      "predicted_per_second": 12.981106463153823
+    },
+    "inputTokens": 594,
+    "renderedPromptSHA256": "90c807ec1030f4b27754c5f574361b1b1bf6f39458b3a46a71618323186dd6f1",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.448354749998543,
+    "firstReadableSeconds": 4.852731709019281,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Selden experienced a sense of visual and mental rejuvenation upon seeing Miss Lily Bart.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Selden experienced a sense of visual and mental rejuvenation upon seeing Miss Lily Bart.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 535,
+      "total_tokens": 566,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 535,
+      "prompt_ms": 4167.297,
+      "prompt_per_token_ms": 7.789340186915887,
+      "prompt_per_second": 128.38057858607152,
+      "predicted_n": 31,
+      "predicted_ms": 2279.05,
+      "predicted_per_token_ms": 75.96833333333333,
+      "predicted_per_second": 13.163379478291393
+    },
+    "inputTokens": 535,
+    "renderedPromptSHA256": "ac71242c4806f7a3c0a3e1f9e8d5ddfd77e8506c332203b570d198dbdfe25801",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.187491791992215,
+    "firstReadableSeconds": 1.6013973329972941,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The act of conquering the earth is aesthetically or morally unappealing when examined in detail. The narrator suggests that this process, primarily involving the dispossession of people with different physical features, becomes unpleasant upon close inspection.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The act of conquering the earth is aesthetically or morally unappealing when examined in detail. The narrator suggests that this process, primarily involving the dispossession of people with different physical features, becomes unpleasant upon close inspection.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 547,
+      "total_tokens": 605,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 70,
+      "prompt_ms": 837.927,
+      "prompt_per_token_ms": 11.970385714285715,
+      "prompt_per_second": 83.53949687741294,
+      "predicted_n": 58,
+      "predicted_ms": 4346.759,
+      "predicted_per_token_ms": 76.2589298245614,
+      "predicted_per_second": 13.113218377186314
+    },
+    "inputTokens": 547,
+    "renderedPromptSHA256": "2be4fa3d1d7895e551da0b6eed171fc130b59d8b2afa28dbab31a315cbf11305",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.052600625000196,
+    "firstReadableSeconds": 5.355188209010521,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "is not a pretty thing",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"is not a pretty thing\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 19,
+      "prompt_tokens": 606,
+      "total_tokens": 625,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 606,
+      "prompt_ms": 4663.091,
+      "prompt_per_token_ms": 7.694869636963697,
+      "prompt_per_second": 129.9567175506547,
+      "predicted_n": 19,
+      "predicted_ms": 1387.431,
+      "predicted_per_token_ms": 77.0795,
+      "predicted_per_second": 12.973618147497064
+    },
+    "inputTokens": 606,
+    "renderedPromptSHA256": "af87a32c18118cee1cd5a488e3dc1f6565ef8cb70b4885f131821ba650ffadbf",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.734036667010514,
+    "firstReadableSeconds": 1.2616202920034993,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The flakes are described by their contrasting colors as they appear in the light.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The flakes are described by their contrasting colors as they appear in the light.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 583,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 47,
+      "prompt_ms": 633.59,
+      "prompt_per_token_ms": 13.480638297872341,
+      "prompt_per_second": 74.18046370681355,
+      "predicted_n": 28,
+      "predicted_ms": 2097.751,
+      "predicted_per_token_ms": 77.69448148148149,
+      "predicted_per_second": 12.870927007066138
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "c5be5626c7682c870a85a03bee9ce4d1988fe022229abd91dce9805ed546211d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.48396495799534,
+    "firstReadableSeconds": 4.723635708010988,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The flakes are described as having a dual appearance of silver and dark colors as they fall.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The flakes are described as having a dual appearance of silver and dark colors as they fall.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 524,
+      "total_tokens": 557,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 524,
+      "prompt_ms": 4034.21,
+      "prompt_per_token_ms": 7.698874045801527,
+      "prompt_per_second": 129.8891232732059,
+      "predicted_n": 33,
+      "predicted_ms": 2444.245,
+      "predicted_per_token_ms": 76.38265625,
+      "predicted_per_second": 13.09197727723694
+    },
+    "inputTokens": 524,
+    "renderedPromptSHA256": "3b7b2cdca773f53b006e87bc2b323ac003f001399e72180bce03961c02d05aab",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.928640792000806,
+    "firstReadableSeconds": 1.256608249997953,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Ned physically struck a bucket with his foot to move it from his path. ",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Ned physically struck a bucket with his foot to move it from his path. \", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 530,
+      "total_tokens": 561,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 53,
+      "prompt_ms": 627.759,
+      "prompt_per_token_ms": 11.844509433962264,
+      "prompt_per_second": 84.42730410874236,
+      "predicted_n": 31,
+      "predicted_ms": 2295.646,
+      "predicted_per_token_ms": 76.52153333333334,
+      "predicted_per_second": 13.068216963765318
+    },
+    "inputTokens": 530,
+    "renderedPromptSHA256": "cccfba3e57ee202dad374b34c344f24ac7a403f3fcf7f776d38fda21019afc89",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.753715790982824,
+    "firstReadableSeconds": 5.194629707984859,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Ned physically struck a bucket with his foot to move it from his path.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Ned physically struck a bucket with his foot to move it from his path.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 589,
+      "total_tokens": 617,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 589,
+      "prompt_ms": 4654.472,
+      "prompt_per_token_ms": 7.902329371816638,
+      "prompt_per_second": 126.54496578774135,
+      "predicted_n": 28,
+      "predicted_ms": 2097.306,
+      "predicted_per_token_ms": 77.678,
+      "predicted_per_second": 12.873657921161719
+    },
+    "inputTokens": 589,
+    "renderedPromptSHA256": "8ad58ec8ce1cbf9c4a75aea9d9cad6b94cf17313f20fda9ed762691f82f392de",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.3647652909858152,
+    "firstReadableSeconds": 1.280572082992876,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The actor suffered a physical fracture of a limb.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The actor suffered a physical fracture of a limb.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 583,
+      "total_tokens": 606,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 47,
+      "prompt_ms": 664.578,
+      "prompt_per_token_ms": 14.139957446808511,
+      "prompt_per_second": 70.7215706809434,
+      "predicted_n": 23,
+      "predicted_ms": 1694.557,
+      "predicted_per_token_ms": 77.02531818181818,
+      "predicted_per_second": 12.982744162633654
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "9d0520dbbc929e24049f2cba4a2cfeb3043e9a82fa9a38a2935fb3eabbbc3512",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.981776500004344,
+    "firstReadableSeconds": 4.762581916991621,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The actor suffered a physical fracture of a limb. ",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The actor suffered a physical fracture of a limb. \", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 524,
+      "total_tokens": 550,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 524,
+      "prompt_ms": 4058.597,
+      "prompt_per_token_ms": 7.745414122137405,
+      "prompt_per_second": 129.1086550352252,
+      "predicted_n": 26,
+      "predicted_ms": 1917.483,
+      "predicted_per_token_ms": 76.69932,
+      "predicted_per_second": 13.037925238450615
+    },
+    "inputTokens": 524,
+    "renderedPromptSHA256": "79028944a8b502292bf0a0707f3a27893cc0427ee9a16f82303bf25d02ec3f81",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.982451832998777,
+    "firstReadableSeconds": 1.2582352500176057,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "They physically placed a hatchet into the ground and covered it with earth. ",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"They physically placed a hatchet into the ground and covered it with earth. \", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 527,
+      "total_tokens": 558,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 50,
+      "prompt_ms": 631.351,
+      "prompt_per_token_ms": 12.62702,
+      "prompt_per_second": 79.19524955215086,
+      "predicted_n": 31,
+      "predicted_ms": 2347.658,
+      "predicted_per_token_ms": 78.25526666666666,
+      "predicted_per_second": 12.778692637513643
+    },
+    "inputTokens": 527,
+    "renderedPromptSHA256": "cac37dfa9427da0dc625f09527f7f27159b813e27df7c22450af41d2a4abb47a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.2698745419911575,
+    "firstReadableSeconds": 5.280027208995307,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "They agreed to end their conflict or hostility.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"They agreed to end their conflict or hostility.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 586,
+      "total_tokens": 608,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 586,
+      "prompt_ms": 4660.001,
+      "prompt_per_token_ms": 7.952220136518772,
+      "prompt_per_second": 125.75104597617039,
+      "predicted_n": 22,
+      "predicted_ms": 1604.577,
+      "predicted_per_token_ms": 76.40842857142857,
+      "predicted_per_second": 13.087561394685327
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "597bee549fb5dda0ed8acea3e699cd3cb3c9dba9f46baacae060579d2b92ee27",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 10.11164437502157,
+    "firstReadableSeconds": 1.2494705000135582,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "she worked or remained awake late into the night, \"burned the midnight oil\" serves as a literal description of using a lamp for illumination while performing tasks during the late hours. The phrase implies a sense of diligent, perhaps necessary, labor conducted under the cover of night. In this specific context, the mention of having \"no money for heating\" suggests that her late-night activity is a matter of necessity rather than mere choice. The distinction lies in the physical reality of the oil lamp being her only source of light, highlighting a state of poverty.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"she worked or remained awake late into the night, \\\"burned the midnight oil\\\" serves as a literal description of using a lamp for illumination while performing tasks during the late hours. The phrase implies a sense of diligent, perhaps necessary, labor conducted under the cover of night. In this specific context, the mention of having \\\"no money for heating\\\" suggests that her late-night activity is a matter of necessity rather than mere choice. The distinction lies in the physical reality of the oil lamp being her only source of light, highlighting a state of poverty.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 123,
+      "prompt_tokens": 584,
+      "total_tokens": 707,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 48,
+      "prompt_ms": 626.257,
+      "prompt_per_token_ms": 13.047020833333333,
+      "prompt_per_second": 76.645849866748,
+      "predicted_n": 123,
+      "predicted_ms": 9481.398,
+      "predicted_per_token_ms": 77.71637704918032,
+      "predicted_per_second": 12.86730079256245
+    },
+    "inputTokens": 584,
+    "renderedPromptSHA256": "65aae1aedcb69b9bc9b4a8631208006ee3675118907307643be6ac83feba90a0",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.547436499997275,
+    "firstReadableSeconds": 4.837311832990963,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She worked or remained awake late into the night by the light of a lamp. ",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She worked or remained awake late into the night by the light of a lamp. \", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 525,
+      "total_tokens": 557,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 525,
+      "prompt_ms": 4133.601,
+      "prompt_per_token_ms": 7.873525714285714,
+      "prompt_per_second": 127.00790424620085,
+      "predicted_n": 32,
+      "predicted_ms": 2407.29,
+      "predicted_per_token_ms": 77.65451612903226,
+      "predicted_per_second": 12.877551105184669
+    },
+    "inputTokens": 525,
+    "renderedPromptSHA256": "bb0e612aff06a50dd46d632aa7b8cea803e56fb235cfdc88737ba51205c56086",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.026349082996603,
+    "firstReadableSeconds": 1.3489743749960326,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The group engaged in a lengthy conversation regarding an incident in which hunters were shot. The specific details of who initiated the gunfire against whom were not disclosed.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The group engaged in a lengthy conversation regarding an incident in which hunters were shot. The specific details of who initiated the gunfire against whom were not disclosed.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 526,
+      "total_tokens": 571,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 49,
+      "prompt_ms": 656.106,
+      "prompt_per_token_ms": 13.389918367346938,
+      "prompt_per_second": 74.68305426257342,
+      "predicted_n": 45,
+      "predicted_ms": 3365.512,
+      "predicted_per_token_ms": 76.48890909090909,
+      "predicted_per_second": 13.073790852625097
+    },
+    "inputTokens": 526,
+    "renderedPromptSHA256": "a3710c21cb5f28c1e9f558616869f0eb00e8620eb3e57e484b2f8aa76d0998d4",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.416032875014935,
+    "firstReadableSeconds": 5.3503500840161,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the act of hunters being struck by projectiles or firearms.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the act of hunters being struck by projectiles or firearms.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 585,
+      "total_tokens": 609,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 585,
+      "prompt_ms": 4661.046,
+      "prompt_per_token_ms": 7.967600000000001,
+      "prompt_per_second": 125.50830865003263,
+      "predicted_n": 24,
+      "predicted_ms": 1753.066,
+      "predicted_per_token_ms": 76.22026086956522,
+      "predicted_per_second": 13.119871128639765
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "787f8a84a4c8db9c4f41efa0867986c3185b29df0d8feb18ecfb4bf95ef2debe",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.3124782090017106,
+    "firstReadableSeconds": 1.1643786250206176,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Pat informed Lee that a victory had been achieved.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Pat informed Lee that a victory had been achieved.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 579,
+      "total_tokens": 602,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 43,
+      "prompt_ms": 621.319,
+      "prompt_per_token_ms": 14.44927906976744,
+      "prompt_per_second": 69.20760511106212,
+      "predicted_n": 23,
+      "predicted_ms": 1688.984,
+      "predicted_per_token_ms": 76.77199999999999,
+      "predicted_per_second": 13.025582243526287
+    },
+    "inputTokens": 579,
+    "renderedPromptSHA256": "e1e45471794a0af1cb1e7e693f784c1ae2e7412a46932fd40015127ed70d2a9a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.339564666006481,
+    "firstReadableSeconds": 4.67442687501898,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Pat informed Lee that a victory had been achieved by a group of people. The specific identities of those who won were not included in the message.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Pat informed Lee that a victory had been achieved by a group of people. The specific identities of those who won were not included in the message.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 520,
+      "total_tokens": 564,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 520,
+      "prompt_ms": 4059.395,
+      "prompt_per_token_ms": 7.806528846153846,
+      "prompt_per_second": 128.0979062150887,
+      "predicted_n": 44,
+      "predicted_ms": 3277.539,
+      "predicted_per_token_ms": 76.22183720930234,
+      "predicted_per_second": 13.119599797286927
+    },
+    "inputTokens": 520,
+    "renderedPromptSHA256": "e7191d21b0b2ac88c14f47063764369ec072eda328cab87bb462850eef517d2d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.1608386669831816,
+    "firstReadableSeconds": 1.3260562499926891,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The clerk remarked that relatives who come to visit might be annoying or difficult to endure.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The clerk remarked that relatives who come to visit might be annoying or difficult to endure.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 515,
+      "total_tokens": 547,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 38,
+      "prompt_ms": 621.812,
+      "prompt_per_token_ms": 16.363473684210526,
+      "prompt_per_second": 61.11171865451294,
+      "predicted_n": 32,
+      "predicted_ms": 2536.696,
+      "predicted_per_token_ms": 81.82890322580644,
+      "predicted_per_second": 12.220620839075712
+    },
+    "inputTokens": 515,
+    "renderedPromptSHA256": "afbf94ab16164cc6c51395b3d15ad912d72149a3552742c53d07462086191678",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.6238117500033695,
+    "firstReadableSeconds": 5.072342625004239,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The people who have come to stay with or see the inhabitants of the house.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The people who have come to stay with or see the inhabitants of the house.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 574,
+      "total_tokens": 603,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 574,
+      "prompt_ms": 4456.739,
+      "prompt_per_token_ms": 7.764353658536584,
+      "prompt_per_second": 128.79372114902847,
+      "predicted_n": 29,
+      "predicted_ms": 2163.442,
+      "predicted_per_token_ms": 77.26578571428571,
+      "predicted_per_second": 12.942339105924725
+    },
+    "inputTokens": 574,
+    "renderedPromptSHA256": "fd8d6601ff4a2e0ddf59e5af32c91b913a617102ebb5e178d9eb69efa0a80947",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.495724332984537,
+    "firstReadableSeconds": 1.3638715829874855,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The man was in possession of or holding the binoculars.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The man was in possession of or holding the binoculars.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 578,
+      "total_tokens": 602,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 42,
+      "prompt_ms": 630.616,
+      "prompt_per_token_ms": 15.014666666666667,
+      "prompt_per_second": 66.60154515584762,
+      "predicted_n": 24,
+      "predicted_ms": 1858.054,
+      "predicted_per_token_ms": 80.78495652173913,
+      "predicted_per_second": 12.37854228133305
+    },
+    "inputTokens": 578,
+    "renderedPromptSHA256": "789a97b451eef927ced03d0fc20c9e8347480a7eb8c4b5ad01e0a591a78031fe",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.520849499996984,
+    "firstReadableSeconds": 4.869865416985704,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The man was in possession of or holding binoculars at the time the narrator observed him.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The man was in possession of or holding binoculars at the time the narrator observed him.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 519,
+      "total_tokens": 551,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 519,
+      "prompt_ms": 4080.404,
+      "prompt_per_token_ms": 7.862050096339114,
+      "prompt_per_second": 127.19328772347052,
+      "predicted_n": 32,
+      "predicted_ms": 2433.995,
+      "predicted_per_token_ms": 78.51596774193548,
+      "predicted_per_second": 12.736262810728864
+    },
+    "inputTokens": 519,
+    "renderedPromptSHA256": "3950ccbb9529b4ef947e30b41f059ff8d4329c47ef791624a3f1bdaaa9807fd3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.061640542000532,
+    "firstReadableSeconds": 1.2828614590107463,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The reviewer claimed that the numerical data had been manipulated or adjusted to achieve a desired result. The inquiry had not yet released its findings regarding this allegation.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The reviewer claimed that the numerical data had been manipulated or adjusted to achieve a desired result. The inquiry had not yet released its findings regarding this allegation.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 526,
+      "total_tokens": 571,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 49,
+      "prompt_ms": 650.395,
+      "prompt_per_token_ms": 13.273367346938775,
+      "prompt_per_second": 75.33883255560083,
+      "predicted_n": 45,
+      "predicted_ms": 3404.794,
+      "predicted_per_token_ms": 77.38168181818182,
+      "predicted_per_second": 12.922955103891749
+    },
+    "inputTokens": 526,
+    "renderedPromptSHA256": "99e06143e5b067ec9855ecf0a7ea83badadff40830161fb7c10c4c96ca642efd",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.973201999993762,
+    "firstReadableSeconds": 5.263546000001952,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the reviewer alleged that the figures had been manipulated or altered to achieve a desired effect.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the reviewer alleged that the figures had been manipulated or altered to achieve a desired effect.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 585,
+      "total_tokens": 615,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 585,
+      "prompt_ms": 4679.851,
+      "prompt_per_token_ms": 7.999745299145299,
+      "prompt_per_second": 125.00397982756289,
+      "predicted_n": 30,
+      "predicted_ms": 2285.712,
+      "predicted_per_token_ms": 78.8176551724138,
+      "predicted_per_second": 12.687512687512687
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "1bcef97fc03378c102340e36b92ac8cdd8b3de761300d7981ce6ae184301acb5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.9655240410065744,
+    "firstReadableSeconds": 1.2037021660071332,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Mira remained in the room until a second warning was issued, at which point she departed.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Mira remained in the room until a second warning was issued, at which point she departed.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 583,
+      "total_tokens": 614,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 47,
+      "prompt_ms": 655.489,
+      "prompt_per_token_ms": 13.946574468085107,
+      "prompt_per_second": 71.70219484995171,
+      "predicted_n": 31,
+      "predicted_ms": 2299.516,
+      "predicted_per_token_ms": 76.65053333333334,
+      "predicted_per_second": 13.046223640105135
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "5ec62c5ba1c29b51da7611a5bc744d4eb533153fba132092de1ccfef6f9eb8c3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.610750958003337,
+    "firstReadableSeconds": 4.683560124976793,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Mira remained in the room until she received a second warning, at which point she departed. ",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Mira remained in the room until she received a second warning, at which point she departed. \", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 524,
+      "total_tokens": 558,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 524,
+      "prompt_ms": 4062.224,
+      "prompt_per_token_ms": 7.7523358778625955,
+      "prompt_per_second": 128.99337899633304,
+      "predicted_n": 34,
+      "predicted_ms": 2545.121,
+      "predicted_per_token_ms": 77.12487878787879,
+      "predicted_per_second": 12.965984721355094
+    },
+    "inputTokens": 524,
+    "renderedPromptSHA256": "364a6333859076b90f0f925599f829ad6de6d7a2b6f1c323f75e1f6c71f3ed21",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.3660793750023004,
+    "firstReadableSeconds": 1.3678131669876166,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The outcome aligns with the proposed theory.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The outcome aligns with the proposed theory.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 523,
+      "total_tokens": 546,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 46,
+      "prompt_ms": 667.624,
+      "prompt_per_token_ms": 14.513565217391305,
+      "prompt_per_second": 68.90105808059626,
+      "predicted_n": 23,
+      "predicted_ms": 1692.27,
+      "predicted_per_token_ms": 76.92136363636364,
+      "predicted_per_second": 13.000289551903656
+    },
+    "inputTokens": 523,
+    "renderedPromptSHA256": "5b61294e828566fbdd7f7f47f198f11479e2de859eb2ed2d3cc79dc6498d00e2",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.415183333010646,
+    "firstReadableSeconds": 5.216933457995765,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The observed outcome aligns with the proposed theory.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The observed outcome aligns with the proposed theory.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 582,
+      "total_tokens": 604,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 582,
+      "prompt_ms": 4678.413,
+      "prompt_per_token_ms": 8.03851030927835,
+      "prompt_per_second": 124.40115911100625,
+      "predicted_n": 22,
+      "predicted_ms": 1731.522,
+      "predicted_per_token_ms": 82.45342857142857,
+      "predicted_per_second": 12.128058436450708
+    },
+    "inputTokens": 582,
+    "renderedPromptSHA256": "987485ccbc1c608a2e7b9705f9973ae168a354d9e70304cd1aca9edb05fbe0cb",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.61387212498812,
+    "firstReadableSeconds": 1.341102000005776,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He lacked specific evidence or grounds to suspect her of wrongdoing.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"He lacked specific evidence or grounds to suspect her of wrongdoing.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 587,
+      "total_tokens": 612,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 51,
+      "prompt_ms": 661.044,
+      "prompt_per_token_ms": 12.961647058823528,
+      "prompt_per_second": 77.15068891026922,
+      "predicted_n": 25,
+      "predicted_ms": 1949.735,
+      "predicted_per_token_ms": 81.23895833333333,
+      "predicted_per_second": 12.309365118849485
+    },
+    "inputTokens": 587,
+    "renderedPromptSHA256": "d1de5b9949556a84bb34603c8879d496b1b1863ba1370a11618e778564bfec58",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.732112500001676,
+    "firstReadableSeconds": 4.8600545410008635,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He lacked specific evidence or grounds to believe she was untrustworthy. This absence of suspicion is distinguished from the presence of positive reasons to believe she was reliable.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"He lacked specific evidence or grounds to believe she was untrustworthy. This absence of suspicion is distinguished from the presence of positive reasons to believe she was reliable.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 47,
+      "prompt_tokens": 528,
+      "total_tokens": 575,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 528,
+      "prompt_ms": 4132.997,
+      "prompt_per_token_ms": 7.827645833333334,
+      "prompt_per_second": 127.75233081466064,
+      "predicted_n": 47,
+      "predicted_ms": 3593.282,
+      "predicted_per_token_ms": 78.11482608695653,
+      "predicted_per_second": 12.801667111014387
+    },
+    "inputTokens": 528,
+    "renderedPromptSHA256": "a2e7ef180c57b844226b054445f4ac59bd07fc1bc7d37f19e82de7b79e7584b8",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n1",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.494139832997462,
+    "firstReadableSeconds": 1.3360738330229651,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The speaker notes that their social media feed characterizes every trivial mishap as a necessary, predetermined milestone in one's personal growth. They suggest that missing a bus is being framed as a significant moment of character development rather than a mere accident.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The speaker notes that their social media feed characterizes every trivial mishap as a necessary, predetermined milestone in one's personal growth. They suggest that missing a bus is being framed as a significant moment of character development rather than a mere accident.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 526,
+      "total_tokens": 588,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 49,
+      "prompt_ms": 639.573,
+      "prompt_per_token_ms": 13.052510204081631,
+      "prompt_per_second": 76.61361564668928,
+      "predicted_n": 62,
+      "predicted_ms": 4850.318,
+      "predicted_per_token_ms": 79.51340983606558,
+      "predicted_per_second": 12.576494984452564
+    },
+    "inputTokens": 526,
+    "renderedPromptSHA256": "cb07e4d417e6c1e73a2fc0564a39a420ac13c9e5600f76e6e8019600cde8016b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.920372374996077,
+    "firstReadableSeconds": 5.455610625009285,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "a significant, predetermined moment in a narrative that is essential to a character's growth or the story's progression.",
+      "notes": []
+    },
+    "raw": "{\n\"meaning\": \"a significant, predetermined moment in a narrative that is essential to a character's growth or the story's progression.\",\n\"notes\": []\n}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 585,
+      "total_tokens": 628,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 585,
+      "prompt_ms": 4686.101,
+      "prompt_per_token_ms": 8.01042905982906,
+      "prompt_per_second": 124.8372580958029,
+      "predicted_n": 43,
+      "predicted_ms": 3228.561,
+      "predicted_per_token_ms": 76.8705,
+      "predicted_per_second": 13.008891577393147
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "84eb6a2f59bf061c63281c27c83736a84c95d8f6c645abf37167dcb2bb4925d6",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.865144292009063,
+    "firstReadableSeconds": 1.2539333750028163,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The post describes the new layout as a deliberate, albeit likely poor, design decision.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The post describes the new layout as a deliberate, albeit likely poor, design decision.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 585,
+      "total_tokens": 615,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 49,
+      "prompt_ms": 642.13,
+      "prompt_per_token_ms": 13.10469387755102,
+      "prompt_per_second": 76.30853565477396,
+      "predicted_n": 30,
+      "predicted_ms": 2220.851,
+      "predicted_per_token_ms": 76.58106896551725,
+      "predicted_per_second": 13.058057474364556
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "a2538b50354fa2cb5b81484570317044eb7c7596b696ae9164a5b1f17e326530",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n2",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.924693333014147,
+    "firstReadableSeconds": 4.811359708022792,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The post describes the new layout as a deliberate, albeit likely poor, design decision. The accompanying image suggests that the layout is functionally flawed because the text obscures the buttons.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The post describes the new layout as a deliberate, albeit likely poor, design decision. The accompanying image suggests that the layout is functionally flawed because the text obscures the buttons.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 49,
+      "prompt_tokens": 526,
+      "total_tokens": 575,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 526,
+      "prompt_ms": 4121.951,
+      "prompt_per_token_ms": 7.836408745247148,
+      "prompt_per_second": 127.60947425139211,
+      "predicted_n": 49,
+      "predicted_ms": 3800.052,
+      "predicted_per_token_ms": 79.16775,
+      "predicted_per_second": 12.631406096548153
+    },
+    "inputTokens": 526,
+    "renderedPromptSHA256": "8eaa5da47613cfdb60705402ce0c6806ae475c0017297ac904a80abb47b385bc",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n3",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.00381108300644,
+    "firstReadableSeconds": 1.333831583004212,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The update was functional and effective without being visually striking or ostentatious. She characterizes it as a subtle improvement that prioritizes utility over aesthetic flair.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The update was functional and effective without being visually striking or ostentatious. She characterizes it as a subtle improvement that prioritizes utility over aesthetic flair.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 529,
+      "total_tokens": 574,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 52,
+      "prompt_ms": 637.13,
+      "prompt_per_token_ms": 12.2525,
+      "prompt_per_second": 81.61599673536013,
+      "predicted_n": 45,
+      "predicted_ms": 3360.736,
+      "predicted_per_token_ms": 76.38036363636364,
+      "predicted_per_second": 13.092370242708741
+    },
+    "inputTokens": 529,
+    "renderedPromptSHA256": "c2895c1f2ea5e2d3ab1e7679fe82622b254c61cec74b3e7dd5eca9b1300b488d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.49922508301097,
+    "firstReadableSeconds": 5.280102124990663,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The update provided practical utility without seeking attention or aesthetic fanfare.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The update provided practical utility without seeking attention or aesthetic fanfare.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 588,
+      "total_tokens": 613,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 588,
+      "prompt_ms": 4667.308,
+      "prompt_per_token_ms": 7.937598639455782,
+      "prompt_per_second": 125.98268637938615,
+      "predicted_n": 25,
+      "predicted_ms": 1829.884,
+      "predicted_per_token_ms": 76.24516666666666,
+      "predicted_per_second": 13.115585468805673
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "d8273a0154fd33ce310be48830f34cd49395f53cf04d016792cf58e78527741b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.8946908749931026,
+    "firstReadableSeconds": 1.2708845830056816,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The speaker is using a hyperbolic expression to indicate that they found the video extremely humorous.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The speaker is using a hyperbolic expression to indicate that they found the video extremely humorous.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 581,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 45,
+      "prompt_ms": 644.588,
+      "prompt_per_token_ms": 14.324177777777777,
+      "prompt_per_second": 69.81203497427815,
+      "predicted_n": 30,
+      "predicted_ms": 2248.16,
+      "predicted_per_token_ms": 77.52275862068964,
+      "predicted_per_second": 12.899437762436838
+    },
+    "inputTokens": 581,
+    "renderedPromptSHA256": "dd0695125b485ab0e8b718b04d4356c400266b26795a398fc2de3f27a3e43bcd",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n4",
+    "split": "heldout",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 8.234458040999016,
+    "firstReadableSeconds": 4.746513165999204,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The speaker is using a hyperbolic expression to indicate that they found the video extremely humorous. The inclusion of laughing emojis clarifies that the statement is a figurative expression of amusement rather than a literal claim of death.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The speaker is using a hyperbolic expression to indicate that they found the video extremely humorous. The inclusion of laughing emojis clarifies that the statement is a figurative expression of amusement rather than a literal claim of death.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 522,
+      "total_tokens": 577,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 522,
+      "prompt_ms": 4059.033,
+      "prompt_per_token_ms": 7.775925287356322,
+      "prompt_per_second": 128.6020586676679,
+      "predicted_n": 55,
+      "predicted_ms": 4173.531,
+      "predicted_per_token_ms": 77.2876111111111,
+      "predicted_per_second": 12.93868429394678
+    },
+    "inputTokens": 522,
+    "renderedPromptSHA256": "23fdc43fc614d01b5fde2cfda48b6cdf3d5790d6d9f951f9b7805b7c2a497dbe",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.934960000013234,
+    "firstReadableSeconds": 1.243281292001484,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She released a cat from a bag, and the animal fled beneath the sofa.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She released a cat from a bag, and the animal fled beneath the sofa.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 525,
+      "total_tokens": 556,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 48,
+      "prompt_ms": 630.07,
+      "prompt_per_token_ms": 13.126458333333334,
+      "prompt_per_second": 76.18201152252924,
+      "predicted_n": 31,
+      "predicted_ms": 2302.992,
+      "predicted_per_token_ms": 76.7664,
+      "predicted_per_second": 13.026532441276391
+    },
+    "inputTokens": 525,
+    "renderedPromptSHA256": "269d279a3d08f07cc0863854c8d3668905f39ed5c45bd2fba344473cf304d5bf",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.265740125003504,
+    "firstReadableSeconds": 5.201197499991395,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She physically released a cat from a bag.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She physically released a cat from a bag.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 584,
+      "total_tokens": 606,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 584,
+      "prompt_ms": 4664.212,
+      "prompt_per_token_ms": 7.986664383561645,
+      "prompt_per_second": 125.20871692796123,
+      "predicted_n": 22,
+      "predicted_ms": 1599.64,
+      "predicted_per_token_ms": 76.17333333333333,
+      "predicted_per_second": 13.127953789602659
+    },
+    "inputTokens": 584,
+    "renderedPromptSHA256": "68c79a799e7a65dd3f555ecc92288095939009dea7984b4b80bbbec6ad0dca7b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-wanting",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.349034832994221,
+    "firstReadableSeconds": 1.1771748749888502,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The explanation was deficient or lacking in necessary detail.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The explanation was deficient or lacking in necessary detail.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 576,
+      "total_tokens": 599,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 40,
+      "prompt_ms": 627.25,
+      "prompt_per_token_ms": 15.68125,
+      "prompt_per_second": 63.77042646472698,
+      "predicted_n": 23,
+      "predicted_ms": 1719.352,
+      "predicted_per_token_ms": 78.15236363636365,
+      "predicted_per_second": 12.795518311549932
+    },
+    "inputTokens": 576,
+    "renderedPromptSHA256": "403d2bd71c29180e260759212602a6c8e98105eee6b8b409d54a76ce54e5192e",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-wanting",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.250201875023777,
+    "firstReadableSeconds": 4.711854041001061,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The explanation was lacking or deficient. Although the audience desired the explanation to be true, it failed to provide the necessary detail or substance.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The explanation was lacking or deficient. Although the audience desired the explanation to be true, it failed to provide the necessary detail or substance.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 517,
+      "total_tokens": 559,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 517,
+      "prompt_ms": 4086.227,
+      "prompt_per_token_ms": 7.903727272727273,
+      "prompt_per_second": 126.52258428129421,
+      "predicted_n": 42,
+      "predicted_ms": 3159.246,
+      "predicted_per_token_ms": 77.05478048780488,
+      "predicted_per_second": 12.97778014121091
+    },
+    "inputTokens": 517,
+    "renderedPromptSHA256": "8cba4ea8fe31e7d37e6395b679d8be1c5c9cdf39a586a69722873ceed5e47213",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-ambiguity",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.632057540991809,
+    "firstReadableSeconds": 1.1118140410108026,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The woman observed a man who was in possession of or carrying a telescope.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The woman observed a man who was in possession of or carrying a telescope.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 513,
+      "total_tokens": 543,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 36,
+      "prompt_ms": 424.66,
+      "prompt_per_token_ms": 11.796111111111111,
+      "prompt_per_second": 84.77370131399238,
+      "predicted_n": 30,
+      "predicted_ms": 2205.42,
+      "predicted_per_token_ms": 76.04896551724138,
+      "predicted_per_second": 13.149422785682546
+    },
+    "inputTokens": 513,
+    "renderedPromptSHA256": "513903a942f402536ff35260234db4c69239b111ff335ac80c5b2f25f56ed21b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-ambiguity",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.226367291994393,
+    "firstReadableSeconds": 5.158920541987754,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The man was in possession of or carrying a telescope.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The man was in possession of or carrying a telescope.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 572,
+      "total_tokens": 596,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 572,
+      "prompt_ms": 4465.263,
+      "prompt_per_token_ms": 7.806403846153846,
+      "prompt_per_second": 128.09995738212956,
+      "predicted_n": 24,
+      "predicted_ms": 1759.111,
+      "predicted_per_token_ms": 76.48308695652175,
+      "predicted_per_second": 13.074786070918776
+    },
+    "inputTokens": 572,
+    "renderedPromptSHA256": "fff06e5abe758469fccd9e21e291404bf7fc1ca868bf51f70e7470e65d13b16b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-duck",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.445012874988606,
+    "firstReadableSeconds": 1.2953692080045585,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "a female duck belonging to the subject",
+      "notes": []
+    },
+    "raw": "{\n\"meaning\": \"a female duck belonging to the subject\",\n\"notes\": []\n}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 568,
+      "total_tokens": 595,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 32,
+      "prompt_ms": 430.693,
+      "prompt_per_token_ms": 13.45915625,
+      "prompt_per_second": 74.29886253085145,
+      "predicted_n": 27,
+      "predicted_ms": 2012.431,
+      "predicted_per_token_ms": 77.40119230769231,
+      "predicted_per_second": 12.919697619446332
+    },
+    "inputTokens": 568,
+    "renderedPromptSHA256": "ccfa5fcb8d5c2b13531afbbdba7f6555056179c00647c02cffc6bdcbd13d0cad",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-duck",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.72563466601423,
+    "firstReadableSeconds": 4.663263750000624,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The woman observed a duck belonging to her.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The woman observed a duck belonging to her.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 509,
+      "total_tokens": 533,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 509,
+      "prompt_ms": 3970.06,
+      "prompt_per_token_ms": 7.7997249508840865,
+      "prompt_per_second": 128.20964922444497,
+      "predicted_n": 24,
+      "predicted_ms": 1753.812,
+      "predicted_per_token_ms": 76.25269565217391,
+      "predicted_per_second": 13.114290471270582
+    },
+    "inputTokens": 509,
+    "renderedPromptSHA256": "043940f9d4ea9cfa8b328065b624a612224524cb9867bed5a884d75f653945f2",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-powder-literal",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.6849487500148825,
+    "firstReadableSeconds": 1.3089414999994915,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He ensured his gunpowder remained free of moisture by placing it near the stove's heat before he prepared to load his firearm.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"He ensured his gunpowder remained free of moisture by placing it near the stove's heat before he prepared to load his firearm.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 520,
+      "total_tokens": 560,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 43,
+      "prompt_ms": 620.624,
+      "prompt_per_token_ms": 14.433116279069768,
+      "prompt_per_second": 69.28510660238727,
+      "predicted_n": 40,
+      "predicted_ms": 3062.304,
+      "predicted_per_token_ms": 78.52061538461538,
+      "predicted_per_second": 12.73550895012383
+    },
+    "inputTokens": 520,
+    "renderedPromptSHA256": "5311e577b589d3d5e52918995bc1ac362c4a82d9cb9f8f968f60e7e0d206bda1",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-powder-literal",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.553806957992492,
+    "firstReadableSeconds": 5.314773124991916,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He ensured his gunpowder remained free of moisture.",
+      "notes": []
+    },
+    "raw": "{\n\"meaning\": \"He ensured his gunpowder remained free of moisture.\",\n\"notes\": []\n}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 579,
+      "total_tokens": 607,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 579,
+      "prompt_ms": 4471.921,
+      "prompt_per_token_ms": 7.723525043177894,
+      "prompt_per_second": 129.47455914359847,
+      "predicted_n": 28,
+      "predicted_ms": 2079.364,
+      "predicted_per_token_ms": 77.01348148148148,
+      "predicted_per_second": 12.984739564597636
+    },
+    "inputTokens": 579,
+    "renderedPromptSHA256": "a6b8256ab3f01054a7bb273bdd77f3ae39a666f60e78861b047082920ae40bbf",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-almost-convincing",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.329035833972739,
+    "firstReadableSeconds": 1.1821101249952335,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The enthusiasm he displayed was nearly sufficient to make his congratulations seem sincere, but it fell just short of true belief.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The enthusiasm he displayed was nearly sufficient to make his congratulations seem sincere, but it fell just short of true belief.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 574,
+      "total_tokens": 610,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 38,
+      "prompt_ms": 636.556,
+      "prompt_per_token_ms": 16.751473684210527,
+      "prompt_per_second": 59.696240393618154,
+      "predicted_n": 36,
+      "predicted_ms": 2689.789,
+      "predicted_per_token_ms": 76.85111428571429,
+      "predicted_per_second": 13.012173073798724
+    },
+    "inputTokens": 574,
+    "renderedPromptSHA256": "46e42144347eec717b7284fdccd47b45548a360fd380cde8fc93f136d6f8cad5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-almost-convincing",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.5568395419977605,
+    "firstReadableSeconds": 4.684348834009143,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "His display of enthusiasm was nearly believable, though it lacked the sincerity required to be fully credible.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"His display of enthusiasm was nearly believable, though it lacked the sincerity required to be fully credible.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 515,
+      "total_tokens": 549,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 515,
+      "prompt_ms": 3977.258,
+      "prompt_per_token_ms": 7.722831067961165,
+      "prompt_per_second": 129.48619375459174,
+      "predicted_n": 34,
+      "predicted_ms": 2574.433,
+      "predicted_per_token_ms": 78.0131212121212,
+      "predicted_per_second": 12.818356508015553
+    },
+    "inputTokens": 515,
+    "renderedPromptSHA256": "911e35e39a3e02835046d170bd053bc73de8e2beee7f9966e7740880b9beee3d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-litotes",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.2269977910036687,
+    "firstReadableSeconds": 1.238129375007702,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "His response contained some valid points or logical value, even though it failed to address the primary concern.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"His response contained some valid points or logical value, even though it failed to address the primary concern.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 35,
+      "prompt_tokens": 520,
+      "total_tokens": 555,
+      "prompt_tokens_details": {
+        "cached_tokens": 477
+      }
+    },
+    "timings": {
+      "cache_n": 477,
+      "prompt_n": 43,
+      "prompt_ms": 627.068,
+      "prompt_per_token_ms": 14.582976744186047,
+      "prompt_per_second": 68.57310530915308,
+      "predicted_n": 35,
+      "predicted_ms": 2597.863,
+      "predicted_per_token_ms": 76.40773529411764,
+      "predicted_per_second": 13.08768014325621
+    },
+    "inputTokens": 520,
+    "renderedPromptSHA256": "a4f68503d8c9981367296ca4e0b8e2526440df8187487c7f2690167f7a525e1d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-litotes",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.835386416001711,
+    "firstReadableSeconds": 5.079287915985333,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "His reply contained some valid points or value, but it did not fully address the primary concern.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"His reply contained some valid points or value, but it did not fully address the primary concern.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 579,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 579,
+      "prompt_ms": 4465.96,
+      "prompt_per_token_ms": 7.713229706390329,
+      "prompt_per_second": 129.647377047712,
+      "predicted_n": 32,
+      "predicted_ms": 2367.376,
+      "predicted_per_token_ms": 76.3669677419355,
+      "predicted_per_second": 13.094666837882954
+    },
+    "inputTokens": 579,
+    "renderedPromptSHA256": "0c10bb74c973e55a4116b86cadbe8ef957350544cec93b6ac98350c5b7d8df11",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-plain",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.309577915992122,
+    "firstReadableSeconds": 1.1678507499746047,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She physically moved the window to an open position.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She physically moved the window to an open position.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 574,
+      "total_tokens": 597,
+      "prompt_tokens_details": {
+        "cached_tokens": 536
+      }
+    },
+    "timings": {
+      "cache_n": 536,
+      "prompt_n": 38,
+      "prompt_ms": 622.444,
+      "prompt_per_token_ms": 16.380105263157894,
+      "prompt_per_second": 61.04966872521866,
+      "predicted_n": 23,
+      "predicted_ms": 1684.998,
+      "predicted_per_token_ms": 76.59081818181818,
+      "predicted_per_second": 13.056395319163585
+    },
+    "inputTokens": 574,
+    "renderedPromptSHA256": "ea67596fd99718207a13c743754f69992268dfdf7a30f9da3e672cec18e37f9b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-plain",
+    "split": "regression",
+    "strategy": "baseline",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.731167582998751,
+    "firstReadableSeconds": 4.663962541992078,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She moved the window to an open position.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She moved the window to an open position.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 515,
+      "total_tokens": 539,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 515,
+      "prompt_ms": 3977.106,
+      "prompt_per_token_ms": 7.722535922330097,
+      "prompt_per_second": 129.49114255441017,
+      "predicted_n": 24,
+      "predicted_ms": 1752.264,
+      "predicted_per_token_ms": 76.18539130434782,
+      "predicted_per_second": 13.125876009551073
+    },
+    "inputTokens": 515,
+    "renderedPromptSHA256": "2111a08a545002e6309226a4febcd3448b01b675a5614f97e61c6279cd7a5f58",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.07005629100604,
+    "firstReadableSeconds": 5.4592220000049565,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo acknowledges Ren's action of contradicting the chair as an act of courage.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Jo acknowledges Ren's action of contradicting the chair as an act of courage.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 637,
+      "total_tokens": 666,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 637,
+      "prompt_ms": 4919.919,
+      "prompt_per_token_ms": 7.723577708006279,
+      "prompt_per_second": 129.4736762942642,
+      "predicted_n": 29,
+      "predicted_ms": 2148.086,
+      "predicted_per_token_ms": 76.71735714285714,
+      "predicted_per_second": 13.034859870601085
+    },
+    "inputTokens": 637,
+    "renderedPromptSHA256": "2c1e9d84811d296bb3a19901c1b74157bda88ce1d5b95bc3f57117e4e9767dca",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 47.252120833989466,
+    "firstReadableSeconds": 45.81554241699632,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo's verbal reaction to Ren's act of contradicting the chair.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"Jo's verbal reaction to Ren's act of contradicting the chair.\", \"notes\": []}",
+    "reasoningCharacters": 2092,
+    "reasoningSHA256": "9d28f0f91c23341c60f41c5e90e6549f3a469182ca4589617f41ff7b575043ab",
+    "usage": {
+      "completion_tokens": 545,
+      "prompt_tokens": 588,
+      "total_tokens": 1133,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 588,
+      "prompt_ms": 4673.878,
+      "prompt_per_token_ms": 7.948772108843537,
+      "prompt_per_second": 125.80559441217764,
+      "predicted_n": 545,
+      "predicted_ms": 42575.182,
+      "predicted_per_token_ms": 78.26320220588235,
+      "predicted_per_second": 12.777396935144047
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "3cbf2d9f2bb29a11d3a3d8a194ee3cfd755290668cb15ebd9f086d648020a76a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.741755708993878,
+    "firstReadableSeconds": 5.474713417002931,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The sight of Miss Lily Bart provided Selden with a sense of visual and emotional revitalization amidst the chaotic environment of the station.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The sight of Miss Lily Bart provided Selden with a sense of visual and emotional revitalization amidst the chaotic environment of the station.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 641,
+      "total_tokens": 679,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 641,
+      "prompt_ms": 4857.394,
+      "prompt_per_token_ms": 7.577837753510141,
+      "prompt_per_second": 131.96376493238967,
+      "predicted_n": 38,
+      "predicted_ms": 2879.733,
+      "predicted_per_token_ms": 77.83062162162163,
+      "predicted_per_second": 12.8484133772124
+    },
+    "inputTokens": 641,
+    "renderedPromptSHA256": "074bd9f0662f5bad24c404b8c72230d9704c93ae26710adbe359d41da1075cd0",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 47.14953841699753,
+    "firstReadableSeconds": 45.23992154200096,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The sight of Miss Lily Bart provided Selden with a moment of visual relief or aesthetic restoration.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The sight of Miss Lily Bart provided Selden with a moment of visual relief or aesthetic restoration.\", \"notes\": []}",
+    "reasoningCharacters": 2283,
+    "reasoningSHA256": "33ad1310bf96572af28ba02f0173647feb8d35580b18e2f6d5f85584efea872a",
+    "usage": {
+      "completion_tokens": 549,
+      "prompt_tokens": 592,
+      "total_tokens": 1141,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 592,
+      "prompt_ms": 4637.263,
+      "prompt_per_token_ms": 7.833214527027027,
+      "prompt_per_second": 127.6615106798989,
+      "predicted_n": 549,
+      "predicted_ms": 42509.117,
+      "predicted_per_token_ms": 77.5713813868613,
+      "predicted_per_second": 12.891352224512215
+    },
+    "inputTokens": 592,
+    "renderedPromptSHA256": "a155ddb94a8d0008c927b403a55cdbeba7719c2ad32f62b37dbf6bb5c7dfe39f",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.328283375012688,
+    "firstReadableSeconds": 5.636683874996379,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The conquest of the earth is aesthetically or morally unappealing when scrutinized closely.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The conquest of the earth is aesthetically or morally unappealing when scrutinized closely.\", \"notes\": []}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 653,
+      "total_tokens": 684,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 653,
+      "prompt_ms": 5018.161,
+      "prompt_per_token_ms": 7.6847794793261865,
+      "prompt_per_second": 130.12735143412098,
+      "predicted_n": 31,
+      "predicted_ms": 2307.596,
+      "predicted_per_token_ms": 76.91986666666666,
+      "predicted_per_second": 13.000542555976004
+    },
+    "inputTokens": 653,
+    "renderedPromptSHA256": "9fc97b892d7337a70bad98e06922cd6ac99571ba61a0287ce45d954e8a84e978",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 46.88786899999832,
+    "firstReadableSeconds": 45.29992599997786,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The act of conquest is aesthetically or morally unappealing when examined closely.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The act of conquest is aesthetically or morally unappealing when examined closely.\", \"notes\": []}",
+    "reasoningCharacters": 2253,
+    "reasoningSHA256": "8ab99a398b3a68951fa00f157d5a5f62392d846d6102569cd805eae7b30891a4",
+    "usage": {
+      "completion_tokens": 545,
+      "prompt_tokens": 604,
+      "total_tokens": 1149,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 604,
+      "prompt_ms": 4661.239,
+      "prompt_per_token_ms": 7.7172831125827805,
+      "prompt_per_second": 129.57928138848922,
+      "predicted_n": 545,
+      "predicted_ms": 42223.344,
+      "predicted_per_token_ms": 77.61644117647059,
+      "predicted_per_second": 12.883868222280075
+    },
+    "inputTokens": 604,
+    "renderedPromptSHA256": "049af103124cda78ac0932c05826122b89bdda94a7683316a9932a9322cabd33",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 12.030086749990005,
+    "firstReadableSeconds": 5.484290624997811,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The flakes are described by their visual appearance under the specific lighting of the scene. The contrast between 'silver' and 'dark' suggests the varying ways the falling flakes catch or miss the lamplight, creating a flickering, multi-toned visual effect. This imagery emphasizes the atmospheric quality of the falling snow, highlighting its movement and the interplay of light and shadow in the observer's sleepy perception.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The flakes are described by their visual appearance under the specific lighting of the scene. The contrast between 'silver' and 'dark' suggests the varying ways the falling flakes catch or miss the lamplight, creating a flickering, multi-toned visual effect. This imagery emphasizes the atmospheric quality of the falling snow, highlighting its movement and the interplay of light and shadow in the observer's sleepy perception.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 93,
+      "prompt_tokens": 630,
+      "total_tokens": 723,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 630,
+      "prompt_ms": 4859.6,
+      "prompt_per_token_ms": 7.713650793650794,
+      "prompt_per_second": 129.64029961313688,
+      "predicted_n": 93,
+      "predicted_ms": 7164.286,
+      "predicted_per_token_ms": 77.87267391304349,
+      "predicted_per_second": 12.841475061157526
+    },
+    "inputTokens": 630,
+    "renderedPromptSHA256": "bdf1d6af5eba3d208ba6314e82cb9de9312236b95d2747e32c4754372d803d7a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 46.98615224999958,
+    "firstReadableSeconds": 45.35056816699216,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The visual appearance of the snowflakes as they interact with the lamplight.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The visual appearance of the snowflakes as they interact with the lamplight.\", \"notes\": []}",
+    "reasoningCharacters": 2350,
+    "reasoningSHA256": "9abbcb50ce070c7fc8c11adcc4e039c0687cf7821be9f9398f7248ef8c3bbc34",
+    "usage": {
+      "completion_tokens": 545,
+      "prompt_tokens": 581,
+      "total_tokens": 1126,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 581,
+      "prompt_ms": 4634.771,
+      "prompt_per_token_ms": 7.977230636833046,
+      "prompt_per_second": 125.35678677544155,
+      "predicted_n": 545,
+      "predicted_ms": 42348.661,
+      "predicted_per_token_ms": 77.84680330882352,
+      "predicted_per_second": 12.845742631626536
+    },
+    "inputTokens": 581,
+    "renderedPromptSHA256": "ee6ea2aca7c32aa1dd70a440800fa225fbaeb92ea186e015d8a8602efcc04125",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.088389832992107,
+    "firstReadableSeconds": 5.470118500001263,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She worked or remained awake late into the night by using a lamp for light.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She worked or remained awake late into the night by using a lamp for light.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 631,
+      "total_tokens": 660,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 631,
+      "prompt_ms": 4842.201,
+      "prompt_per_token_ms": 7.6738526148969886,
+      "prompt_per_second": 130.3126408837634,
+      "predicted_n": 29,
+      "predicted_ms": 2241.548,
+      "predicted_per_token_ms": 80.0552857142857,
+      "predicted_per_second": 12.491367572766679
+    },
+    "inputTokens": 631,
+    "renderedPromptSHA256": "9967543a9797bca316c37c997b20868fc6fe15adea4f068b710573bfcf2dc16f",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 47.14743037498556,
+    "firstReadableSeconds": 45.38994074999937,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She worked or stayed awake late into the night by the light of an oil lamp.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She worked or stayed awake late into the night by the light of an oil lamp.\", \"notes\": []}",
+    "reasoningCharacters": 2326,
+    "reasoningSHA256": "4276ab15af157e0b4ab79b20b8c6912b97f34cb02c5596d25e1593df623c040d",
+    "usage": {
+      "completion_tokens": 547,
+      "prompt_tokens": 582,
+      "total_tokens": 1129,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 582,
+      "prompt_ms": 4651.57,
+      "prompt_per_token_ms": 7.992388316151202,
+      "prompt_per_second": 125.11904582753782,
+      "predicted_n": 547,
+      "predicted_ms": 42489.063,
+      "predicted_per_token_ms": 77.81879670329671,
+      "predicted_per_second": 12.85036575177005
+    },
+    "inputTokens": 582,
+    "renderedPromptSHA256": "26b9006788ae2ef60fb537d507febee7d344a0462af176cd62668b696c25fbea",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.79336699997657,
+    "firstReadableSeconds": 5.543852332979441,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The act of hunters being struck by projectiles, likely from firearms.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The act of hunters being struck by projectiles, likely from firearms.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 632,
+      "total_tokens": 658,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 632,
+      "prompt_ms": 4837.21,
+      "prompt_per_token_ms": 7.65381329113924,
+      "prompt_per_second": 130.65382730954414,
+      "predicted_n": 26,
+      "predicted_ms": 1952.27,
+      "predicted_per_token_ms": 78.0908,
+      "predicted_per_second": 12.805605781987122
+    },
+    "inputTokens": 632,
+    "renderedPromptSHA256": "0af29058b75a4b5cfa08dd7f0a126a6dcd7c1ee3fd7998517e8564a561faa078",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 34.96082045798539,
+    "firstReadableSeconds": 33.94932183297351,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the act of hunters being struck by projectiles",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"the act of hunters being struck by projectiles\", \"notes\": []}",
+    "reasoningCharacters": 1709,
+    "reasoningSHA256": "0ce75d38aaaccf52156b90f9807235dece491f19c08db23566a814c94cd04ba1",
+    "usage": {
+      "completion_tokens": 390,
+      "prompt_tokens": 583,
+      "total_tokens": 973,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 583,
+      "prompt_ms": 4643.733,
+      "prompt_per_token_ms": 7.965236706689537,
+      "prompt_per_second": 125.54554708464073,
+      "predicted_n": 390,
+      "predicted_ms": 30313.302,
+      "predicted_per_token_ms": 77.92622622107969,
+      "predicted_per_second": 12.832650167903186
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "3758647ba4b711fd0941c815918fae42bcb481c675e63db6600b3d4c2c0c0a8a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.763676583999768,
+    "firstReadableSeconds": 5.39201854201383,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The individuals who have come to visit the inhabitants of the house.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The individuals who have come to visit the inhabitants of the house.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 621,
+      "total_tokens": 647,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 621,
+      "prompt_ms": 4850.236,
+      "prompt_per_token_ms": 7.810363929146537,
+      "prompt_per_second": 128.03500695636254,
+      "predicted_n": 26,
+      "predicted_ms": 1908.311,
+      "predicted_per_token_ms": 76.33243999999999,
+      "predicted_per_second": 13.100589998171158
+    },
+    "inputTokens": 621,
+    "renderedPromptSHA256": "c291caee7bbf1f252606f912c7609adca0f72df8f6babf7e894826a345139b14",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 35.05722508300096,
+    "firstReadableSeconds": 33.050212208007,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "individuals who share a familial connection with the residents of a place and are currently present as guests.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"individuals who share a familial connection with the residents of a place and are currently present as guests.\", \"notes\": []}",
+    "reasoningCharacters": 1610,
+    "reasoningSHA256": "0a831e29c2180729fd9c20b453ab60b1fbb1f9fa6f2a05e808f0f76f1ef30f03",
+    "usage": {
+      "completion_tokens": 395,
+      "prompt_tokens": 572,
+      "total_tokens": 967,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 572,
+      "prompt_ms": 4430.344,
+      "prompt_per_token_ms": 7.745356643356644,
+      "prompt_per_second": 129.1096131587073,
+      "predicted_n": 395,
+      "predicted_ms": 30624.212,
+      "predicted_per_token_ms": 77.72642639593909,
+      "predicted_per_second": 12.865637163170108
+    },
+    "inputTokens": 572,
+    "renderedPromptSHA256": "84a406550876d7e64b963f93d8551d5d92b8cf48d6fa5baacab83b2d8ab9f82c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.223394917004043,
+    "firstReadableSeconds": 5.58563741701073,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The man was in possession of or carrying the binoculars at the time the narrator observed him.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The man was in possession of or carrying the binoculars at the time the narrator observed him.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 625,
+      "total_tokens": 656,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 625,
+      "prompt_ms": 4877.289,
+      "prompt_per_token_ms": 7.803662399999999,
+      "prompt_per_second": 128.14495921812303,
+      "predicted_n": 31,
+      "predicted_ms": 2341.075,
+      "predicted_per_token_ms": 78.03583333333333,
+      "predicted_per_second": 12.81462575953355
+    },
+    "inputTokens": 625,
+    "renderedPromptSHA256": "9de5c380c9d99e86577a12be4afc209e5fdd1df188037bbf501f74341df5c146",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 51.81619433299056,
+    "firstReadableSeconds": 44.814717375003966,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase is genuinely ambiguous, as it can describe either the man's possessions or the narrator's method of observation. It could mean the man was holding the binoculars, or it could mean the narrator used the binoculars to see the man. The subsequent sentence, in which the man 'lowered them,' suggests the former interpretation is the intended one, as it identifies the man as the person in possession of the object.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"The phrase is genuinely ambiguous, as it can describe either the man's possessions or the narrator's method of observation. It could mean the man was holding the binoculars, or it could mean the narrator used the binoculars to see the man. The subsequent sentence, in which the man 'lowered them,' suggests the former interpretation is the intended one, as it identifies the man as the person in possession of the object.\", \"notes\": []}",
+    "reasoningCharacters": 2068,
+    "reasoningSHA256": "77ec8ac7fdd7e5bc69581411871353cfea52ea66365f2911a8ef23f6d8bc1a80",
+    "usage": {
+      "completion_tokens": 615,
+      "prompt_tokens": 576,
+      "total_tokens": 1191,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 576,
+      "prompt_ms": 4441.738,
+      "prompt_per_token_ms": 7.7113506944444445,
+      "prompt_per_second": 129.6789680075682,
+      "predicted_n": 615,
+      "predicted_ms": 47367.761,
+      "predicted_per_token_ms": 77.14619055374592,
+      "predicted_per_second": 12.962402846104547
+    },
+    "inputTokens": 576,
+    "renderedPromptSHA256": "7914e36f35df7f6762a93068129ee35a9590b2ee0f6eadfcc00cf6c4e3f10eb7",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 8.010303082992323,
+    "firstReadableSeconds": 5.506007957999827,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He lacked specific evidence or grounds to suspect her of wrongdoing, though this absence of suspicion did not equate to a positive confirmation of her reliability.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"He lacked specific evidence or grounds to suspect her of wrongdoing, though this absence of suspicion did not equate to a positive confirmation of her reliability.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 634,
+      "total_tokens": 675,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 634,
+      "prompt_ms": 4882.979,
+      "prompt_per_token_ms": 7.701859621451105,
+      "prompt_per_second": 129.83877260172528,
+      "predicted_n": 41,
+      "predicted_ms": 3122.214,
+      "predicted_per_token_ms": 78.05535,
+      "predicted_per_second": 12.811421638619262
+    },
+    "inputTokens": 634,
+    "renderedPromptSHA256": "351708eb7b77530c289b80a625cfd1ec91fd50701b261fee11d18784e3c4a6c5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 38.00246450002305,
+    "firstReadableSeconds": 36.66250141701312,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He lacked specific evidence or grounds for suspicion regarding her character.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"He lacked specific evidence or grounds for suspicion regarding her character.\", \"notes\": []}",
+    "reasoningCharacters": 1924,
+    "reasoningSHA256": "b61e5b6da236c9b8f29b8030fab2f514a24a997e84701afaa69f5fefa0abf665",
+    "usage": {
+      "completion_tokens": 434,
+      "prompt_tokens": 585,
+      "total_tokens": 1019,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 585,
+      "prompt_ms": 4658.817,
+      "prompt_per_token_ms": 7.963789743589744,
+      "prompt_per_second": 125.56835780413783,
+      "predicted_n": 434,
+      "predicted_ms": 33340.991,
+      "predicted_per_token_ms": 76.99997921478061,
+      "predicted_per_second": 12.98701649270113
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "366992adecf7acacf717cf7a414427bf0c78fb02d61c62f2a2d4d015cca5ed3b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.189931458997307,
+    "firstReadableSeconds": 5.462295917008305,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She physically released a cat from a bag, and the animal fled beneath the furniture.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She physically released a cat from a bag, and the animal fled beneath the furniture.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 631,
+      "total_tokens": 661,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 631,
+      "prompt_ms": 4922.473,
+      "prompt_per_token_ms": 7.801066561014263,
+      "prompt_per_second": 128.18760001324537,
+      "predicted_n": 30,
+      "predicted_ms": 2264.616,
+      "predicted_per_token_ms": 78.09020689655172,
+      "predicted_per_second": 12.80570304192852
+    },
+    "inputTokens": 631,
+    "renderedPromptSHA256": "97cd276af62c217b50eddb854243c339cefe3586722ecf4613fc357181ec6db1",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 45.67949245800264,
+    "firstReadableSeconds": null,
+    "finish": null,
+    "valid": false,
+    "answer": null,
+    "raw": "",
+    "reasoningCharacters": 533,
+    "reasoningSHA256": "f0a5611b3da64a786d1a6e34cadf6db2c2fa547ac42998b014d55f7570694287",
+    "usage": null,
+    "timings": null,
+    "inputTokens": 582,
+    "renderedPromptSHA256": "6407aa914cb01afc31e67cbf06b6894848e0402c30f0325d374f0d90969c96c6",
+    "dictionaryRequested": false
+  }
+]

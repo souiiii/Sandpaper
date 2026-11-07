@@ -1,0 +1,248 @@
+[
+  {
+    "id": "d1",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.033785665989853,
+    "firstReadableSeconds": 3.149561791011365,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "put the motion on hold or postponed it for further discussion",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"put the motion on hold or postponed it for further discussion\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 20,
+      "prompt_tokens": 583,
+      "total_tokens": 603,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 583,
+      "prompt_ms": 2824.96,
+      "prompt_per_token_ms": 4.845557461406518,
+      "prompt_per_second": 206.3746035342093,
+      "predicted_n": 20,
+      "predicted_ms": 1202.785,
+      "predicted_per_token_ms": 63.30447368421053,
+      "predicted_per_second": 15.796671890653773
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "9dc6ba10cfd5fe17445301a1bd53ca62e5fa21da201bef4c8b83e9fc4f9feb94",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d2",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.7703162080142647,
+    "firstReadableSeconds": 0.6331368329992983,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "He found the soup's coldness to be exactly what he wanted or required.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"He found the soup's coldness to be exactly what he wanted or required.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 585,
+      "total_tokens": 609,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 36,
+      "prompt_ms": 308.074,
+      "prompt_per_token_ms": 8.557611111111111,
+      "prompt_per_second": 116.855041321241,
+      "predicted_n": 24,
+      "predicted_ms": 1458.662,
+      "predicted_per_token_ms": 63.42008695652174,
+      "predicted_per_second": 15.767874942927147
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "e767f8a52e96a1e215d62dcc7ca8cf9ffd5449a56ec5853a9ec3e222cfdfd91b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d3",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 0.9282238339947071,
+    "firstReadableSeconds": 0.5236570839770138,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "remained silent",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"remained silent\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 12,
+      "prompt_tokens": 574,
+      "total_tokens": 586,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 25,
+      "prompt_ms": 178.179,
+      "prompt_per_token_ms": 7.12716,
+      "prompt_per_second": 140.30834161152546,
+      "predicted_n": 12,
+      "predicted_ms": 746.674,
+      "predicted_per_token_ms": 67.87945454545455,
+      "predicted_per_second": 14.731998167875137
+    },
+    "inputTokens": 574,
+    "renderedPromptSHA256": "da0693d35cff39ea54756258027dcc9e220a6833bdaf4790fe960cfd455c1104",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d4",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.5039028330065776,
+    "firstReadableSeconds": 0.5109032499894965,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "having a hopeful and optimistic attitude, despite potential problems or challenges",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"having a hopeful and optimistic attitude, despite potential problems or challenges\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 21,
+      "prompt_tokens": 580,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 31,
+      "prompt_ms": 182.519,
+      "prompt_per_token_ms": 5.887709677419355,
+      "prompt_per_second": 169.84533117100136,
+      "predicted_n": 21,
+      "predicted_ms": 1318.41,
+      "predicted_per_token_ms": 65.9205,
+      "predicted_per_second": 15.16978785051691
+    },
+    "inputTokens": 580,
+    "renderedPromptSHA256": "b0ddd0288336d4815959a325d05dea143b4b39d7c911d65a715d24a23d8de89e",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d5",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.218423292011721,
+    "firstReadableSeconds": 0.5644003750057891,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "revealed a secret or confidential information",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"revealed a secret or confidential information\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 17,
+      "prompt_tokens": 579,
+      "total_tokens": 596,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 30,
+      "prompt_ms": 178.005,
+      "prompt_per_token_ms": 5.9334999999999996,
+      "prompt_per_second": 168.53459172495155,
+      "predicted_n": 17,
+      "predicted_ms": 1037.759,
+      "predicted_per_token_ms": 64.8599375,
+      "predicted_per_second": 15.417837860235373
+    },
+    "inputTokens": 579,
+    "renderedPromptSHA256": "0f3d1afbe831a66340eaea43425426d65dd2daf29878bc972b00bd26e49f9e9c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d6",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.247010874998523,
+    "firstReadableSeconds": 0.4920870409987401,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "a notable accomplishment, not insignificant or unimportant",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"a notable accomplishment, not insignificant or unimportant\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 18,
+      "prompt_tokens": 579,
+      "total_tokens": 597,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 30,
+      "prompt_ms": 176.994,
+      "prompt_per_token_ms": 5.8998,
+      "prompt_per_second": 169.4972710939354,
+      "predicted_n": 18,
+      "predicted_ms": 1067.362,
+      "predicted_per_token_ms": 62.786,
+      "predicted_per_second": 15.927117510272991
+    },
+    "inputTokens": 579,
+    "renderedPromptSHA256": "e2346bc9bf83cc99f1ec7d39701d65b2fc374091d488a303437b62c13df6a798",
+    "dictionaryRequested": false
+  }
+]

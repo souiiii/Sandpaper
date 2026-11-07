@@ -1,0 +1,48 @@
+[
+  {
+    "repo": "ggml-org/gemma-3-12b-it-GGUF",
+    "revision": "ec0cbabd8dbff316f659876a50202295c3c4a314",
+    "file": "gemma-3-12b-it-Q4_K_M.gguf",
+    "bytes": 7300574976,
+    "sha256": "7bb69bff3f48a7b642355d64a90e481182a7794707b3133890646b1efa778ff5",
+    "verifiedLocally": true,
+    "retainedBaseline": true,
+    "url": "https://huggingface.co/ggml-org/gemma-3-12b-it-GGUF/resolve/ec0cbabd8dbff316f659876a50202295c3c4a314/gemma-3-12b-it-Q4_K_M.gguf"
+  },
+  {
+    "repo": "unsloth/Qwen3.5-9B-GGUF",
+    "revision": "3885219b6810b007914f3a7950a8d1b469d598a5",
+    "file": "Qwen3.5-9B-Q4_K_M.gguf",
+    "bytes": 5680522464,
+    "sha256": "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8",
+    "url": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q4_K_M.gguf",
+    "verifiedLocally": true
+  },
+  {
+    "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
+    "revision": "29d097773436b69ff9feafd636ab4cf873786537",
+    "file": "gemma-4-12b-it-qat-q4_0.gguf",
+    "bytes": 6975879296,
+    "sha256": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b",
+    "url": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-gguf/resolve/29d097773436b69ff9feafd636ab4cf873786537/gemma-4-12b-it-qat-q4_0.gguf",
+    "verifiedLocally": true
+  },
+  {
+    "repo": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+    "revision": "bf5b95e96dac0462e2a09145ec66cae9a3f12067",
+    "file": "Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+    "bytes": 6596011424,
+    "sha256": "33981adf6bae52c503fb5c24f72539010632f7ed290a56c1315a8cd50adca587",
+    "url": "https://huggingface.co/bartowski/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/bf5b95e96dac0462e2a09145ec66cae9a3f12067/Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+    "verifiedLocally": true
+  },
+  {
+    "repo": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+    "revision": "bf5b95e96dac0462e2a09145ec66cae9a3f12067",
+    "file": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+    "bytes": 4920739232,
+    "sha256": "7b064f5842bf9532c91456deda288a1b672397a54fa729aa665952863033557c",
+    "url": "https://huggingface.co/bartowski/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/bf5b95e96dac0462e2a09145ec66cae9a3f12067/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+    "verifiedLocally": true
+  }
+]

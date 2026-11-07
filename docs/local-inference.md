@@ -1,5 +1,11 @@
 # Explicit local explanations
 
+See the [7 November 2026 model decision](model-selection.md) for the latest
+controlled comparison, actual answers and quality limitations. Gemma 4 QAT with
+the existing short prompt was the best tested fallback; the result was no-go for
+the intended explanation standard. The setup below retains the existing Gemma 3
+baseline. No production model or prompt migration was made.
+
 The reader and dictionary work without AI. `LlamaLocalEngine` connects only to
 127.0.0.1; it never downloads models, launches a worker, follows redirects, or
 falls back to a cloud service. `ReaderSession` makes no availability or inference

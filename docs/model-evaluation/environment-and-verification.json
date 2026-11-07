@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-07",
+  "hardware": "Apple M4 Mac mini (Mac16,10), 16 GB unified RAM",
+  "macOS": "27.2 (26B123)",
+  "runtime": "llama.cpp b12110 / cd959bae9, macOS arm64, Metal",
+  "backgroundApplications": [
+    "Zen",
+    "Visual Studio Code",
+    "Codex"
+  ],
+  "modelLoading": "Explicit, one worker at a time; no cloud inference",
+  "review": "Implementing agent read actual final explanations against frozen keys; unblinded, subjective; not a human expert panel",
+  "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+  "counts": {
+    "originalNewPassages": 28,
+    "publishedLiteraryExcerpts": 4,
+    "knownRegressions": 8,
+    "developmentCases": 6
+  },
+  "swiftVerification": {
+    "command": "swift test -c release -Xswiftc -plugin-path -Xswiftc /Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+    "exitCode": 0,
+    "reportedTests": 57,
+    "reportedSuites": 10,
+    "optInLiveWorkExecutedBySwiftTests": false,
+    "logSHA256": "0c820654490f0485fc39c6f3ae79186c957db29e4c875a9eb4e2eb2fe500aa83"
+  },
+  "scope": "No UI, automatic highlighting, multi-agent infrastructure or production-backend changes.",
+  "decision": {
+    "goForExcellentLocalExplanations": false,
+    "bestTestedFallback": "Gemma 4 12B QAT Q4_0, current short v3 prompt, thinking off, dictionary assistance default-off",
+    "productionModelOrPromptChanged": false
+  },
+  "completion": {
+    "recordedAttempts": 467,
+    "allRecordedAttemptsReviewed": true,
+    "allFourFullMainComparisonsCompleted": true,
+    "gemma4NewDifficultThinkingCasesCompleted": 9,
+    "gemma4Unmeasured": "remaining contrastive/thinking regressions and dictionary/control requests after 15-minute session cap",
+    "workersRemaining": 0,
+    "newGGUFFilesRemaining": 0,
+    "retainedExistingBaseline": true,
+    "observedFreeDiskGiBApprox": 21,
+    "frozenHashesMatch": true
+  },
+  "scoringErratum": {
+    "excludedCase": "a3",
+    "reason": "Definite article compromised intended visiting-relatives ambiguity; visitors reading cannot fairly count as wrong.",
+    "eligibleMainCases": 31,
+    "eligibleNewDifficultCases": 8,
+    "eligiblePairedQuantizationCases": 15,
+    "withdrawnPreliminaryRatings": 16,
+    "modelRerunsAfterErratum": 0,
+    "frozenInputAndPromptHashesUnchanged": true,
+    "administrativeCancellationExcludedSeparately": 1,
+    "modelQualityEligibleAttemptAnnotations": 450
+  }
+}

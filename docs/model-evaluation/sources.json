@@ -1,0 +1,30 @@
+[
+  {
+    "name": "james",
+    "url": "https://www.gutenberg.org/ebooks/2833.txt.utf-8",
+    "bytes": 709065,
+    "sha256": "dd0c7685eeca9350b89a110e6f6b5a96917e7548e054d28648e6c26bbbbf7045",
+    "excerptVerified": true
+  },
+  {
+    "name": "wharton",
+    "url": "https://www.gutenberg.org/ebooks/284.txt.utf-8",
+    "bytes": 777957,
+    "sha256": "52728930e0b308772f8781b1e8b20a981b38cdebf161c20fb84ffc6764c1b6df",
+    "excerptVerified": true
+  },
+  {
+    "name": "conrad",
+    "url": "https://www.gutenberg.org/ebooks/219.txt.utf-8",
+    "bytes": 237074,
+    "sha256": "1bcdf0a1ac611dd6b70a20d100a07085754da4e90a949d6031717b86cd6d020a",
+    "excerptVerified": true
+  },
+  {
+    "name": "joyce",
+    "url": "https://www.gutenberg.org/ebooks/2814.txt.utf-8",
+    "bytes": 405706,
+    "sha256": "6be7d8400ac2549459307d1c1a20a25c86a736984269d3e9d989c817814be60c",
+    "excerptVerified": true
+  }
+]

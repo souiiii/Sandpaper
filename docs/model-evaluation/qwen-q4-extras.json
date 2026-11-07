@@ -1,0 +1,1313 @@
+[
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.8921133750118315,
+    "firstReadableSeconds": 3.586974542005919,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo's statement 'That was brave' functions as an ambiguous assessment of Ren's action, leaving open whether she genuinely admires his courage or sarcastically labels his contradiction of the chair as foolishness.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Jo's statement 'That was brave' functions as an ambiguous assessment of Ren's action, leaving open whether she genuinely admires his courage or sarcastically labels his contradiction of the chair as foolishness.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 47,
+      "prompt_tokens": 651,
+      "total_tokens": 698,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 651,
+      "prompt_ms": 3305.642,
+      "prompt_per_token_ms": 5.0777910906298,
+      "prompt_per_second": 196.93602634526064,
+      "predicted_n": 47,
+      "predicted_ms": 2579.402,
+      "predicted_per_token_ms": 56.073956521739134,
+      "predicted_per_second": 17.83359088656983
+    },
+    "inputTokens": 651,
+    "renderedPromptSHA256": "c8bfe9192a67ad9d6f38b91cc30770f130af7eb0eaff23f229589f617d642280",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 34.61804966698401,
+    "firstReadableSeconds": 32.372164542000974,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo labels Ren's contradiction of the chair as brave, but the surrounding context reveals this statement is ambiguous; Ren's uncertainty suggests the praise may be ironic or sarcastic rather than sincere admiration.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Jo labels Ren's contradiction of the chair as brave, but the surrounding context reveals this statement is ambiguous; Ren's uncertainty suggests the praise may be ironic or sarcastic rather than sincere admiration.\", \"notes\":[]}",
+    "reasoningCharacters": 2103,
+    "reasoningSHA256": "c1f4aa9ea969b70e8398b0e0a522e9b68e1ad25a233854b34d0eb124a3f3afb1",
+    "usage": {
+      "completion_tokens": 560,
+      "prompt_tokens": 599,
+      "total_tokens": 1159,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 599,
+      "prompt_ms": 3189.672,
+      "prompt_per_token_ms": 5.324994991652755,
+      "prompt_per_second": 187.7936038564467,
+      "predicted_n": 560,
+      "predicted_ms": 31423.129,
+      "predicted_per_token_ms": 56.213110912343474,
+      "predicted_per_second": 17.789444202071664
+    },
+    "inputTokens": 599,
+    "renderedPromptSHA256": "5e09ce74e001e5c6b128d70d51fb8e7435517bd5ecc8d1d08cdf13a4fe5afb52",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.0099644160072785,
+    "firstReadableSeconds": 3.7977242910128552,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'his eyes had been refreshed' indicates that the visual sight of Miss Lily Bart provided Selden with a sense of renewal or relief from the fatigue of the afternoon crowd, functioning as a literal description of his improved state of perception rather than a metaphor for emotional healing.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'his eyes had been refreshed' indicates that the visual sight of Miss Lily Bart provided Selden with a sense of renewal or relief from the fatigue of the afternoon crowd, functioning as a literal description of his improved state of perception rather than a metaphor for emotional healing.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 654,
+      "total_tokens": 717,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 654,
+      "prompt_ms": 3506.484,
+      "prompt_per_token_ms": 5.361596330275229,
+      "prompt_per_second": 186.5116167648277,
+      "predicted_n": 63,
+      "predicted_ms": 3498.05,
+      "predicted_per_token_ms": 56.42016129032258,
+      "predicted_per_second": 17.724160603764954
+    },
+    "inputTokens": 654,
+    "renderedPromptSHA256": "d8c6804afabd8ac95d817070dacdf093ca490bb3036e14287e373935306e9bf4",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 35.17629558398039,
+    "firstReadableSeconds": 32.6454246249923,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase indicates that Selden's vision felt renewed or relieved, likely due to the visual impact of seeing Miss Lily Bart amidst the chaotic station environment, suggesting a momentary respite from the strain of the afternoon rush.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase indicates that Selden's vision felt renewed or relieved, likely due to the visual impact of seeing Miss Lily Bart amidst the chaotic station environment, suggesting a momentary respite from the strain of the afternoon rush.\",\"notes\":[]}",
+    "reasoningCharacters": 2191,
+    "reasoningSHA256": "f964fec417bb2aff6e634cf5e2ee785f06dc1dfc85e6159d83734f4e62a2eafa",
+    "usage": {
+      "completion_tokens": 565,
+      "prompt_tokens": 602,
+      "total_tokens": 1167,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 602,
+      "prompt_ms": 3256.31,
+      "prompt_per_token_ms": 5.409152823920266,
+      "prompt_per_second": 184.87183345565995,
+      "predicted_n": 565,
+      "predicted_ms": 31915.294,
+      "predicted_per_token_ms": 56.587400709219864,
+      "predicted_per_second": 17.671778301650612
+    },
+    "inputTokens": 602,
+    "renderedPromptSHA256": "4aac4d04399fdfd6dd1d41e0e9c1e56ed8f298882623f76e40f45cc0a2d60948",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 8.986319041985553,
+    "firstReadableSeconds": 3.86726104200352,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'is not a pretty thing' functions as a blunt, understated admission that the act of conquest is morally repugnant and aesthetically grotesque, rather than merely unpleasant; by avoiding harsher adjectives like 'evil' or 'cruel,' the speaker emphasizes the sheer banality and ugliness of the reality when scrutinized closely, contrasting the sanitized notion of empire with its visceral, dehumanizing truth.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'is not a pretty thing' functions as a blunt, understated admission that the act of conquest is morally repugnant and aesthetically grotesque, rather than merely unpleasant; by avoiding harsher adjectives like 'evil' or 'cruel,' the speaker emphasizes the sheer banality and ugliness of the reality when scrutinized closely, contrasting the sanitized notion of empire with its visceral, dehumanizing truth.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 96,
+      "prompt_tokens": 667,
+      "total_tokens": 763,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 667,
+      "prompt_ms": 3584.211,
+      "prompt_per_token_ms": 5.373629685157421,
+      "prompt_per_second": 186.09395484808232,
+      "predicted_n": 96,
+      "predicted_ms": 5396.617,
+      "predicted_per_token_ms": 56.806494736842104,
+      "predicted_per_second": 17.603620935115462
+    },
+    "inputTokens": 667,
+    "renderedPromptSHA256": "eab587bfa7a3e1612b57a616788c1f9ba842daff5f68f503242ed2f81b122053",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 35.04132237500744,
+    "firstReadableSeconds": 32.672736958018504,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The speaker asserts that the act of conquest, defined here as displacing people based on physical differences, is morally or aesthetically unpleasant when examined closely, rather than glorifying it as a noble endeavor.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The speaker asserts that the act of conquest, defined here as displacing people based on physical differences, is morally or aesthetically unpleasant when examined closely, rather than glorifying it as a noble endeavor.\",\"notes\":[]}",
+    "reasoningCharacters": 2226,
+    "reasoningSHA256": "5ee87800615de76ed840ffa11846b2a4e7e72cc791b321c0a7318a4064d252c2",
+    "usage": {
+      "completion_tokens": 562,
+      "prompt_tokens": 615,
+      "total_tokens": 1177,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 615,
+      "prompt_ms": 3248.045,
+      "prompt_per_token_ms": 5.2813739837398375,
+      "prompt_per_second": 189.34466733065582,
+      "predicted_n": 562,
+      "predicted_ms": 31787.763,
+      "predicted_per_token_ms": 56.662679144385024,
+      "predicted_per_second": 17.648300699863654
+    },
+    "inputTokens": 615,
+    "renderedPromptSHA256": "6aeac3363441854da0cfbcc85a7824a4a5536f6765da8f12874f51ffb202bf85",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 8.841976291005267,
+    "firstReadableSeconds": 3.7423219160118606,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The flakes are described as both 'silver' and 'dark' simultaneously, capturing the visual duality of snow illuminated by the lamplight against the surrounding shadow; the adjective 'silver' refers to the reflective quality of the falling flakes where they catch the light, while 'dark' denotes their appearance in the unlit spaces or their inherent color, creating a single image that encompasses both the illuminated highlights and the deep shadows of the falling snow.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The flakes are described as both 'silver' and 'dark' simultaneously, capturing the visual duality of snow illuminated by the lamplight against the surrounding shadow; the adjective 'silver' refers to the reflective quality of the falling flakes where they catch the light, while 'dark' denotes their appearance in the unlit spaces or their inherent color, creating a single image that encompasses both the illuminated highlights and the deep shadows of the falling snow.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 96,
+      "prompt_tokens": 645,
+      "total_tokens": 741,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 645,
+      "prompt_ms": 3455.458,
+      "prompt_per_token_ms": 5.3572992248062015,
+      "prompt_per_second": 186.66121828133925,
+      "predicted_n": 96,
+      "predicted_ms": 5381.932,
+      "predicted_per_token_ms": 56.651915789473684,
+      "predicted_per_second": 17.651653718404468
+    },
+    "inputTokens": 645,
+    "renderedPromptSHA256": "296914ff31b5c799cc0b470b016cf7ac81761014222a38fb51e824170aa60593",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 36.53246154100634,
+    "firstReadableSeconds": 32.68258979098755,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase describes the snowflakes' visual contrast as they fall against the lamplight, where 'silver' captures the reflective quality of the flakes catching the light while 'dark' indicates the shadowed portions or the overall gloom of the falling snow, creating a dual impression of brightness and obscurity within the same scene.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase describes the snowflakes' visual contrast as they fall against the lamplight, where 'silver' captures the reflective quality of the flakes catching the light while 'dark' indicates the shadowed portions or the overall gloom of the falling snow, creating a dual impression of brightness and obscurity within the same scene.\", \"notes\":[]}",
+    "reasoningCharacters": 2088,
+    "reasoningSHA256": "54ee4497615d9fda04f96a85a459eff56015ef267ea26964ac08b3a0284d5b97",
+    "usage": {
+      "completion_tokens": 588,
+      "prompt_tokens": 593,
+      "total_tokens": 1181,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 593,
+      "prompt_ms": 3252.866,
+      "prompt_per_token_ms": 5.485440134907251,
+      "prompt_per_second": 182.30077722230183,
+      "predicted_n": 588,
+      "predicted_ms": 33274.914,
+      "predicted_per_token_ms": 56.686395229982956,
+      "predicted_per_second": 17.640917118523582
+    },
+    "inputTokens": 593,
+    "renderedPromptSHA256": "1990bed638a240908737bdab9cca7ba8f6fc776e068f5dfb41ce6b70403cdb31",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.682125416002236,
+    "firstReadableSeconds": 3.7385701659950428,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She stayed awake late into the night to work or read, using a small lamp for light despite having no money for heating; the phrase 'burned the midnight oil' literally describes the act of burning oil in a lamp during the late hours, here serving as a direct description of her physical situation rather than an idiom for working late.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She stayed awake late into the night to work or read, using a small lamp for light despite having no money for heating; the phrase 'burned the midnight oil' literally describes the act of burning oil in a lamp during the late hours, here serving as a direct description of her physical situation rather than an idiom for working late.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 645,
+      "total_tokens": 721,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 645,
+      "prompt_ms": 3456.421,
+      "prompt_per_token_ms": 5.358792248062016,
+      "prompt_per_second": 186.6092122458462,
+      "predicted_n": 76,
+      "predicted_ms": 4222.343,
+      "predicted_per_token_ms": 56.29790666666666,
+      "predicted_per_second": 17.762649789465232
+    },
+    "inputTokens": 645,
+    "renderedPromptSHA256": "18a1fe76bb4afe5ad1d645586fa63d73608ec7a66c40d2852863da05f0b99fa7",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 34.89118754098308,
+    "firstReadableSeconds": 32.62823941599345,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She lit a lamp with oil to stay awake or work late at night, an action that is both a literal use of the idiom and a practical necessity given her lack of heating funds.",
+      "notes": []
+    },
+    "raw": "{\"meaning\": \"She lit a lamp with oil to stay awake or work late at night, an action that is both a literal use of the idiom and a practical necessity given her lack of heating funds.\", \"notes\": []}",
+    "reasoningCharacters": 2131,
+    "reasoningSHA256": "744ec9318795f11219f95f995543af32cf15c0a106bdbbbe33cab976956545f3",
+    "usage": {
+      "completion_tokens": 562,
+      "prompt_tokens": 593,
+      "total_tokens": 1155,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 593,
+      "prompt_ms": 3251.774,
+      "prompt_per_token_ms": 5.483598650927487,
+      "prompt_per_second": 182.36199686694093,
+      "predicted_n": 562,
+      "predicted_ms": 31636.919,
+      "predicted_per_token_ms": 56.39379500891266,
+      "predicted_per_second": 17.732447334710436
+    },
+    "inputTokens": 593,
+    "renderedPromptSHA256": "ae94dc648c8150f6be1ac137c6d12567ac9c6bd705c7795d6a0823944f16ba79",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.3021879169973545,
+    "firstReadableSeconds": 3.798163667001063,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the act of hunters being shot at, with no indication that the hunters themselves fired the weapons or that anyone else was shot in return",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the act of hunters being shot at, with no indication that the hunters themselves fired the weapons or that anyone else was shot in return\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 645,
+      "total_tokens": 679,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 645,
+      "prompt_ms": 3459.403,
+      "prompt_per_token_ms": 5.363415503875968,
+      "prompt_per_second": 186.44835539542518,
+      "predicted_n": 34,
+      "predicted_ms": 1838.043,
+      "predicted_per_token_ms": 55.69827272727272,
+      "predicted_per_second": 17.953878119282304
+    },
+    "inputTokens": 645,
+    "renderedPromptSHA256": "8a5b7b3294a72ddfb41b39a55f1fa7348c5636d3b840602f45a3691d2d9d31e3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 34.38738587501575,
+    "firstReadableSeconds": 32.68745870800922,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase refers literally to an event where hunters were shot at, though the context leaves the specific outcome and the identity of the shooters entirely unresolved.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase refers literally to an event where hunters were shot at, though the context leaves the specific outcome and the identity of the shooters entirely unresolved.\",\"notes\":[]}",
+    "reasoningCharacters": 2182,
+    "reasoningSHA256": "abc1537761c3b174b6a3d1c3e35454e2569454d20d27ac41db3f6ad10300f499",
+    "usage": {
+      "completion_tokens": 550,
+      "prompt_tokens": 593,
+      "total_tokens": 1143,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 593,
+      "prompt_ms": 3258.484,
+      "prompt_per_token_ms": 5.494913996627319,
+      "prompt_per_second": 181.98646978165306,
+      "predicted_n": 550,
+      "predicted_ms": 31126.698,
+      "predicted_per_token_ms": 56.697081967213116,
+      "predicted_per_second": 17.637592011847833
+    },
+    "inputTokens": 593,
+    "renderedPromptSHA256": "c26e4b1f9fd71bb03a8d0c51ffa49d4f3212446556f018acbef1172c0d809e6d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.878946791024646,
+    "firstReadableSeconds": 3.7064123330055736,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'visiting relatives' refers to the specific group of kin who have come to stay with the clerk, distinguishing them from those who are merely present or from the clerk's own family; the clerk's description of them as 'tiresome' applies directly to this visiting group's behavior or presence, not to the concept of kinship in general.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'visiting relatives' refers to the specific group of kin who have come to stay with the clerk, distinguishing them from those who are merely present or from the clerk's own family; the clerk's description of them as 'tiresome' applies directly to this visiting group's behavior or presence, not to the concept of kinship in general.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 80,
+      "prompt_tokens": 635,
+      "total_tokens": 715,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 635,
+      "prompt_ms": 3411.38,
+      "prompt_per_token_ms": 5.372251968503937,
+      "prompt_per_second": 186.14167873411932,
+      "predicted_n": 80,
+      "predicted_ms": 4461.382,
+      "predicted_per_token_ms": 56.47318987341772,
+      "predicted_per_second": 17.70751753604601
+    },
+    "inputTokens": 635,
+    "renderedPromptSHA256": "362c00f17c92ca2f7f6696600dd14435d6a51db75a3007c55913d3976460b0a6",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 36.87648054098827,
+    "firstReadableSeconds": 32.45417216597707,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "In this context, 'visiting relatives' refers literally to family members who are present or arriving to see the clerk, rather than serving as an idiom for frequent guests. The clerk identifies them as a specific group expected to cause inconvenience, distinguishing them from other visitors by their familial connection. This phrasing implies a temporary presence that the clerk anticipates will be burdensome.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"In this context, 'visiting relatives' refers literally to family members who are present or arriving to see the clerk, rather than serving as an idiom for frequent guests. The clerk identifies them as a specific group expected to cause inconvenience, distinguishing them from other visitors by their familial connection. This phrasing implies a temporary presence that the clerk anticipates will be burdensome.\", \"notes\":[]}",
+    "reasoningCharacters": 2204,
+    "reasoningSHA256": "95eb190c970a0c7856f6eb60c74b312e23ac6c15c99b92040a9228b743e4e5dd",
+    "usage": {
+      "completion_tokens": 597,
+      "prompt_tokens": 583,
+      "total_tokens": 1180,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 583,
+      "prompt_ms": 3108.725,
+      "prompt_per_token_ms": 5.332289879931389,
+      "prompt_per_second": 187.53669108718205,
+      "predicted_n": 597,
+      "predicted_ms": 33763.53,
+      "predicted_per_token_ms": 56.65021812080537,
+      "predicted_per_second": 17.652182695352057
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "19c6990ce8d6b1117a672f3d27cb09e89aed58332bf0debfa3960170cb99e7a5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.956583541003056,
+    "firstReadableSeconds": 3.6993548330210615,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'with the binoculars' identifies the instrument the man was using at the moment of observation, establishing a direct physical connection between the observer and his tool rather than implying possession or a permanent attribute. This prepositional phrase grounds the action in a specific visual context, clarifying that the sighting was facilitated by the device before he lowered it to wave.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'with the binoculars' identifies the instrument the man was using at the moment of observation, establishing a direct physical connection between the observer and his tool rather than implying possession or a permanent attribute. This prepositional phrase grounds the action in a specific visual context, clarifying that the sighting was facilitated by the device before he lowered it to wave.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 642,
+      "total_tokens": 723,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 642,
+      "prompt_ms": 3414.304,
+      "prompt_per_token_ms": 5.318230529595016,
+      "prompt_per_second": 188.03246576754734,
+      "predicted_n": 81,
+      "predicted_ms": 4538.654,
+      "predicted_per_token_ms": 56.733175,
+      "predicted_per_second": 17.626371166429518
+    },
+    "inputTokens": 642,
+    "renderedPromptSHA256": "ed998f06d1dff5de924b283e949f26edcf1db002cd7ad5cc8377ba2cb08dd96b",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 34.58170254199649,
+    "firstReadableSeconds": 32.77793320800993,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase indicates the man's possession or immediate use of the binoculars at the moment of sighting, confirmed by the subsequent action of lowering them.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase indicates the man's possession or immediate use of the binoculars at the moment of sighting, confirmed by the subsequent action of lowering them.\", \"notes\":[]}",
+    "reasoningCharacters": 2048,
+    "reasoningSHA256": "ef54dcb26f44afe038d56c1baaf726eda80266b4b83c16e88bd98877d401c329",
+    "usage": {
+      "completion_tokens": 552,
+      "prompt_tokens": 590,
+      "total_tokens": 1142,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 590,
+      "prompt_ms": 3255.974,
+      "prompt_per_token_ms": 5.5186,
+      "prompt_per_second": 181.20537817562425,
+      "predicted_n": 552,
+      "predicted_ms": 31321.235,
+      "predicted_per_token_ms": 56.84434664246824,
+      "predicted_per_second": 17.59189891458622
+    },
+    "inputTokens": 590,
+    "renderedPromptSHA256": "5b6d0e8d16bdf6a0edd8e98bdabc04b82af3dd5fa48c197d171a55b0f044f62c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.403110042010667,
+    "firstReadableSeconds": 3.765271959011443,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase indicates that while there is no significant cause for suspicion toward her, this absence of distrust does not automatically imply a strong basis for confidence in her; the speaker acknowledges a neutral or uncertain stance rather than a definitive endorsement.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase indicates that while there is no significant cause for suspicion toward her, this absence of distrust does not automatically imply a strong basis for confidence in her; the speaker acknowledges a neutral or uncertain stance rather than a definitive endorsement.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 53,
+      "prompt_tokens": 647,
+      "total_tokens": 700,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 647,
+      "prompt_ms": 3479.911,
+      "prompt_per_token_ms": 5.378533230293663,
+      "prompt_per_second": 185.92429519030804,
+      "predicted_n": 53,
+      "predicted_ms": 2917.087,
+      "predicted_per_token_ms": 56.09782692307692,
+      "predicted_per_second": 17.826002446961642
+    },
+    "inputTokens": 647,
+    "renderedPromptSHA256": "860b649ec8aca04e5cc520966fd71376e0c3cffd1972786668ea230f708f198d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 36.595969457994215,
+    "firstReadableSeconds": 32.759138875000644,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The subject possesses minimal justification for believing the object is untrustworthy, indicating an absence of specific negative evidence rather than a confirmed positive bond. This phrasing establishes a logical boundary where the lack of suspicion does not equate to verified reliability, as the subsequent clause clarifies that trust requires distinct grounds beyond the mere absence of distrust.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The subject possesses minimal justification for believing the object is untrustworthy, indicating an absence of specific negative evidence rather than a confirmed positive bond. This phrasing establishes a logical boundary where the lack of suspicion does not equate to verified reliability, as the subsequent clause clarifies that trust requires distinct grounds beyond the mere absence of distrust.\",\"notes\":[]}",
+    "reasoningCharacters": 2201,
+    "reasoningSHA256": "2f9e7c6b595f118b331b33834517ec8079806f569282e2e1aae896a6a475844f",
+    "usage": {
+      "completion_tokens": 587,
+      "prompt_tokens": 595,
+      "total_tokens": 1182,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 595,
+      "prompt_ms": 3260.538,
+      "prompt_per_token_ms": 5.479895798319328,
+      "prompt_per_second": 182.48522176401565,
+      "predicted_n": 587,
+      "predicted_ms": 33329.642,
+      "predicted_per_token_ms": 56.87652218430034,
+      "predicted_per_second": 17.58194702481353
+    },
+    "inputTokens": 595,
+    "renderedPromptSHA256": "42b7e6b18526d071bb00fc0a7511e6803d648d3109378942724c6ea6100eb36c",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.56591637499514,
+    "firstReadableSeconds": 3.6968389169778675,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'let the cat out of the bag' is used literally here to describe the physical act of releasing a cat from a bag, allowing it to escape and run under the sofa, rather than invoking the idiomatic sense of revealing a secret.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'let the cat out of the bag' is used literally here to describe the physical act of releasing a cat from a bag, allowing it to escape and run under the sofa, rather than invoking the idiomatic sense of revealing a secret.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 57,
+      "prompt_tokens": 644,
+      "total_tokens": 701,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 644,
+      "prompt_ms": 3412.489,
+      "prompt_per_token_ms": 5.298895962732919,
+      "prompt_per_second": 188.71855704150258,
+      "predicted_n": 57,
+      "predicted_ms": 3147.47,
+      "predicted_per_token_ms": 56.20482142857143,
+      "predicted_per_second": 17.792067914864955
+    },
+    "inputTokens": 644,
+    "renderedPromptSHA256": "a9bc227dbae70c258b007dc7f2fa648f58d28dee9fcec92690e7e0d6eb4cf711",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 37.5606100409932,
+    "firstReadableSeconds": 32.60214045798057,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "In this specific instance, the phrase describes a literal physical action where a woman opened a container to release a feline, which then moved beneath furniture, rather than revealing a secret. The subsequent clause confirms the animal's presence and movement, grounding the idiom in a concrete event rather than a metaphorical disclosure. The distinction matters because the idiom usually implies exposing hidden information, but here it describes the actual handling of a pet.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"In this specific instance, the phrase describes a literal physical action where a woman opened a container to release a feline, which then moved beneath furniture, rather than revealing a secret. The subsequent clause confirms the animal's presence and movement, grounding the idiom in a concrete event rather than a metaphorical disclosure. The distinction matters because the idiom usually implies exposing hidden information, but here it describes the actual handling of a pet.\", \"notes\":[]}",
+    "reasoningCharacters": 2072,
+    "reasoningSHA256": "0a1cbbe18d44eeb4e1db650a7d3c20d8cd229f608ec4b145513ab843aad9df3c",
+    "usage": {
+      "completion_tokens": 608,
+      "prompt_tokens": 592,
+      "total_tokens": 1200,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 592,
+      "prompt_ms": 3252.815,
+      "prompt_per_token_ms": 5.494619932432433,
+      "prompt_per_second": 181.99620943705682,
+      "predicted_n": 608,
+      "predicted_ms": 34302.658,
+      "predicted_per_token_ms": 56.5117924217463,
+      "predicted_per_second": 17.695421736706233
+    },
+    "inputTokens": 592,
+    "renderedPromptSHA256": "96e61f38635aea03d3bb1bb7f4bec3cf9605ed3ee7588cf5748a2f55828b9652",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-ambiguity",
+    "split": "regression",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 7.660877125017578,
+    "firstReadableSeconds": 3.7004168330167886,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'with the telescope' indicates the instrument the man was using to see, establishing that his vision was aided by a specific tool rather than being unaided or distant. The preposition 'with' here denotes accompaniment of an object, clarifying that the telescope is an attribute of his action of seeing at that moment.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'with the telescope' indicates the instrument the man was using to see, establishing that his vision was aided by a specific tool rather than being unaided or distant. The preposition 'with' here denotes accompaniment of an object, clarifying that the telescope is an attribute of his action of seeing at that moment.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 632,
+      "total_tokens": 708,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 632,
+      "prompt_ms": 3415.67,
+      "prompt_per_token_ms": 5.404541139240506,
+      "prompt_per_second": 185.0295842396953,
+      "predicted_n": 76,
+      "predicted_ms": 4240.458,
+      "predicted_per_token_ms": 56.53943999999999,
+      "predicted_per_second": 17.686768740546423
+    },
+    "inputTokens": 632,
+    "renderedPromptSHA256": "b9520d23025916ca2f9acb88b4615895d110ce7d91b3f25468272fe4c83c9783",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-ambiguity",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 36.830289000004996,
+    "firstReadableSeconds": 32.516344083007425,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'with the telescope' is genuinely ambiguous within this isolated sentence, as it could describe either the instrument she used to see or an attribute of the man she observed. It might mean she looked through the telescope, or it could mean the man was holding or wearing the telescope. Without further context to specify the modifier's target, both interpretations remain equally valid possibilities.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'with the telescope' is genuinely ambiguous within this isolated sentence, as it could describe either the instrument she used to see or an attribute of the man she observed. It might mean she looked through the telescope, or it could mean the man was holding or wearing the telescope. Without further context to specify the modifier's target, both interpretations remain equally valid possibilities.\", \"notes\":[]}",
+    "reasoningCharacters": 2117,
+    "reasoningSHA256": "facc6bb69cbcb22db07ad46237c12511635e5d713fae720abf1239e34e456542",
+    "usage": {
+      "completion_tokens": 596,
+      "prompt_tokens": 580,
+      "total_tokens": 1176,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 580,
+      "prompt_ms": 3106.244,
+      "prompt_per_token_ms": 5.355593103448276,
+      "prompt_per_second": 186.72068259930643,
+      "predicted_n": 596,
+      "predicted_ms": 33718.555,
+      "predicted_per_token_ms": 56.669840336134456,
+      "predicted_per_second": 17.646070538906546
+    },
+    "inputTokens": 580,
+    "renderedPromptSHA256": "ee5b6d787e362a53f3e4791ce10b294a9e3d4a2fa0cde403d308851907e2a775",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-duck",
+    "split": "regression",
+    "strategy": "contrast",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 5.831342125020456,
+    "firstReadableSeconds": 3.6990847080014646,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'her duck' denotes a female duck belonging to or associated with the speaker, functioning as a straightforward possessive reference to an animal rather than a metaphor or idiom.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'her duck' denotes a female duck belonging to or associated with the speaker, functioning as a straightforward possessive reference to an animal rather than a metaphor or idiom.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 628,
+      "total_tokens": 672,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 628,
+      "prompt_ms": 3412.965,
+      "prompt_per_token_ms": 5.434657643312102,
+      "prompt_per_second": 184.0042309253098,
+      "predicted_n": 44,
+      "predicted_ms": 2412.598,
+      "predicted_per_token_ms": 56.10693023255814,
+      "predicted_per_second": 17.823110190757017
+    },
+    "inputTokens": 628,
+    "renderedPromptSHA256": "5ad2737b110b018a24bb5bd34c452ec1c5221b55c313c29c3b406097748d94f9",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-new-duck",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": true,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 36.69837720901705,
+    "firstReadableSeconds": 32.35417133400915,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'her duck' most likely denotes a female duck belonging to the observer, though without further context, it could theoretically refer to a pet name or a metaphorical object; the possessive 'her' establishes ownership or association between the subject and the noun, while 'duck' functions here as the object of observation rather than the verb meaning to lower one's head.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'her duck' most likely denotes a female duck belonging to the observer, though without further context, it could theoretically refer to a pet name or a metaphorical object; the possessive 'her' establishes ownership or association between the subject and the noun, while 'duck' functions here as the object of observation rather than the verb meaning to lower one's head.\", \"notes\":[]}",
+    "reasoningCharacters": 2089,
+    "reasoningSHA256": "a982575fedaa599c0cc22837eaddfefd9c6026bb01a26e333b6d397b5a2e7c08",
+    "usage": {
+      "completion_tokens": 597,
+      "prompt_tokens": 576,
+      "total_tokens": 1173,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 576,
+      "prompt_ms": 3103.626,
+      "prompt_per_token_ms": 5.388239583333334,
+      "prompt_per_second": 185.58937191530165,
+      "predicted_n": 597,
+      "predicted_ms": 33589.356,
+      "predicted_per_token_ms": 56.35797986577181,
+      "predicted_per_second": 17.743716193903808
+    },
+    "inputTokens": 576,
+    "renderedPromptSHA256": "ff55e0aab233da2118cd999a05071c369288b67d9835c1350ab75ab692e1d4cc",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d4",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.009845624997979,
+    "firstReadableSeconds": 0.6134406659984961,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The minister felt optimistic or confident about the future outcomes, maintaining a positive outlook even though a recent failure had occurred.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The minister felt optimistic or confident about the future outcomes, maintaining a positive outlook even though a recent failure had occurred.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 588,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 41,
+      "prompt_ms": 388.358,
+      "prompt_per_token_ms": 9.472146341463414,
+      "prompt_per_second": 105.57269323665278,
+      "predicted_n": 30,
+      "predicted_ms": 1617.68,
+      "predicted_per_token_ms": 55.78206896551724,
+      "predicted_per_second": 17.926907670243803
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "0787d9f237b13079f4cb7414d4e7b6c107d0f2b69f84f1daa00b82ead24bffe3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d4",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": true,
+    "dictionaryEvidence": [
+      {
+        "entryID": "macos:f01db56240e4d33146c6ac5f7f303e9bd6b9c955bf4f861e57974f85e9cb091a",
+        "provider": "macOS active dictionaries; bounded reader-style excerpt, not a selected sense",
+        "query": "sanguine",
+        "textSHA256": "f01db56240e4d33146c6ac5f7f303e9bd6b9c955bf4f861e57974f85e9cb091a",
+        "utf16Length": 755
+      }
+    ],
+    "seconds": 3.2791593330039177,
+    "firstReadableSeconds": 2.056741290987702,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The minister displays an optimistic or positive outlook regarding the future, maintaining hope despite the recent adverse event.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The minister displays an optimistic or positive outlook regarding the future, maintaining hope despite the recent adverse event.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 880,
+      "total_tokens": 907,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 333,
+      "prompt_ms": 1831.482,
+      "prompt_per_token_ms": 5.499945945945946,
+      "prompt_per_second": 181.81996874662158,
+      "predicted_n": 27,
+      "predicted_ms": 1445.146,
+      "predicted_per_token_ms": 55.58253846153846,
+      "predicted_per_second": 17.99126178254654
+    },
+    "inputTokens": 880,
+    "renderedPromptSHA256": "7eedb601203beab7e5d3fcdee312591d791fea68ff96cb62306d2273049899e8",
+    "dictionaryRequested": true
+  },
+  {
+    "id": "v1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": true,
+    "dictionaryEvidence": [
+      {
+        "entryID": "macos:933ea61414d3c681a4589a03a4003ecd3c8265f9adcbee2a3d24b8abdb63fb95",
+        "provider": "macOS active dictionaries; bounded reader-style excerpt, not a selected sense",
+        "query": "disinterested",
+        "textSHA256": "933ea61414d3c681a4589a03a4003ecd3c8265f9adcbee2a3d24b8abdb63fb95",
+        "utf16Length": 1000
+      }
+    ],
+    "seconds": 4.772979750006925,
+    "firstReadableSeconds": 2.59396187501261,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The witness is described as impartial and free from personal bias, having no stake in the outcome of the case regardless of which side prevails, while still maintaining an eager attention to the proceedings.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The witness is described as impartial and free from personal bias, having no stake in the outcome of the case regardless of which side prevails, while still maintaining an eager attention to the proceedings.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 980,
+      "total_tokens": 1025,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 433,
+      "prompt_ms": 2312.974,
+      "prompt_per_token_ms": 5.341741339491917,
+      "prompt_per_second": 187.204871304217,
+      "predicted_n": 45,
+      "predicted_ms": 2457.189,
+      "predicted_per_token_ms": 55.84520454545454,
+      "predicted_per_second": 17.906640474135283
+    },
+    "inputTokens": 980,
+    "renderedPromptSHA256": "dbc4f0a8be62ac8c801e71f342b826b3aaa3e9746c578707f5f27e12642f9bed",
+    "dictionaryRequested": true
+  },
+  {
+    "id": "v3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.3885822919837665,
+    "firstReadableSeconds": 0.672906708001392,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The editor described the account as 'economical with the truth,' meaning it was deliberately sparing or stingy in its inclusion of factual details rather than being wasteful or frugal with resources. This phrasing implies a calculated omission of information to make the narrative appear more favorable or concise, prompting the editor's subsequent question about the specific expenses left out. The idiom suggests a conscious choice to withhold the full reality, treating the truth as an expendable commodity in the service of a smoother presentation.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The editor described the account as 'economical with the truth,' meaning it was deliberately sparing or stingy in its inclusion of factual details rather than being wasteful or frugal with resources. This phrasing implies a calculated omission of information to make the narrative appear more favorable or concise, prompting the editor's subsequent question about the specific expenses left out. The idiom suggests a conscious choice to withhold the full reality, treating the truth as an expendable commodity in the service of a smoother presentation.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 107,
+      "prompt_tokens": 594,
+      "total_tokens": 701,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 47,
+      "prompt_ms": 385.49,
+      "prompt_per_token_ms": 8.20191489361702,
+      "prompt_per_second": 121.92274767179433,
+      "predicted_n": 107,
+      "predicted_ms": 6000.574,
+      "predicted_per_token_ms": 56.60918867924528,
+      "predicted_per_second": 17.664976717227386
+    },
+    "inputTokens": 594,
+    "renderedPromptSHA256": "0f1583fa2a79b1dfb3d46e2a9848bdab3c58452e50c606f84f618c9705cac8f1",
+    "dictionaryRequested": true
+  },
+  {
+    "id": "t1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": true,
+    "dictionaryEvidence": [
+      {
+        "entryID": "macos:98cee939b24d3f8ea2d71c12257158f70f522c9531ba621808c9df9d67dc9380",
+        "provider": "macOS active dictionaries; bounded reader-style excerpt, not a selected sense",
+        "query": "kick the bucket",
+        "textSHA256": "98cee939b24d3f8ea2d71c12257158f70f522c9531ba621808c9df9d67dc9380",
+        "utf16Length": 141
+      }
+    ],
+    "seconds": 2.791647499980172,
+    "firstReadableSeconds": 1.3105874999891967,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Ned physically moved a literal bucket by kicking it aside to clear his path, not expressing death or using an idiom.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Ned physically moved a literal bucket by kicking it aside to clear his path, not expressing death or using an idiom.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 738,
+      "total_tokens": 770,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 191,
+      "prompt_ms": 1029.692,
+      "prompt_per_token_ms": 5.391057591623037,
+      "prompt_per_second": 185.49236082245955,
+      "predicted_n": 32,
+      "predicted_ms": 1759.277,
+      "predicted_per_token_ms": 56.75087096774194,
+      "predicted_per_second": 17.620874938966406
+    },
+    "inputTokens": 738,
+    "renderedPromptSHA256": "3fc2ab10dd9fc98507d6c0a122c6dd85214bca39f99466d5131baf0d2cc0ee05",
+    "dictionaryRequested": true
+  },
+  {
+    "id": "r-heldout-wanting",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": true,
+    "dictionaryEvidence": [
+      {
+        "entryID": "macos:193e09573f260d5280e1627a8244aa64f366c6c9e054c3ac8ea27154f2d155a3",
+        "provider": "macOS active dictionaries; bounded reader-style excerpt, not a selected sense",
+        "query": "wanting",
+        "textSHA256": "193e09573f260d5280e1627a8244aa64f366c6c9e054c3ac8ea27154f2d155a3",
+        "utf16Length": 289
+      }
+    ],
+    "seconds": 6.876989999989746,
+    "firstReadableSeconds": 1.463812792004319,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "In this context, 'wanting' functions as a predicative adjective meaning 'absent' or 'lacking,' specifically referring to the missing explanation itself rather than a deficiency in the people's desire. The sentence establishes a sharp contrast between the objective reality of the explanation's absence and the subjective, universal hope that it exists. The word choice underscores the tension between what is known (the lack of proof) and what is wished for (the truth of the event).",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"In this context, 'wanting' functions as a predicative adjective meaning 'absent' or 'lacking,' specifically referring to the missing explanation itself rather than a deficiency in the people's desire. The sentence establishes a sharp contrast between the objective reality of the explanation's absence and the subjective, universal hope that it exists. The word choice underscores the tension between what is known (the lack of proof) and what is wished for (the truth of the event).\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 102,
+      "prompt_tokens": 746,
+      "total_tokens": 848,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 199,
+      "prompt_ms": 1182.792,
+      "prompt_per_token_ms": 5.943678391959798,
+      "prompt_per_second": 168.24598069652146,
+      "predicted_n": 102,
+      "predicted_ms": 5691.832,
+      "predicted_per_token_ms": 56.354772277227724,
+      "predicted_per_second": 17.744726126842817
+    },
+    "inputTokens": 746,
+    "renderedPromptSHA256": "874fd5b1603b22df893cb79f1002a94cd18f735775590d17e415b2c6072f586c",
+    "dictionaryRequested": true
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": true,
+    "dictionaryEvidence": [
+      {
+        "entryID": "macos:7cffc30f0698627c845866b87bcec95d9f2b92f586225d6fbde3e9ec50351b10",
+        "provider": "macOS active dictionaries; bounded reader-style excerpt, not a selected sense",
+        "query": "let the cat out of the bag",
+        "textSHA256": "7cffc30f0698627c845866b87bcec95d9f2b92f586225d6fbde3e9ec50351b10",
+        "utf16Length": 61
+      }
+    ],
+    "seconds": 3.3947646250016987,
+    "firstReadableSeconds": 1.1675307920086198,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "In this context, the phrase describes a literal action where a person releases a cat from a bag, causing it to flee under furniture, rather than the idiomatic sense of confessing a secret.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"In this context, the phrase describes a literal action where a person releases a cat from a bag, causing it to flee under furniture, rather than the idiomatic sense of confessing a secret.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 704,
+      "total_tokens": 750,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 157,
+      "prompt_ms": 886.716,
+      "prompt_per_token_ms": 5.647872611464968,
+      "prompt_per_second": 177.05781783569935,
+      "predicted_n": 46,
+      "predicted_ms": 2505.772,
+      "predicted_per_token_ms": 55.68382222222222,
+      "predicted_per_second": 17.95853732901477
+    },
+    "inputTokens": 704,
+    "renderedPromptSHA256": "deeaf9adaf7b64b614e948278adc443c06912b066ae9fc1412198e708ac3acd4",
+    "dictionaryRequested": true
+  }
+]

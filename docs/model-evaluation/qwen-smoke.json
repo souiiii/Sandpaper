@@ -1,0 +1,248 @@
+[
+  {
+    "id": "d1",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 6.715817416989012,
+    "firstReadableSeconds": 3.4359671249985695,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "She placed the motion on the table, an action that could signify either setting it aside for later consideration or presenting it for debate, depending on the specific parliamentary convention in use; since the minutes lack details on the country or rules, the precise intent of this gesture remains ambiguous.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"She placed the motion on the table, an action that could signify either setting it aside for later consideration or presenting it for debate, depending on the specific parliamentary convention in use; since the minutes lack details on the country or rules, the precise intent of this gesture remains ambiguous.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 592,
+      "total_tokens": 655,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 592,
+      "prompt_ms": 3123.214,
+      "prompt_per_token_ms": 5.275699324324324,
+      "prompt_per_second": 189.54833066193993,
+      "predicted_n": 63,
+      "predicted_ms": 3586.759,
+      "predicted_per_token_ms": 57.85095161290322,
+      "predicted_per_second": 17.285800356254768
+    },
+    "inputTokens": 592,
+    "renderedPromptSHA256": "5534d0298ebe2589804c092d5f60d9ed6836df06aa5e198ffbf48d5f0c555cbc",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d2",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.3213459590042476,
+    "firstReadableSeconds": 0.6501972090045456,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The speaker ironically claims the cold soup is exactly what he requires, likely because he is eager to leave and put on his coat rather than eat, using the phrase to express relief at escaping the situation rather than genuine satisfaction with the meal.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The speaker ironically claims the cold soup is exactly what he requires, likely because he is eager to leave and put on his coat rather than eat, using the phrase to express relief at escaping the situation rather than genuine satisfaction with the meal.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 594,
+      "total_tokens": 648,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 47,
+      "prompt_ms": 372.536,
+      "prompt_per_token_ms": 7.926297872340426,
+      "prompt_per_second": 126.16230377735306,
+      "predicted_n": 54,
+      "predicted_ms": 2946.855,
+      "predicted_per_token_ms": 55.601037735849054,
+      "predicted_per_second": 17.985275827958958
+    },
+    "inputTokens": 594,
+    "renderedPromptSHA256": "77b36da44df7ef30b84f32e7bef34878be3475dfa3211acef5996f20064edf37",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d3",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.505545166990487,
+    "firstReadableSeconds": 0.5516260829754174,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The group remained silent and refrained from speaking while the stranger was talking.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The group remained silent and refrained from speaking while the stranger was talking.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 583,
+      "total_tokens": 606,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 36,
+      "prompt_ms": 249.553,
+      "prompt_per_token_ms": 6.932027777777778,
+      "prompt_per_second": 144.25793318453395,
+      "predicted_n": 23,
+      "predicted_ms": 1254.19,
+      "predicted_per_token_ms": 57.00863636363636,
+      "predicted_per_second": 17.541201891260492
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "dee28a8cce6e9e691f23e17e3d49f4434b94e880f3f9e7e1b598a8814a33e89e",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d4",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.0223421250120737,
+    "firstReadableSeconds": 0.6025662499887403,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The minister felt optimistic or confident about the future outcomes, maintaining a positive outlook even though a recent failure had occurred.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The minister felt optimistic or confident about the future outcomes, maintaining a positive outlook even though a recent failure had occurred.\",\"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 588,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 41,
+      "prompt_ms": 371.913,
+      "prompt_per_token_ms": 9.071048780487805,
+      "prompt_per_second": 110.24083589441616,
+      "predicted_n": 30,
+      "predicted_ms": 1648.573,
+      "predicted_per_token_ms": 56.84734482758621,
+      "predicted_per_second": 17.590971100460823
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "0787d9f237b13079f4cb7414d4e7b6c107d0f2b69f84f1daa00b82ead24bffe3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d5",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 4.143656749976799,
+    "firstReadableSeconds": 0.6557007089722902,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'spilled the beans' describes the physical action of causing beans to fall out of a container, likely due to carelessness or haste, as she transferred them into the colander; there is no idiomatic reference to revealing a secret here, only the literal scattering of the food item.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'spilled the beans' describes the physical action of causing beans to fall out of a container, likely due to carelessness or haste, as she transferred them into the colander; there is no idiomatic reference to revealing a secret here, only the literal scattering of the food item.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 68,
+      "prompt_tokens": 588,
+      "total_tokens": 656,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 41,
+      "prompt_ms": 370.605,
+      "prompt_per_token_ms": 9.039146341463415,
+      "prompt_per_second": 110.62991594824679,
+      "predicted_n": 68,
+      "predicted_ms": 3771.033,
+      "predicted_per_token_ms": 56.28407462686567,
+      "predicted_per_second": 17.767015032750972
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "ce48e02f778aa7d93e29acfc803d1b34405998ee28aa83f71687716b392d627a",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "d6",
+    "split": "development",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.5503468330134638,
+    "firstReadableSeconds": 0.6534400000236928,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "The phrase 'no small achievement' indicates that the plan required significant effort or skill to conceive, regardless of its incomplete state; the modifier 'no small' emphasizes the magnitude of the accomplishment itself, distinguishing the difficulty of creation from the failure of execution.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"The phrase 'no small achievement' indicates that the plan required significant effort or skill to conceive, regardless of its incomplete state; the modifier 'no small' emphasizes the magnitude of the accomplishment itself, distinguishing the difficulty of creation from the failure of execution.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 588,
+      "total_tokens": 646,
+      "prompt_tokens_details": {
+        "cached_tokens": 547
+      }
+    },
+    "timings": {
+      "cache_n": 547,
+      "prompt_n": 41,
+      "prompt_ms": 371.696,
+      "prompt_per_token_ms": 9.065756097560977,
+      "prompt_per_second": 110.30519564375189,
+      "predicted_n": 58,
+      "predicted_ms": 3175.968,
+      "predicted_per_token_ms": 55.71873684210526,
+      "predicted_per_second": 17.947284103618173
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "636ca00197ca39615c054de8b2147ba883100c48dad5e33fdfa9a10aea1352f9",
+    "dictionaryRequested": false
+  }
+]

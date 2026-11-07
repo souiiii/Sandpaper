@@ -1,0 +1,658 @@
+[
+  {
+    "id": "v1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 3.611428750009509,
+    "firstReadableSeconds": 2.9810470420052297,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "completely impartial, having no personal stake or interest",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"completely impartial, having no personal stake or interest\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 19,
+      "prompt_tokens": 587,
+      "total_tokens": 606,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 587,
+      "prompt_ms": 2737.317,
+      "prompt_per_token_ms": 4.663231686541738,
+      "prompt_per_second": 214.4435591493422,
+      "predicted_n": 19,
+      "predicted_ms": 871.006,
+      "predicted_per_token_ms": 48.38922222222222,
+      "predicted_per_second": 20.665758904071847
+    },
+    "inputTokens": 587,
+    "renderedPromptSHA256": "b702fc32b8cfd2adc98a361dc001b58d916bb0cb5e36ed2e44d6a42595f3516d",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "v3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.4779265420220327,
+    "firstReadableSeconds": 0.5371926250227261,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "deliberately understating or omitting facts to make a situation seem more favorable",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"deliberately understating or omitting facts to make a situation seem more favorable\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 586,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 550
+      }
+    },
+    "timings": {
+      "cache_n": 550,
+      "prompt_n": 36,
+      "prompt_ms": 295.131,
+      "prompt_per_token_ms": 8.198083333333333,
+      "prompt_per_second": 121.97973103469307,
+      "predicted_n": 25,
+      "predicted_ms": 1181.443,
+      "predicted_per_token_ms": 49.226791666666664,
+      "predicted_per_second": 20.31414126623121
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "4955353c0869bc3262c754dd1876cfe3606f3cca429963bfab305033d4ca64d3",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "p1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.4689143329742365,
+    "firstReadableSeconds": 0.6337502079841215,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "scolded or reprimanded her for something she did or failed to do",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"scolded or reprimanded her for something she did or failed to do\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 585,
+      "total_tokens": 610,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 36,
+      "prompt_ms": 295.961,
+      "prompt_per_token_ms": 8.22113888888889,
+      "prompt_per_second": 121.63764820364845,
+      "predicted_n": 25,
+      "predicted_ms": 1170.353,
+      "predicted_per_token_ms": 48.76470833333334,
+      "predicted_per_second": 20.506633468705594
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "10085a301c7cb550228a92d3533a2b85e71ef75c541d16b33fba3c9196e9f877",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.213426125003025,
+    "firstReadableSeconds": 0.5375219999987166,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "an ironic or sarcastic comment about someone's punctuality",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"an ironic or sarcastic comment about someone's punctuality\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 20,
+      "prompt_tokens": 589,
+      "total_tokens": 609,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 40,
+      "prompt_ms": 296.043,
+      "prompt_per_token_ms": 7.4010750000000005,
+      "prompt_per_second": 135.11550686893457,
+      "predicted_n": 20,
+      "predicted_ms": 915.497,
+      "predicted_per_token_ms": 48.18405263157894,
+      "predicted_per_second": 20.753754518037745
+    },
+    "inputTokens": 589,
+    "renderedPromptSHA256": "eef825a16729c607f1ae344a358793d1a0d4a44d84e96348522c8293a7a978ae",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "i3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 2.1745961669948883,
+    "firstReadableSeconds": 0.5399192080076318,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Jo thinks Ren's action was courageous, but the tone is ambiguous, and it's unclear whether she genuinely admires his bravery or thinks it was foolish.",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Jo thinks Ren's action was courageous, but the tone is ambiguous, and it's unclear whether she genuinely admires his bravery or thinks it was foolish.\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 592,
+      "total_tokens": 631,
+      "prompt_tokens_details": {
+        "cached_tokens": 550
+      }
+    },
+    "timings": {
+      "cache_n": 550,
+      "prompt_n": 42,
+      "prompt_ms": 297.388,
+      "prompt_per_token_ms": 7.080666666666666,
+      "prompt_per_second": 141.22963939365408,
+      "predicted_n": 39,
+      "predicted_ms": 1875.667,
+      "predicted_per_token_ms": 49.35965789473684,
+      "predicted_per_second": 20.259459701535505
+    },
+    "inputTokens": 592,
+    "renderedPromptSHA256": "b3a671db3cba83db7a5c29a76df5de5cced33017d8c897f23cded170aff9d949",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l2",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.5632992500031833,
+    "firstReadableSeconds": 0.5948171660129447,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "Selden's eyes were revitalized or invigorated by the sight of Miss Lily Bart",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"Selden's eyes were revitalized or invigorated by the sight of Miss Lily Bart\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 595,
+      "total_tokens": 622,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 46,
+      "prompt_ms": 300.114,
+      "prompt_per_token_ms": 6.524217391304347,
+      "prompt_per_second": 153.27508879958953,
+      "predicted_n": 27,
+      "predicted_ms": 1260.158,
+      "predicted_per_token_ms": 48.46761538461538,
+      "predicted_per_second": 20.63233340581102
+    },
+    "inputTokens": 595,
+    "renderedPromptSHA256": "e8504e300d886fd0c6811fe3710d40d72595e5bcac7a4331dacf8268592650f5",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.308245457999874,
+    "firstReadableSeconds": 0.5070012500218581,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the conquest of the earth is morally unattractive",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the conquest of the earth is morally unattractive\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 21,
+      "prompt_tokens": 608,
+      "total_tokens": 629,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 59,
+      "prompt_ms": 305.37,
+      "prompt_per_token_ms": 5.175762711864407,
+      "prompt_per_second": 193.20823918525068,
+      "predicted_n": 21,
+      "predicted_ms": 999.803,
+      "predicted_per_token_ms": 49.99015,
+      "predicted_per_second": 20.003940776332936
+    },
+    "inputTokens": 608,
+    "renderedPromptSHA256": "e66f6e4985758ca0774348fae9eeab5b0e4b409ea7daefd447192a93269948c2",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "l4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.0704853750066832,
+    "firstReadableSeconds": 0.5390643330174498,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "describing the color of snowflakes",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"describing the color of snowflakes\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 17,
+      "prompt_tokens": 586,
+      "total_tokens": 603,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 37,
+      "prompt_ms": 297.07,
+      "prompt_per_token_ms": 8.028918918918919,
+      "prompt_per_second": 124.54976941461608,
+      "predicted_n": 17,
+      "predicted_ms": 771.513,
+      "predicted_per_token_ms": 48.2195625,
+      "predicted_per_second": 20.7384710303002
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "6785b6932657127622e049b3d61a81b923e0050fe343dd4eea8ae157969afc00",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.0319018330192193,
+    "firstReadableSeconds": 0.543169458018383,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "moved the bucket out of his way",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"moved the bucket out of his way\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 591,
+      "total_tokens": 607,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 42,
+      "prompt_ms": 297.409,
+      "prompt_per_token_ms": 7.081166666666666,
+      "prompt_per_second": 141.21966719231764,
+      "predicted_n": 16,
+      "predicted_ms": 733.387,
+      "predicted_per_token_ms": 48.892466666666664,
+      "predicted_per_second": 20.453048663256915
+    },
+    "inputTokens": 591,
+    "renderedPromptSHA256": "d0be0c35e715a1fd26a47c9c30da39003eb89ace263ec9e4e4958f28c05c26eb",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "t4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.447099207987776,
+    "firstReadableSeconds": 0.5369552079937421,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "worked late into the night, using a lamp as a substitute for a heating source",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"worked late into the night, using a lamp as a substitute for a heating source\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 586,
+      "total_tokens": 611,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 37,
+      "prompt_ms": 295.452,
+      "prompt_per_token_ms": 7.985189189189189,
+      "prompt_per_second": 125.23184815130716,
+      "predicted_n": 25,
+      "predicted_ms": 1150.416,
+      "predicted_per_token_ms": 47.934,
+      "predicted_per_second": 20.8620186089206
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "713ec2f914b4f5b2eb3c71a9f1bc6bf9d729722fde59e247313e37e4fbb4cccd",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.5896709999942686,
+    "firstReadableSeconds": 0.5854143329779617,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "the act of shooting at the hunters, presumably with a gun, resulting in a potentially violent confrontation",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"the act of shooting at the hunters, presumably with a gun, resulting in a potentially violent confrontation\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 586,
+      "total_tokens": 614,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 37,
+      "prompt_ms": 296.249,
+      "prompt_per_token_ms": 8.00672972972973,
+      "prompt_per_second": 124.89493635421553,
+      "predicted_n": 28,
+      "predicted_ms": 1291.779,
+      "predicted_per_token_ms": 47.843666666666664,
+      "predicted_per_second": 20.90140805818952
+    },
+    "inputTokens": 586,
+    "renderedPromptSHA256": "495bfb07d5089265b67cde1ea42b8d434e50c41d117a7414c8e0c42ea1031316",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.189998417015886,
+    "firstReadableSeconds": 0.3640614169999026,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "family members who are visiting from elsewhere, potentially causing annoyance or inconvenience",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"family members who are visiting from elsewhere, potentially causing annoyance or inconvenience\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 576,
+      "total_tokens": 598,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 27,
+      "prompt_ms": 169.133,
+      "prompt_per_token_ms": 6.264185185185186,
+      "prompt_per_second": 159.6376815878628,
+      "predicted_n": 22,
+      "predicted_ms": 1019.26,
+      "predicted_per_token_ms": 48.53619047619048,
+      "predicted_per_second": 20.603182701175363
+    },
+    "inputTokens": 576,
+    "renderedPromptSHA256": "e30da47028f85f60f08f65ca746ad59504b80c8ac2615f7833847a21e5bf47a4",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "a4",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.078709458000958,
+    "firstReadableSeconds": 0.5455948330054525,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "equipped with binoculars for observation",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"equipped with binoculars for observation\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 17,
+      "prompt_tokens": 583,
+      "total_tokens": 600,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 34,
+      "prompt_ms": 298.228,
+      "prompt_per_token_ms": 8.771411764705883,
+      "prompt_per_second": 114.00673310353152,
+      "predicted_n": 17,
+      "predicted_ms": 777.563,
+      "predicted_per_token_ms": 48.5976875,
+      "predicted_per_second": 20.57711079359486
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "8066f10e08f83304fe6a016e16aeef4a6de104c53cad672e54973790005130b1",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "f3",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.3177010409999639,
+    "firstReadableSeconds": 0.5445798329892568,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "supporting or not contradicting the hypothesis, without necessarily proving it",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"supporting or not contradicting the hypothesis, without necessarily proving it\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 583,
+      "total_tokens": 605,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 34,
+      "prompt_ms": 297.775,
+      "prompt_per_token_ms": 8.758088235294117,
+      "prompt_per_second": 114.18016959113426,
+      "predicted_n": 22,
+      "predicted_ms": 1016.879,
+      "predicted_per_token_ms": 48.422809523809526,
+      "predicted_per_second": 20.651424604107273
+    },
+    "inputTokens": 583,
+    "renderedPromptSHA256": "49eb92a4b696eac6338497969d4c2333632ed3c7d899e01e5fe48e12eea372e6",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "n1",
+    "split": "heldout",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.6584517919982318,
+    "firstReadableSeconds": 0.5467740000167396,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "an event considered significant or important in a story, often implying its impact on the plot or character growth",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"an event considered significant or important in a story, often implying its impact on the plot or character growth\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 588,
+      "total_tokens": 617,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 39,
+      "prompt_ms": 298.458,
+      "prompt_per_token_ms": 7.652769230769231,
+      "prompt_per_second": 130.6716522927849,
+      "predicted_n": 29,
+      "predicted_ms": 1356.918,
+      "predicted_per_token_ms": 48.46135714285714,
+      "predicted_per_second": 20.63499784069487
+    },
+    "inputTokens": 588,
+    "renderedPromptSHA256": "43a262fc9ea71a1b0a10bd526da6e1a015489bd00c824e85268d2b1abdb65b23",
+    "dictionaryRequested": false
+  },
+  {
+    "id": "r-heldout-cat",
+    "split": "regression",
+    "strategy": "adaptive",
+    "thinking": false,
+    "dictionary": false,
+    "dictionaryEvidence": [],
+    "seconds": 1.0008407499990426,
+    "firstReadableSeconds": 0.5468137499992736,
+    "finish": "stop",
+    "valid": true,
+    "answer": {
+      "meaning": "reveal a secret or surprise prematurely",
+      "notes": []
+    },
+    "raw": "{\"meaning\":\"reveal a secret or surprise prematurely\", \"notes\":[]}",
+    "reasoningCharacters": 0,
+    "reasoningSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 585,
+      "total_tokens": 600,
+      "prompt_tokens_details": {
+        "cached_tokens": 549
+      }
+    },
+    "timings": {
+      "cache_n": 549,
+      "prompt_n": 36,
+      "prompt_ms": 298.093,
+      "prompt_per_token_ms": 8.280361111111112,
+      "prompt_per_second": 120.7676798851365,
+      "predicted_n": 15,
+      "predicted_ms": 699.98,
+      "predicted_per_token_ms": 49.99857142857143,
+      "predicted_per_second": 20.000571444898426
+    },
+    "inputTokens": 585,
+    "renderedPromptSHA256": "27c0dcc75e8becc62b437a470169617fc550d16589836fc608c756aa24271a1a",
+    "dictionaryRequested": false
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "policy": "Exclude from every comparative quality statistic; retain frozen input, all outputs and original preliminary ratings. Do not replace the passage or rerun models. Performance statistics retain the original complete sequences.",
+  "excludedCases": [
+    {
+      "id": "a3",
+      "reason": "The intended classic visiting-relatives ambiguity was compromised by inserting the definite article in the visiting relatives. The ordinary visitors reading cannot fairly be counted as a serious error. The+VPing constructions have special discourse/grammatical properties, so this is not a clean binary ambiguity test.",
+      "source": "https://www.sas.rochester.edu/lin/sgrimm/publications/GrimmMcNallyWCCFL2015.pdf",
+      "consequence": "31 of 32 main passages scored; 8 of 9 new difficult cases scored; 15 of 16 paired-quantization cases scored. Original gate and hashes retained. Even granting full credit on this case gives Gemma 4 short only 27/32, below the frozen 30/32 gate."
+    }
+  ],
+  "administrativeCancellations": [
+    {
+      "run": "gemma4-qat",
+      "row": 99,
+      "reason": "15-minute session cap; excluded from semantic/model-quality comparison, retained as an attempted request."
+    }
+  ]
+}

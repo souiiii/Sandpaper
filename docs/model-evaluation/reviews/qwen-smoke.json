@@ -1,0 +1,90 @@
+{
+  "reviewer": "Implementing agent; manual, unblinded; no external judge",
+  "rubric": "tools/model_eval/PROTOCOL.md",
+  "reviews": [
+    {
+      "row": 0,
+      "id": "d1",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 2,
+      "depth": 2,
+      "faithfulness": 1,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Keeps regional procedural alternatives, though physical placing/gesture wording is unnecessary."
+    },
+    {
+      "row": 1,
+      "id": "d2",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 1,
+      "depth": 2,
+      "faithfulness": 0,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Invents eagerness to leave and escape as the reason for ironic satisfaction."
+    },
+    {
+      "row": 2,
+      "id": "d3",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 2,
+      "depth": 1,
+      "faithfulness": 2,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Correct concise gloss in a development/transport check."
+    },
+    {
+      "row": 3,
+      "id": "d4",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 2,
+      "depth": 1,
+      "faithfulness": 2,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Correct concise gloss in a development/transport check."
+    },
+    {
+      "row": 4,
+      "id": "d5",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 2,
+      "depth": 2,
+      "faithfulness": 1,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Correct literal beans, but invents carelessness/haste."
+    },
+    {
+      "row": 5,
+      "id": "d6",
+      "split": "development",
+      "strategy": "adaptive",
+      "thinking": false,
+      "dictionaryRequested": false,
+      "correctness": 1,
+      "depth": 2,
+      "faithfulness": 0,
+      "clarity": 2,
+      "seriousError": false,
+      "review": "Changes unfinished execution into failed execution."
+    }
+  ]
+}

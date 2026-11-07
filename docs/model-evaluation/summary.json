@@ -1,0 +1,2469 @@
+[
+  {
+    "name": "qwen-smoke",
+    "groups": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 6,
+        "valid": 6,
+        "medianSeconds": 3.4358463960088557,
+        "p95Seconds": 6.715817416989012,
+        "maxSeconds": 6.715817416989012,
+        "medianFirstReadableSeconds": 0.6518186045141192,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [],
+    "memory": {
+      "peakRSSGiB": 5.61016845703125,
+      "peakFootprintGiB": 0.4451952800154686,
+      "lifetimePeakFootprintGiB": 0.4451952800154686,
+      "startSwapGiB": 2.86273193359375,
+      "endSwapGiB": 2.86273193359375,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 4.1922454833984375,
+      "swapInGiB": 0.00042724609375,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 54
+      }
+    },
+    "serverMemoryLines": [],
+    "metalReportedBuffersMiB": 0,
+    "responsiveness": {
+      "samples": 11,
+      "errors": 9,
+      "medianProcessAndDictionarySeconds": 0.26922250002098735,
+      "p95ProcessAndDictionarySeconds": 0.4957375000230968,
+      "maxProcessAndDictionarySeconds": 0.4957375000230968
+    },
+    "startup": {
+      "seconds": 4.048904416995356,
+      "port": 61617
+    },
+    "execution": {
+      "success": true,
+      "seconds": 27.34363829198992,
+      "failures": []
+    },
+    "recordedRequestCount": 6,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Qwen3.5-9B-Q4_K_M.gguf",
+        "name": "qwen-smoke",
+        "gemma3": false,
+        "thinking": true,
+        "quant_subset": false,
+        "smoke": true,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:09:33Z"
+    },
+    "template": {
+      "sha256": "7f0e529032c25183bcd66c7f238da2d377f43be754a94e2725a58c4e16d2ed67",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": ",",
+      "eos": "<|im_end|>"
+    },
+    "reviewedCount": 6,
+    "qualityExcludedCount": 0,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 6,
+        "contextuallySound": 4,
+        "seriousErrors": 0,
+        "meanCorrectness": 1.6666666666666667,
+        "meanDepth": 1.6666666666666667,
+        "grounded": 2,
+        "clear": 6
+      }
+    ]
+  },
+  {
+    "name": "qwen-q4",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 4.112598021005397,
+        "p95Seconds": 5.207725834014127,
+        "maxSeconds": 5.735731332999421,
+        "medianFirstReadableSeconds": 2.9500022915017325,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 4.778550709001138,
+        "p95Seconds": 8.9419936669874,
+        "maxSeconds": 11.13308941698051,
+        "medianFirstReadableSeconds": 1.9977469375153305,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 3.2297533130040392,
+        "p95Seconds": 4.840817541000433,
+        "maxSeconds": 4.840817541000433,
+        "medianFirstReadableSeconds": 1.8705677920079324,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 3.9915854999999283,
+        "p95Seconds": 6.45827304199338,
+        "maxSeconds": 6.45827304199338,
+        "medianFirstReadableSeconds": 2.100127874989994,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 6.091860041982727,
+        "p95Seconds": 6.091860041982727,
+        "maxSeconds": 6.091860041982727,
+        "medianFirstReadableSeconds": 3.764635832980275,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 0,
+        "medianSeconds": null,
+        "p95Seconds": null,
+        "maxSeconds": null,
+        "medianFirstReadableSeconds": null,
+        "medianReasoningCharacters": 4396
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 16,
+        "medianSeconds": 2.96372791651811,
+        "medianFirstReadableSeconds": 0.6701175210037036
+      },
+      {
+        "strategy": "baseline",
+        "requests": 15,
+        "medianSeconds": 2.318375917006051,
+        "medianFirstReadableSeconds": 0.6699100840196479
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.7234649658203125,
+      "peakFootprintGiB": 0.4469195008277893,
+      "lifetimePeakFootprintGiB": 0.4469195008277893,
+      "startSwapGiB": 2.86273193359375,
+      "endSwapGiB": 2.83929443359375,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 3.691314697265625,
+      "swapInGiB": 0.0123748779296875,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 801
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 5031 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = qwen35",
+      "print_info: model params          = 8.95 B",
+      "load_tensors:   CPU_Mapped model buffer size =   545.62 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   795.72 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  4065.56 MiB",
+      "llama_context:        CPU  output buffer size =     0.95 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =    68.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.12 MiB",
+      "llama_memory_recurrent:       MTL0 RS buffer size =    50.25 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    49.40 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.01 MiB"
+    ],
+    "metalReportedBuffersMiB": 5031.05,
+    "responsiveness": {
+      "samples": 199,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.02786287499475293,
+      "p95ProcessAndDictionarySeconds": 0.04965674999402836,
+      "maxProcessAndDictionarySeconds": 0.43777154097915627
+    },
+    "startup": {
+      "seconds": 1.0207785420061555,
+      "port": 61653
+    },
+    "execution": {
+      "success": false,
+      "intentionalStop": true,
+      "reason": "Completed 80 main fast comparisons. First native-thinking diagnostic exhausted 1024 total tokens because reasoning_budget was ignored; stopped during next tail request. Planned extras resumed separately with verified reasoning_budget_tokens=512."
+    },
+    "recordedRequestCount": 82,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Qwen3.5-9B-Q4_K_M.gguf",
+        "name": "qwen-q4",
+        "gemma3": false,
+        "thinking": true,
+        "quant_subset": false,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:10:19Z"
+    },
+    "template": {
+      "sha256": "7f0e529032c25183bcd66c7f238da2d377f43be754a94e2725a58c4e16d2ed67",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": ",",
+      "eos": "<|im_end|>"
+    },
+    "reviewedCount": 82,
+    "qualityExcludedCount": 2,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 23,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.6774193548387097,
+        "meanDepth": 1.4516129032258065,
+        "grounded": 21,
+        "clear": 29
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 22,
+        "seriousErrors": 5,
+        "meanCorrectness": 1.5806451612903225,
+        "meanDepth": 1.4838709677419355,
+        "grounded": 16,
+        "clear": 28
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 5,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.25,
+        "meanDepth": 1.25,
+        "grounded": 5,
+        "clear": 8
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 5,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.25,
+        "meanDepth": 1.25,
+        "grounded": 3,
+        "clear": 8
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 2.0,
+        "grounded": 1,
+        "clear": 1
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 0,
+        "seriousErrors": 0,
+        "meanCorrectness": 0.0,
+        "meanDepth": 0.0,
+        "grounded": 0,
+        "clear": 0
+      }
+    ]
+  },
+  {
+    "name": "qwen-q4-extras",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 7.682125416002236,
+        "p95Seconds": 8.986319041985553,
+        "maxSeconds": 8.986319041985553,
+        "medianFirstReadableSeconds": 3.7423219160118606,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 35.04132237500744,
+        "p95Seconds": 36.87648054098827,
+        "maxSeconds": 36.87648054098827,
+        "medianFirstReadableSeconds": 32.672736958018504,
+        "medianReasoningCharacters": 2182
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 6.56591637499514,
+        "p95Seconds": 7.660877125017578,
+        "maxSeconds": 7.660877125017578,
+        "medianFirstReadableSeconds": 3.6990847080014646,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 36.830289000004996,
+        "p95Seconds": 37.5606100409932,
+        "maxSeconds": 37.5606100409932,
+        "medianFirstReadableSeconds": 32.516344083007425,
+        "medianReasoningCharacters": 2089
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 2.009845624997979,
+        "p95Seconds": 2.009845624997979,
+        "maxSeconds": 2.009845624997979,
+        "medianFirstReadableSeconds": 0.6134406659984961,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 3.2791593330039177,
+        "p95Seconds": 3.2791593330039177,
+        "maxSeconds": 3.2791593330039177,
+        "medianFirstReadableSeconds": 2.056741290987702,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 4.772979750006925,
+        "p95Seconds": 6.3885822919837665,
+        "maxSeconds": 6.3885822919837665,
+        "medianFirstReadableSeconds": 1.3105874999891967,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 2,
+        "valid": 2,
+        "medianSeconds": 5.135877312495722,
+        "p95Seconds": 6.876989999989746,
+        "maxSeconds": 6.876989999989746,
+        "medianFirstReadableSeconds": 1.3156717920064693,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [],
+    "memory": {
+      "peakRSSGiB": 5.517608642578125,
+      "peakFootprintGiB": 0.4958392456173897,
+      "lifetimePeakFootprintGiB": 0.4958545044064522,
+      "startSwapGiB": 2.83929443359375,
+      "endSwapGiB": 2.76898193359375,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 4.0601348876953125,
+      "swapInGiB": 0.072540283203125,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 1078
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 5031 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = qwen35",
+      "print_info: model params          = 8.95 B",
+      "load_tensors:   CPU_Mapped model buffer size =   545.62 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   795.72 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  4065.56 MiB",
+      "llama_context:        CPU  output buffer size =     0.95 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =    68.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.12 MiB",
+      "llama_memory_recurrent:       MTL0 RS buffer size =    50.25 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    49.40 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.01 MiB"
+    ],
+    "metalReportedBuffersMiB": 5031.05,
+    "responsiveness": {
+      "samples": 267,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.045813290984369814,
+      "p95ProcessAndDictionarySeconds": 0.05129075000877492,
+      "maxProcessAndDictionarySeconds": 0.06495341699337587
+    },
+    "startup": {
+      "seconds": 1.531245125021087,
+      "port": 61979
+    },
+    "execution": {
+      "success": true,
+      "seconds": 549.5113734590122,
+      "failures": []
+    },
+    "recordedRequestCount": 31,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Qwen3.5-9B-Q4_K_M.gguf",
+        "name": "qwen-q4-extras",
+        "gemma3": false,
+        "thinking": true,
+        "thinking_only": false,
+        "extras_only": true,
+        "quant_subset": false,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:17:10Z"
+    },
+    "template": {
+      "sha256": "7f0e529032c25183bcd66c7f238da2d377f43be754a94e2725a58c4e16d2ed67",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": ",",
+      "eos": "<|im_end|>"
+    },
+    "reviewedCount": 31,
+    "qualityExcludedCount": 2,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 4,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.25,
+        "meanDepth": 1.625,
+        "grounded": 2,
+        "clear": 6
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 5,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.375,
+        "meanDepth": 1.5,
+        "grounded": 4,
+        "clear": 7
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 3,
+        "contextuallySound": 1,
+        "seriousErrors": 2,
+        "meanCorrectness": 0.6666666666666666,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 3
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "reviewed": 3,
+        "contextuallySound": 2,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.3333333333333333,
+        "meanDepth": 1.6666666666666667,
+        "grounded": 0,
+        "clear": 3
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 1
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 1
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 3,
+        "contextuallySound": 2,
+        "seriousErrors": 0,
+        "meanCorrectness": 1.6666666666666667,
+        "meanDepth": 2.0,
+        "grounded": 2,
+        "clear": 3
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 2,
+        "contextuallySound": 1,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.0,
+        "meanDepth": 1.5,
+        "grounded": 1,
+        "clear": 2
+      }
+    ]
+  },
+  {
+    "name": "gemma3-q4",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 5.6438134375202935,
+        "p95Seconds": 7.0743800420023035,
+        "maxSeconds": 7.412587250000797,
+        "medianFirstReadableSeconds": 4.3394650209957035,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 9.508398895995924,
+        "p95Seconds": 13.704297665972263,
+        "maxSeconds": 14.43168516701553,
+        "medianFirstReadableSeconds": 3.403514395991806,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 4.486325999503606,
+        "p95Seconds": 6.385250166989863,
+        "maxSeconds": 6.385250166989863,
+        "medianFirstReadableSeconds": 3.0117503744986607,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 9.23499060398899,
+        "p95Seconds": 10.365633833018364,
+        "maxSeconds": 10.365633833018364,
+        "medianFirstReadableSeconds": 3.194269270505174,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 9.201990582980216,
+        "p95Seconds": 15.560743749985704,
+        "maxSeconds": 15.560743749985704,
+        "medianFirstReadableSeconds": 1.8205437704891665,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 8.083457583998097,
+        "p95Seconds": 9.433598834002623,
+        "maxSeconds": 9.433598834002623,
+        "medianFirstReadableSeconds": 1.8126035210007103,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 13.877235749998363,
+        "p95Seconds": 13.877235749998363,
+        "maxSeconds": 13.877235749998363,
+        "medianFirstReadableSeconds": 5.215814584022155,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 13.48935554100899,
+        "p95Seconds": 13.48935554100899,
+        "maxSeconds": 13.48935554100899,
+        "medianFirstReadableSeconds": 4.097686958004488,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 10.526853875024244,
+        "p95Seconds": 13.190677250007866,
+        "maxSeconds": 13.190677250007866,
+        "medianFirstReadableSeconds": 2.7930675839888863,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 2,
+        "valid": 2,
+        "medianSeconds": 9.720140541990986,
+        "p95Seconds": 10.038279542000964,
+        "maxSeconds": 10.038279542000964,
+        "medianFirstReadableSeconds": 3.0122968334908364,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 16,
+        "medianSeconds": 7.873410145504749,
+        "medianFirstReadableSeconds": 1.6639946040086215
+      },
+      {
+        "strategy": "baseline",
+        "requests": 15,
+        "medianSeconds": 3.6657021249993704,
+        "medianFirstReadableSeconds": 1.5642508330056444
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.6022491455078125,
+      "peakFootprintGiB": 1.0336977541446686,
+      "lifetimePeakFootprintGiB": 1.0336977541446686,
+      "startSwapGiB": 2.76898193359375,
+      "endSwapGiB": 3.8572998046875,
+      "peakSwapGrowthGiB": 1.11175537109375,
+      "peakCompressorGiB": 4.7004241943359375,
+      "swapInGiB": 0.4822235107421875,
+      "swapOutGiB": 1.57275390625,
+      "pressureSampleCounts": {
+        "1": 18,
+        "2": 1494
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 7376 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = gemma3",
+      "print_info: model params          = 11.77 B",
+      "load_tensors:   CPU_Mapped model buffer size =   787.50 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  6956.12 MiB",
+      "llama_context:        CPU  output buffer size =     1.00 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   136.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.12 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   212.50 MiB",
+      "init_rotation:       MTL0 rotation buffer size =    10.62 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    61.46 MiB",
+      "sched_reserve:        CPU compute buffer size =     8.82 MiB"
+    ],
+    "metalReportedBuffersMiB": 7378.82,
+    "responsiveness": {
+      "samples": 372,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.026812875497853383,
+      "p95ProcessAndDictionarySeconds": 0.050536915980046615,
+      "maxProcessAndDictionarySeconds": 0.07298850000370294
+    },
+    "startup": {
+      "seconds": 10.59929212499992,
+      "port": 62142
+    },
+    "execution": {
+      "success": true,
+      "seconds": 768.7117795000086,
+      "failures": []
+    },
+    "recordedRequestCount": 99,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-ai-validation/gemma-3-12b-it-Q4_K_M.gguf",
+        "name": "gemma3-q4",
+        "gemma3": true,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:26:32Z"
+    },
+    "template": {
+      "sha256": "8d9e3a3c114fb2053ec500184677af4f7e5f8ec2582443cd535834e68b3ade29",
+      "capabilities": {
+        "supports_object_arguments": false,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": false,
+        "supports_tools": false,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<bos>",
+      "eos": "<eos>"
+    },
+    "reviewedCount": 99,
+    "qualityExcludedCount": 3,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 24,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.6774193548387097,
+        "meanDepth": 1.032258064516129,
+        "grounded": 23,
+        "clear": 31
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 23,
+        "seriousErrors": 6,
+        "meanCorrectness": 1.6129032258064515,
+        "meanDepth": 1.8709677419354838,
+        "grounded": 13,
+        "clear": 31
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 4,
+        "meanCorrectness": 0.875,
+        "meanDepth": 1.25,
+        "grounded": 3,
+        "clear": 8
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 4,
+        "meanCorrectness": 0.875,
+        "meanDepth": 1.375,
+        "grounded": 3,
+        "clear": 8
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.0,
+        "meanDepth": 1.625,
+        "grounded": 1,
+        "clear": 7
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 3,
+        "contextuallySound": 0,
+        "seriousErrors": 2,
+        "meanCorrectness": 0.0,
+        "meanDepth": 0.6666666666666666,
+        "grounded": 0,
+        "clear": 2
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 0,
+        "seriousErrors": 0,
+        "meanCorrectness": 1.0,
+        "meanDepth": 2.0,
+        "grounded": 0,
+        "clear": 1
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 1,
+        "contextuallySound": 0,
+        "seriousErrors": 0,
+        "meanCorrectness": 1.0,
+        "meanDepth": 2.0,
+        "grounded": 0,
+        "clear": 1
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 3,
+        "contextuallySound": 3,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 2.0,
+        "grounded": 2,
+        "clear": 3
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 2,
+        "contextuallySound": 0,
+        "seriousErrors": 1,
+        "meanCorrectness": 0.5,
+        "meanDepth": 1.0,
+        "grounded": 0,
+        "clear": 2
+      }
+    ]
+  },
+  {
+    "name": "llama-q4-smoke",
+    "groups": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 6,
+        "valid": 6,
+        "medianSeconds": 0.9677988539915532,
+        "p95Seconds": 4.030344124999829,
+        "maxSeconds": 4.030344124999829,
+        "medianFirstReadableSeconds": 0.44159572949865833,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [],
+    "memory": {
+      "peakRSSGiB": 5.0259552001953125,
+      "peakFootprintGiB": 0.4218640550971031,
+      "lifetimePeakFootprintGiB": 0.4218640550971031,
+      "startSwapGiB": 3.7947998046875,
+      "endSwapGiB": 3.7869873046875,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 1.7956085205078125,
+      "swapInGiB": 0.00140380859375,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 23
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 4724 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = llama",
+      "print_info: model params          = 8.03 B",
+      "load_tensors:   CPU_Mapped model buffer size =   281.81 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.00 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  4403.49 MiB",
+      "llama_context:        CPU  output buffer size =     0.49 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   272.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.50 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    46.02 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.00 MiB"
+    ],
+    "metalReportedBuffersMiB": 4724.01,
+    "responsiveness": {
+      "samples": 5,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.025214207998942584,
+      "p95ProcessAndDictionarySeconds": 0.05132408399367705,
+      "maxProcessAndDictionarySeconds": 0.05132408399367705
+    },
+    "startup": {
+      "seconds": 1.0183918330003507,
+      "port": 62623
+    },
+    "execution": {
+      "success": true,
+      "seconds": 11.646283957990818,
+      "failures": []
+    },
+    "recordedRequestCount": 6,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "name": "llama-q4-smoke",
+        "gemma3": false,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": true,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:43:03Z"
+    },
+    "template": {
+      "sha256": "93c0e9aa3629bbd77e68dbc0f5621f6e6b23aa8d74b932595cdb8d64684526d7",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<|begin_of_text|>",
+      "eos": "<|eot_id|>"
+    },
+    "reviewedCount": 6,
+    "qualityExcludedCount": 0,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 6,
+        "contextuallySound": 3,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.1666666666666667,
+        "meanDepth": 1.0,
+        "grounded": 3,
+        "clear": 6
+      }
+    ]
+  },
+  {
+    "name": "llama-q4",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 15,
+        "valid": 15,
+        "medianSeconds": 1.447099207987776,
+        "p95Seconds": 3.611428750009509,
+        "maxSeconds": 3.611428750009509,
+        "medianFirstReadableSeconds": 0.543169458018383,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 1.0008407499990426,
+        "p95Seconds": 1.0008407499990426,
+        "maxSeconds": 1.0008407499990426,
+        "medianFirstReadableSeconds": 0.5468137499992736,
+        "medianReasoningCharacters": 0
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 14,
+        "medianSeconds": 1.38240012449387,
+        "medianFirstReadableSeconds": 0.5415443330130074
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.026123046875,
+      "peakFootprintGiB": 0.4198651537299156,
+      "lifetimePeakFootprintGiB": 0.4198651537299156,
+      "startSwapGiB": 3.7869873046875,
+      "endSwapGiB": 3.7869873046875,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 1.6731414794921875,
+      "swapInGiB": 0.0097503662109375,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 54
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 4724 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = llama",
+      "print_info: model params          = 8.03 B",
+      "load_tensors:   CPU_Mapped model buffer size =   281.81 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.00 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  4403.49 MiB",
+      "llama_context:        CPU  output buffer size =     0.49 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   272.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.50 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    46.02 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.00 MiB"
+    ],
+    "metalReportedBuffersMiB": 4724.01,
+    "responsiveness": {
+      "samples": 12,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.025559041503584012,
+      "p95ProcessAndDictionarySeconds": 0.0504990839981474,
+      "maxProcessAndDictionarySeconds": 0.0504990839981474
+    },
+    "startup": {
+      "seconds": 1.0201232499966864,
+      "port": 62654
+    },
+    "execution": {
+      "success": true,
+      "seconds": 27.29730850001215,
+      "failures": []
+    },
+    "recordedRequestCount": 16,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "name": "llama-q4",
+        "gemma3": false,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": true,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:44:20Z"
+    },
+    "template": {
+      "sha256": "93c0e9aa3629bbd77e68dbc0f5621f6e6b23aa8d74b932595cdb8d64684526d7",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<|begin_of_text|>",
+      "eos": "<|eot_id|>"
+    },
+    "reviewedCount": 16,
+    "qualityExcludedCount": 1,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 14,
+        "contextuallySound": 10,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.5714285714285714,
+        "meanDepth": 1.0,
+        "grounded": 10,
+        "clear": 13
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 0,
+        "seriousErrors": 1,
+        "meanCorrectness": 0.0,
+        "meanDepth": 1.0,
+        "grounded": 0,
+        "clear": 1
+      }
+    ]
+  },
+  {
+    "name": "llama-q6-smoke",
+    "groups": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 6,
+        "valid": 6,
+        "medianSeconds": 1.3754568540025502,
+        "p95Seconds": 4.033785665989853,
+        "maxSeconds": 4.033785665989853,
+        "medianFirstReadableSeconds": 0.5440287294914015,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [],
+    "memory": {
+      "peakRSSGiB": 5.438507080078125,
+      "peakFootprintGiB": 0.43951959162950516,
+      "lifetimePeakFootprintGiB": 0.43951959162950516,
+      "startSwapGiB": 3.6385498046875,
+      "endSwapGiB": 3.6307373046875,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 2.9751129150390625,
+      "swapInGiB": 0.00439453125,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 40
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 6192 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = llama",
+      "print_info: model params          = 8.03 B",
+      "load_tensors:   CPU_Mapped model buffer size =   410.98 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.00 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  5871.99 MiB",
+      "llama_context:        CPU  output buffer size =     0.49 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   272.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.50 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    46.02 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.00 MiB"
+    ],
+    "metalReportedBuffersMiB": 6192.51,
+    "responsiveness": {
+      "samples": 6,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.04753089600126259,
+      "p95ProcessAndDictionarySeconds": 0.08445599998231046,
+      "maxProcessAndDictionarySeconds": 0.08445599998231046
+    },
+    "startup": {
+      "seconds": 7.598282083024969,
+      "port": 62742
+    },
+    "execution": {
+      "success": true,
+      "seconds": 20.34348000001046,
+      "failures": []
+    },
+    "recordedRequestCount": 6,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+        "name": "llama-q6-smoke",
+        "gemma3": false,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": true,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:49:46Z"
+    },
+    "template": {
+      "sha256": "93c0e9aa3629bbd77e68dbc0f5621f6e6b23aa8d74b932595cdb8d64684526d7",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<|begin_of_text|>",
+      "eos": "<|eot_id|>"
+    },
+    "reviewedCount": 6,
+    "qualityExcludedCount": 0,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 6,
+        "contextuallySound": 3,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.1666666666666667,
+        "meanDepth": 1.0,
+        "grounded": 3,
+        "clear": 6
+      }
+    ]
+  },
+  {
+    "name": "llama-q6-quant",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 15,
+        "valid": 15,
+        "medianSeconds": 1.8139904580020811,
+        "p95Seconds": 3.940472582995426,
+        "maxSeconds": 3.940472582995426,
+        "medianFirstReadableSeconds": 0.6257411669939756,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 1.1860611670126673,
+        "p95Seconds": 1.1860611670126673,
+        "maxSeconds": 1.1860611670126673,
+        "medianFirstReadableSeconds": 0.6234186250076164,
+        "medianReasoningCharacters": 0
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 14,
+        "medianSeconds": 1.7917375414981507,
+        "medianFirstReadableSeconds": 0.6255386459961301
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.901397705078125,
+      "peakFootprintGiB": 0.4267937168478966,
+      "lifetimePeakFootprintGiB": 0.4267937168478966,
+      "startSwapGiB": 3.6307373046875,
+      "endSwapGiB": 3.6307373046875,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 3.0164947509765625,
+      "swapInGiB": 0.0025482177734375,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 76
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 6192 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = llama",
+      "print_info: model params          = 8.03 B",
+      "load_tensors:   CPU_Mapped model buffer size =   410.98 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.00 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  5871.99 MiB",
+      "llama_context:        CPU  output buffer size =     0.49 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   272.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.50 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    46.02 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.00 MiB"
+    ],
+    "metalReportedBuffersMiB": 6192.51,
+    "responsiveness": {
+      "samples": 17,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.04646154199144803,
+      "p95ProcessAndDictionarySeconds": 0.05999783397419378,
+      "maxProcessAndDictionarySeconds": 0.05999783397419378
+    },
+    "startup": {
+      "seconds": 2.024916457972722,
+      "port": 62784
+    },
+    "execution": {
+      "success": true,
+      "seconds": 38.611752915981924,
+      "failures": []
+    },
+    "recordedRequestCount": 16,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+        "name": "llama-q6-quant",
+        "gemma3": false,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": true,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:50:58Z"
+    },
+    "template": {
+      "sha256": "93c0e9aa3629bbd77e68dbc0f5621f6e6b23aa8d74b932595cdb8d64684526d7",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<|begin_of_text|>",
+      "eos": "<|eot_id|>"
+    },
+    "reviewedCount": 16,
+    "qualityExcludedCount": 1,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 14,
+        "contextuallySound": 11,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.6428571428571428,
+        "meanDepth": 1.1428571428571428,
+        "grounded": 10,
+        "clear": 14
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 0,
+        "seriousErrors": 1,
+        "meanCorrectness": 0.0,
+        "meanDepth": 1.0,
+        "grounded": 0,
+        "clear": 1
+      }
+    ]
+  },
+  {
+    "name": "llama-q6",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 3.1210623954975745,
+        "p95Seconds": 4.38126941700466,
+        "maxSeconds": 4.384887082997011,
+        "medianFirstReadableSeconds": 2.344293895512237,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 3.449599687490263,
+        "p95Seconds": 4.703488166996976,
+        "maxSeconds": 5.961505249986658,
+        "medianFirstReadableSeconds": 1.7111576455208706,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 2.6025618335115723,
+        "p95Seconds": 3.640133291017264,
+        "maxSeconds": 3.640133291017264,
+        "medianFirstReadableSeconds": 1.5379682284838054,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 2.4179226249980275,
+        "p95Seconds": 4.709747708984651,
+        "maxSeconds": 4.709747708984651,
+        "medianFirstReadableSeconds": 1.6920669584942516,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 1.690215167007409,
+        "p95Seconds": 4.793412041006377,
+        "maxSeconds": 4.793412041006377,
+        "medianFirstReadableSeconds": 0.6284091249981429,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 1.1282195830135606,
+        "p95Seconds": 1.2368304999836255,
+        "maxSeconds": 1.2368304999836255,
+        "medianFirstReadableSeconds": 0.5105177089862991,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 3.3262620420136955,
+        "p95Seconds": 3.3262620420136955,
+        "maxSeconds": 3.3262620420136955,
+        "medianFirstReadableSeconds": 2.3179582500015385,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 2.9040837089996785,
+        "p95Seconds": 2.9040837089996785,
+        "maxSeconds": 2.9040837089996785,
+        "medianFirstReadableSeconds": 1.8095437090087216,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 3,
+        "valid": 3,
+        "medianSeconds": 1.9547497090243269,
+        "p95Seconds": 3.107808250002563,
+        "maxSeconds": 3.107808250002563,
+        "medianFirstReadableSeconds": 1.1286538340209518,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "requests": 2,
+        "valid": 2,
+        "medianSeconds": 1.9915371044917265,
+        "p95Seconds": 2.4717336669855285,
+        "maxSeconds": 2.4717336669855285,
+        "medianFirstReadableSeconds": 1.1386460624926258,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 16,
+        "medianSeconds": 1.6926662080077222,
+        "medianFirstReadableSeconds": 0.6285671460063895
+      },
+      {
+        "strategy": "baseline",
+        "requests": 15,
+        "medianSeconds": 1.6446445830224548,
+        "medianFirstReadableSeconds": 0.6257972080202308
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.81280517578125,
+      "peakFootprintGiB": 0.44170162081718445,
+      "lifetimePeakFootprintGiB": 0.44170162081718445,
+      "startSwapGiB": 3.6229248046875,
+      "endSwapGiB": 3.5682373046875,
+      "peakSwapGrowthGiB": 0.0,
+      "peakCompressorGiB": 3.28863525390625,
+      "swapInGiB": 0.0540008544921875,
+      "swapOutGiB": 0.0,
+      "pressureSampleCounts": {
+        "1": 534
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 6192 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = llama",
+      "print_info: model params          = 8.03 B",
+      "load_tensors:   CPU_Mapped model buffer size =   410.98 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.00 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =  5871.99 MiB",
+      "llama_context:        CPU  output buffer size =     0.49 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   272.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     2.50 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    46.02 MiB",
+      "sched_reserve:        CPU compute buffer size =     9.00 MiB"
+    ],
+    "metalReportedBuffersMiB": 6192.51,
+    "responsiveness": {
+      "samples": 132,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.026112187493708916,
+      "p95ProcessAndDictionarySeconds": 0.049886791995959356,
+      "maxProcessAndDictionarySeconds": 0.058734499994898215
+    },
+    "startup": {
+      "seconds": 2.038502083014464,
+      "port": 62851
+    },
+    "execution": {
+      "success": true,
+      "seconds": 271.35345579101704,
+      "failures": []
+    },
+    "recordedRequestCount": 99,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+        "name": "llama-q6",
+        "gemma3": false,
+        "thinking": false,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T19:52:27Z"
+    },
+    "template": {
+      "sha256": "93c0e9aa3629bbd77e68dbc0f5621f6e6b23aa8d74b932595cdb8d64684526d7",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": false,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<|begin_of_text|>",
+      "eos": "<|eot_id|>"
+    },
+    "reviewedCount": 99,
+    "qualityExcludedCount": 3,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 23,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.6774193548387097,
+        "meanDepth": 1.1935483870967742,
+        "grounded": 23,
+        "clear": 31
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 23,
+        "seriousErrors": 4,
+        "meanCorrectness": 1.6451612903225807,
+        "meanDepth": 1.096774193548387,
+        "grounded": 21,
+        "clear": 31
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 4,
+        "meanCorrectness": 0.875,
+        "meanDepth": 1.25,
+        "grounded": 3,
+        "clear": 8
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.0,
+        "meanDepth": 1.25,
+        "grounded": 3,
+        "clear": 8
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 6,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.5,
+        "meanDepth": 1.375,
+        "grounded": 4,
+        "clear": 8
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 3,
+        "contextuallySound": 0,
+        "seriousErrors": 3,
+        "meanCorrectness": 0.0,
+        "meanDepth": 1.0,
+        "grounded": 0,
+        "clear": 3
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 1
+      },
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 1
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 3,
+        "contextuallySound": 3,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 3,
+        "clear": 3
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": true,
+        "reviewed": 2,
+        "contextuallySound": 1,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.0,
+        "meanDepth": 1.5,
+        "grounded": 1,
+        "clear": 2
+      }
+    ]
+  },
+  {
+    "name": "gemma4-smoke",
+    "groups": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 6,
+        "valid": 6,
+        "medianSeconds": 2.5676867085130652,
+        "p95Seconds": 6.218980417004786,
+        "maxSeconds": 6.218980417004786,
+        "medianFirstReadableSeconds": 1.1904290829988895,
+        "medianReasoningCharacters": 0.0
+      }
+    ],
+    "samePromptPredecessor": [],
+    "memory": {
+      "peakRSSGiB": 5.4598846435546875,
+      "peakFootprintGiB": 0.8466856554150581,
+      "lifetimePeakFootprintGiB": 0.8466856554150581,
+      "startSwapGiB": 3.5135498046875,
+      "endSwapGiB": 3.52301025390625,
+      "peakSwapGrowthGiB": 0.01727294921875,
+      "peakCompressorGiB": 4.0063323974609375,
+      "swapInGiB": 0.00543212890625,
+      "swapOutGiB": 0.02508544921875,
+      "pressureSampleCounts": {
+        "1": 16,
+        "2": 43
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 6959 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = gemma4",
+      "print_info: model params          = 11.91 B",
+      "load_tensors:   CPU_Mapped model buffer size =   787.50 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   907.78 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.03 MiB",
+      "llama_context:        CPU  output buffer size =     1.00 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =    34.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     8.12 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   212.50 MiB",
+      "init_rotation:       MTL0 rotation buffer size =    10.62 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    57.08 MiB",
+      "sched_reserve:        CPU compute buffer size =     8.82 MiB"
+    ],
+    "metalReportedBuffersMiB": 6959.76,
+    "responsiveness": {
+      "samples": 10,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.025393625503056683,
+      "p95ProcessAndDictionarySeconds": 0.06285470898728818,
+      "maxProcessAndDictionarySeconds": 0.06285470898728818
+    },
+    "startup": {
+      "seconds": 9.098973292013397,
+      "port": 63206
+    },
+    "execution": {
+      "success": true,
+      "seconds": 29.598939709016122,
+      "failures": []
+    },
+    "recordedRequestCount": 6,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/gemma-4-12b-it-qat-q4_0.gguf",
+        "name": "gemma4-smoke",
+        "gemma3": false,
+        "thinking": true,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": true,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T20:01:34Z"
+    },
+    "template": {
+      "sha256": "6a1015c47ccfcfa67c3b772385bccee357a4d37c3cda37bd202e9047f391ab82",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<bos>",
+      "eos": "<eos>"
+    },
+    "reviewedCount": 6,
+    "qualityExcludedCount": 0,
+    "administrativeQualityExclusions": 0,
+    "quality": [
+      {
+        "split": "development",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 6,
+        "contextuallySound": 5,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.6666666666666667,
+        "meanDepth": 1.0,
+        "grounded": 4,
+        "clear": 6
+      }
+    ]
+  },
+  {
+    "name": "gemma4-qat",
+    "groups": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 5.874464708511368,
+        "p95Seconds": 7.960189542005537,
+        "maxSeconds": 8.234458040999016,
+        "medianFirstReadableSeconds": 4.439036041483632,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 32,
+        "valid": 32,
+        "medianSeconds": 6.146252437494695,
+        "p95Seconds": 7.920372374996077,
+        "maxSeconds": 10.11164437502157,
+        "medianFirstReadableSeconds": 3.232865728496108,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 4.705291708014556,
+        "p95Seconds": 7.250201875023777,
+        "maxSeconds": 7.250201875023777,
+        "medianFirstReadableSeconds": 2.9861026250000577,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 8,
+        "valid": 8,
+        "medianSeconds": 4.777701562983566,
+        "p95Seconds": 6.835386416001711,
+        "maxSeconds": 6.835386416001711,
+        "medianFirstReadableSeconds": 3.1873285619949456,
+        "medianReasoningCharacters": 0.0
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 7.223394917004043,
+        "p95Seconds": 12.030086749990005,
+        "maxSeconds": 12.030086749990005,
+        "medianFirstReadableSeconds": 5.484290624997811,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "requests": 9,
+        "valid": 9,
+        "medianSeconds": 46.98615224999958,
+        "p95Seconds": 51.81619433299056,
+        "maxSeconds": 51.81619433299056,
+        "medianFirstReadableSeconds": 45.23992154200096,
+        "medianReasoningCharacters": 2092
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 1,
+        "medianSeconds": 7.189931458997307,
+        "p95Seconds": 7.189931458997307,
+        "maxSeconds": 7.189931458997307,
+        "medianFirstReadableSeconds": 5.462295917008305,
+        "medianReasoningCharacters": 0
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "requests": 1,
+        "valid": 0,
+        "medianSeconds": null,
+        "p95Seconds": null,
+        "maxSeconds": null,
+        "medianFirstReadableSeconds": null,
+        "medianReasoningCharacters": 533
+      }
+    ],
+    "samePromptPredecessor": [
+      {
+        "strategy": "adaptive",
+        "requests": 16,
+        "medianSeconds": 2.6758457499963697,
+        "medianFirstReadableSeconds": 1.2577768335031578
+      },
+      {
+        "strategy": "baseline",
+        "requests": 15,
+        "medianSeconds": 4.00381108300644,
+        "medianFirstReadableSeconds": 1.329216957994504
+      }
+    ],
+    "memory": {
+      "peakRSSGiB": 5.3701934814453125,
+      "peakFootprintGiB": 0.8518737331032753,
+      "lifetimePeakFootprintGiB": 0.8519195094704628,
+      "startSwapGiB": 3.52301025390625,
+      "endSwapGiB": 3.52337646484375,
+      "peakSwapGrowthGiB": 0.0316162109375,
+      "peakCompressorGiB": 4.0085601806640625,
+      "swapInGiB": 0.0689697265625,
+      "swapOutGiB": 0.0706787109375,
+      "pressureSampleCounts": {
+        "1": 7,
+        "2": 1763
+      }
+    },
+    "serverMemoryLines": [
+      "common_params_fit_impl: projected to use 6959 MiB of device memory vs. 12123 MiB of free device memory",
+      "llama_model_loader: - kv   0:                       general.architecture str              = gemma4",
+      "print_info: model params          = 11.91 B",
+      "load_tensors:   CPU_Mapped model buffer size =   787.50 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   907.78 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   120.29 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =   129.79 MiB",
+      "load_tensors:  MTL0_Mapped model buffer size =     0.03 MiB",
+      "llama_context:        CPU  output buffer size =     1.00 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =    34.00 MiB",
+      "init_rotation:       MTL0 rotation buffer size =     8.12 MiB",
+      "llama_kv_cache:       MTL0 KV buffer size =   212.50 MiB",
+      "init_rotation:       MTL0 rotation buffer size =    10.62 MiB",
+      "sched_reserve:       MTL0 compute buffer size =    57.08 MiB",
+      "sched_reserve:        CPU compute buffer size =     8.82 MiB"
+    ],
+    "metalReportedBuffersMiB": 6959.76,
+    "responsiveness": {
+      "samples": 454,
+      "errors": 0,
+      "medianProcessAndDictionarySeconds": 0.027321895511704497,
+      "p95ProcessAndDictionarySeconds": 0.05093004199443385,
+      "maxProcessAndDictionarySeconds": 0.08669725002255291
+    },
+    "startup": {
+      "seconds": 4.05378541702521,
+      "port": 63256
+    },
+    "execution": {
+      "success": false,
+      "error": "['Model session >15 minutes']",
+      "seconds": 930.3892345420027,
+      "failures": [
+        "Model session >15 minutes"
+      ]
+    },
+    "recordedRequestCount": 100,
+    "protocol": {
+      "suiteSHA256": "f1dbf35c58f611e0a81468fe81d2b4f480eb519b618170100980f2eede005cbf",
+      "promptSHA256": {
+        "baseline": "0d7e1bd337d3798a4ade5427d29f713a1d46736a0be9817fe27e13e22dfe3e2b",
+        "adaptive": "184c3e4c12c52362ff7127ec5e5ce52e3c64230f5f595385c4fe7e209c111e57",
+        "contrast": "e6adc62eef5cd8bbdae0b00bf577977ad687099a94c78076ff3e7c862530b6ef"
+      },
+      "args": {
+        "model": "/private/tmp/sandpaper-model-eval/gemma-4-12b-it-qat-q4_0.gguf",
+        "name": "gemma4-qat",
+        "gemma3": false,
+        "thinking": true,
+        "thinking_only": false,
+        "extras_only": false,
+        "quant_subset": false,
+        "smoke": false,
+        "no_dictionary": false
+      },
+      "utc": "2026-11-06T20:03:45Z"
+    },
+    "template": {
+      "sha256": "6a1015c47ccfcfa67c3b772385bccee357a4d37c3cda37bd202e9047f391ab82",
+      "capabilities": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": false,
+        "supports_reasoning_effort": false,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": true,
+        "reasoning_effort_levels": []
+      },
+      "bos": "<bos>",
+      "eos": "<eos>"
+    },
+    "reviewedCount": 100,
+    "qualityExcludedCount": 4,
+    "administrativeQualityExclusions": 1,
+    "quality": [
+      {
+        "split": "heldout",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 26,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.8064516129032258,
+        "meanDepth": 1.3870967741935485,
+        "grounded": 24,
+        "clear": 31
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 31,
+        "contextuallySound": 23,
+        "seriousErrors": 3,
+        "meanCorrectness": 1.6451612903225807,
+        "meanDepth": 1.0,
+        "grounded": 23,
+        "clear": 28
+      },
+      {
+        "split": "regression",
+        "strategy": "baseline",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 5,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.375,
+        "meanDepth": 1.125,
+        "grounded": 4,
+        "clear": 8
+      },
+      {
+        "split": "regression",
+        "strategy": "adaptive",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 6,
+        "seriousErrors": 2,
+        "meanCorrectness": 1.5,
+        "meanDepth": 1.25,
+        "grounded": 5,
+        "clear": 8
+      },
+      {
+        "split": "heldout",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 4,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.375,
+        "meanDepth": 1.5,
+        "grounded": 2,
+        "clear": 8
+      },
+      {
+        "split": "heldout",
+        "strategy": "adaptive",
+        "thinking": true,
+        "dictionary": false,
+        "reviewed": 8,
+        "contextuallySound": 3,
+        "seriousErrors": 1,
+        "meanCorrectness": 1.25,
+        "meanDepth": 0.875,
+        "grounded": 4,
+        "clear": 6
+      },
+      {
+        "split": "regression",
+        "strategy": "contrast",
+        "thinking": false,
+        "dictionary": false,
+        "reviewed": 1,
+        "contextuallySound": 1,
+        "seriousErrors": 0,
+        "meanCorrectness": 2.0,
+        "meanDepth": 1.0,
+        "grounded": 1,
+        "clear": 1
+      }
+    ]
+  }
+]

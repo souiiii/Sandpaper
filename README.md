@@ -70,6 +70,12 @@ never change canonical text or source anchors. Trash retains bookmarks and vocab
 
 ## Optional explanations
 
+The [bounded M4 model investigation](docs/model-selection.md) compares Gemma 3,
+Qwen3.5-9B, Llama 3.1 8B and Gemma 4 QAT on explanation quality and resources.
+Gemma 4 with the current short prompt was the strongest tested fallback, but no
+tested configuration met the standard for dependable, insightful explanations.
+The investigation did not change production inference or implement UI.
+
 Inject a configured `LlamaLocalEngine` into `ReaderSession`, then call `explain`
 **only in response to an explicit user request**. Stream updates are provisional;
 only a completed, validated explanation can be saved with `.aiInterpretation()`.
