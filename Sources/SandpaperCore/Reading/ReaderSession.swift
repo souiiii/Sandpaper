@@ -73,7 +73,15 @@ public actor ReaderSession {
     }
 
     public func clearSelection() async {
-        selectionRequest = UUID(); selected = nil; entries = []; completedExplanation = nil
+        _ = invalidateSelection()
+        await analysis.cancelAll()
+    }
+
+    /// Releases this reader and invalidates work still returning from another actor.
+    public func close() async {
+        generation = UUID()
+        _ = invalidateSelection()
+        reader = nil; opened = nil
         await analysis.cancelAll()
     }
 
@@ -170,8 +178,14 @@ public actor ReaderSession {
         let manifest: ReadingDocument
         if let opened, opened.document.id == position.documentID { manifest = opened }
         else { manifest = try await open(documentID: position.documentID) }
+        let token = generation
+        let navigation = invalidateSelection()
+        await analysis.cancelAll()
+        guard generation == token, selectionRequest == navigation,
+              opened?.document.id == position.documentID else { throw CancellationError() }
         let content = try await content(for: position.resource)
-        guard content.documentID == position.documentID else { throw CancellationError() }
+        guard content.documentID == position.documentID, generation == token,
+              selectionRequest == navigation else { throw CancellationError() }
         let resolution = position.anchor.map { $0.resolve(in: content.text, revision: content.revision) }
         return ReadingDestination(document: manifest, content: content, resolution: resolution)
     }
@@ -184,8 +198,11 @@ public actor ReaderSession {
     public func navigate(to item: ReadingNavigationItem) async throws -> ReadingDestination {
         guard let opened else { throw ReaderError.noOpenDocument }
         let token = generation
+        let navigation = invalidateSelection()
+        await analysis.cancelAll()
+        guard generation == token, selectionRequest == navigation else { throw CancellationError() }
         let content = try await content(for: item.resource)
-        guard generation == token else { throw CancellationError() }
+        guard generation == token, selectionRequest == navigation else { throw CancellationError() }
         let resolution: AnchorResolution?
         if let fragment = item.fragment {
             if let offset = content.fragmentOffsets[fragment] { resolution = .exact(NSRange(location: offset, length: 0)) }
@@ -197,6 +214,12 @@ public actor ReaderSession {
     private func requireSelection(_ id: UUID) throws -> ReadingSelection {
         guard let selected, selected.id == id else { throw ReaderError.staleSelection }
         return selected
+    }
+
+    private func invalidateSelection() -> UUID {
+        selectionRequest = UUID(); explanationRequest = UUID()
+        selected = nil; entries = []; completedExplanation = nil
+        return selectionRequest
     }
 
     private func excerpt(_ text: String, range: NSRange) throws -> String {

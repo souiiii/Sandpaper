@@ -5,7 +5,8 @@ let package = Package(
     name: "Sandpaper",
     platforms: [.macOS(.v15)],
     products: [
-        .library(name: "SandpaperCore", targets: ["SandpaperCore"])
+        .library(name: "SandpaperCore", targets: ["SandpaperCore"]),
+        .executable(name: "Sandpaper", targets: ["SandpaperApp"])
     ],
     dependencies: [
         .package(url: "https://github.com/groue/GRDB.swift.git", exact: "7.12.0"),
@@ -13,6 +14,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "SandpaperCore", dependencies: [.product(name: "GRDB", package: "GRDB.swift"), .product(name: "ZIPFoundation", package: "ZIPFoundation")]),
+        .executableTarget(name: "SandpaperApp", dependencies: ["SandpaperCore"]),
         .testTarget(name: "SandpaperCoreTests", dependencies: ["SandpaperCore", .product(name: "GRDB", package: "GRDB.swift"), .product(name: "ZIPFoundation", package: "ZIPFoundation")])
     ],
     swiftLanguageModes: [.v6]

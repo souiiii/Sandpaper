@@ -1,7 +1,31 @@
-# Sandpaper backend
+# Sandpaper
 
-Native Swift 6 backend for a local macOS reader. The SwiftUI/AppKit frontend is
-owned separately; this package contains no views or styling.
+Native Swift 6 reading backend and macOS application lifecycle host. Presentation
+is not implemented: the app currently opens no windows and has no reader UI.
+
+## Native app host
+
+```sh
+tools/build-app.sh
+open .build/macos/Sandpaper.app
+# Finder's Open With also accepts EPUB, PDF, TXT and Markdown documents.
+open -a "$PWD/.build/macos/Sandpaper.app" /path/to/book.epub
+```
+
+The script builds a local ad-hoc signed bundle for macOS 15 or later. It is not a
+notarized distribution build. The lifecycle host imports documents, restores open
+readers and their saved positions, and closes sessions on normal termination.
+There is no Dock icon or menu; terminate it through Activity Monitor while the
+presentation layer is absent.
+
+The default library is `~/Library/Application Support/Sandpaper`. For development,
+set `SANDPAPER_LIBRARY_DIRECTORY` when launching the executable to isolate data.
+`ReaderWorkspace` exposes the same lifecycle to future presentation code, including
+per-document restoration failures and an opening snapshot of the saved position.
+Dictionary lookup, vocabulary, bookmarks and progress require no AI configuration.
+Optional `SANDPAPER_LLAMA_PORT` and `SANDPAPER_CHAT_FORMAT` connect the existing
+on-demand explanation engine to a separately running local server. Launch and
+document opening never start inference or a model process.
 
 ## Reading workflow
 
@@ -70,17 +94,16 @@ never change canonical text or source anchors. Trash retains bookmarks and vocab
 
 ## Optional explanations
 
-The [bounded M4 model investigation](docs/model-selection.md) compares Gemma 3,
-Qwen3.5-9B, Llama 3.1 8B and Gemma 4 QAT on explanation quality and resources.
-Gemma 4 with the current short prompt was the strongest tested fallback, but no
-tested configuration met the standard for dependable, insightful explanations.
-The investigation did not change production inference or implement UI.
+Model research and prompt experiments are paused. The existing explanation
+functionality remains optional and unchanged in scope; the previous
+[model investigation](docs/model-selection.md) is retained as historical context.
 
 Inject a configured `LlamaLocalEngine` into `ReaderSession`, then call `explain`
 **only in response to an explicit user request**. Stream updates are provisional;
 only a completed, validated explanation can be saved with `.aiInterpretation()`.
 Dictionary lookup and saving remain independent while generation runs. Changing
-selection cancels the previous request and rejects stale updates/results.
+selection, navigating, or closing a reader cancels the previous request and
+rejects stale updates/results.
 `explain(dictionaryAssistance: true)` optionally supplies bounded verbatim local
 dictionary excerpts. `answer.dictionaryEvidence` retains these separately from
 generated prose. Assistance defaults off: a general dictionary sense can bias the
@@ -109,3 +132,21 @@ GRDB 7.12.0 handles storage; ZIPFoundation 0.9.20 handles EPUB ZIP containers.
 Both dependencies are pinned. Tests cover reading, Unicode selection, dictionary
 and vocabulary persistence, migrations, navigation, trash, provenance, cancellation,
 and loopback-only inference transport. No frontend styling is modified.
+
+The opt-in bundle test opens real app processes against a temporary library,
+checks Finder document delivery, normal termination and restoration, and never
+creates windows:
+
+```sh
+SANDPAPER_APP_BUNDLE="$PWD/.build/macos/Sandpaper.app" \
+swift test -c release -Xswiftc -plugin-path \
+  -Xswiftc /Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing \
+  --filter AppLifecycleTests
+```
+
+Set `SANDPAPER_LIVE_ASSETS` to a directory containing real documents and an
+`assets.json` array of `{ "file": "book.epub", "term": "truth" }` records to include
+them in that test. The separate `LiveValidationTests/realDocumentsRoundTrip` test
+uses the same assets with `SANDPAPER_LIVE_MODE=documents` and
+`SANDPAPER_LIVE_OUTPUT=/path/to/results.json`; it checks every resource, navigation,
+PDF selection ranges, dictionary saving and exact return to saved passages without AI.
