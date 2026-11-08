@@ -19,6 +19,26 @@
       "target": "sandpaper-evaluate",
       "configuration": "release",
       "preLaunchTask": "swift: Build Release sandpaper-evaluate"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:Sandpaper}",
+      "name": "Debug Sandpaper",
+      "target": "Sandpaper",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug Sandpaper"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:Sandpaper}",
+      "name": "Release Sandpaper",
+      "target": "Sandpaper",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release Sandpaper"
     }
   ]
 }
