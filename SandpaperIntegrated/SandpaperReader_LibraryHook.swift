@@ -90,6 +90,7 @@ enum ContentBlock: Identifiable, Sendable {
     case dropCapParagraph(id: String, dropCap: String, remainderText: String)
     case paragraph(id: String, segments: [TextSegment])
     case journalCallout(id: String, quote: String, source: String, note: String)
+    case canonicalBlock(CanonicalBlockItem)
 
     var id: String {
         switch self {
@@ -97,6 +98,8 @@ enum ContentBlock: Identifiable, Sendable {
              .paragraph(let id, _),
              .journalCallout(let id, _, _, _):
             return id
+        case .canonicalBlock(let item):
+            return item.blockID
         }
     }
 }
@@ -395,7 +398,7 @@ enum MockDictionaryProvider {
              weak var value: (any SelectableBlockEndpoint)?
          }
 
-         private var endpoints: [String: WeakEndpoint] = [:]
+         var endpoints: [String: WeakEndpoint] = [:]
          var orderedBlockIDs: [String] = []
          var canonicalText: String? = nil
          var blockResourceRanges: [String: NSRange] = [:]
@@ -409,6 +412,85 @@ enum MockDictionaryProvider {
 
          func register(_ endpoint: any SelectableBlockEndpoint) {
              endpoints[endpoint.blockID] = WeakEndpoint(value: endpoint)
+         }
+
+         func resolveVisiblePosition(
+             in presentation: CanonicalDocumentPresentation,
+             scrollFraction: Double
+         ) -> (blockID: String, visibleRange: NSRange, progression: Double) {
+             let clampedFraction = min(max(scrollFraction, 0), 1)
+             let totalLength = max((presentation.canonicalText as NSString).length, 1)
+
+             if clampedFraction <= 0.008, let first = presentation.blocks.first {
+                 return (first.blockID, first.resourceRange, 0.0)
+             }
+             if clampedFraction >= 0.99, let last = presentation.blocks.last {
+                 let endLoc = max(0, last.resourceRange.location + max(0, last.resourceRange.length - 1))
+                 let tailRange = NSRange(location: endLoc, length: min(1, max(0, totalLength - endLoc)))
+                 return (last.blockID, tailRange, 1.0)
+             }
+
+             let readingTopY = SandpaperTheme.toolbarHeight + 28
+             let measuredBlocks: [(block: CanonicalBlockItem, frame: CGRect)] = presentation.blocks.compactMap { block in
+                 guard let ep = endpoints[block.blockID]?.value,
+                       ep.blockFrameInReader.height > 1 else {
+                     return nil
+                 }
+                 return (block, ep.blockFrameInReader)
+             }
+
+             let chosenBlock: CanonicalBlockItem
+             let intraFraction: Double
+
+             if !measuredBlocks.isEmpty,
+                let match = measuredBlocks.first(where: { $0.frame.maxY >= readingTopY }) ?? measuredBlocks.last {
+                 chosenBlock = match.block
+                 if readingTopY <= match.frame.minY {
+                     intraFraction = 0
+                 } else {
+                     intraFraction = min(
+                         max(Double((readingTopY - match.frame.minY) / max(match.frame.height, 1)), 0),
+                         1
+                     )
+                 }
+             } else {
+                 let targetUTF16 = min(
+                     max(Int((clampedFraction * Double(totalLength)).rounded()), 0),
+                     max(totalLength - 1, 0)
+                 )
+                 if let containing = presentation.blocks.first(where: {
+                     NSLocationInRange(targetUTF16, $0.resourceRange)
+                 }) {
+                     chosenBlock = containing
+                     let blockLen = max(containing.resourceRange.length, 1)
+                     intraFraction = min(
+                         max(Double(targetUTF16 - containing.resourceRange.location) / Double(blockLen), 0),
+                         1
+                     )
+                 } else {
+                     let nearest = presentation.blocks.min(by: { lhs, rhs in
+                         abs(lhs.resourceRange.location - targetUTF16) < abs(rhs.resourceRange.location - targetUTF16)
+                     }) ?? presentation.blocks[0]
+                     chosenBlock = nearest
+                     intraFraction = 0
+                 }
+             }
+
+             let blockLen = max(chosenBlock.resourceRange.length, 0)
+             let intraOffset = blockLen > 1
+                 ? min(max(Int((Double(blockLen) * intraFraction).rounded()), 0), blockLen - 1)
+                 : 0
+             let resolvedLoc = chosenBlock.resourceRange.location + intraOffset
+             let resolvedLen = max(1, blockLen - intraOffset)
+             let clampedLoc = min(resolvedLoc, max(0, totalLength - 1))
+             let visibleRange = NSRange(
+                 location: clampedLoc,
+                 length: min(resolvedLen, max(0, totalLength - clampedLoc))
+             )
+
+             let charProgression = Double(visibleRange.location) / Double(totalLength)
+             let progression = min(max(max(charProgression, clampedFraction * 0.85), 0), 1)
+             return (chosenBlock.blockID, visibleRange, progression)
          }
 
          func beginDrag(blockID: String, charIndex: Int) {
@@ -764,11 +846,14 @@ struct SandpaperReaderView: View {
     @State private var isBookmarked: Bool = false
     @State private var bodyFontSize: CGFloat = 20.5
     @State private var isShowingTypographyPopover: Bool = false
-    @State private var hostsNativeTrafficLights: Bool = false
+    @State private var hostsNativeTrafficLights: Bool = true
+    @State private var isWindowFullScreen: Bool = false
     @State private var liveProgress: Double
     @State private var liveCurrentPage: Int
     @State private var hasRestoredInitialPosition: Bool = false
+    @State private var isNavigatingChapter: Bool = false
     @State private var visibleBlockID: String? = nil
+    @State private var visibleCanonicalRange: NSRange? = nil
 
     // Dictionary Popover & Selection State
     @State private var activeSelection: ReaderTextSelection?
@@ -809,9 +894,10 @@ struct SandpaperReaderView: View {
         self.onSaveToVocabulary = onSaveToVocabulary
         self.onExplainInContext = onExplainInContext
         self.onBackToLibrary = onBackToLibrary
-        self._selectedChapter = State(initialValue: chapter.chapterLabel)
-        self._liveProgress = State(initialValue: chapter.progress)
-        self._liveCurrentPage = State(initialValue: chapter.currentPage)
+        let initialChapter = backendPresentation?.chapter ?? chapter
+        self._selectedChapter = State(initialValue: initialChapter.chapterLabel)
+        self._liveProgress = State(initialValue: initialChapter.progress)
+        self._liveCurrentPage = State(initialValue: initialChapter.currentPage)
         if let backendStore {
             self._bodyFontSize = State(initialValue: backendStore.readingFontSize)
         }
@@ -823,9 +909,51 @@ struct SandpaperReaderView: View {
         self._activeExplanation = State(initialValue: initialExplanation)
     }
 
+    private var activePresentation: CanonicalDocumentPresentation? {
+        if let backendDocumentID, let storePresentation = backendStore?.presentation(for: backendDocumentID) {
+            return storePresentation
+        }
+        return backendPresentation
+    }
+
+    private var activeChapter: BookChapter {
+        activePresentation?.chapter ?? chapter
+    }
+
+    /// The chapter label shown in the header kicker. Suppressed when the first block of the
+    /// document is already a heading with the same text, so it is never duplicated.
+    private var effectiveHeaderChapterLabel: String {
+        let candidate = selectedChapter.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !candidate.isEmpty else { return "" }
+        if let firstBlock = activeChapter.blocks.first,
+           case .canonicalBlock(let item) = firstBlock,
+           item.isHeading,
+           item.text.trimmingCharacters(in: .whitespacesAndNewlines).caseInsensitiveCompare(candidate) == .orderedSame {
+            return ""
+        }
+        return candidate
+    }
+
+    private var hasRichChapterHeader: Bool {
+        !activeChapter.locationTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            || !activeChapter.subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    private var shouldRenderChapterHeader: Bool {
+        hasRichChapterHeader
+            || !activeChapter.partLabel.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            || !effectiveHeaderChapterLabel.isEmpty
+    }
+
     private var orderedBlockIDs: [String] {
-        var ids = ["header-kicker", "header-title", "header-subtitle"]
-        for block in chapter.blocks {
+        let current = activeChapter
+        var ids: [String] = []
+        if shouldRenderChapterHeader {
+            if !current.partLabel.isEmpty || !effectiveHeaderChapterLabel.isEmpty { ids.append("header-kicker") }
+            if !current.locationTitle.isEmpty { ids.append("header-title") }
+            if !current.subtitle.isEmpty { ids.append("header-subtitle") }
+        }
+        for block in current.blocks {
             switch block {
             case .dropCapParagraph(let id, _, _),
                  .paragraph(let id, _):
@@ -833,6 +961,8 @@ struct SandpaperReaderView: View {
             case .journalCallout(let id, _, _, _):
                 ids.append(id)
                 ids.append("\(id)-source")
+            case .canonicalBlock(let item):
+                ids.append(item.blockID)
             }
         }
         return ids
@@ -840,6 +970,7 @@ struct SandpaperReaderView: View {
 
     var body: some View {
         let _ = configureCoordinator()
+        let chapter = activeChapter
 
         GeometryReader { readerProxy in
             ScrollViewReader { scrollProxy in
@@ -857,6 +988,10 @@ struct SandpaperReaderView: View {
                             bodyFontSize: $bodyFontSize,
                             isShowingTypographyPopover: $isShowingTypographyPopover,
                             showsCustomTrafficLights: !hostsNativeTrafficLights,
+                            isWindowFullScreen: isWindowFullScreen,
+                            onSelectChapter: { chosen in
+                                navigateToChapterLabel(chosen, scrollProxy: scrollProxy)
+                            },
                             onBackToLibrary: {
                                 flushBackendReadingProgress()
                                 onBackToLibrary?()
@@ -867,21 +1002,25 @@ struct SandpaperReaderView: View {
                         HStack(spacing: 0) {
                             ScrollView(.vertical) {
                                 VStack(spacing: 0) {
-                                    ChapterHeaderView(
-                                        partLabel: chapter.partLabel,
-                                        chapterLabel: selectedChapter,
-                                        locationTitle: chapter.locationTitle,
-                                        subtitle: chapter.subtitle,
-                                        activeSelection: activeSelection,
-                                        coordinator: selectionCoordinator,
-                                        onSelect: handleSelection,
-                                        onDismiss: dismissSelection
-                                    )
-                                    .padding(.top, 64)
-                                    .padding(.bottom, 72)
+                                    if shouldRenderChapterHeader {
+                                        ChapterHeaderView(
+                                            partLabel: chapter.partLabel,
+                                            chapterLabel: effectiveHeaderChapterLabel,
+                                            locationTitle: chapter.locationTitle,
+                                            subtitle: chapter.subtitle,
+                                            activeSelection: activeSelection,
+                                            coordinator: selectionCoordinator,
+                                            onSelect: handleSelection,
+                                            onDismiss: dismissSelection
+                                        )
+                                        .padding(.top, hasRichChapterHeader ? 64 : 40)
+                                        .padding(.bottom, hasRichChapterHeader ? 72 : 32)
+                                    } else {
+                                        Color.clear.frame(height: 44)
+                                    }
 
                                     // Reading Content Column
-                                    VStack(alignment: .leading, spacing: 28) {
+                                    VStack(alignment: .leading, spacing: 26) {
                                         ForEach(chapter.blocks) { block in
                                             Group {
                                                 switch block {
@@ -921,6 +1060,16 @@ struct SandpaperReaderView: View {
                                                         onDismiss: dismissSelection
                                                     )
                                                     .padding(.vertical, 8)
+
+                                                case .canonicalBlock(let item):
+                                                    CanonicalBlockView(
+                                                        item: item,
+                                                        fontSize: bodyFontSize,
+                                                        activeSelection: activeSelection,
+                                                        coordinator: selectionCoordinator,
+                                                        onSelect: handleSelection,
+                                                        onDismiss: dismissSelection
+                                                    )
                                                 }
                                             }
                                             .id(block.id)
@@ -938,7 +1087,7 @@ struct SandpaperReaderView: View {
                                             navigateToChapterLabel(targetTitle, scrollProxy: scrollProxy)
                                         }
                                     )
-                                    .padding(.top, 96)
+                                    .padding(.top, 80)
                                     .padding(.bottom, 64)
                                 }
                                 .frame(maxWidth: SandpaperTheme.readingColumnWidth)
@@ -1080,15 +1229,19 @@ struct SandpaperReaderView: View {
                 .task(id: bookID) {
                     await restoreBackendReaderSession(scrollProxy: scrollProxy)
                 }
-                .onChange(of: selectedChapter) { _, newChapter in
+                .onChange(of: selectedChapter) { oldChapter, newChapter in
+                    guard hasRestoredInitialPosition, !isNavigatingChapter, oldChapter != newChapter else { return }
                     dismissSelection()
-                    scrollToHeadingChapterIfNeeded(newChapter, scrollProxy: scrollProxy)
+                    performChapterNavigation(to: newChapter, scrollProxy: scrollProxy)
                 }
             }
         }
         .background(SandpaperTheme.canvasBackground)
         .background(
-            ReaderWindowConfigurator(hostsNativeTrafficLights: $hostsNativeTrafficLights)
+            ReaderWindowConfigurator(
+                hostsNativeTrafficLights: $hostsNativeTrafficLights,
+                isWindowFullScreen: $isWindowFullScreen
+            )
         )
         .background(
             DictionaryDismissEventMonitor(
@@ -1133,118 +1286,171 @@ struct SandpaperReaderView: View {
     private func restoreBackendReaderSession(scrollProxy: ScrollViewProxy) async {
         hasRestoredInitialPosition = false
         guard let backendDocumentID, let backendStore else {
-            liveProgress = chapter.progress
-            liveCurrentPage = chapter.currentPage
+            liveProgress = activeChapter.progress
+            liveCurrentPage = activeChapter.currentPage
             hasRestoredInitialPosition = true
             return
         }
 
         let opened = await backendStore.openDocumentInReader(documentID: backendDocumentID)
-        let presentation = opened ?? backendPresentation
+        let presentation = opened ?? activePresentation
         if let presentation {
+            if !presentation.chapter.chapterLabel.isEmpty {
+                isNavigatingChapter = true
+                selectedChapter = presentation.chapter.chapterLabel
+                isNavigatingChapter = false
+            }
             liveProgress = presentation.chapter.progress
             liveCurrentPage = presentation.chapter.currentPage
+            visibleCanonicalRange = presentation.restoredRange ?? presentation.blocks.first?.resourceRange
             isBookmarked = backendStore.hasBookmarks(for: backendDocumentID)
-            if let restoredBlockID = presentation.restoredBlockID,
-               presentation.blocks.first?.id != restoredBlockID {
+            if let restoredBlockID = presentation.restoredBlockID {
                 visibleBlockID = restoredBlockID
-                try? await Task.sleep(for: .milliseconds(35))
-                withAnimation(.easeInOut(duration: 0.2)) {
-                    scrollProxy.scrollTo(restoredBlockID, anchor: .top)
+                let fraction = min(max(presentation.restoredIntraBlockFraction, 0), 0.95)
+                if presentation.blocks.first?.id != restoredBlockID || fraction > 0.04 {
+                    try? await Task.sleep(for: .milliseconds(40))
+                    // Anchor the block so that the restored intra-block point lands at the top
+                    // of the viewport: for long paragraphs this restores the exact reading line.
+                    scrollProxy.scrollTo(
+                        restoredBlockID,
+                        anchor: fraction > 0.04 ? UnitPoint(x: 0.5, y: fraction) : .top
+                    )
                 }
             } else {
                 visibleBlockID = presentation.blocks.first?.id
             }
         }
+        // Allow the restoration scroll to settle before scroll events start saving progress.
+        try? await Task.sleep(for: .milliseconds(120))
         hasRestoredInitialPosition = true
+    }
+
+    private func pageNumber(for progression: Double, totalPages: Int) -> Int {
+        let pages = max(totalPages, 1)
+        return min(max(Int((progression * Double(pages)).rounded(.up)), 1), pages)
     }
 
     private func handleScrollMetricsUpdate(_ metrics: ScrollFractionMetrics) {
         guard hasRestoredInitialPosition,
+              !isNavigatingChapter,
               let backendDocumentID,
               let backendStore,
-              let presentation = backendStore.presentation(for: backendDocumentID) ?? backendPresentation,
-              !presentation.blocks.isEmpty else {
+              let presentation = activePresentation,
+              !presentation.blocks.isEmpty,
+              metrics.isScrollable else {
             return
         }
 
-        guard metrics.isScrollable else { return }
-        let clampedFraction = min(max(metrics.fraction, 0), 1)
-        let blockCount = presentation.blocks.count
-        let targetIndex = min(max(Int((clampedFraction * Double(max(blockCount - 1, 0))).rounded()), 0), blockCount - 1)
-        let targetBlock = presentation.blocks[targetIndex]
-
-        let totalLength = max((presentation.canonicalText as NSString).length, 1)
-        let canonicalProgression: Double
-        if clampedFraction >= 0.98 {
-            canonicalProgression = 1.0
-        } else if clampedFraction <= 0.01 {
-            canonicalProgression = 0.0
-        } else {
-            let blockStartProgression = Double(targetBlock.resourceRange.location) / Double(totalLength)
-            canonicalProgression = min(max(max(clampedFraction, blockStartProgression), 0), 1)
-        }
-
-        liveProgress = canonicalProgression
-        liveCurrentPage = min(
-            max(Int((canonicalProgression * Double(max(chapter.totalPages, 1))).rounded(.up)), 1),
-            max(chapter.totalPages, 1)
+        // Resolve the block actually visible at the top of the reading viewport (using measured
+        // block frames), and the UTF-16 offset inside it, instead of mapping scroll % to block index.
+        let resolved = selectionCoordinator.resolveVisiblePosition(
+            in: presentation,
+            scrollFraction: metrics.fraction
         )
 
-        if visibleBlockID != targetBlock.id || abs(canonicalProgression - presentation.chapter.progress) >= 0.04 {
-            visibleBlockID = targetBlock.id
-            let range = targetBlock.resourceRange
+        liveProgress = resolved.progression
+        liveCurrentPage = pageNumber(for: resolved.progression, totalPages: presentation.chapter.totalPages)
+        let previousRange = visibleCanonicalRange
+        visibleCanonicalRange = resolved.visibleRange
+
+        let movedEnough: Bool
+        if let previousRange {
+            movedEnough = abs(previousRange.location - resolved.visibleRange.location) >= 120
+        } else {
+            movedEnough = true
+        }
+
+        if visibleBlockID != resolved.blockID || movedEnough {
+            visibleBlockID = resolved.blockID
+            let range = resolved.visibleRange
+            let progression = resolved.progression
             Task {
                 await backendStore.recordReadingProgress(
                     documentID: backendDocumentID,
                     visibleRange: range,
-                    progression: canonicalProgression
+                    progression: progression
                 )
             }
         }
     }
 
-    private func scrollToHeadingChapterIfNeeded(_ chapterLabel: String, scrollProxy: ScrollViewProxy) {
-        guard let backendDocumentID,
-              let presentation = backendStore?.presentation(for: backendDocumentID) ?? backendPresentation else {
+    private func performChapterNavigation(to chapterLabel: String, scrollProxy: ScrollViewProxy) {
+        guard let backendDocumentID, let backendStore else {
+            scrollToHeadingChapterIfNeeded(chapterLabel, scrollProxy: scrollProxy)
             return
         }
-        if let matchingBlock = presentation.blocks.first(where: { $0.isHeading && $0.text == chapterLabel }) {
-            visibleBlockID = matchingBlock.id
-            withAnimation(.easeInOut(duration: 0.22)) {
-                scrollProxy.scrollTo(matchingBlock.id, anchor: .top)
-            }
-            let totalLength = max((presentation.canonicalText as NSString).length, 1)
-            let progression = min(max(Double(matchingBlock.resourceRange.location) / Double(totalLength), 0), 1)
-            liveProgress = progression
-            liveCurrentPage = min(
-                max(Int((progression * Double(max(chapter.totalPages, 1))).rounded(.up)), 1),
-                max(chapter.totalPages, 1)
-            )
-            if let backendStore {
-                let range = matchingBlock.resourceRange
-                Task {
-                    await backendStore.recordReadingProgress(
-                        documentID: backendDocumentID,
-                        visibleRange: range,
-                        progression: progression
-                    )
+
+        isNavigatingChapter = true
+        Task {
+            if let updated = await backendStore.navigateToChapter(
+                documentID: backendDocumentID,
+                chapterTitle: chapterLabel
+            ) {
+                if !updated.chapter.chapterLabel.isEmpty, selectedChapter != updated.chapter.chapterLabel {
+                    selectedChapter = updated.chapter.chapterLabel
                 }
+                liveProgress = updated.chapter.progress
+                liveCurrentPage = updated.chapter.currentPage
+                visibleCanonicalRange = updated.restoredRange ?? updated.blocks.first?.resourceRange
+                let targetBlockID = updated.restoredBlockID ?? updated.blocks.first?.id
+                visibleBlockID = targetBlockID
+                if let targetBlockID {
+                    try? await Task.sleep(for: .milliseconds(30))
+                    withAnimation(.easeInOut(duration: 0.22)) {
+                        scrollProxy.scrollTo(targetBlockID, anchor: .top)
+                    }
+                }
+            } else {
+                scrollToHeadingChapterIfNeeded(chapterLabel, scrollProxy: scrollProxy)
+            }
+            try? await Task.sleep(for: .milliseconds(260))
+            isNavigatingChapter = false
+        }
+    }
+
+    private func scrollToHeadingChapterIfNeeded(_ chapterLabel: String, scrollProxy: ScrollViewProxy) {
+        guard let presentation = activePresentation,
+              let matchingBlock = presentation.blocks.first(where: { $0.isHeading && $0.text == chapterLabel }) else {
+            return
+        }
+        visibleBlockID = matchingBlock.id
+        visibleCanonicalRange = matchingBlock.resourceRange
+        withAnimation(.easeInOut(duration: 0.22)) {
+            scrollProxy.scrollTo(matchingBlock.id, anchor: .top)
+        }
+        let totalLength = max((presentation.canonicalText as NSString).length, 1)
+        let progression = min(max(Double(matchingBlock.resourceRange.location) / Double(totalLength), 0), 1)
+        liveProgress = progression
+        liveCurrentPage = pageNumber(for: progression, totalPages: presentation.chapter.totalPages)
+        if let backendDocumentID, let backendStore {
+            let range = matchingBlock.resourceRange
+            Task {
+                await backendStore.recordReadingProgress(
+                    documentID: backendDocumentID,
+                    visibleRange: range,
+                    progression: progression
+                )
             }
         }
     }
 
     private func navigateToChapterLabel(_ label: String, scrollProxy: ScrollViewProxy) {
-        selectedChapter = label
-        scrollToHeadingChapterIfNeeded(label, scrollProxy: scrollProxy)
+        if selectedChapter != label {
+            selectedChapter = label // triggers onChange -> performChapterNavigation
+        } else {
+            dismissSelection()
+            performChapterNavigation(to: label, scrollProxy: scrollProxy)
+        }
     }
 
     private func currentVisibleCanonicalRange() -> NSRange {
         if let selectionRange = activeSelection?.canonicalUTF16Range {
             return selectionRange
         }
-        if let backendDocumentID,
-           let presentation = backendStore?.presentation(for: backendDocumentID) ?? backendPresentation {
+        if let visibleCanonicalRange {
+            return visibleCanonicalRange
+        }
+        if let presentation = activePresentation {
             if let visibleBlockID,
                let range = presentation.blockRangesByID[visibleBlockID] {
                 return range
@@ -1333,10 +1539,8 @@ struct SandpaperReaderView: View {
             let totalLength = max((activePresentation.canonicalText as NSString).length, 1)
             let progression = min(max(Double(canonicalRange.location) / Double(totalLength), liveProgress), 1)
             liveProgress = progression
-            liveCurrentPage = min(
-                max(Int((progression * Double(max(chapter.totalPages, 1))).rounded(.up)), 1),
-                max(chapter.totalPages, 1)
-            )
+            liveCurrentPage = pageNumber(for: progression, totalPages: activePresentation.chapter.totalPages)
+            visibleCanonicalRange = canonicalRange
             Task {
                 _ = await backendStore.selectText(
                     documentID: backendDocumentID,
@@ -1843,10 +2047,21 @@ private struct DictionaryPopoverCard: View {
          @Binding var bodyFontSize: CGFloat
          @Binding var isShowingTypographyPopover: Bool
          let showsCustomTrafficLights: Bool
+         var isWindowFullScreen: Bool = false
+         var onSelectChapter: ((String) -> Void)? = nil
          let onBackToLibrary: (@MainActor () -> Void)?
 
          @State private var isHoveringLibrary = false
          @State private var isHoveringChapter = false
+         @State private var isShowingSectionsPopover = false
+
+         private func choose(_ item: String) {
+             if let onSelectChapter {
+                 onSelectChapter(item)
+             } else {
+                 selectedChapter = item
+             }
+         }
 
          var body: some View {
              VStack(spacing: 0) {
@@ -1865,9 +2080,10 @@ private struct DictionaryPopoverCard: View {
                                      .frame(width: 12, height: 12)
                              }
                              .padding(.trailing, 27)
-                         } else {
+                         } else if !isWindowFullScreen {
+                             // Reserve room for the native close/minimize/zoom buttons.
                              Spacer()
-                                 .frame(width: 79)
+                                 .frame(width: 72)
                          }
 
                          Button(action: { onBackToLibrary?() }) {
@@ -1899,21 +2115,27 @@ private struct DictionaryPopoverCard: View {
                                  .font(.system(size: 14.5, weight: .bold, design: .serif))
                                  .foregroundStyle(SandpaperTheme.strongInk)
                                  .lineLimit(1)
+                                 .truncationMode(.tail)
 
-                             Circle()
-                                 .fill(SandpaperTheme.subtleStroke)
-                                 .frame(width: 2.5, height: 2.5)
+                             if !author.isEmpty {
+                                 Circle()
+                                     .fill(SandpaperTheme.subtleStroke)
+                                     .frame(width: 2.5, height: 2.5)
 
-                             Text(author)
-                                 .font(.system(size: 13, weight: .regular))
-                                 .foregroundStyle(SandpaperTheme.secondaryInk)
-                                 .lineLimit(1)
+                                 Text(author)
+                                     .font(.system(size: 13, weight: .regular))
+                                     .foregroundStyle(SandpaperTheme.secondaryInk)
+                                     .lineLimit(1)
+                                     .truncationMode(.tail)
+                             }
                          }
+                         .layoutPriority(1)
 
+                         if !availableChapters.isEmpty {
                          Menu {
                              ForEach(availableChapters, id: \.self) { item in
                                  Button {
-                                     selectedChapter = item
+                                     choose(item)
                                  } label: {
                                      if item == selectedChapter {
                                          Label(item, systemImage: "checkmark")
@@ -1924,29 +2146,33 @@ private struct DictionaryPopoverCard: View {
                              }
                          } label: {
                              HStack(spacing: 7) {
-                                 Text(selectedChapter)
+                                 Text(selectedChapter.isEmpty ? "Contents" : selectedChapter)
                                      .font(.system(size: 12.5, weight: .regular))
                                      .foregroundStyle(SandpaperTheme.mutedInk)
                                      .lineLimit(1)
+                                     .truncationMode(.tail)
 
                                  Image(systemName: "chevron.up.chevron.down")
                                      .font(.system(size: 9.5, weight: .semibold))
                                      .foregroundStyle(SandpaperTheme.secondaryInk)
                              }
-                             .padding(.horizontal, 8)
-                             .padding(.vertical, 4)
-                             .background(
-                                 RoundedRectangle(cornerRadius: 5, style: .continuous)
-                                     .fill(isHoveringChapter ? SandpaperTheme.subtleStroke.opacity(0.22) : .clear)
-                             )
                          }
                          .menuStyle(.borderlessButton)
                          .menuIndicator(.hidden)
-                         .fixedSize()
-                         .padding(.leading, 10)
+                         .frame(maxWidth: 240, alignment: .leading)
+                         .fixedSize(horizontal: false, vertical: true)
+                         .padding(.horizontal, 8)
+                         .padding(.vertical, 4)
+                         .background(
+                             RoundedRectangle(cornerRadius: 5, style: .continuous)
+                                 .fill(isHoveringChapter ? SandpaperTheme.subtleStroke.opacity(0.22) : .clear)
+                         )
+                         .contentShape(Rectangle())
+                         .padding(.leading, 6)
                          .onHover { isHoveringChapter = $0 }
+                         }
 
-                         Spacer(minLength: 24)
+                         Spacer(minLength: 12)
 
                          HStack(spacing: 7) {
                              Image(systemName: "clock")
@@ -1964,15 +2190,33 @@ private struct DictionaryPopoverCard: View {
                              RoundedRectangle(cornerRadius: 6, style: .continuous)
                                  .fill(SandpaperTheme.pillBackground)
                          )
+                         .fixedSize()
 
-                         Spacer(minLength: 24)
+                         Spacer(minLength: 12)
 
                          HStack(spacing: 18) {
                              ToolbarIconButton(helpText: "Sections") {
                                  StackedSectionsIcon()
                                      .frame(width: 12, height: 12)
-                                     .foregroundStyle(SandpaperTheme.secondaryInk)
-                             } action: {}
+                                     .foregroundStyle(
+                                         availableChapters.isEmpty
+                                             ? SandpaperTheme.subtleStroke
+                                             : SandpaperTheme.secondaryInk
+                                     )
+                             } action: {
+                                 isShowingSectionsPopover.toggle()
+                             }
+                             .disabled(availableChapters.isEmpty)
+                             .popover(isPresented: $isShowingSectionsPopover, arrowEdge: .bottom) {
+                                 ReaderSectionsPopover(
+                                     sections: availableChapters,
+                                     selected: selectedChapter,
+                                     onChoose: { item in
+                                         isShowingSectionsPopover = false
+                                         choose(item)
+                                     }
+                                 )
+                             }
 
                              ToolbarIconButton(helpText: "Bookmark Page") {
                                  Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
@@ -2084,10 +2328,10 @@ private struct DictionaryPopoverCard: View {
                      Button {
                          fontSize = max(17.5, fontSize - 1.0)
                      } label: {
-                         Text("A−")
-                             .font(.system(size: 13, weight: .medium, design: .serif))
-                             .frame(width: 44, height: 28)
+                         TypographyStepLabel(text: "A−", size: 13)
                      }
+                     .buttonStyle(.plain)
+                     .disabled(fontSize <= 17.5)
 
                      Text("\(Int(round(fontSize))) pt")
                          .font(.system(size: 12, weight: .medium))
@@ -2098,20 +2342,120 @@ private struct DictionaryPopoverCard: View {
                      Button {
                          fontSize = min(25.5, fontSize + 1.0)
                      } label: {
-                         Text("A+")
-                             .font(.system(size: 15, weight: .medium, design: .serif))
-                             .frame(width: 44, height: 28)
+                         TypographyStepLabel(text: "A+", size: 15)
                      }
+                     .buttonStyle(.plain)
+                     .disabled(fontSize >= 25.5)
 
                      if abs(fontSize - 20.5) > 0.1 {
-                         Button("Reset") {
+                         Button {
                              fontSize = 20.5
+                         } label: {
+                             Text("Reset")
+                                 .font(.system(size: 11.5, weight: .medium))
+                                 .foregroundStyle(SandpaperTheme.terracottaAccent)
+                                 .padding(.horizontal, 8)
+                                 .frame(height: 28)
+                                 .contentShape(Rectangle())
                          }
-                         .font(.system(size: 11.5))
+                         .buttonStyle(.plain)
                      }
                  }
              }
              .padding(14)
+         }
+     }
+
+     private struct TypographyStepLabel: View {
+         let text: String
+         let size: CGFloat
+         @Environment(\.isEnabled) private var isEnabled
+         @State private var isHovered = false
+
+         var body: some View {
+             Text(text)
+                 .font(.system(size: size, weight: .medium, design: .serif))
+                 .foregroundStyle(isEnabled ? SandpaperTheme.strongInk : SandpaperTheme.subtleStroke)
+                 .frame(width: 44, height: 28)
+                 .background(
+                     RoundedRectangle(cornerRadius: 6, style: .continuous)
+                         .fill(isHovered && isEnabled ? SandpaperTheme.pillBackground : SandpaperTheme.cardBackground)
+                 )
+                 .overlay(
+                     RoundedRectangle(cornerRadius: 6, style: .continuous)
+                         .strokeBorder(SandpaperTheme.bookmarkButtonBorder, lineWidth: 1)
+                 )
+                 .contentShape(Rectangle())
+                 .onHover { isHovered = $0 }
+         }
+     }
+
+     private struct ReaderSectionsPopover: View {
+         let sections: [String]
+         let selected: String
+         let onChoose: (String) -> Void
+
+         var body: some View {
+             VStack(alignment: .leading, spacing: 0) {
+                 Text("Contents")
+                     .font(.system(size: 12, weight: .semibold))
+                     .foregroundStyle(SandpaperTheme.secondaryInk)
+                     .padding(.horizontal, 14)
+                     .padding(.top, 12)
+                     .padding(.bottom, 8)
+
+                 ScrollView(.vertical) {
+                     LazyVStack(alignment: .leading, spacing: 2) {
+                         ForEach(Array(sections.enumerated()), id: \.offset) { _, item in
+                             ReaderSectionRow(
+                                 title: item,
+                                 isSelected: item == selected,
+                                 action: { onChoose(item) }
+                             )
+                         }
+                     }
+                     .padding(.horizontal, 6)
+                     .padding(.bottom, 8)
+                 }
+                 .frame(maxHeight: 420)
+             }
+             .frame(width: 300)
+             .background(SandpaperTheme.canvasBackground)
+         }
+     }
+
+     private struct ReaderSectionRow: View {
+         let title: String
+         let isSelected: Bool
+         let action: () -> Void
+         @State private var isHovered = false
+
+         var body: some View {
+             Button(action: action) {
+                 HStack(spacing: 8) {
+                     Text(title)
+                         .font(.system(size: 13, weight: isSelected ? .semibold : .regular, design: .serif))
+                         .foregroundStyle(isSelected ? SandpaperTheme.terracottaAccent : SandpaperTheme.strongInk)
+                         .lineLimit(2)
+                         .multilineTextAlignment(.leading)
+                     Spacer(minLength: 0)
+                     if isSelected {
+                         Image(systemName: "checkmark")
+                             .font(.system(size: 10, weight: .semibold))
+                             .foregroundStyle(SandpaperTheme.terracottaAccent)
+                     }
+                 }
+                 .padding(.horizontal, 8)
+                 .padding(.vertical, 6)
+                 .frame(maxWidth: .infinity, alignment: .leading)
+                 .background(
+                     RoundedRectangle(cornerRadius: 5, style: .continuous)
+                         .fill(isHovered ? SandpaperTheme.subtleStroke.opacity(0.22) : .clear)
+                 )
+                 .contentShape(Rectangle())
+             }
+             .buttonStyle(.plain)
+             .onHover { isHovered = $0 }
          }
      }
 
@@ -2128,25 +2472,41 @@ private struct DictionaryPopoverCard: View {
          let onDismiss: () -> Void
 
          private var fullHeaderContext: String {
-             "\(partLabel) — \(chapterLabel). \(locationTitle): \(subtitle)"
+             [partLabel, chapterLabel, locationTitle, subtitle]
+                 .filter { !$0.isEmpty }
+                 .joined(separator: " — ")
          }
 
          var body: some View {
-             let kickerText = "\(partLabel)   \(chapterLabel)"
+             let kickerText = (partLabel.isEmpty || chapterLabel.isEmpty)
+                 ? (partLabel.isEmpty ? chapterLabel : partLabel)
+                 : "\(partLabel)   \(chapterLabel)"
+
+             let hasKicker = !partLabel.isEmpty || !chapterLabel.isEmpty
+             let hasTitle = !locationTitle.isEmpty
+             let hasSubtitle = !subtitle.isEmpty
 
              VStack(spacing: 0) {
                  // Part & Chapter Kicker (Selectable)
+                 if hasKicker {
                  HStack(spacing: 9) {
-                     Text(styledPartLabel(kickerText: kickerText))
-                         .font(.system(size: 11, weight: .semibold))
-                         .tracking(1.9)
+                     if !partLabel.isEmpty {
+                         Text(styledPartLabel(kickerText: kickerText))
+                             .font(.system(size: 11, weight: .semibold))
+                             .tracking(1.9)
+                     }
 
-                     FourPointDiamondShape()
-                         .fill(SandpaperTheme.subtleStroke)
-                         .frame(width: 8, height: 8)
+                     if !partLabel.isEmpty && !chapterLabel.isEmpty {
+                         FourPointDiamondShape()
+                             .fill(SandpaperTheme.subtleStroke)
+                             .frame(width: 8, height: 8)
+                     }
 
-                     Text(styledChapterLabel(kickerText: kickerText))
-                         .font(.system(size: 12, weight: .semibold))
+                     if !chapterLabel.isEmpty {
+                         Text(styledChapterLabel(kickerText: kickerText))
+                             .font(.system(size: 12, weight: .semibold))
+                             .multilineTextAlignment(.center)
+                     }
                  }
                  .modifier(
                      SelectableTextBlockModifier(
@@ -2166,8 +2526,10 @@ private struct DictionaryPopoverCard: View {
                          onDismiss: onDismiss
                      )
                  )
+                 }
 
                  // Chapter Main Title (Selectable)
+                 if hasTitle {
                  Text(
                      styledText(
                          locationTitle,
@@ -2196,9 +2558,11 @@ private struct DictionaryPopoverCard: View {
                          onDismiss: onDismiss
                      )
                  )
-                 .padding(.top, 26)
+                 .padding(.top, hasKicker ? 26 : 0)
+                 }
 
                  // Chapter Subtitle (Selectable)
+                 if hasSubtitle {
                  Text(
                      styledText(
                          subtitle,
@@ -2228,13 +2592,14 @@ private struct DictionaryPopoverCard: View {
                          onDismiss: onDismiss
                      )
                  )
-                 .padding(.top, 34)
+                 .padding(.top, (hasKicker || hasTitle) ? 34 : 0)
+                 }
 
                  // Short Decorative Rule
                  Rectangle()
                      .fill(SandpaperTheme.headerRule)
                      .frame(width: 48, height: 1.5)
-                     .padding(.top, 34)
+                     .padding(.top, (hasTitle || hasSubtitle) ? 34 : 18)
              }
          }
 
@@ -2275,7 +2640,7 @@ private struct DictionaryPopoverCard: View {
              attributed.foregroundColor = SandpaperTheme.secondaryInk
 
              if let selRange = activeSelection?.range(for: "header-kicker") {
-                 let offset = (partLabel as NSString).length + 3
+                 let offset = partLabel.isEmpty ? 0 : (partLabel as NSString).length + 3
                  let chapLen = (chapterLabel as NSString).length
                  let overlapStart = max(offset, selRange.location) - offset
                  let overlapEnd = min(offset + chapLen, selRange.location + selRange.length) - offset
@@ -3081,6 +3446,237 @@ private struct DictionaryPopoverCard: View {
              }
 
              return result
+         }
+     }
+
+     // MARK: - Canonical Backend Block (TXT / Markdown / EPUB)
+
+     /// Renders one semantic block from the backend. The selectable text is always exactly
+     /// `item.text` (the canonical resource substring), so in-block UTF-16 offsets map 1:1 onto
+     /// `item.resourceRange`. List bullets and images are drawn outside the selectable text.
+     private struct CanonicalBlockView: View {
+         let item: CanonicalBlockItem
+         let fontSize: CGFloat
+         let activeSelection: ReaderTextSelection?
+         let coordinator: ReaderSelectionCoordinator
+         let onSelect: (ReaderTextSelection, Bool) -> Void
+         let onDismiss: () -> Void
+
+         private struct Style {
+             let size: CGFloat
+             let weight: NSFont.Weight
+             let swiftWeight: Font.Weight
+             let design: NSFontDescriptor.SystemDesign
+             let swiftDesign: Font.Design
+             let italic: Bool
+             let lineSpacing: CGFloat
+             let color: Color
+         }
+
+         private var style: Style {
+             switch item.kind {
+             case .heading(let level):
+                 let scale: CGFloat = level <= 1 ? 1.45 : (level == 2 ? 1.24 : 1.1)
+                 let size = round(fontSize * scale)
+                 return Style(
+                     size: size,
+                     weight: level <= 2 ? .semibold : .medium,
+                     swiftWeight: level <= 2 ? .semibold : .medium,
+                     design: .serif,
+                     swiftDesign: .serif,
+                     italic: false,
+                     lineSpacing: round(size * 0.22),
+                     color: SandpaperTheme.primaryInk
+                 )
+             case .quotation:
+                 let size = round(fontSize * 0.92)
+                 return Style(size: size, weight: .regular, swiftWeight: .regular, design: .serif,
+                              swiftDesign: .serif, italic: true, lineSpacing: round(size * 0.5),
+                              color: SandpaperTheme.strongInk)
+             case .code:
+                 let size = round(fontSize * 0.72)
+                 return Style(size: size, weight: .regular, swiftWeight: .regular, design: .monospaced,
+                              swiftDesign: .monospaced, italic: false, lineSpacing: round(size * 0.35),
+                              color: SandpaperTheme.strongInk)
+             case .listItem, .paragraph:
+                 return Style(size: fontSize, weight: .regular, swiftWeight: .regular, design: .serif,
+                              swiftDesign: .serif, italic: false, lineSpacing: round(fontSize * 0.585),
+                              color: SandpaperTheme.primaryInk)
+             }
+         }
+
+         private var hasVisibleText: Bool {
+             item.text.unicodeScalars.contains { scalar in
+                 scalar != "\u{FFFC}" && !CharacterSet.whitespacesAndNewlines.contains(scalar)
+             }
+         }
+
+         var body: some View {
+             VStack(alignment: .leading, spacing: 14) {
+                 if hasVisibleText {
+                     blockBody
+                 }
+                 ForEach(item.attachedImages) { image in
+                     CanonicalImageView(attachment: image)
+                 }
+             }
+             .padding(.top, topPadding)
+         }
+
+         private var topPadding: CGFloat {
+             if case .heading(let level) = item.kind {
+                 return level <= 2 ? 18 : 8
+             }
+             return 0
+         }
+
+         @ViewBuilder
+         private var blockBody: some View {
+             switch item.kind {
+             case .listItem:
+                 HStack(alignment: .firstTextBaseline, spacing: 10) {
+                     Text(item.listBullet ?? "•")
+                         .font(.system(size: style.size, weight: .regular, design: .serif))
+                         .foregroundStyle(SandpaperTheme.mutedInk)
+                         .frame(minWidth: 18, alignment: .trailing)
+                         .accessibilityHidden(true)
+                     selectableText
+                 }
+                 .padding(.leading, 6)
+
+             case .quotation:
+                 selectableText
+                     .padding(.leading, 22)
+                     .padding(.vertical, 4)
+                     .overlay(alignment: .leading) {
+                         Rectangle()
+                             .fill(SandpaperTheme.terracottaAccent.opacity(0.75))
+                             .frame(width: 3)
+                     }
+
+             case .code:
+                 selectableText
+                     .padding(.horizontal, 16)
+                     .padding(.vertical, 12)
+                     .background(
+                         RoundedRectangle(cornerRadius: 6, style: .continuous)
+                             .fill(SandpaperTheme.cardBackground)
+                     )
+                     .overlay(
+                         RoundedRectangle(cornerRadius: 6, style: .continuous)
+                             .strokeBorder(SandpaperTheme.cardBorder, lineWidth: 1)
+                     )
+
+             case .heading, .paragraph:
+                 selectableText
+             }
+         }
+
+         private var selectableText: some View {
+             let current = style
+             return Text(attributedContent)
+                 .font(.system(size: current.size, weight: current.swiftWeight, design: current.swiftDesign))
+                 .italic(current.italic)
+                 .lineSpacing(current.lineSpacing)
+                 .fixedSize(horizontal: false, vertical: true)
+                 .frame(maxWidth: .infinity, alignment: .leading)
+                 .accessibilityAddTraits(item.isHeading ? .isHeader : [])
+                 .modifier(
+                     SelectableTextBlockModifier(
+                         blockID: item.blockID,
+                         text: item.text,
+                         contextText: item.text,
+                         fontSize: current.size,
+                         lineSpacing: current.lineSpacing,
+                         fontDesign: current.design,
+                         fontWeight: current.weight,
+                         isItalic: current.italic,
+                         textAlignment: .left,
+                         interactiveRanges: [],
+                         activeSelection: activeSelection,
+                         coordinator: coordinator,
+                         onSelect: onSelect,
+                         onDismiss: onDismiss
+                     )
+                 )
+         }
+
+         private var attributedContent: AttributedString {
+             let text = item.text
+             var result = AttributedString(text)
+             result.foregroundColor = style.color
+
+             func apply(_ nsRange: NSRange, _ transform: (inout AttributeContainer) -> Void) {
+                 guard let range = Range(nsRange, in: text),
+                       let lower = AttributedString.Index(range.lowerBound, within: result),
+                       let upper = AttributedString.Index(range.upperBound, within: result) else { return }
+                 var container = AttributeContainer()
+                 transform(&container)
+                 result[lower..<upper].mergeAttributes(container)
+             }
+
+             for run in item.inlineRuns {
+                 let base = style
+                 var intents: InlinePresentationIntent = []
+                 if run.isBold { intents.insert(.stronglyEmphasized) }
+                 if run.isItalic { intents.insert(.emphasized) }
+                 apply(run.range) { container in
+                     if run.isCode {
+                         container.font = .system(size: base.size * 0.88, weight: .regular, design: .monospaced)
+                         container.backgroundColor = SandpaperTheme.cardBackground
+                     } else if !intents.isEmpty {
+                         container.inlinePresentationIntent = intents
+                     }
+                 }
+             }
+
+             // Object-replacement characters mark image positions; keep them (offsets) but hide them.
+             let ns = text as NSString
+             var searchStart = 0
+             while searchStart < ns.length {
+                 let found = ns.range(of: "\u{FFFC}", options: [], range: NSRange(location: searchStart, length: ns.length - searchStart))
+                 guard found.location != NSNotFound else { break }
+                 apply(found) { $0.foregroundColor = .clear }
+                 searchStart = found.location + found.length
+             }
+
+             if let selRange = activeSelection?.range(for: item.blockID) {
+                 apply(selRange) { $0.foregroundColor = SandpaperTheme.highlightInk }
+             }
+             return result
+         }
+     }
+
+     private struct CanonicalImageView: View {
+         let attachment: CanonicalImageAttachment
+
+         var body: some View {
+             if let data = attachment.imageData, let nsImage = NSImage(data: data) {
+                 VStack(spacing: 8) {
+                     Image(nsImage: nsImage)
+                         .resizable()
+                         .interpolation(.high)
+                         .aspectRatio(contentMode: .fit)
+                         .frame(maxWidth: min(nsImage.size.width, SandpaperTheme.readingColumnWidth))
+                         .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+                         .accessibilityLabel(attachment.alternativeText.isEmpty ? "Image" : attachment.alternativeText)
+
+                     if !attachment.alternativeText.isEmpty {
+                         Text(attachment.alternativeText)
+                             .font(.system(size: 12, weight: .regular, design: .serif))
+                             .italic()
+                             .foregroundStyle(SandpaperTheme.mutedInk)
+                             .multilineTextAlignment(.center)
+                     }
+                 }
+                 .frame(maxWidth: .infinity)
+                 .padding(.vertical, 6)
+             } else if !attachment.alternativeText.isEmpty {
+                 Label(attachment.alternativeText, systemImage: "photo")
+                     .font(.system(size: 12.5, weight: .regular, design: .serif))
+                     .foregroundStyle(SandpaperTheme.mutedInk)
+                     .frame(maxWidth: .infinity)
+             }
          }
      }
 
@@ -4036,30 +4632,85 @@ private struct DictionaryPopoverCard: View {
 
      // MARK: - Native AppKit Window Configuration
 
+     /// Configures the hosting NSWindow for Sandpaper's full-size-content chrome while keeping the
+     /// *native* close / minimize / zoom buttons. Reports whether native buttons are present and
+     /// whether the window is in fullscreen (where macOS hides the buttons in the titlebar), so every
+     /// screen can reserve exactly the right amount of leading toolbar space.
      struct ReaderWindowConfigurator: NSViewRepresentable {
          @Binding var hostsNativeTrafficLights: Bool
+         var isWindowFullScreen: Binding<Bool> = .constant(false)
 
-         func makeNSView(context: Context) -> NSView {
-             let view = NSView()
-             DispatchQueue.main.async {
-                 configureWindow(for: view)
+         init(hostsNativeTrafficLights: Binding<Bool>, isWindowFullScreen: Binding<Bool> = .constant(false)) {
+             self._hostsNativeTrafficLights = hostsNativeTrafficLights
+             self.isWindowFullScreen = isWindowFullScreen
+         }
+
+         final class HostView: NSView {
+             var onWindowChange: ((NSWindow?) -> Void)?
+             nonisolated(unsafe) private var observers: [NSObjectProtocol] = []
+
+             override func viewDidMoveToWindow() {
+                 super.viewDidMoveToWindow()
+                 observers.forEach { NotificationCenter.default.removeObserver($0) }
+                 observers.removeAll()
+                 guard let window else {
+                     onWindowChange?(nil)
+                     return
+                 }
+                 let center = NotificationCenter.default
+                 for name in [
+                     NSWindow.didEnterFullScreenNotification,
+                     NSWindow.didExitFullScreenNotification,
+                     NSWindow.willEnterFullScreenNotification,
+                     NSWindow.willExitFullScreenNotification,
+                     NSWindow.didResizeNotification
+                 ] {
+                     observers.append(center.addObserver(forName: name, object: window, queue: .main) { [weak self] _ in
+                         MainActor.assumeIsolated {
+                             self?.onWindowChange?(self?.window)
+                         }
+                     })
+                 }
+                 onWindowChange?(window)
              }
+
+             deinit {
+                 observers.forEach { NotificationCenter.default.removeObserver($0) }
+             }
+         }
+
+         func makeNSView(context: Context) -> HostView {
+             let view = HostView()
+             view.onWindowChange = { _ in configureWindow(for: view) }
              return view
          }
 
-         func updateNSView(_ nsView: NSView, context: Context) {
-             DispatchQueue.main.async {
-                 configureWindow(for: nsView)
+         func updateNSView(_ nsView: HostView, context: Context) {
+             nsView.onWindowChange = { _ in configureWindow(for: nsView) }
+             if nsView.window != nil {
+                 DispatchQueue.main.async {
+                     configureWindow(for: nsView)
+                 }
              }
          }
 
          @MainActor
          private func configureWindow(for view: NSView) {
              guard let window = view.window else { return }
+             let fullScreen = window.styleMask.contains(.fullScreen)
+             if isWindowFullScreen.wrappedValue != fullScreen {
+                 isWindowFullScreen.wrappedValue = fullScreen
+             }
 
-             window.titleVisibility = .hidden
-             window.titlebarAppearsTransparent = true
-             window.styleMask.insert(.fullSizeContentView)
+             if window.titleVisibility != .hidden { window.titleVisibility = .hidden }
+             if !window.titlebarAppearsTransparent { window.titlebarAppearsTransparent = true }
+             if !window.styleMask.contains(.fullSizeContentView) { window.styleMask.insert(.fullSizeContentView) }
+             window.isMovableByWindowBackground = false
+             for kind in [NSWindow.ButtonType.closeButton, .miniaturizeButton, .zoomButton] {
+                 if let button = window.standardWindowButton(kind), button.isHidden {
+                     button.isHidden = false
+                 }
+             }
              window.backgroundColor = NSColor(
                  srgbRed: 252.0 / 255.0,
                  green: 249.0 / 255.0,
@@ -4085,7 +4736,7 @@ private struct DictionaryPopoverCard: View {
          var body: some Scene {
              WindowGroup {
                  SandpaperRootView()
-                     .frame(minWidth: 980, idealWidth: 1440, minHeight: 720, idealHeight: 1180)
+                     .frame(minWidth: 760, idealWidth: 1440, minHeight: 560, idealHeight: 1180)
                      .onAppear {
                          NSApplication.shared.activate(ignoringOtherApps: true)
                      }

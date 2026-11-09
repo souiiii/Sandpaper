@@ -402,7 +402,8 @@ struct SandpaperPersonalLexiconView: View {
     @State private var viewMode: LexiconViewMode = .splitView
     @State private var sortOrder: LexiconSortOrder = .recentlyEncountered
     @State private var selectedEntryID: String?
-    @State private var hostsNativeTrafficLights: Bool = false
+    @State private var hostsNativeTrafficLights: Bool = true
+    @State private var isWindowFullScreen: Bool = false
 
     // Editing & Action Feedback State
     @State private var isEditingNote: Bool = false
@@ -462,7 +463,8 @@ struct SandpaperPersonalLexiconView: View {
         VStack(spacing: 0) {
             // 1. Top Application Navigation Bar
             LexiconTopToolbar(
-                showsCustomTrafficLights: !hostsNativeTrafficLights,
+                showsCustomTrafficLights: !hostsNativeTrafficLights && !isWindowFullScreen,
+                leadingTrafficLightInset: isWindowFullScreen ? 0 : (hostsNativeTrafficLights ? 72 : 0),
                 onNavigateToLibrary: { onNavigateToLibrary?() },
                 onNavigateToReader: { onNavigateToReader?(nil) },
                 onImportBook: { onImportBook?() }
@@ -566,7 +568,10 @@ struct SandpaperPersonalLexiconView: View {
         }
         .background(SandpaperTheme.canvasBackground)
         .background(
-            ReaderWindowConfigurator(hostsNativeTrafficLights: $hostsNativeTrafficLights)
+            ReaderWindowConfigurator(
+                hostsNativeTrafficLights: $hostsNativeTrafficLights,
+                isWindowFullScreen: $isWindowFullScreen
+            )
         )
         .ignoresSafeArea(.container, edges: .top)
         .onAppear {
@@ -639,6 +644,7 @@ struct SandpaperPersonalLexiconView: View {
 
 private struct LexiconTopToolbar: View {
     let showsCustomTrafficLights: Bool
+    var leadingTrafficLightInset: CGFloat = 72
     let onNavigateToLibrary: () -> Void
     let onNavigateToReader: () -> Void
     let onImportBook: () -> Void
@@ -666,16 +672,18 @@ private struct LexiconTopToolbar: View {
                             .frame(width: 12, height: 12)
                     }
                     .padding(.trailing, 18)
-                } else {
+                } else if leadingTrafficLightInset > 0 {
                     Spacer()
-                        .frame(width: 72)
+                        .frame(width: leadingTrafficLightInset)
                 }
 
                 // Vertical Divider
-                Rectangle()
-                    .fill(SandpaperTheme.toolbarDivider)
-                    .frame(width: 1, height: 18)
-                    .padding(.trailing, 14)
+                if showsCustomTrafficLights || leadingTrafficLightInset > 0 {
+                    Rectangle()
+                        .fill(SandpaperTheme.toolbarDivider)
+                        .frame(width: 1, height: 18)
+                        .padding(.trailing, 14)
+                }
 
                 // Brand Identity
                 Button(action: onNavigateToLibrary) {
@@ -881,7 +889,8 @@ private struct LexiconHeaderSectionView: View {
                             }
                         }
                         .padding(.horizontal, 12)
-                        .frame(width: 265, height: 32)
+                        .frame(minWidth: 160, idealWidth: 245, maxWidth: 265)
+                        .frame(height: 32)
                         .background(
                             RoundedRectangle(cornerRadius: 6, style: .continuous)
                                 .fill(Color(hex: 0xF5EFE7))
@@ -890,7 +899,6 @@ private struct LexiconHeaderSectionView: View {
                             RoundedRectangle(cornerRadius: 6, style: .continuous)
                                 .strokeBorder(Color(hex: 0xE5DDD2), lineWidth: 1)
                         )
-                        .padding(.trailing, 32)
 
                         // Split View | Catalog Switcher
                         HStack(spacing: 2) {
@@ -966,38 +974,41 @@ private struct LexiconHeaderSectionView: View {
                                 Text(sortOrder.rawValue)
                                     .font(.system(size: 12, weight: .medium))
                                     .foregroundStyle(SandpaperTheme.strongInk)
+                                    .lineLimit(1)
 
                                 Image(systemName: "chevron.down")
                                     .font(.system(size: 9, weight: .semibold))
                                     .foregroundStyle(SandpaperTheme.secondaryInk)
                             }
-                            .padding(.horizontal, 12)
-                            .frame(height: 32)
-                            .background(
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(isHoveringSort ? SandpaperTheme.pillBackground : Color(hex: 0xFAF6F0))
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .strokeBorder(Color(hex: 0xE4DBD0), lineWidth: 1)
-                            )
                         }
                         .menuStyle(.borderlessButton)
                         .menuIndicator(.hidden)
                         .fixedSize()
+                        .padding(.horizontal, 12)
+                        .frame(height: 32)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                .fill(isHoveringSort ? SandpaperTheme.pillBackground : Color(hex: 0xFAF6F0))
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                .strokeBorder(Color(hex: 0xE4DBD0), lineWidth: 1)
+                        )
                         .onHover { isHoveringSort = $0 }
                     }
                 }
 
                 // Lower Row: Filter Category Pills
-                HStack(spacing: 8) {
-                    ForEach(LexiconCategoryFilter.allCases) { category in
-                        LexiconFilterPill(
-                            category: category,
-                            badgeCount: category == .allExpressions ? totalSavedCount : nil,
-                            isSelected: selectedCategory == category
-                        ) {
-                            selectedCategory = category
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(LexiconCategoryFilter.allCases) { category in
+                            LexiconFilterPill(
+                                category: category,
+                                badgeCount: category == .allExpressions ? totalSavedCount : nil,
+                                isSelected: selectedCategory == category
+                            ) {
+                                selectedCategory = category
+                            }
                         }
                     }
                 }

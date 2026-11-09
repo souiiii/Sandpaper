@@ -55,7 +55,7 @@ enum BookCoverArtStyle: Sendable, Equatable {
     case oldPatagonianExpress
     case notesOfANativeSon
     case onPhotography
-    case importedDocument(title: String, formatLabel: String, isMarkdown: Bool)
+    case importedDocument(title: String, formatLabel: String, isMarkdown: Bool, coverImageData: Data? = nil)
 }
 
 struct LibraryBook: Identifiable, Sendable, Equatable {
@@ -532,7 +532,7 @@ struct SandpaperRootView: View {
             case .vocabulary(let initialEntryID):
                 SandpaperPersonalLexiconView(
                     store: vocabularyStore,
-                    availableBooks: backendStore.importedBooks + MockLibraryData.allUniqueBooks,
+                    availableBooks: backendStore.importedBooks + (backendStore.includeMockDemoBooks ? MockLibraryData.allUniqueBooks : []),
                     initialSelectedEntryID: initialEntryID,
                     onNavigateToLibrary: {
                         withAnimation(.easeInOut(duration: 0.18)) {
@@ -540,11 +540,18 @@ struct SandpaperRootView: View {
                         }
                     },
                     onNavigateToReader: { targetBook in
-                        let destinationBook = targetBook ?? (backendStore.importedBooks.first ?? lastOpenedBook)
-                        let resolved = backendStore.book(for: destinationBook.id) ?? destinationBook
-                        lastOpenedBook = resolved
-                        withAnimation(.easeInOut(duration: 0.18)) {
-                            activeScreen = .reader(resolved)
+                        let fallbackBook = backendStore.importedBooks.first
+                            ?? (backendStore.includeMockDemoBooks ? lastOpenedBook : nil)
+                        if let destinationBook = targetBook ?? fallbackBook {
+                            let resolved = backendStore.book(for: destinationBook.id) ?? destinationBook
+                            lastOpenedBook = resolved
+                            withAnimation(.easeInOut(duration: 0.18)) {
+                                activeScreen = .reader(resolved)
+                            }
+                        } else {
+                            withAnimation(.easeInOut(duration: 0.18)) {
+                                activeScreen = .library
+                            }
                         }
                     },
                     onImportBook: {
@@ -556,6 +563,7 @@ struct SandpaperRootView: View {
                 .transition(.opacity)
             }
         }
+        .preferredColorScheme(.light)
         .task {
             if !backendStore.isLoaded {
                 await backendStore.reloadFromBackend()
@@ -579,7 +587,8 @@ struct SandpaperLibraryView: View {
     @State private var selectedViewMode: LibraryViewMode = .covers
     @State private var gridSubMode: LibraryGridSubMode = .grid
     @State private var sortOrder: LibrarySortOrder = .recentlyRead
-    @State private var hostsNativeTrafficLights: Bool = false
+    @State private var hostsNativeTrafficLights: Bool = true
+    @State private var isWindowFullScreen: Bool = false
 
     // Import Sheet & File Importer States
     @State private var isShowingFileImporter: Bool = false
@@ -587,20 +596,36 @@ struct SandpaperLibraryView: View {
     @State private var webArticleURLString: String = ""
     @State private var importFeedbackBanner: String? = nil
 
+    private var showsMockBooks: Bool {
+        backendStore?.includeMockDemoBooks ?? true
+    }
+
     private var importedBooks: [LibraryBook] {
         backendStore?.importedBooks ?? []
     }
 
     private var allDeskBooks: [LibraryBook] {
-        importedBooks.filter { $0.isOnReadingDesk } + MockLibraryData.readingDeskBooks
+        importedBooks.filter { $0.isOnReadingDesk } + (showsMockBooks ? MockLibraryData.readingDeskBooks : [])
     }
 
     private var allCatalogBooks: [LibraryBook] {
-        importedBooks + MockLibraryData.catalogBooks
+        importedBooks + (showsMockBooks ? MockLibraryData.catalogBooks : [])
     }
 
     private var allUniqueBooks: [LibraryBook] {
-        importedBooks + MockLibraryData.allUniqueBooks
+        importedBooks + (showsMockBooks ? MockLibraryData.allUniqueBooks : [])
+    }
+
+    private var totalCollectionVolumesCount: Int {
+        (showsMockBooks ? MockLibraryData.totalCollectionCount : 0) + importedBooks.count
+    }
+
+    private var currentlyReadingTotalCount: Int {
+        (showsMockBooks ? MockLibraryData.readingDeskBooks.count : 0) + importedBooks.filter { $0.isCurrentlyReading }.count
+    }
+
+    private var finishedTotalCount: Int {
+        (showsMockBooks ? MockLibraryData.allUniqueBooks.filter { $0.isFinished }.count : 0) + importedBooks.filter { $0.isFinished }.count
     }
 
     private var filteredDeskBooks: [LibraryBook] {
@@ -613,7 +638,7 @@ struct SandpaperLibraryView: View {
         case .allTitles:
             base = allCatalogBooks
         case .currentlyReading:
-            base = importedBooks.filter { $0.isCurrentlyReading } + MockLibraryData.readingDeskBooks
+            base = importedBooks.filter { $0.isCurrentlyReading } + (showsMockBooks ? MockLibraryData.readingDeskBooks : [])
         case .finished:
             base = allUniqueBooks.filter { $0.isFinished }
         case .literature, .essays, .nonfiction:
@@ -636,7 +661,8 @@ struct SandpaperLibraryView: View {
                 searchText: $searchText,
                 selectedViewMode: $selectedViewMode,
                 sortOrder: $sortOrder,
-                showsCustomTrafficLights: !hostsNativeTrafficLights,
+                showsCustomTrafficLights: !hostsNativeTrafficLights && !isWindowFullScreen,
+                leadingTrafficLightInset: isWindowFullScreen ? 0 : (hostsNativeTrafficLights ? 72 : 0),
                 onSelectImportLocalFiles: {
                     isShowingFileImporter = true
                 },
@@ -649,9 +675,9 @@ struct SandpaperLibraryView: View {
             // 2. Secondary Filter & Quick-Links Bar
             LibrarySecondaryFilterBar(
                 selectedCategory: $selectedCategory,
-                allTitlesCount: MockLibraryData.totalCollectionCount + importedBooks.count,
-                currentlyReadingCount: MockLibraryData.readingDeskBooks.count + importedBooks.filter { $0.isCurrentlyReading }.count,
-                finishedCount: MockLibraryData.allUniqueBooks.filter { $0.isFinished }.count + importedBooks.filter { $0.isFinished }.count,
+                allTitlesCount: totalCollectionVolumesCount,
+                currentlyReadingCount: currentlyReadingTotalCount,
+                finishedCount: finishedTotalCount,
                 onOpenVocabulary: {
                     onOpenVocabulary?(nil)
                 }
@@ -660,6 +686,43 @@ struct SandpaperLibraryView: View {
             // 3. Main Scrollable Library Content
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 0) {
+                    // Surface persistent initialization or document load error banner if present
+                    if let errorMsg = backendStore?.initializationError ?? backendStore?.lastErrorMessage,
+                       importFeedbackBanner != errorMsg {
+                        HStack(spacing: 10) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundStyle(SandpaperTheme.highlightInk)
+                            Text(errorMsg)
+                                .font(.system(size: 12.5, weight: .medium))
+                                .foregroundStyle(SandpaperTheme.strongInk)
+                            Spacer()
+                            if backendStore?.initializationError == nil {
+                                Button {
+                                    withAnimation(.easeOut(duration: 0.15)) {
+                                        backendStore?.lastErrorMessage = nil
+                                    }
+                                } label: {
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 10, weight: .semibold))
+                                        .foregroundStyle(SandpaperTheme.mutedInk)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 9)
+                        .background(
+                            RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                .fill(SandpaperTheme.selectionPillFill)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                        .strokeBorder(SandpaperTheme.terracottaAccent.opacity(0.45), lineWidth: 1)
+                                )
+                        )
+                        .padding(.top, 20)
+                    }
+
                     // Optional non-intrusive feedback banner when an import callback is triggered
                     if let banner = importFeedbackBanner {
                         HStack(spacing: 10) {
@@ -696,7 +759,7 @@ struct SandpaperLibraryView: View {
 
                     // Page Header ("Personal Library")
                     LibraryHeroHeaderView(
-                        totalVolumes: MockLibraryData.totalCollectionCount + importedBooks.count,
+                        totalVolumes: totalCollectionVolumesCount,
                         deskCount: allDeskBooks.count
                     )
                     .padding(.top, 30)
@@ -733,7 +796,7 @@ struct SandpaperLibraryView: View {
                             AllBooksCatalogSectionView(
                                 sectionTitle: selectedCategory == .allTitles ? "All books" : selectedCategory.rawValue,
                                 books: filteredCatalogBooks,
-                                displayedVolumeCount: selectedCategory == .allTitles && searchText.isEmpty
+                                displayedVolumeCount: selectedCategory == .allTitles && searchText.isEmpty && showsMockBooks
                                     ? (8 + importedBooks.count)
                                     : filteredCatalogBooks.count,
                                 topViewMode: selectedViewMode,
@@ -763,15 +826,18 @@ struct SandpaperLibraryView: View {
                         .padding(.bottom, 48)
                     }
                 }
-                .padding(.horizontal, 36)
-                .frame(maxWidth: 1460)
-                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 28)
+                .frame(maxWidth: 1460, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .top)
             }
             .background(SandpaperTheme.canvasBackground)
         }
         .background(SandpaperTheme.canvasBackground)
         .background(
-            ReaderWindowConfigurator(hostsNativeTrafficLights: $hostsNativeTrafficLights)
+            ReaderWindowConfigurator(
+                hostsNativeTrafficLights: $hostsNativeTrafficLights,
+                isWindowFullScreen: $isWindowFullScreen
+            )
         )
         .ignoresSafeArea(.container, edges: .top)
         .fileImporter(
@@ -851,10 +917,12 @@ private struct LibraryPrimaryToolbar: View {
     @Binding var selectedViewMode: LibraryViewMode
     @Binding var sortOrder: LibrarySortOrder
     let showsCustomTrafficLights: Bool
+    var leadingTrafficLightInset: CGFloat = 72
     let onSelectImportLocalFiles: () -> Void
     let onSelectImportWebURL: () -> Void
 
     @State private var isHoveringImport = false
+    @State private var isHoveringImportMenu = false
     @State private var isHoveringSort = false
 
     var body: some View {
@@ -874,16 +942,18 @@ private struct LibraryPrimaryToolbar: View {
                             .frame(width: 12, height: 12)
                     }
                     .padding(.trailing, 18)
-                } else {
+                } else if leadingTrafficLightInset > 0 {
                     Spacer()
-                        .frame(width: 72)
+                        .frame(width: leadingTrafficLightInset)
                 }
 
                 // Vertical Divider
-                Rectangle()
-                    .fill(SandpaperTheme.toolbarDivider)
-                    .frame(width: 1, height: 18)
-                    .padding(.trailing, 14)
+                if showsCustomTrafficLights || leadingTrafficLightInset > 0 {
+                    Rectangle()
+                        .fill(SandpaperTheme.toolbarDivider)
+                        .frame(width: 1, height: 18)
+                        .padding(.trailing, 14)
+                }
 
                 // Brand Identity: Open Book Icon + "Sandpaper" + "LIBRARY" Badge
                 HStack(spacing: 8) {
@@ -906,8 +976,9 @@ private struct LibraryPrimaryToolbar: View {
                                 .fill(Color(hex: 0xEFE8DF))
                         )
                 }
+                .fixedSize(horizontal: true, vertical: false)
 
-                Spacer(minLength: 28)
+                Spacer(minLength: 12)
 
                 // Search Bar Field
                 HStack(spacing: 8) {
@@ -932,7 +1003,7 @@ private struct LibraryPrimaryToolbar: View {
                     }
                 }
                 .padding(.horizontal, 12)
-                .frame(minWidth: 260, idealWidth: 380, maxWidth: 420)
+                .frame(minWidth: 120, idealWidth: 320, maxWidth: 420)
                 .frame(height: 32)
                 .background(
                     RoundedRectangle(cornerRadius: 6, style: .continuous)
@@ -943,57 +1014,15 @@ private struct LibraryPrimaryToolbar: View {
                         .strokeBorder(Color(hex: 0xE6DDD3), lineWidth: 1)
                 )
 
-                Spacer(minLength: 24)
+                Spacer(minLength: 12)
 
                 // Right Controls Cluster
-                HStack(spacing: 12) {
-                    // Segmented View Mode Switcher: Covers | Shelf | List
-                    HStack(spacing: 2) {
-                        ForEach(LibraryViewMode.allCases) { mode in
-                            let isSelected = selectedViewMode == mode
-                            Button {
-                                withAnimation(.easeOut(duration: 0.14)) {
-                                    selectedViewMode = mode
-                                }
-                            } label: {
-                                HStack(spacing: 5.5) {
-                                    viewModeIcon(for: mode)
-                                        .font(.system(size: 11, weight: .medium))
-                                        .foregroundStyle(
-                                            isSelected ? SandpaperTheme.primaryInk : SandpaperTheme.secondaryInk
-                                        )
-
-                                    Text(mode.rawValue)
-                                        .font(.system(size: 12, weight: isSelected ? .semibold : .medium))
-                                        .foregroundStyle(
-                                            isSelected ? SandpaperTheme.primaryInk : SandpaperTheme.secondaryInk
-                                        )
-                                }
-                                .padding(.horizontal, 10)
-                                .frame(height: 27)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5, style: .continuous)
-                                        .fill(isSelected ? SandpaperTheme.canvasBackground : .clear)
-                                        .shadow(
-                                            color: isSelected ? Color.black.opacity(0.04) : .clear,
-                                            radius: 1.5,
-                                            x: 0,
-                                            y: 1
-                                        )
-                                )
-                            }
-                            .buttonStyle(.plain)
-                        }
+                HStack(spacing: 10) {
+                    // Segmented View Mode Switcher: Covers | Shelf | List (adapts to compact width)
+                    ViewThatFits(in: .horizontal) {
+                        viewModeSegmentedControl(showsLabels: true)
+                        viewModeSegmentedControl(showsLabels: false)
                     }
-                    .padding(2.5)
-                    .background(
-                        RoundedRectangle(cornerRadius: 7, style: .continuous)
-                            .fill(Color(hex: 0xF2EBE2))
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 7, style: .continuous)
-                            .strokeBorder(Color(hex: 0xE5DBD0), lineWidth: 1)
-                    )
 
                     // Sort Menu ("Recently Read v")
                     Menu {
@@ -1013,67 +1042,90 @@ private struct LibraryPrimaryToolbar: View {
                             Text(sortOrder.rawValue)
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundStyle(SandpaperTheme.strongInk)
+                                .lineLimit(1)
 
                             Image(systemName: "chevron.down")
                                 .font(.system(size: 9.5, weight: .semibold))
                                 .foregroundStyle(SandpaperTheme.secondaryInk)
                         }
-                        .padding(.horizontal, 12)
-                        .frame(height: 32)
-                        .background(
-                            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                .fill(isHoveringSort ? SandpaperTheme.pillBackground : Color(hex: 0xF7F1E9))
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                .strokeBorder(Color(hex: 0xE2D7CC), lineWidth: 1)
-                        )
                     }
                     .menuStyle(.borderlessButton)
                     .menuIndicator(.hidden)
+                    .padding(.horizontal, 12)
+                    .frame(height: 32)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                            .fill(isHoveringSort ? SandpaperTheme.pillBackground : Color(hex: 0xF7F1E9))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                            .strokeBorder(Color(hex: 0xE2D7CC), lineWidth: 1)
+                    )
                     .fixedSize()
                     .onHover { isHoveringSort = $0 }
 
-                    // Primary Terracotta "Import Book" Menu/Button
-                    Menu {
-                        Button {
-                            onSelectImportLocalFiles()
-                        } label: {
-                            Label("Import Local File (EPUB, PDF, TXT, Markdown)…", systemImage: "doc.badge.plus")
-                        }
+                    // Primary Terracotta "Import Book" Split Button (High-contrast native Button + Options Menu)
+                    HStack(spacing: 0) {
+                        Button(action: onSelectImportLocalFiles) {
+                            HStack(spacing: 7) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.system(size: 11.5, weight: .semibold))
+                                    .foregroundStyle(.white)
 
-                        Button {
-                            onSelectImportWebURL()
-                        } label: {
-                            Label("Add Webpage or Article URL…", systemImage: "link.badge.plus")
+                                Text("Import Book")
+                                    .font(.system(size: 12.5, weight: .semibold))
+                                    .foregroundStyle(.white)
+                                    .lineLimit(1)
+                            }
+                            .padding(.leading, 13)
+                            .padding(.trailing, 10)
+                            .frame(height: 32)
+                            .contentShape(Rectangle())
                         }
-                    } label: {
-                        HStack(spacing: 7) {
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.system(size: 11.5, weight: .semibold))
-                                .foregroundStyle(.white)
+                        .buttonStyle(.plain)
+                        .onHover { isHoveringImport = $0 }
 
-                            Text("Import Book")
-                                .font(.system(size: 12.5, weight: .semibold))
+                        Rectangle()
+                            .fill(Color.white.opacity(0.24))
+                            .frame(width: 1, height: 18)
+
+                        Menu {
+                            Button {
+                                onSelectImportLocalFiles()
+                            } label: {
+                                Label("Import Local File (EPUB, Markdown, TXT)…", systemImage: "doc.badge.plus")
+                            }
+
+                            Button {
+                                onSelectImportWebURL()
+                            } label: {
+                                Label("Add Webpage or Article URL…", systemImage: "link.badge.plus")
+                            }
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 9, weight: .bold))
                                 .foregroundStyle(.white)
+                                .frame(width: 24, height: 32)
+                                .contentShape(Rectangle())
                         }
-                        .padding(.horizontal, 14)
-                        .frame(height: 32)
-                        .background(
-                            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                .fill(
-                                    isHoveringImport
-                                        ? SandpaperTheme.popoverPrimaryButtonHover
-                                        : SandpaperTheme.popoverPrimaryButton
-                                )
-                        )
-                    } primaryAction: {
-                        onSelectImportLocalFiles()
+                        .menuStyle(.borderlessButton)
+                        .menuIndicator(.hidden)
+                        .frame(width: 24, height: 32)
+                        .onHover { isHoveringImportMenu = $0 }
                     }
-                    .menuStyle(.borderlessButton)
-                    .menuIndicator(.hidden)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                            .fill(
+                                (isHoveringImport || isHoveringImportMenu)
+                                    ? SandpaperTheme.popoverPrimaryButtonHover
+                                    : SandpaperTheme.popoverPrimaryButton
+                            )
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                            .strokeBorder(Color.black.opacity(0.08), lineWidth: 0.75)
+                    )
                     .fixedSize()
-                    .onHover { isHoveringImport = $0 }
 
                     // User Profile Circle
                     Button(action: {}) {
@@ -1104,6 +1156,59 @@ private struct LibraryPrimaryToolbar: View {
         }
     }
 
+    private func viewModeSegmentedControl(showsLabels: Bool) -> some View {
+        HStack(spacing: 2) {
+            ForEach(LibraryViewMode.allCases) { mode in
+                let isSelected = selectedViewMode == mode
+                Button {
+                    withAnimation(.easeOut(duration: 0.14)) {
+                        selectedViewMode = mode
+                    }
+                } label: {
+                    HStack(spacing: 5.5) {
+                        viewModeIcon(for: mode)
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundStyle(
+                                isSelected ? SandpaperTheme.primaryInk : SandpaperTheme.secondaryInk
+                            )
+
+                        if showsLabels {
+                            Text(mode.rawValue)
+                                .font(.system(size: 12, weight: isSelected ? .semibold : .medium))
+                                .foregroundStyle(
+                                    isSelected ? SandpaperTheme.primaryInk : SandpaperTheme.secondaryInk
+                                )
+                        }
+                    }
+                    .padding(.horizontal, showsLabels ? 10 : 8)
+                    .frame(height: 27)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5, style: .continuous)
+                            .fill(isSelected ? SandpaperTheme.canvasBackground : .clear)
+                            .shadow(
+                                color: isSelected ? Color.black.opacity(0.04) : .clear,
+                                radius: 1.5,
+                                x: 0,
+                                y: 1
+                            )
+                    )
+                }
+                .buttonStyle(.plain)
+                .help(mode.rawValue)
+            }
+        }
+        .padding(2.5)
+        .background(
+            RoundedRectangle(cornerRadius: 7, style: .continuous)
+                .fill(Color(hex: 0xF2EBE2))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 7, style: .continuous)
+                .strokeBorder(Color(hex: 0xE5DBD0), lineWidth: 1)
+        )
+        .fixedSize()
+    }
+
     @ViewBuilder
     private func viewModeIcon(for mode: LibraryViewMode) -> some View {
         switch mode {
@@ -1128,67 +1233,72 @@ private struct LibrarySecondaryFilterBar: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack(spacing: 8) {
-                // Status Filters
-                FilterPillButton(
-                    title: "All Titles (\(allTitlesCount))",
-                    systemImage: "book",
-                    isSelected: selectedCategory == .allTitles
-                ) {
-                    selectedCategory = .allTitles
+            HStack(spacing: 12) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        // Status Filters
+                        FilterPillButton(
+                            title: "All Titles (\(allTitlesCount))",
+                            systemImage: "book",
+                            isSelected: selectedCategory == .allTitles
+                        ) {
+                            selectedCategory = .allTitles
+                        }
+
+                        FilterPillButton(
+                            title: "Currently Reading (\(currentlyReadingCount))",
+                            systemImage: "book.pages",
+                            isSelected: selectedCategory == .currentlyReading
+                        ) {
+                            selectedCategory = .currentlyReading
+                        }
+
+                        FilterPillButton(
+                            title: "Finished (\(finishedCount))",
+                            systemImage: "checkmark",
+                            isSelected: selectedCategory == .finished
+                        ) {
+                            selectedCategory = .finished
+                        }
+
+                        // Vertical Divider
+                        Rectangle()
+                            .fill(SandpaperTheme.toolbarDivider)
+                            .frame(width: 1, height: 16)
+                            .padding(.horizontal, 4)
+
+                        // Collection / Genre Filters
+                        FilterPillButton(
+                            title: "Literature",
+                            systemImage: "folder",
+                            isSelected: selectedCategory == .literature
+                        ) {
+                            selectedCategory = .literature
+                        }
+
+                        FilterPillButton(
+                            title: "Essays",
+                            systemImage: "doc.text",
+                            isSelected: selectedCategory == .essays
+                        ) {
+                            selectedCategory = .essays
+                        }
+
+                        FilterPillButton(
+                            title: "Nonfiction",
+                            systemImage: "book.closed",
+                            isSelected: selectedCategory == .nonfiction
+                        ) {
+                            selectedCategory = .nonfiction
+                        }
+                    }
+                    .padding(.vertical, 4)
                 }
 
-                FilterPillButton(
-                    title: "Currently Reading (\(currentlyReadingCount))",
-                    systemImage: "book.pages",
-                    isSelected: selectedCategory == .currentlyReading
-                ) {
-                    selectedCategory = .currentlyReading
-                }
-
-                FilterPillButton(
-                    title: "Finished (\(finishedCount))",
-                    systemImage: "checkmark",
-                    isSelected: selectedCategory == .finished
-                ) {
-                    selectedCategory = .finished
-                }
-
-                // Vertical Divider
-                Rectangle()
-                    .fill(SandpaperTheme.toolbarDivider)
-                    .frame(width: 1, height: 16)
-                    .padding(.horizontal, 6)
-
-                // Collection / Genre Filters
-                FilterPillButton(
-                    title: "Literature",
-                    systemImage: "folder",
-                    isSelected: selectedCategory == .literature
-                ) {
-                    selectedCategory = .literature
-                }
-
-                FilterPillButton(
-                    title: "Essays",
-                    systemImage: "doc.text",
-                    isSelected: selectedCategory == .essays
-                ) {
-                    selectedCategory = .essays
-                }
-
-                FilterPillButton(
-                    title: "Nonfiction",
-                    systemImage: "book.closed",
-                    isSelected: selectedCategory == .nonfiction
-                ) {
-                    selectedCategory = .nonfiction
-                }
-
-                Spacer()
+                Spacer(minLength: 4)
 
                 // Right Quick Links (Vocabulary & Marginalia & Notes)
-                HStack(spacing: 22) {
+                HStack(spacing: 18) {
                     Button(action: { onOpenVocabulary?() }) {
                         HStack(spacing: 6) {
                             Text("Aᵃ")
@@ -1215,6 +1325,7 @@ private struct LibrarySecondaryFilterBar: View {
                     }
                     .buttonStyle(.plain)
                 }
+                .fixedSize(horizontal: true, vertical: false)
             }
             .padding(.horizontal, 28)
             .frame(height: 44)
@@ -1328,12 +1439,10 @@ private struct ReadingDeskSectionView: View {
                 .fill(SandpaperTheme.statusBarBorder)
                 .frame(height: 1)
 
-            // 3-Column Reading Desk Cards
+            // Responsive Reading Desk Cards (3 columns on wide windows, 2 on medium, 1 on compact)
             LazyVGrid(
                 columns: [
-                    GridItem(.flexible(minimum: 290), spacing: 22),
-                    GridItem(.flexible(minimum: 290), spacing: 22),
-                    GridItem(.flexible(minimum: 290), spacing: 22)
+                    GridItem(.adaptive(minimum: 280, maximum: 460), spacing: 22, alignment: .top)
                 ],
                 spacing: 22
             ) {
@@ -1392,12 +1501,14 @@ private struct ReadingDeskCardView: View {
                     .buttonStyle(.plain)
                     .padding(.top, 6)
 
-                    // Author (Italic Serif)
-                    Text(book.author)
-                        .font(.system(size: 14, weight: .regular, design: .serif))
-                        .italic()
-                        .foregroundStyle(SandpaperTheme.mutedInk)
-                        .padding(.top, 5)
+                    // Author (Italic Serif) — only rendered if present
+                    if !book.author.isEmpty {
+                        Text(book.author)
+                            .font(.system(size: 14, weight: .regular, design: .serif))
+                            .italic()
+                            .foregroundStyle(SandpaperTheme.mutedInk)
+                            .padding(.top, 5)
+                    }
 
                     // Current Bookmark / Chapter Position
                     HStack(spacing: 7) {
@@ -1410,7 +1521,7 @@ private struct ReadingDeskCardView: View {
                             .foregroundStyle(SandpaperTheme.secondaryInk)
                             .lineLimit(1)
                     }
-                    .padding(.top, 16)
+                    .padding(.top, book.author.isEmpty ? 12 : 16)
                 }
             }
 
@@ -1667,8 +1778,8 @@ private struct CatalogBookGridItemView: View {
                     .frame(height: 44, alignment: .topLeading)
                     .padding(.top, 12)
 
-                // Author Name
-                Text(book.author)
+                // Author Name (or Genre Tag if author is not set)
+                Text(book.author.isEmpty ? book.genreTag : book.author)
                     .font(.system(size: 13, weight: .regular, design: .serif))
                     .foregroundStyle(SandpaperTheme.secondaryInk)
                     .lineLimit(1)
@@ -1712,11 +1823,20 @@ private struct CatalogBookListRowView: View {
                     Text(book.title)
                         .font(.system(size: 16, weight: .medium, design: .serif))
                         .foregroundStyle(SandpaperTheme.primaryInk)
+                        .lineLimit(1)
 
-                    Text(book.author)
-                        .font(.system(size: 13, weight: .regular, design: .serif))
-                        .italic()
-                        .foregroundStyle(SandpaperTheme.mutedInk)
+                    if !book.author.isEmpty {
+                        Text(book.author)
+                            .font(.system(size: 13, weight: .regular, design: .serif))
+                            .italic()
+                            .foregroundStyle(SandpaperTheme.mutedInk)
+                            .lineLimit(1)
+                    } else {
+                        Text(book.currentSectionLabel)
+                            .font(.system(size: 12.5, weight: .regular))
+                            .foregroundStyle(SandpaperTheme.mutedInk)
+                            .lineLimit(1)
+                    }
                 }
 
                 Spacer()
@@ -2161,57 +2281,79 @@ private struct BookCoverArtworkView: View {
                     )
             }
 
-        case .importedDocument(let title, let formatLabel, let isMarkdown):
-            // Warm editorial linen/terracotta hardcover for imported TXT & Markdown volumes
-            ZStack {
-                LinearGradient(
-                    colors: isMarkdown
-                        ? [Color(hex: 0xE6DFD5), Color(hex: 0x8C6B58)]
-                        : [Color(hex: 0xE8E2D8), Color(hex: 0x7A7368)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+        case .importedDocument(let title, let formatLabel, let isMarkdown, let coverImageData):
+            if let coverImageData, let nsImage = NSImage(data: coverImageData) {
+                ZStack {
+                    LinearGradient(
+                        colors: [Color(hex: 0xE6DFD5), Color(hex: 0x8C6B58)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
 
-                RoundedRectangle(cornerRadius: 3, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: isMarkdown
-                                ? [Color(hex: 0x5A382E), Color(hex: 0x3B231C)]
-                                : [Color(hex: 0x2F3B37), Color(hex: 0x1E2623)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+                    Image(nsImage: nsImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width * 0.84, height: height * 0.84)
+                        .clipShape(RoundedRectangle(cornerRadius: 3, style: .continuous))
+                        .shadow(color: .black.opacity(0.38), radius: 5, x: 2, y: 3)
+                }
+            } else {
+                let isEPUB = formatLabel.uppercased().contains("EPUB")
+                // Warm editorial linen/terracotta hardcover for imported EPUB, TXT & Markdown volumes
+                ZStack {
+                    LinearGradient(
+                        colors: isEPUB
+                            ? [Color(hex: 0xE3DDD3), Color(hex: 0x7A5A4D)]
+                            : (isMarkdown
+                                ? [Color(hex: 0xE6DFD5), Color(hex: 0x8C6B58)]
+                                : [Color(hex: 0xE8E2D8), Color(hex: 0x7A7368)]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+
+                    RoundedRectangle(cornerRadius: 3, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: isEPUB
+                                    ? [Color(hex: 0x3D2A24), Color(hex: 0x261915)]
+                                    : (isMarkdown
+                                        ? [Color(hex: 0x5A382E), Color(hex: 0x3B231C)]
+                                        : [Color(hex: 0x2F3B37), Color(hex: 0x1E2623)]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
                         )
-                    )
-                    .frame(width: width * 0.82, height: height * 0.82)
-                    .shadow(color: .black.opacity(0.38), radius: 5, x: 2, y: 3)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 2, style: .continuous)
-                            .strokeBorder(Color(hex: 0xD8BC96).opacity(0.55), lineWidth: 1)
-                            .padding(6)
-                    )
-                    .overlay(
-                        VStack(spacing: height * 0.03) {
-                            Image(systemName: isMarkdown ? "doc.richtext" : "doc.text")
-                                .font(.system(size: max(12, width * 0.14), weight: .light))
-                                .foregroundStyle(Color(hex: 0xDFC49E))
+                        .frame(width: width * 0.82, height: height * 0.82)
+                        .shadow(color: .black.opacity(0.38), radius: 5, x: 2, y: 3)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 2, style: .continuous)
+                                .strokeBorder(Color(hex: 0xD8BC96).opacity(0.55), lineWidth: 1)
+                                .padding(6)
+                        )
+                        .overlay(
+                            VStack(spacing: height * 0.03) {
+                                Image(systemName: isEPUB ? "book.closed" : (isMarkdown ? "doc.richtext" : "doc.text"))
+                                    .font(.system(size: max(12, width * 0.14), weight: .light))
+                                    .foregroundStyle(Color(hex: 0xDFC49E))
 
-                            Text(title.uppercased())
-                                .font(.system(size: max(6.5, width * 0.072), weight: .bold, design: .serif))
-                                .multilineTextAlignment(.center)
-                                .lineLimit(3)
-                                .foregroundStyle(Color(hex: 0xF1DEC2))
+                                Text(title.uppercased())
+                                    .font(.system(size: max(6.5, width * 0.072), weight: .bold, design: .serif))
+                                    .multilineTextAlignment(.center)
+                                    .lineLimit(3)
+                                    .foregroundStyle(Color(hex: 0xF1DEC2))
 
-                            Rectangle()
-                                .fill(Color(hex: 0xC8A679).opacity(0.6))
-                                .frame(width: width * 0.34, height: 0.8)
+                                Rectangle()
+                                    .fill(Color(hex: 0xC8A679).opacity(0.6))
+                                    .frame(width: width * 0.34, height: 0.8)
 
-                            Text(formatLabel)
-                                .font(.system(size: max(5, width * 0.048), weight: .semibold, design: .serif))
-                                .multilineTextAlignment(.center)
-                                .foregroundStyle(Color(hex: 0xD2B48C))
-                        }
-                        .padding(8)
-                    )
+                                Text(formatLabel)
+                                    .font(.system(size: max(5, width * 0.048), weight: .semibold, design: .serif))
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(Color(hex: 0xD2B48C))
+                            }
+                            .padding(8)
+                        )
+                }
             }
         }
     }
@@ -2231,75 +2373,87 @@ private struct LibraryBottomPreviewsSectionView: View {
                 .fill(SandpaperTheme.statusBarBorder)
                 .frame(height: 1)
 
-            HStack(alignment: .top, spacing: 28) {
-                // Left Column: Vocabulary Preview
-                VStack(alignment: .leading, spacing: 14) {
-                    HStack(alignment: .firstTextBaseline) {
-                        HStack(spacing: 8) {
-                            Text("Aᵃ")
-                                .font(.system(size: 14, weight: .bold, design: .serif))
-                                .foregroundStyle(SandpaperTheme.secondaryInk)
-
-                            Text("Vocabulary")
-                                .font(.system(size: 18.5, weight: .medium, design: .serif))
-                                .foregroundStyle(SandpaperTheme.primaryInk)
-                        }
-
-                        Spacer()
-
-                        Button(action: { onOpenVocabulary?(nil) }) {
-                            Text("View Vocabulary")
-                                .font(.system(size: 12.5, weight: .medium))
-                                .foregroundStyle(SandpaperTheme.terracottaAccent)
-                        }
-                        .buttonStyle(.plain)
-                    }
-
-                    VStack(spacing: 12) {
-                        ForEach(vocabularyItems) { item in
-                            VocabularyPreviewCard(
-                                item: item,
-                                onTapBook: {
-                                    onOpenVocabulary?(item.id)
-                                }
-                            )
-                        }
-                    }
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .top, spacing: 28) {
+                    vocabularyColumn
+                        .frame(minWidth: 320, maxWidth: .infinity, alignment: .topLeading)
+                    marginaliaColumn
+                        .frame(minWidth: 320, maxWidth: .infinity, alignment: .topLeading)
                 }
-                .frame(maxWidth: .infinity, alignment: .topLeading)
 
-                // Right Column: Recent Marginalia Preview
-                VStack(alignment: .leading, spacing: 14) {
-                    HStack(alignment: .firstTextBaseline) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "pencil")
-                                .font(.system(size: 13.5, weight: .medium))
-                                .foregroundStyle(SandpaperTheme.secondaryInk)
+                VStack(alignment: .leading, spacing: 24) {
+                    vocabularyColumn
+                    marginaliaColumn
+                }
+            }
+        }
+    }
 
-                            Text("Recent Marginalia")
-                                .font(.system(size: 18.5, weight: .medium, design: .serif))
-                                .foregroundStyle(SandpaperTheme.primaryInk)
-                        }
+    private var vocabularyColumn: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .firstTextBaseline) {
+                HStack(spacing: 8) {
+                    Text("Aᵃ")
+                        .font(.system(size: 14, weight: .bold, design: .serif))
+                        .foregroundStyle(SandpaperTheme.secondaryInk)
 
-                        Spacer()
+                    Text("Vocabulary")
+                        .font(.system(size: 18.5, weight: .medium, design: .serif))
+                        .foregroundStyle(SandpaperTheme.primaryInk)
+                }
 
-                        Button(action: {}) {
-                            Text("All Notes")
-                                .font(.system(size: 12.5, weight: .medium))
-                                .foregroundStyle(SandpaperTheme.terracottaAccent)
-                        }
-                        .buttonStyle(.plain)
-                    }
+                Spacer()
 
-                    MarginaliaPreviewCard(
-                        item: marginaliaItem,
-                        onTapCard: {
-                            onSelectBookTitle("The Remains of the Day")
+                Button(action: { onOpenVocabulary?(nil) }) {
+                    Text("View Vocabulary")
+                        .font(.system(size: 12.5, weight: .medium))
+                        .foregroundStyle(SandpaperTheme.terracottaAccent)
+                }
+                .buttonStyle(.plain)
+            }
+
+            VStack(spacing: 12) {
+                ForEach(vocabularyItems) { item in
+                    VocabularyPreviewCard(
+                        item: item,
+                        onTapBook: {
+                            onOpenVocabulary?(item.id)
                         }
                     )
                 }
-                .frame(maxWidth: .infinity, alignment: .topLeading)
             }
+        }
+    }
+
+    private var marginaliaColumn: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .firstTextBaseline) {
+                HStack(spacing: 8) {
+                    Image(systemName: "pencil")
+                        .font(.system(size: 13.5, weight: .medium))
+                        .foregroundStyle(SandpaperTheme.secondaryInk)
+
+                    Text("Recent Marginalia")
+                        .font(.system(size: 18.5, weight: .medium, design: .serif))
+                        .foregroundStyle(SandpaperTheme.primaryInk)
+                }
+
+                Spacer()
+
+                Button(action: {}) {
+                    Text("All Notes")
+                        .font(.system(size: 12.5, weight: .medium))
+                        .foregroundStyle(SandpaperTheme.terracottaAccent)
+                }
+                .buttonStyle(.plain)
+            }
+
+            MarginaliaPreviewCard(
+                item: marginaliaItem,
+                onTapCard: {
+                    onSelectBookTitle("The Remains of the Day")
+                }
+            )
         }
     }
 }

@@ -1,6 +1,7 @@
 import AppKit
 import Foundation
 import Testing
+import ZIPFoundation
 @testable import SandpaperCore
 @testable import SandpaperIntegrated
 
@@ -225,7 +226,7 @@ struct FrontendBackendIntegrationTests {
             ) == expectedCanonicalTxtRange
         )
 
-        let txtReader = try await store.workspace.library.openReader(for: txtID)
+        let txtReader = try await #require(store.workspace).library.openReader(for: txtID)
         let canonicalTxtReadingContent = try await txtReader.content(for: .text)
         #expect(
             backendTxtSelection.anchor.resolve(
@@ -277,7 +278,7 @@ struct FrontendBackendIntegrationTests {
             ) == expectedCanonicalMdRange
         )
 
-        let mdReader = try await store.workspace.library.openReader(for: mdID)
+        let mdReader = try await #require(store.workspace).library.openReader(for: mdID)
         let canonicalMdReadingContent = try await mdReader.content(for: .text)
         #expect(
             backendMdSelection.anchor.resolve(
@@ -407,5 +408,292 @@ struct FrontendBackendIntegrationTests {
         #expect(reopenedPres.chapter.chapterLabel == "Part Three: Return")
 
         await store2.shutdown()
+    }
+
+    private func makeTestEPUB(
+        at url: URL,
+        fixedLayout: Bool = false
+    ) throws {
+        let archive = try Archive(url: url, accessMode: .create)
+        // Minimal valid 1x1 transparent PNG
+        let pngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+        let pngData = try #require(Data(base64Encoded: pngBase64))
+
+        let metadataBlock = fixedLayout
+            ? "<metadata><meta property='rendition:layout'>pre-paginated</meta></metadata>"
+            : "<metadata/>"
+
+        let textEntries: [String: String] = [
+            "mimetype": "application/epub+zip",
+            "META-INF/container.xml": """
+            <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+              <rootfiles>
+                <rootfile full-path="OPS/package.opf" media-type="application/oebps-package+xml"/>
+              </rootfiles>
+            </container>
+            """,
+            "OPS/package.opf": """
+            <package version="3.0" xmlns="http://www.idpf.org/2007/opf">
+              \(metadataBlock)
+              <manifest>
+                <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+                <item id="ch1" href="ch1.xhtml" media-type="application/xhtml+xml"/>
+                <item id="ch2" href="ch2.xhtml" media-type="application/xhtml+xml"/>
+                <item id="img1" href="images/harbour.png" media-type="image/png"/>
+              </manifest>
+              <spine>
+                <itemref idref="ch1"/>
+                <itemref idref="ch2"/>
+              </spine>
+            </package>
+            """,
+            "OPS/nav.xhtml": """
+            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+              <body>
+                <nav epub:type="toc">
+                  <ol>
+                    <li><a href="ch1.xhtml">Chapter One: The Harbour</a></li>
+                    <li>
+                      <a href="ch2.xhtml#sec-light">Chapter Two: The Lighthouse</a>
+                      <ol>
+                        <li><a href="ch2.xhtml#sec-lamp">Signal Lamp</a></li>
+                      </ol>
+                    </li>
+                  </ol>
+                </nav>
+              </body>
+            </html>
+            """,
+            "OPS/ch1.xhtml": """
+            <html xmlns="http://www.w3.org/1999/xhtml">
+              <body>
+                <h1>Chapter One: The Harbour</h1>
+                <p>📖 At the Café we observed <em>considerable</em> composure and <strong>resolute</strong> craft alongside <code>logbook</code> entries.</p>
+                <blockquote>A vessel at anchor still answers the tide.</blockquote>
+                <ul>
+                  <li>First mooring line secured</li>
+                  <li>Second lantern trimmed</li>
+                </ul>
+                <p><img src="images/harbour.png" alt="Harbour sketch"/></p>
+              </body>
+            </html>
+            """,
+            "OPS/ch2.xhtml": """
+            <html xmlns="http://www.w3.org/1999/xhtml">
+              <body>
+                <h1 id="sec-light">Chapter Two: The Lighthouse</h1>
+                <p>The spiral stair ascended through salt-cooled masonry toward the lantern room.</p>
+                <h2 id="sec-lamp">Signal Lamp</h2>
+                <p>Beyond the breakwater, the nocturnal horizon remained incandescent and calm.</p>
+              </body>
+            </html>
+            """
+        ]
+
+        for (path, content) in textEntries {
+            let bytes = Data(content.utf8)
+            try archive.addEntry(
+                with: path,
+                type: .file,
+                uncompressedSize: Int64(bytes.count),
+                compressionMethod: .deflate
+            ) { position, size in
+                bytes.subdata(in: Int(position)..<min(Int(position) + size, bytes.count))
+            }
+        }
+
+        try archive.addEntry(
+            with: "OPS/images/harbour.png",
+            type: .file,
+            uncompressedSize: Int64(pngData.count),
+            compressionMethod: .deflate
+        ) { position, size in
+            pngData.subdata(in: Int(position)..<min(Int(position) + size, pngData.count))
+        }
+    }
+
+    @Test
+    @MainActor
+    func importsReflowableEPUBNavigatesSpineAndTOCExtractsStructureAndImagesAndPersistsPosition() async throws {
+        let tempRoot = FileManager.default.temporaryDirectory
+            .appendingPathComponent("SandpaperEPUBIntegration-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: tempRoot, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tempRoot) }
+
+        let libraryDir = tempRoot.appendingPathComponent("LibraryStore", isDirectory: true)
+        let sourceDir = tempRoot.appendingPathComponent("SourceFiles", isDirectory: true)
+        try FileManager.default.createDirectory(at: sourceDir, withIntermediateDirectories: true)
+
+        let epubURL = sourceDir.appendingPathComponent("Coastal Chronicles.epub")
+        try makeTestEPUB(at: epubURL)
+
+        // Session 1: Import EPUB and open in Reader
+        let store1 = SandpaperBackendStore(directory: libraryDir)
+        let importMessage = await store1.importFiles([epubURL])
+        #expect(importMessage.contains("Imported"))
+        #expect(store1.lastErrorMessage == nil)
+        #expect(store1.importedBooks.count == 1)
+
+        let epubBook = try #require(store1.importedBooks.first)
+        #expect(epubBook.format == .epub)
+        #expect(epubBook.title == "Coastal Chronicles")
+        // Verify no fabricated author or sample-book metadata is injected
+        #expect(epubBook.author.isEmpty)
+        #expect(epubBook.sampleChapter.partLabel.isEmpty)
+        #expect(epubBook.sampleChapter.locationTitle.isEmpty)
+        #expect(epubBook.sampleChapter.subtitle.isEmpty)
+
+        let docID = try #require(epubBook.backendDocumentID)
+        let ch1Pres = try #require(await store1.openDocumentInReader(documentID: docID))
+        #expect(ch1Pres.activeResource == .epub(path: "OPS/ch1.xhtml"))
+        #expect(ch1Pres.totalResourcesCount == 2)
+        #expect(ch1Pres.chapter.availableChapters.contains("Chapter One: The Harbour"))
+        #expect(ch1Pres.chapter.availableChapters.contains("Chapter Two: The Lighthouse"))
+
+        // Verify semantic blocks (heading, paragraph with inline runs, quotation, list items, image)
+        #expect(ch1Pres.blocks.contains(where: { $0.kind == .heading(level: 1) && $0.text == "Chapter One: The Harbour" }))
+        #expect(ch1Pres.blocks.contains(where: { $0.kind == .quotation && $0.text.contains("A vessel at anchor") }))
+        #expect(ch1Pres.blocks.contains(where: { $0.kind == .listItem && $0.listBullet == "•" && $0.text.contains("First mooring line") }))
+
+        let styledParagraph = try #require(ch1Pres.blocks.first(where: { $0.text.contains("considerable composure") }))
+        #expect(styledParagraph.inlineRuns.contains(where: { $0.isItalic }))
+        #expect(styledParagraph.inlineRuns.contains(where: { $0.isBold }))
+        #expect(styledParagraph.inlineRuns.contains(where: { $0.isCode }))
+
+        let allImages = ch1Pres.blocks.flatMap(\.attachedImages)
+        let harbourImage = try #require(allImages.first(where: { $0.archivePath == "OPS/images/harbour.png" }))
+        #expect(harbourImage.alternativeText == "Harbour sketch")
+        #expect(harbourImage.imageData != nil)
+
+        // Verify resource-specific canonical UTF-16 selection in Chapter 1
+        let ch1TargetRange = (ch1Pres.canonicalText as NSString).range(of: "resolute craft")
+        #expect(ch1TargetRange.location != NSNotFound)
+        let ch1Selection = try #require(
+            await store1.selectText(
+                documentID: docID,
+                range: ch1TargetRange,
+                visibleRange: styledParagraph.resourceRange
+            )
+        )
+        #expect(ch1Selection.anchor.resource == .epub(path: "OPS/ch1.xhtml"))
+        #expect(ch1Selection.anchor.quote == "resolute craft")
+        #expect(NSRange(location: ch1Selection.anchor.utf16Offset, length: ch1Selection.anchor.utf16Length) == ch1TargetRange)
+
+        // Navigate to Chapter 2 via TOC title
+        let ch2Pres = try #require(
+            await store1.navigateToChapter(
+                documentID: docID,
+                chapterTitle: "Chapter Two: The Lighthouse"
+            )
+        )
+        #expect(ch2Pres.activeResource == .epub(path: "OPS/ch2.xhtml"))
+        #expect(ch2Pres.canonicalText.contains("spiral stair ascended"))
+        #expect(ch2Pres.canonicalText.contains("incandescent and calm"))
+
+        // Verify resource-specific canonical UTF-16 selection in Chapter 2
+        let ch2LastBlock = try #require(ch2Pres.blocks.last)
+        let ch2TargetRange = (ch2Pres.canonicalText as NSString).range(of: "incandescent and calm")
+        #expect(ch2TargetRange.location != NSNotFound)
+        let ch2Selection = try #require(
+            await store1.selectText(
+                documentID: docID,
+                range: ch2TargetRange,
+                visibleRange: ch2LastBlock.resourceRange
+            )
+        )
+        #expect(ch2Selection.anchor.resource == .epub(path: "OPS/ch2.xhtml"))
+        #expect(ch2Selection.anchor.quote == "incandescent and calm")
+        #expect(NSRange(location: ch2Selection.anchor.utf16Offset, length: ch2Selection.anchor.utf16Length) == ch2TargetRange)
+
+        // Record reading progress and bookmark in Chapter 2
+        await store1.recordReadingProgress(
+            documentID: docID,
+            visibleRange: ch2LastBlock.resourceRange,
+            progression: 0.88
+        )
+        let bookmarked = await store1.toggleBookmark(
+            documentID: docID,
+            visibleRange: ch2LastBlock.resourceRange,
+            title: "Signal Lamp"
+        )
+        #expect(bookmarked == true)
+        await store1.shutdown()
+
+        // Session 2: Simulate restart and verify EPUB chapter, block, and bookmark restoration
+        let store2 = SandpaperBackendStore(directory: libraryDir)
+        await store2.reloadFromBackend()
+        #expect(store2.importedBooks.count == 1)
+
+        let reopenedEPUB = try #require(await store2.openDocumentInReader(documentID: docID))
+        #expect(reopenedEPUB.activeResource == .epub(path: "OPS/ch2.xhtml"))
+        #expect(reopenedEPUB.restoredBlockID == ch2LastBlock.blockID)
+        #expect(reopenedEPUB.isBookmarked == true)
+        #expect(abs((reopenedEPUB.position?.progression ?? 0) - 0.88) < 0.001)
+        #expect(abs(reopenedEPUB.chapter.progress - 0.94) < 0.001)
+
+        await store2.shutdown()
+    }
+
+    @Test
+    @MainActor
+    func rejectsFixedLayoutAndMalformedEPUBsAndRestoresIntraParagraphOffsets() async throws {
+        let tempRoot = FileManager.default.temporaryDirectory
+            .appendingPathComponent("SandpaperEPUBValidation-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: tempRoot, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tempRoot) }
+
+        let libraryDir = tempRoot.appendingPathComponent("LibraryStore", isDirectory: true)
+        let sourceDir = tempRoot.appendingPathComponent("SourceFiles", isDirectory: true)
+        try FileManager.default.createDirectory(at: sourceDir, withIntermediateDirectories: true)
+
+        let store = SandpaperBackendStore(directory: libraryDir)
+        #expect(store.includeMockDemoBooks == false)
+        #expect(store.initializationError == nil)
+
+        // 1. Fixed-layout EPUB should be rejected gracefully and removed from the library
+        let fixedEPUBURL = sourceDir.appendingPathComponent("FixedLayout.epub")
+        try makeTestEPUB(at: fixedEPUBURL, fixedLayout: true)
+        let fixedMsg = await store.importFiles([fixedEPUBURL])
+        #expect(fixedMsg.localizedCaseInsensitiveContains("fixed-layout") || fixedMsg.localizedCaseInsensitiveContains("reflowable"))
+        #expect(store.lastErrorMessage != nil)
+        #expect(store.importedBooks.isEmpty)
+
+        // 2. Malformed EPUB should be rejected gracefully and removed from the library
+        let malformedURL = sourceDir.appendingPathComponent("Corrupted.epub")
+        try Data("not a valid zip archive".utf8).write(to: malformedURL)
+        let malformedMsg = await store.importFiles([malformedURL])
+        #expect(!malformedMsg.isEmpty)
+        #expect(store.lastErrorMessage != nil)
+        #expect(store.importedBooks.isEmpty)
+
+        // 3. Long paragraph intra-block progress & restoration accuracy
+        let longTxtURL = sourceDir.appendingPathComponent("Long Paragraph.txt")
+        let shortHeading = "Brief Prelude"
+        let longBody = Array(repeating: "A measured sentence inside a very long paragraph of canonical prose.", count: 40).joined(separator: " ")
+        let fullText = "\(shortHeading)\n\n\(longBody)"
+        try Data(fullText.utf8).write(to: longTxtURL)
+
+        _ = await store.importFiles([longTxtURL])
+        let longBook = try #require(store.importedBooks.first)
+        let longDocID = try #require(longBook.backendDocumentID)
+        let longPres = try #require(await store.openDocumentInReader(documentID: longDocID))
+        #expect(longPres.blocks.count == 2)
+
+        let coordinator = ReaderSelectionCoordinator()
+        let midScrollResolved = coordinator.resolveVisiblePosition(in: longPres, scrollFraction: 0.55)
+        #expect(midScrollResolved.blockID == longPres.blocks[1].blockID)
+        #expect(midScrollResolved.visibleRange.location > longPres.blocks[1].resourceRange.location + 400)
+
+        await store.recordReadingProgress(
+            documentID: longDocID,
+            visibleRange: midScrollResolved.visibleRange,
+            progression: midScrollResolved.progression
+        )
+
+        let reopenedLongPres = try #require(await store.openDocumentInReader(documentID: longDocID))
+        #expect(reopenedLongPres.restoredBlockID == longPres.blocks[1].blockID)
+        #expect(reopenedLongPres.restoredIntraBlockFraction > 0.35)
+
+        await store.shutdown()
     }
 }
